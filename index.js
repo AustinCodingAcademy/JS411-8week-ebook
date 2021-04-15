@@ -17,9 +17,6 @@ const challengeAuth = basicAuth({
   challenge: true
 })
 
-// app.use(express.json());
-// app.use(express.urlencoded());
-
 // forces all requests to go through the challengeAuth function, see above
 app.use('/', challengeAuth);
 
