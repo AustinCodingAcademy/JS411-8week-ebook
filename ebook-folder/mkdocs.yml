@@ -1,5 +1,5 @@
 # TODO replace name with name of ebook: 101: Intro to Web, 411: Front-Ends with React...etc
-site_name: ebook-name
+site_name: JS411 ebook
 
 # TODO inside `ebook-folder/`
 # TODO run `git clone https://github.com/squidfunk/mkdocs-material.git`
@@ -22,7 +22,7 @@ site_name: ebook-name
 
 nav:
     - Home: 'index.md'
-    - 'Module One: TITLE':
+    - 'Module One: Intro to React':
       - 'Pre-Class 1 Lessons': 
         - Intro to Material-Mkdocs: module-1/lessonOutlineTemplate.md
         - Class 1 TITLE: module-1/classOutlineTemplate.md

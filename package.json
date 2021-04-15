@@ -1,5 +1,5 @@
 {
-  "name": "material-mkdocs-ebook-template",
+  "name": "JS411-8week-ebook",
   "version": "1.0.0",
   "description": "A Node Express App that serves Material styled static files using Mkdocs generator with Basic Authentication.",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AustinCodingAcademy/material-mkdocs-ebook-template.git"
+    "url": "git+https://github.com/AustinCodingAcademy/JS411-8week-ebook.git"
   },
   "author": "Clayton Berger",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AustinCodingAcademy/material-mkdocs-ebook-template.git/issues"
+    "url": "https://github.com/AustinCodingAcademy/JS411-8week-ebook.git/issues"
   },
-  "homepage": "https://github.com/AustinCodingAcademy/material-mkdocs-ebook-template.git#readme",
+  "homepage": "https://github.com/AustinCodingAcademy/JS411-8week-ebook.git#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
