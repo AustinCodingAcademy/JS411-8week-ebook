@@ -14,7 +14,7 @@
     
     
       
-        <title>Student Presentations - JS411 ebook</title>
+        <title>Fetch, Store, Render - JS411 ebook</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#daily-student-presentations" class="md-skip">
+        <a href="#fetch-data-store-it-in-local-state" class="md-skip">
           Skip to content
         </a>
       
@@ -93,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Student Presentations
+              Fetch, Store, Render
             
           </span>
         </div>
@@ -188,12 +188,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       <label class="md-nav__link" for="__nav_2">
         Module One: Intro to React
@@ -256,7 +258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module-1/introToReact/" class="md-nav__link">
+      <a href="../introToReact/" class="md-nav__link">
         Intro to React
       </a>
     </li>
@@ -268,7 +270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module-1/CRA-overview/" class="md-nav__link">
+      <a href="../CRA-overview/" class="md-nav__link">
         CRA Overview
       </a>
     </li>
@@ -280,7 +282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module-1/reactDeveloperTools-pt1/" class="md-nav__link">
+      <a href="../reactDeveloperTools-pt1/" class="md-nav__link">
         React DevTools
       </a>
     </li>
@@ -292,7 +294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module-1/bonusLesson/" class="md-nav__link">
+      <a href="../bonusLesson/" class="md-nav__link">
         Bonus - HTML + JSX
       </a>
     </li>
@@ -304,7 +306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module-1/class-1/" class="md-nav__link">
+      <a href="../class-1/" class="md-nav__link">
         Class 1 ToDo App
       </a>
     </li>
@@ -320,12 +322,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
       
       <label class="md-nav__link" for="__nav_2_2">
         Pre-Class 2 Lesson
@@ -343,7 +347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module-1/introToStateAndProps/" class="md-nav__link">
+      <a href="../introToStateAndProps/" class="md-nav__link">
         State & Props Intro
       </a>
     </li>
@@ -353,11 +357,131 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../module-1/fetchStoreRender/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Fetch, Store, Render
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Fetch, Store, Render
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#state-local-memory" class="md-nav__link">
+    State (Local Memory)
+  </a>
+  
+    <nav class="md-nav" aria-label="State (Local Memory)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-rules-of-state" class="md-nav__link">
+    The Rules of State
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#see-it-state" class="md-nav__link">
+    See It - State
+  </a>
+  
+    <nav class="md-nav" aria-label="See It - State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview-fetch-store-and-render-data" class="md-nav__link">
+    Overview: Fetch, Store, and Render Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetch-data-waxios-componentdidmount" class="md-nav__link">
+    Fetch Data w/Axios + componentDidMount
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-over-render-data" class="md-nav__link">
+    Map Over &amp; Render Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render-functional-components-styling" class="md-nav__link">
+    Render Functional Components + Styling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice-it-state-props" class="md-nav__link">
+    Practice It - State + Props
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#know-your-docs" class="md-nav__link">
+    Know Your Docs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -367,7 +491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module-1/class-2/" class="md-nav__link">
+      <a href="../class-2/" class="md-nav__link">
         Class 2 Beer App
       </a>
     </li>
@@ -392,14 +516,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       <label class="md-nav__link" for="__nav_3">
         Additional Resources
@@ -417,7 +539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../interviewChallenges/" class="md-nav__link">
+      <a href="../../additionalResources/interviewChallenges/" class="md-nav__link">
         Interview Training
       </a>
     </li>
@@ -427,154 +549,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Student Presentations
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../additionalResources/studentPresentations/" class="md-nav__link">
         Student Presentations
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#class-1" class="md-nav__link">
-    Class 1
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-2" class="md-nav__link">
-    Class 2
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-3" class="md-nav__link">
-    Class 3
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-4" class="md-nav__link">
-    Class 4
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-5" class="md-nav__link">
-    Class 5
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-6" class="md-nav__link">
-    Class 6
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-7" class="md-nav__link">
-    Class 7
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-8" class="md-nav__link">
-    Class 8
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-9" class="md-nav__link">
-    Class 9
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-10" class="md-nav__link">
-    Class 10
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-11" class="md-nav__link">
-    Class 11
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-12" class="md-nav__link">
-    Class 12
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-13" class="md-nav__link">
-    Class 13
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-14" class="md-nav__link">
-    Class 14
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-15" class="md-nav__link">
-    Class 15
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-16" class="md-nav__link">
-    Class 16
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -584,7 +563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../developSeries/" class="md-nav__link">
+      <a href="../../additionalResources/developSeries/" class="md-nav__link">
         Develop Series Collection
       </a>
     </li>
@@ -617,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../questionsForDiscussion/qfd-class-1/" class="md-nav__link">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-1/" class="md-nav__link">
         Day 1 QFD
       </a>
     </li>
@@ -629,7 +608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../questionsForDiscussion/qfd-class-2/" class="md-nav__link">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-2/" class="md-nav__link">
         Day 2 QFD
       </a>
     </li>
@@ -647,7 +626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blogPrompts/" class="md-nav__link">
+      <a href="../../additionalResources/blogPrompts/" class="md-nav__link">
         Blog Prompts
       </a>
     </li>
@@ -659,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../keyboardShortcuts/" class="md-nav__link">
+      <a href="../../additionalResources/keyboardShortcuts/" class="md-nav__link">
         Keyboard Shortcuts
       </a>
     </li>
@@ -671,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gitCommands/" class="md-nav__link">
+      <a href="../../additionalResources/gitCommands/" class="md-nav__link">
         Git & CLI Commands
       </a>
     </li>
@@ -683,7 +662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../learnYourCLI/" class="md-nav__link">
+      <a href="../../additionalResources/learnYourCLI/" class="md-nav__link">
         Learn Your CLI
       </a>
     </li>
@@ -695,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../graduationPrerequisites/" class="md-nav__link">
+      <a href="../../additionalResources/graduationPrerequisites/" class="md-nav__link">
         Graduation Prerequisites
       </a>
     </li>
@@ -707,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../presentationsQualifications/" class="md-nav__link">
+      <a href="../../additionalResources/presentationsQualifications/" class="md-nav__link">
         Presentation Qualifications
       </a>
     </li>
@@ -745,113 +724,90 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#class-1" class="md-nav__link">
-    Class 1
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#class-2" class="md-nav__link">
-    Class 2
+  <a href="#state-local-memory" class="md-nav__link">
+    State (Local Memory)
+  </a>
+  
+    <nav class="md-nav" aria-label="State (Local Memory)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-rules-of-state" class="md-nav__link">
+    The Rules of State
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#see-it-state" class="md-nav__link">
+    See It - State
+  </a>
+  
+    <nav class="md-nav" aria-label="See It - State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview-fetch-store-and-render-data" class="md-nav__link">
+    Overview: Fetch, Store, and Render Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetch-data-waxios-componentdidmount" class="md-nav__link">
+    Fetch Data w/Axios + componentDidMount
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-over-render-data" class="md-nav__link">
+    Map Over &amp; Render Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render-functional-components-styling" class="md-nav__link">
+    Render Functional Components + Styling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice-it-state-props" class="md-nav__link">
+    Practice It - State + Props
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#class-3" class="md-nav__link">
-    Class 3
+  <a href="#additional-resources" class="md-nav__link">
+    Additional Resources
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#class-4" class="md-nav__link">
-    Class 4
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-5" class="md-nav__link">
-    Class 5
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-6" class="md-nav__link">
-    Class 6
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-7" class="md-nav__link">
-    Class 7
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-8" class="md-nav__link">
-    Class 8
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-9" class="md-nav__link">
-    Class 9
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-10" class="md-nav__link">
-    Class 10
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-11" class="md-nav__link">
-    Class 11
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-12" class="md-nav__link">
-    Class 12
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-13" class="md-nav__link">
-    Class 13
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-14" class="md-nav__link">
-    Class 14
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-15" class="md-nav__link">
-    Class 15
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-16" class="md-nav__link">
-    Class 16
+  <a href="#know-your-docs" class="md-nav__link">
+    Know Your Docs
   </a>
   
 </li>
@@ -869,132 +825,71 @@
               
                 
                 
-                <h1 id="daily-student-presentations">Daily Student Presentations</h1>
-<p>There will be no student presentation for the first class. We'll discuss the purpose of presentations and how they will be assigned for future classes.</p>
-<p>In order to develop our students' communication skills around software development, each student will plan, practice, and teach to the class on a subject listed here or in the home page of this textbook. The subject doesn't have to be closely related to what is currently being studied. Another objective of these presentations is to give cursory introductions to important topics that we don't have time to cover in the course.</p>
-<p>Students should prepare in advance, and take their responsibility to the class and themselves seriously. Take this time now to decide and record who will present starting next class, Day 2, through Day 4, then Week 5 through Day 16, * classes total. The first three classes, your prompt is: Pitch your graduation app to the class. What’s the problem? How does this app solve it?</p>
-<h2 id="class-1">Class 1</h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <em>Organize and Coordinate who and when students are presenting.</em></li>
-<li class="task-list-item"><input type="checkbox"/> <em>Organize and coordinate who is presenting and in what order for the first three days. Divide all students over the three days so everyone presents.</em></li>
-<li class="task-list-item">
-<p><input type="checkbox"/> <em>Then organize which two students will present for each of the remaining days of this course, Day 6 - Day 16. Remember, two per day.</em></p>
+                <h1 id="fetch-data-store-it-in-local-state">Fetch Data &amp; Store it in Local State</h1>
+<p><em>You are in charge of your own destiny. You are the steward of your own vessel. And you have the power to choose, to grow, to learn, and to lead!</em></p>
+<h2 id="overview">Overview</h2>
+<p>Now that we have a grip on this passing <code>props</code> stuff let's take a deeper look at that <code>state</code> stuff in <strong>Class-based Components</strong>. As you saw in the last lesson we were able to pass the values in a parent component's state down to its child component through <strong>props</strong>. But what is <code>state</code>? Where does it get is values? When is it created? In this lesson we'll address all of those questions.</p>
+<h2 id="state-local-memory">State (Local Memory)</h2>
+<p>According to the <a href="https://reactjs.org/docs/state-and-lifecycle.html#adding-local-state-to-a-class">React Docs</a>, <code>state</code> is <strong>locally-scoped memory</strong>, which means that it is only available to the component that it is initialized in unless that data/memory is passed to another component via, ya know...<code>props</code>.</p>
+<h3 id="the-rules-of-state">The Rules of State</h3>
+<ol>
+<li>Only class-based components can have local <code>state</code>.</li>
+<li><code>state</code> is just a plain ole JavaScript object with key-value pairs.</li>
+<li>If <code>state</code> changes the component <strong>will</strong> &amp; <strong>must</strong> re-render.</li>
+<li><code>state</code> can only be updated with the <code>this.setState()</code> method which takes an object <code>{}</code> as its sole argument.</li>
+</ol>
 <blockquote>
-<p><em>Everyone pitches &amp; demos their apps AGAIN on the last day.</em></p>
+<p><code>setState()</code> compares the object you pass in to the current state and changes only the values that need to change.</p>
+</blockquote>
+<ol>
+<li>Again, <code>state</code> updates are <strong>merged</strong> which means <code>setState()</code> compares the object of <code>state</code> and the object passed into it before it makes changes and <em>only</em> changes what needs to be changed.</li>
+</ol>
+<blockquote>
+<p>This is why <code>this.state</code> can only be changed with the <code>setState()</code> method.</p>
+</blockquote>
+<ol>
+<li>The changes of <code>state</code> follow a pattern of data flow called a <strong>top-down</strong> or <strong>unidirectional</strong> data flow. <em>Data flows downward</em>. This means that <code>state</code> is always owned by some specific parent component, and any data or UI components derived from that <code>state</code> can only affect components <em>below</em> them in the tree.</li>
+</ol>
+<h3 id="see-it-state">See It - State</h3>
+<h4 id="overview-fetch-store-and-render-data">Overview: Fetch, Store, and Render Data</h4>
+<!-- ! Video Contents: Vimeo, Clayton@ACA - Overview: FetchStoreRenderData - 411.1.2.5 -->
+<iframe src="https://player.vimeo.com/video/491877736" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+<h4 id="fetch-data-waxios-componentdidmount">Fetch Data w/Axios + componentDidMount</h4>
+<!-- ! Video Contents: Vimeo, Clayton@ACA - Fetch Data w/Axios + componentDidMount - 411.1.2.6 -->
+<iframe src="https://player.vimeo.com/video/491880866" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+<h4 id="map-over-render-data">Map Over &amp; Render Data</h4>
+<!-- ! Video Contents: Vimeo, Clayton@ACA - Map Over & Render Data - 411.1.2.7 -->
+<iframe src="https://player.vimeo.com/video/491885124" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+<h4 id="render-functional-components-styling">Render Functional Components + Styling</h4>
+<!-- ! Video Contents: Vimeo, Clayton@ACA - Render Functional Components + Styling - 411.1.2.* -->
+<iframe src="https://player.vimeo.com/video/491886398" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+<h2 id="practice-it-state-props">Practice It - State + Props</h2>
+<p>The homework is going to require you to code on your own a little more than usual. Why? Because the concepts of react are functional programming concepts and require doing to understand them. Also, you're becoming an actual developer, which means <strong>you need to start learning to teach yourself</strong>. Sooner or later there will be a new library or language you will need to know but don't. You then have to use your experience here to teach yourself that new library or language. Don't be afraid. You have the power of Google with you.</p>
+<p><strong>BE SURE TO COMPLETE THIS BEFORE CLASS OR YOU WILL BE BEHIND!!</strong></p>
+<p>Follow along with <a href="https://reactjs.org/tutorial/tutorial.html">the official React Tutorial</a> to build an interactive Tic-Tac-Toe Game.</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox"/> Here's your <a href="https://codepen.io/gaearon/pen/oWWQNa?editors=0010">starter code</a></p>
+<blockquote>
+<p>You can do this either in CodePen or in a local environment folder. When you get it working in one, transfer it to the other.</p>
 </blockquote>
 </li>
+<li class="task-list-item">
+<p><input type="checkbox"/> Start <a href="https://reactjs.org/tutorial/tutorial.html#setup-option-2-local-development-environment">here</a>.</p>
+</li>
 </ul>
-<h2 id="class-2">Class 2</h2>
+<h2 id="additional-resources">Additional Resources</h2>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <em>No presentations today.</em></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://youtu.be/34fE23aib1o">YT, Ben Awad - State in React.js, pt.5</a></li>
 </ul>
-<h2 id="class-3">Class 3</h2>
+<h2 id="know-your-docs">Know Your Docs</h2>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <em>33% Pitch your graduation app to the class. What’s the problem? How does this app solve it? MAKE IT A PITCH! 2 mins or less</em></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://reactjs.org/docs/state-and-lifecycle.html">React Docs - State + Lifecycle Methods</a></li>
 </ul>
-<h2 id="class-4">Class 4</h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <em>33% Pitch your graduation app to the class. What’s the problem? How does this app solve it? MAKE IT A PITCH! 2 mins or less</em></li>
-</ul>
-<h2 id="class-5">Class 5</h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <em>33% Pitch your graduation app to the class. What’s the problem? How does this app solve it? MAKE IT A PITCH! 2 mins or less</em></li>
-</ul>
-<h2 id="class-6">Class 6</h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-</ul>
-<h2 id="class-7">Class 7</h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-</ul>
-<h2 id="class-8">Class 8</h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-</ul>
-<h2 id="class-9">Class 9</h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-</ul>
-<h2 id="class-10">Class 10</h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-</ul>
-<h2 id="class-11">Class 11</h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-</ul>
-<h2 id="class-12">Class 12</h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-</ul>
-<h2 id="class-13">Class 13</h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-</ul>
-<h2 id="class-14">Class 14</h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-</ul>
-<h2 id="class-15">Class 15</h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-</ul>
-<h2 id="class-16">Class 16</h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-<li class="task-list-item"><input type="checkbox"/> <em>todo</em></li>
-</ul>
-<!-- 
-* **Week 1 Day 1** - *Organize and Coordinate who and when students are presenting.*
-* **Week 1 Day 2** - *Pitch your graduation app to the class. What’s the problem? How does this app solve it?*
-* **Week 2 Day 1** - *Pitch your graduation app to the class. What’s the problem? How does this app solve it?*
-* **Week 2 Day 2** - *Pitch your graduation app to the class. What’s the problem? How does this app solve it?*
-* **Week 3 Day 1** -
-    1. ...
-    1. ...
-* **Week 3 Day 2** -
-    1. ...
-    1. ...
-* **Week 4 Day 1** -
-    1. ...
-    1. ...
-* **Week 4 Day 2** -
-    1. *What is Context in React? Describe and Demonstrate.*
-    1. *Pair programming is valuable. Teach the class why working together is better than going alone.*
-* **Week 5 Day 1** -
-    1. *Why is switch keyword used in React Router v4? Demonstrate and Describe.*
-    1. *What is the significance of keys in React? Demonstrate to the class how and when they need to be used.*
-* **Week 5 Day 2** -
-    1. *Demonstrate synthetic events in React and explain them?*
-    1. *Demonstrate how do you tell React to build in Production mode and what will it do?*
-* **Week 6 Day 1** -
-    1. *What are the concepts of Functional Programming?*
-    1. *AS A PROGRAMMER, YOU DON’T EXIST WITHIN A BUBBLE: IMMERSE YOURSELF IN THE CULTURE. Share with the class a few meetups, groups, and mailing lists to get on to join the local tech community.*
-* **Week 6 Day 2** -
-    1. *What are the basic principals of Redux?*
-    1. *Demonstrate the components and flow of data in Redux*
-* **Week 7 Day 1** -
-    1. *Distinguish Redux from MVC and Flux?*
-    1. *Demonstrate how you would start [planning your react app](https://subscription.packtpub.com/book/web_development/9781783551620/4/ch04lvl1sec30/planning-your-react-application).*
-* **Week 7 Day 2** -
-    1. *How would you start a React-Native projects? Demonstrate and describe.*
-    1. *What are the benefits of Redux?*
-* **Week 8 Day 1** -
-    1. *Programming is hard. Share with the class how to keep motivated even in the darkness.*
-    1. *Demonstrate to the class where to start searching for jobs and how.*
-* **Week 8 Day 2** -
-    1. *Graduation App Pitch* -->
                 
               
               
@@ -1012,7 +907,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../interviewChallenges/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../introToStateAndProps/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1021,19 +916,19 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Interview Training
+              State & Props Intro
             </div>
           </div>
         </a>
       
       
-        <a href="../developSeries/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../class-2/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Develop Series Collection
+              Class 2 Beer App
             </div>
           </div>
           <div class="md-footer__button md-icon">

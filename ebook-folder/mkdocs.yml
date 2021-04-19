@@ -31,8 +31,10 @@ nav:
         - React DevTools: module-1/reactDeveloperTools-pt1.md
         - Bonus - HTML + JSX: module-1/bonusLesson.md
         - Class 1 ToDo App: module-1/class-1.md
-      # - 'Pre-Class 2 Lesson': 
-        # - Class 2 TITLE: module-1/class-2.md
+      - 'Pre-Class 2 Lesson':
+        - State & Props Intro: module-1/introToStateAndProps.md
+        - Fetch, Store, Render: module-1/fetchStoreRender.md
+        - Class 2 Beer App: module-1/class-2.md
       # - 'Pre-Class 3 Lesson': 
       # - 'Pre-Class 4 Lesson': 
     # - 'Module Two: TITLE': 

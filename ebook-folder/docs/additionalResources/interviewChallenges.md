@@ -36,8 +36,7 @@ Speak aloud every thought you have. THIS IS THE MOST IMPORTANT PART!
 
 ### Class 2
 
-- [ ] **Prompt 1: Title** - *description*
-<!-- - [ ] **Prompt 2: Title** - *description* -->
+- [ ] **Prompt 1: Largest-Smallest** - *How do you find the largest and smallest number in an unsorted integer array?*
 
 ### Class 3
 

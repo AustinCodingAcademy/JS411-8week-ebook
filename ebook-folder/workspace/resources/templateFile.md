@@ -40,7 +40,7 @@
 
 ## Know Your Docs
 
-- [ ] [MDN Docs - title]()
+- [ ] [React Docs - title]()
 
 <!-- ! END OF VIDEO 101.1.3.1 - TITLE-->
 <!-- ? Video Numbering and Title system: CourseNumber.ModuleNumber.LessonNumber.VideoNumber -->
