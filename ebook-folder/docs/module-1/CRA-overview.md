@@ -1,4 +1,4 @@
-# CRA (create-react-app) and Todo Walk-through
+# CRA (create-react-app) + ToDo App Walk-through
 
 ## Overview
 
@@ -30,24 +30,24 @@ This lesson will be comprised of a series of videos building upon each other to 
 
 ### Convert Functional Component to Class-based Component
 
--[ ] Learn what component state means
--[ ] How to convert a Functional Component to a Class-Based Component
--[ ] import Component
--[ ] exchange function keyword for class keyword
--[ ] build constructor and call super
--[ ] build state object
--[ ] and build a render method.
+- [ ] Learn what component state means
+- [ ] How to convert a Functional Component to a Class-Based Component
+- [ ] import Component
+- [ ] exchange function keyword for class keyword
+- [ ] build constructor and call super
+- [ ] build state object
+- [ ] and build a render method.
 
 <!-- ! Video Contents: Vimeo, Clayton@ACA - Functional to Class Component - 411.1.1.4 -->
 <iframe src="https://player.vimeo.com/video/491818181" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 ### JSX & Add Button + State Change
 
--[ ] Use JSX to render pure JavaScript within your HTML.
--[ ] Build a button.
--[ ] Build a method to be called when the button is clicked.
--[ ] Update state in the method.
--[ ] And render the state change on the screen.
+- [ ] Use JSX to render pure JavaScript within your HTML.
+- [ ] Build a button.
+- [ ] Build a method to be called when the button is clicked.
+- [ ] Update state in the method.
+- [ ] And render the state change on the screen.
 
 <!-- ! Video Contents: Vimeo, Clayton@ACA - JSX to Add a Button and Change State onClick - 411.1.1.5 -->
 <iframe src="https://player.vimeo.com/video/491828632" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>

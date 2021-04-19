@@ -18,16 +18,21 @@ Speak aloud every thought you have. THIS IS THE MOST IMPORTANT PART!
 - [ ] It's not about finding the solution. It's about collaborating and working toward a solution!
 - [ ] After you finish, take a picture and transfer it to a Repl.it when you get home.
 
-<!-- ```javascript
-  // optional code example
-``` -->
+## Steps to Whiteboarding Success
+
+1. Restate, rewrite, and clarify the question
+1. Write the expected return given the input
+1. Make a code plan and speak aloud with your interviewers/team
+1. Test and come up with edge cases
+1. Revise if you can for efficiency
+
+*****
 
 ## The Prompts
 
 ### Class 1
 
-- [ ] **Prompt 1: Title** - *description*
-<!-- - [ ] **Prompt 2: Title** - *description* -->
+- [ ] **Prompt 1: none** - *No whiteboard training the first day.*
 
 ### Class 2
 

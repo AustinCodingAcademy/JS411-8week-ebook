@@ -1,50 +1,91 @@
 # Daily Student Presentations
 
-<!-- Explain the purpose of presentations -->
+There will be no student presentation for the first class. We'll discuss the purpose of presentations and how they will be assigned for future classes.
 
-* **Class 5** - *Organize and Coordinate who and when students are presenting.*
-* **Class 6** - *Pitch your graduation app to the class. What’s the problem? How does this app solve it?*
-* **Class 7** - *Pitch your graduation app to the class. What’s the problem? How does this app solve it?*
-* **Class 8** - *Pitch your graduation app to the class. What’s the problem? How does this app solve it?*
-* **Class 9** -
-    1. *todo*
-    1. *todo*
-* **Class 10** -
-    1. *todo*
-    1. *todo*
-* **Class 11** -
-    1. *todo*
-    1. *todo*
-* **Class 12** -
-    1. *todo*
-    1. *todo*
-* **Class 13** -
-    1. *todo*
-    1. *todo*
-* **Class 14** -
-    1. *todo*
-    1. *todo*
-* **Class 15** -
-    1. *todo*
-    1. *todo*
-* **Class 16** -
-    1. *todo*
-    1. *todo*
-* **Class 17** -
-    1. *todo*
-    1. *todo*
-* **Class 18** -
-    1. *todo*
-    1. *todo*
-* **Class 19** -
-    1. *todo*
-    1. *todo*
-* **Class 20** -
-    1. *todo*
-    1. *todo*
+In order to develop our students' communication skills around software development, each student will plan, practice, and teach to the class on a subject listed here or in the home page of this textbook. The subject doesn't have to be closely related to what is currently being studied. Another objective of these presentations is to give cursory introductions to important topics that we don't have time to cover in the course.
+
+Students should prepare in advance, and take their responsibility to the class and themselves seriously. Take this time now to decide and record who will present starting next class, Day 2, through Day 4, then Week 5 through Day 16, * classes total. The first three classes, your prompt is: Pitch your graduation app to the class. What’s the problem? How does this app solve it?
+
+## Class 1
+
+- [ ] *Organize and Coordinate who and when students are presenting.*
+- [ ] *Organize and coordinate who is presenting and in what order for the first three days. Divide all students over the three days so everyone presents.*
+- [ ] *Then organize which two students will present for each of the remaining days of this course, Day 6 - Day 16. Remember, two per day.*
+
+    > *Everyone pitches & demos their apps AGAIN on the last day.*
+
+## Class 2
+
+- [ ] *No presentations today.*
+
+## Class 3
+
+- [ ] *33% Pitch your graduation app to the class. What’s the problem? How does this app solve it? MAKE IT A PITCH! 2 mins or less*
+
+## Class 4
+
+- [ ] *33% Pitch your graduation app to the class. What’s the problem? How does this app solve it? MAKE IT A PITCH! 2 mins or less*
+
+## Class 5
+
+- [ ] *33% Pitch your graduation app to the class. What’s the problem? How does this app solve it? MAKE IT A PITCH! 2 mins or less*
+
+## Class 6
+
+- [ ] *todo*
+- [ ] *todo*
+
+## Class 7
+
+- [ ] *todo*
+- [ ] *todo*
+
+## Class 8
+
+- [ ] *todo*
+- [ ] *todo*
+
+## Class 9
+
+- [ ] *todo*
+- [ ] *todo*
+
+## Class 10
+
+- [ ] *todo*
+- [ ] *todo*
+
+## Class 11
+
+- [ ] *todo*
+- [ ] *todo*
+
+## Class 12
+
+- [ ] *todo*
+- [ ] *todo*
+
+## Class 13
+
+- [ ] *todo*
+- [ ] *todo*
+
+## Class 14
+
+- [ ] *todo*
+- [ ] *todo*
+
+## Class 15
+
+- [ ] *todo*
+- [ ] *todo*
+
+## Class 16
+
+- [ ] *todo*
+- [ ] *todo*
 
 
-    ## Daily Student Presentations
 <!-- 
 * **Week 1 Day 1** - *Organize and Coordinate who and when students are presenting.*
 * **Week 1 Day 2** - *Pitch your graduation app to the class. What’s the problem? How does this app solve it?*

@@ -62,7 +62,7 @@ Check it out.
       export default myFirstComponent
     ```
 
-=== "Without Comments"
+=== "without Comments"
 
     ```javascript
       // MyFirstComponent.js

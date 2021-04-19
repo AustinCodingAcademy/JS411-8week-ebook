@@ -11,10 +11,8 @@
 
 <!-- SMART: Specific, Measurable, Attainable, Relevant, and Timely. -->
 <!-- https://examples.yourdictionary.com/well-written-examples-of-learning-objectives.html -->
-
-Today we're going to:
   
-*OBJECTIVE: By re-engaging with previously learned knowledge and applying it to a new challenge the student will deepen their understanding and be prepared to creatively reuse these techniques in new ways.*
+*OBJECTIVE: 
 
 - [ ] Questions for Student Led Discussion
 - [ ] Interview Challenge
