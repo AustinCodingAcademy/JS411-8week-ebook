@@ -40,8 +40,13 @@ Speak aloud every thought you have. THIS IS THE MOST IMPORTANT PART!
 
 ### Class 3
 
-- [ ] **Prompt 1: Title** - *description*
-<!-- - [ ] **Prompt 2: Title** - *description* -->
+- [ ] **Prompt 1: sumPairs** - *How do you find all pairs of an integer array whose sum is equal to a given number?*
+
+```javascript
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 32, 0, -16, 8]
+
+  sumPairs(arr, 16) // --> [[8, 8], [14, 2], [0, 16], [1, 15], [32, -16]]
+```
 
 ### Class 4
 
