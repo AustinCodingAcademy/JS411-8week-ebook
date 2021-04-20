@@ -39,7 +39,10 @@ nav:
         - Conditional Rendering: module-1/conditionalRendering.md
         - Dynamic Rendering: module-1/dynamicRendering.md
         - Class 3 Address Book: module-1/class-3.md
-      # - 'Pre-Class 4 Lesson': 
+      - 'Pre-Class 4 Lesson':
+        - Forms in React: module-1/formsInReact.md
+        - Hackthon Overview: module-1/hackathonOverview.md
+        - Class 4 Hackathon: module-1/class-4.md
     # - 'Module Two: TITLE': 
       # - 'Pre-Class 5 Lessons': 
         # - Class 5 TITLE: module-2/classOutlineTemplate.md
@@ -70,6 +73,7 @@ nav:
         - Day 1 QFD: additionalResources/questionsForDiscussion/qfd-class-1.md
         - Day 2 QFD: additionalResources/questionsForDiscussion/qfd-class-2.md
         - Day 3 QFD: additionalResources/questionsForDiscussion/qfd-class-3.md
+        - Day 4 QFD: additionalResources/questionsForDiscussion/qfd-class-4.md
       - Blog Prompts: additionalResources/blogPrompts.md
       - Keyboard Shortcuts: additionalResources/keyboardShortcuts.md
       - Git & CLI Commands: additionalResources/gitCommands.md

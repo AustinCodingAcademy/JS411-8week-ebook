@@ -17,7 +17,15 @@
 
 ## Class 4
 
-- [ ]
+- [ ] Discuss in words something you learned in class today or this week.
+- [ ] What is the difference between state and props?
+- [ ] What is ReactDOM? What is the difference between `ReactDOM` and `React`?
+- [ ] What is `React.createClass`?
+- [ ] Which (if there is) node library method could you use to solve the algorithm problem you solved last night in your pre-homework?
+- [ ] Which (if there is) node library method could you use to solve the algorithm problem you solved in class tonight?
+- [ ] Explain event delegation in JavaScript and why it is useful.
+- [ ] Which new JavaScript / browser features are you most excited about and why?
+
 
 ## Class 6
 

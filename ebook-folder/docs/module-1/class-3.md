@@ -57,7 +57,6 @@ Do it from the beginning. There is a natural flow that happens with all classes:
 - [ ] Creation Time
     * [ ] Project One: Random User Address Book
     * [ ] Project 2: Todo App continued w/Mapping, Props, State and Conditional Rendering
-- [ ] Push Yourself Further
 <!-- - [ ] Interview Questions: Blog to Show You Know -->
 - [ ] Exit Recap, Attendance, and Reminders
 

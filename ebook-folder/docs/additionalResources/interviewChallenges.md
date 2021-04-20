@@ -50,7 +50,10 @@ Speak aloud every thought you have. THIS IS THE MOST IMPORTANT PART!
 
 ### Class 4
 
-- [ ] **Prompt 1: Title** - *description*
+- [ ] **Prompt 1: areAnagrams** - *How do you check if two strings are anagrams of each other? Build a program that does just that.
+
+
+return Boolean*
 <!-- - [ ] **Prompt 2: Title** - *description* -->
 
 ### Class 5
