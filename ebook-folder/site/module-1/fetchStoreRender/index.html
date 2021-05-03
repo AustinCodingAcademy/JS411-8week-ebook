@@ -258,6 +258,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../preCourse/submittingHomework/" class="md-nav__link">
+        Submitting Homework
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../introToReact/" class="md-nav__link">
         Intro to React
       </a>
@@ -650,11 +662,92 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       <label class="md-nav__link" for="__nav_3">
+        Module Two: TITLE
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Module Two: TITLE" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Module Two: TITLE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      <label class="md-nav__link" for="__nav_3_1">
+        Pre-Class 5 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 5 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 5 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/componentStyling/" class="md-nav__link">
+        Component Styling with Material-UI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/class-5/" class="md-nav__link">
+        Class 5 Music App 1/2
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
         Additional Resources
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Additional Resources" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Additional Resources
         </label>
@@ -704,14 +797,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
       
-      <label class="md-nav__link" for="__nav_3_4">
+      <label class="md-nav__link" for="__nav_4_4">
         Questions for Discussion Collections
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Questions for Discussion Collections" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_4">
+        <label class="md-nav__title" for="__nav_4_4">
           <span class="md-nav__icon md-icon"></span>
           Questions for Discussion Collections
         </label>
@@ -760,6 +853,18 @@
     <li class="md-nav__item">
       <a href="../../additionalResources/questionsForDiscussion/qfd-class-4/" class="md-nav__link">
         Day 4 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-5/" class="md-nav__link">
+        Day 5 QFD
       </a>
     </li>
   
@@ -978,7 +1083,7 @@
                 <h1 id="fetch-data-store-it-in-local-state">Fetch Data &amp; Store it in Local State</h1>
 <p><em>You are in charge of your own destiny. You are the steward of your own vessel. And you have the power to choose, to grow, to learn, and to lead!</em></p>
 <h2 id="overview">Overview</h2>
-<p>Now that we have a grip on this passing <code>props</code> stuff let's take a deeper look at that <code>state</code> stuff in <strong>Class-based Components</strong>. As you saw in the last lesson we were able to pass the values in a parent component's state down to its child component through <strong>props</strong>. But what is <code>state</code>? Where does it get is values? When is it created? In this lesson we'll address all of those questions.</p>
+<p>Now that we have a grip on this passing <code>props</code> stuff let's take a deeper look at that <code>state</code> stuff in <strong>Class-based Components</strong>. As you saw in the last lesson we were able to pass the values in a parent component's state down to its child component through <strong>props</strong>. But what is <code>state</code>? Where does it get its values? When is it created? In this lesson, we'll address all of those questions.</p>
 <h2 id="state-local-memory">State (Local Memory)</h2>
 <p>According to the <a href="https://reactjs.org/docs/state-and-lifecycle.html#adding-local-state-to-a-class">React Docs</a>, <code>state</code> is <strong>locally-scoped memory</strong>, which means that it is only available to the component that it is initialized in unless that data/memory is passed to another component via, ya know...<code>props</code>.</p>
 <h3 id="the-rules-of-state">The Rules of State</h3>
@@ -989,7 +1094,7 @@
 <li><code>state</code> can only be updated with the <code>this.setState()</code> method which takes an object <code>{}</code> as its sole argument.</li>
 </ol>
 <blockquote>
-<p><code>setState()</code> compares the object you pass in to the current state and changes only the values that need to change.</p>
+<p><code>setState()</code> compares the object you pass into the current state and changes only the values that need to change.</p>
 </blockquote>
 <ol>
 <li>Again, <code>state</code> updates are <strong>merged</strong> which means <code>setState()</code> compares the object of <code>state</code> and the object passed into it before it makes changes and <em>only</em> changes what needs to be changed.</li>
@@ -1018,7 +1123,7 @@
 <iframe src="https://player.vimeo.com/video/491886398" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 <h2 id="practice-it-state-props">Practice It - State + Props</h2>
-<p>The homework is going to require you to code on your own a little more than usual. Why? Because the concepts of react are functional programming concepts and require doing to understand them. Also, you're becoming an actual developer, which means <strong>you need to start learning to teach yourself</strong>. Sooner or later there will be a new library or language you will need to know but don't. You then have to use your experience here to teach yourself that new library or language. Don't be afraid. You have the power of Google with you.</p>
+<p>The homework is going to require you to code on your own a little more than usual. Why? Because the concepts of React are functional programming concepts and require doing to understand them. Also, you're becoming an actual developer, which means <strong>you need to start learning to teach yourself</strong>. Sooner or later there will be a new library or language you will need to know but don't. You then have to use your experience here to teach yourself that new library or language. Don't be afraid. You have the power of Google with you.</p>
 <p><strong>BE SURE TO COMPLETE THIS BEFORE CLASS OR YOU WILL BE BEHIND!!</strong></p>
 <p>Follow along with <a href="https://reactjs.org/tutorial/tutorial.html">the official React Tutorial</a> to build an interactive Tic-Tac-Toe Game.</p>
 <ul class="task-list">

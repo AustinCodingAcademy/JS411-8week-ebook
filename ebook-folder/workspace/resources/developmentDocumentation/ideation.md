@@ -6,11 +6,12 @@ Use this space to record thoughts for future updates and ways to improve the cur
 
 * Why does day 3 cover the same concepts as Day 1 and 2? could we teach the mindset of React better and progress to Routes sooner?
 
+* in 211 or 411 teach what the PATH and SHIMS are: https://github.com/rbenv/rbenv
+
 ## Quotes
 
-*If it's important enough to you you'll get it done.*f
+*If it's important enough to you you'll get it done.*
 
 ## Develop
 
 Scuba stress - https://www.youtube.com/watch?v=d7M8STBlfRs
-

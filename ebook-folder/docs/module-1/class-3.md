@@ -51,7 +51,7 @@ Do it from the beginning. There is a natural flow that happens with all classes:
 
 *****
 
-- [ ] Questions for Student Led Discussion
+- [ ] Questions for Student-Led Discussion
 - [ ] Interview Challenge
 - [ ] Student Presentations
 - [ ] Creation Time
@@ -60,7 +60,7 @@ Do it from the beginning. There is a natural flow that happens with all classes:
 <!-- - [ ] Interview Questions: Blog to Show You Know -->
 - [ ] Exit Recap, Attendance, and Reminders
 
-### Questions for Student Led Discussion, 15 mins
+### Questions for Student-Led Discussion, 15 mins
 <!-- This section should be structured with the 5E model: https://lesley.edu/article/empowering-students-the-5e-model-explained -->
 
 [Questions to prompt discussion](./../additionalResources/questionsForDiscussion/qfd-class-3.md)
@@ -81,13 +81,14 @@ Do it from the beginning. There is a natural flow that happens with all classes:
 ### Project One: Random User Address Book
 
 - [ ] Partner up. This is a pair programming project.
-- [ ] Start with this api: https://randomuser.me/api?results=25
+- [ ] Start with this API: `https://randomuser.me/api?results=25`
 - [ ] Whiteboard an app you can use to display users that you would use if you didn't have your phone.
 - [ ] Make a code plan and plan your components.
 - [ ] Spec 1: minimum 25 users
 - [ ] Spec 2: displays the user's name and thumbnail picture
-- [ ] Spec 3: When "show details" button is clicked the user's details are revealed and button text turns to "hide details"
+- [ ] Spec 3: When the "show details" button is clicked the user's details are revealed and button text turns to "hide details"
 - [ ] Spec 4: When "hide details" is clicked the user's details disappear.
+
 - [ ] Follow-up Video: [YT, ihatetomatoes - How to use Fetch API in React](https://youtu.be/aNMY0lrWZXU)
 
 ### Project Two: ToDo App Continued

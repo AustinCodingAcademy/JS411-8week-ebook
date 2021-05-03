@@ -26,6 +26,7 @@ nav:
       - 'Pre-Class 1 Lessons': 
         - Prepare Your Machine: preCourse/setupInstructions.md
         - Succeed in this Course: preCourse/succeedInThisCourse.md
+        - Submitting Homework: preCourse/submittingHomework.md
         - Intro to React: module-1/introToReact.md
         - CRA Overview: module-1/CRA-overview.md
         - React DevTools: module-1/reactDeveloperTools-pt1.md
@@ -43,9 +44,10 @@ nav:
         - Forms in React: module-1/formsInReact.md
         - Hackthon Overview: module-1/hackathonOverview.md
         - Class 4 Hackathon: module-1/class-4.md
-    # - 'Module Two: TITLE': 
-      # - 'Pre-Class 5 Lessons': 
-        # - Class 5 TITLE: module-2/classOutlineTemplate.md
+    - 'Module Two: TITLE': 
+      - 'Pre-Class 5 Lessons': 
+        - Component Styling with Material-UI: module-2/componentStyling.md
+        - Class 5 Music App 1/2: module-2/class-5.md
             
             # cp workspace/resources/templateFile.md docs/module-
 
@@ -74,6 +76,7 @@ nav:
         - Day 2 QFD: additionalResources/questionsForDiscussion/qfd-class-2.md
         - Day 3 QFD: additionalResources/questionsForDiscussion/qfd-class-3.md
         - Day 4 QFD: additionalResources/questionsForDiscussion/qfd-class-4.md
+        - Day 5 QFD: additionalResources/questionsForDiscussion/qfd-class-5.md
       - Blog Prompts: additionalResources/blogPrompts.md
       - Keyboard Shortcuts: additionalResources/keyboardShortcuts.md
       - Git & CLI Commands: additionalResources/gitCommands.md

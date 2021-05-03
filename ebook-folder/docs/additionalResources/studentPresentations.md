@@ -20,20 +20,20 @@ Students should prepare in advance, and take their responsibility to the class a
 
 ## Class 3
 
-- [ ] *33% Pitch your graduation app to the class. What’s the problem? How does this app solve it? MAKE IT A PITCH! 2 mins or less*
+- [ ] *33% Pitch your graduation app to the class. What’s the problem? How does this app solve it? MAKE IT A PITCH! 2 mins or less. Plus Q/A time.*
 
 ## Class 4
 
-- [ ] *33% Pitch your graduation app to the class. What’s the problem? How does this app solve it? MAKE IT A PITCH! 2 mins or less*
+- [ ] *33% Pitch your graduation app to the class. What’s the problem? How does this app solve it? MAKE IT A PITCH! 2 mins or less. Plus Q/A time.*
 
 ## Class 5
 
-- [ ] *33% Pitch your graduation app to the class. What’s the problem? How does this app solve it? MAKE IT A PITCH! 2 mins or less*
+- [ ] *33% Pitch your graduation app to the class. What’s the problem? How does this app solve it? MAKE IT A PITCH! 2 mins or less. Plus Q/A time.*
 
 ## Class 6
 
-- [ ] *todo*
-- [ ] *todo*
+- [ ] *What is Angular(8+) and what is React? How are they different from each other?*
+- [ ] *Programmers never stop learning. Share with the class ways you and they can continue their journey as programmers.*
 
 ## Class 7
 

@@ -4,7 +4,7 @@
 
 ## Overview
 
-Now that we have a grip on this passing `props` stuff let's take a deeper look at that `state` stuff in **Class-based Components**. As you saw in the last lesson we were able to pass the values in a parent component's state down to its child component through **props**. But what is `state`? Where does it get is values? When is it created? In this lesson we'll address all of those questions.
+Now that we have a grip on this passing `props` stuff let's take a deeper look at that `state` stuff in **Class-based Components**. As you saw in the last lesson we were able to pass the values in a parent component's state down to its child component through **props**. But what is `state`? Where does it get its values? When is it created? In this lesson, we'll address all of those questions.
 
 ## State (Local Memory)
 
@@ -17,7 +17,7 @@ According to the [React Docs](https://reactjs.org/docs/state-and-lifecycle.html#
 1. If `state` changes the component **will** & **must** re-render.
 1. `state` can only be updated with the `this.setState()` method which takes an object `{}` as its sole argument.
 
-  > `setState()` compares the object you pass in to the current state and changes only the values that need to change.
+  > `setState()` compares the object you pass into the current state and changes only the values that need to change.
 
 1. Again, `state` updates are **merged** which means `setState()` compares the object of `state` and the object passed into it before it makes changes and *only* changes what needs to be changed.
 
@@ -48,7 +48,7 @@ According to the [React Docs](https://reactjs.org/docs/state-and-lifecycle.html#
 
 ## Practice It - State + Props
 
-The homework is going to require you to code on your own a little more than usual. Why? Because the concepts of react are functional programming concepts and require doing to understand them. Also, you're becoming an actual developer, which means **you need to start learning to teach yourself**. Sooner or later there will be a new library or language you will need to know but don't. You then have to use your experience here to teach yourself that new library or language. Don't be afraid. You have the power of Google with you.
+The homework is going to require you to code on your own a little more than usual. Why? Because the concepts of React are functional programming concepts and require doing to understand them. Also, you're becoming an actual developer, which means **you need to start learning to teach yourself**. Sooner or later there will be a new library or language you will need to know but don't. You then have to use your experience here to teach yourself that new library or language. Don't be afraid. You have the power of Google with you.
 
 **BE SURE TO COMPLETE THIS BEFORE CLASS OR YOU WILL BE BEHIND!!**
 

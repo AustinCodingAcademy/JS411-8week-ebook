@@ -59,7 +59,7 @@
 
 *****
 
-- [ ] Questions for Student Led Discussion
+- [ ] Questions for Student-Led Discussion
 - [ ] Interview Challenge
 - [ ] Student Presentations
 - [ ] Creation Time
@@ -67,7 +67,7 @@
 - [ ] Interview Questions: Blog to Show You Know
 - [ ] Exit Recap, Attendance, and Reminders
 
-### Questions for Student Led Discussion, 15 mins
+### Questions for Student-Led Discussion, 15 mins
 <!-- This section should be structured with the 5E model: https://lesley.edu/article/empowering-students-the-5e-model-explained -->
 
 [Questions to prompt discussion](./../additionalResources/questionsForDiscussion/qfd-class-4.md)

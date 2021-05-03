@@ -258,6 +258,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../preCourse/submittingHomework/" class="md-nav__link">
+        Submitting Homework
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../introToReact/" class="md-nav__link">
         Intro to React
       </a>
@@ -622,11 +634,92 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       <label class="md-nav__link" for="__nav_3">
+        Module Two: TITLE
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Module Two: TITLE" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Module Two: TITLE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      <label class="md-nav__link" for="__nav_3_1">
+        Pre-Class 5 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 5 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 5 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/componentStyling/" class="md-nav__link">
+        Component Styling with Material-UI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/class-5/" class="md-nav__link">
+        Class 5 Music App 1/2
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
         Additional Resources
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Additional Resources" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Additional Resources
         </label>
@@ -676,14 +769,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
       
-      <label class="md-nav__link" for="__nav_3_4">
+      <label class="md-nav__link" for="__nav_4_4">
         Questions for Discussion Collections
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Questions for Discussion Collections" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_4">
+        <label class="md-nav__title" for="__nav_4_4">
           <span class="md-nav__icon md-icon"></span>
           Questions for Discussion Collections
         </label>
@@ -732,6 +825,18 @@
     <li class="md-nav__item">
       <a href="../../additionalResources/questionsForDiscussion/qfd-class-4/" class="md-nav__link">
         Day 4 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-5/" class="md-nav__link">
+        Day 5 QFD
       </a>
     </li>
   
@@ -922,7 +1027,7 @@
                 <h1 id="dynamic-rendering-with-map">Dynamic Rendering with .map()</h1>
 <h2 id="overview">Overview</h2>
 <p>You've done this already but I think it's good to review it so you don't get hung up on a simple and avoidable bug in these next few projects. When we <code>.map()</code> over an array in React we must provide the callback function an index for its second argument.</p>
-<p>The reason we have to do this is because React works to make our app fast and efficient by watching the actual DOM and comparing it to the virtual DOM. To do this it needs to have a way the identify one instance of a component to an other. When we give the callback function an index we are giving React the chance to apply a unique individual value to each of the nodes that will be created in the DOM tree by each instance of the component.</p>
+<p>The reason we have to do this is that React works to make our app fast and efficient by watching the actual DOM and comparing it to the virtual DOM. To do this it needs to have a way to identify one instance of a component from another. When we give the callback function an index we are giving React the chance to apply a unique individual value to each of the nodes that will be created in the DOM tree by each instance of the component.</p>
 <p>The value we give it is called a <strong>key</strong>. To give each of our items in the array a unique and individual key we assign it the value of the index in the callback function of the <code>.map()</code> method.</p>
 <h2 id="mapping-key-index">Mapping - Key &amp; Index</h2>
 <div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">.map Example with key <code>i</code> as 2nd argument</label><div class="tabbed-content">
@@ -943,9 +1048,9 @@
 </td></tr></table>
 </div>
 </div>
-<p>Above we see an example of using the index of the item in the array as the key, represented as <code>i</code>. This is <a href="https://reactjs.org/docs/lists-and-keys.html">not the preferred way but is the fall-back option</a> if you don't have <a href="https://medium.com/dev-genius/the-quicky-lazy-but-effective-way-to-create-unique-keys-for-react-elements-e45d574028a3">another way to assign unique keys</a>. If the items came with id keys we could assign the key to <code>item.id</code> or even <code>item.email</code> instead. All that matters to React is that each element has a unique id so it can do its job of updated and rendering what, when, and where.</p>
+<p>Above we see an example of using the index of the item in the array as the key, represented as <code>i</code>. This is <a href="https://reactjs.org/docs/lists-and-keys.html">not the preferred way but is the fall-back option</a> if you don't have <a href="https://medium.com/dev-genius/the-quicky-lazy-but-effective-way-to-create-unique-keys-for-react-elements-e45d574028a3">another way to assign unique keys</a>. If the items come with <code>id</code> keys we could assign the key to <code>item.id</code> or even <code>item.email</code> instead. All that matters to React is that each element has a unique key so it can do its job of updated and rendering what, when, and where.</p>
 <blockquote>
-<p>Note: See how we assigned the className to the status of the todo item. This is JSX syntax that means the same as classname in HTML.</p>
+<p>Note: See how we assigned the className to the status of the todo item. This is JSX syntax that means the same as class name in HTML.</p>
 </blockquote>
 <h3 id="map-over-render-data">Map Over &amp; Render Data</h3>
 <!-- ! Video Contents: Vimeo, Clayton@ACA - Map Over & Render Data - 411.1.2.7 -->
@@ -960,7 +1065,7 @@
 <li class="task-list-item"><input type="checkbox"/> Before you get going make sure you install this most wonderful VS Code Extension: <a href="https://marketplace.visualstudio.com/items?itemName=burkeholland.simple-react-snippets">Simple React Snippets</a>.</li>
 <li class="task-list-item"><input type="checkbox"/> Continue with the app you built in the first class of 411.</li>
 <li class="task-list-item"><input type="checkbox"/> Make a code plan through whiteboarding what you need to do.</li>
-<li class="task-list-item"><input type="checkbox"/> The todoList component should map over the <code>this.state.todos</code> and return a todoItem component for each todo in the array.</li>
+<li class="task-list-item"><input type="checkbox"/> The <code>todoList</code> component should map over the <code>this.state.todos</code> and return a <code>todoItem</code> component for each todo in the array.</li>
 <li class="task-list-item"><input type="checkbox"/> The <code>todoItem</code> should be passed props that include handlers like: <code>handleClick</code>, <code>handleChange</code>, <code>handleEdit</code>.</li>
 <li class="task-list-item"><input type="checkbox"/> The <code>todoItem</code> should have a <code>state</code> that maintains the urgency <code>status</code> that holds the values of <code>green</code>, <code>yellow</code> or <code>red</code>.</li>
 <li class="task-list-item"><input type="checkbox"/> The <code>todoItem</code> component should render the <code>background-color</code> of the text based on the status of the item.</li>

@@ -6,7 +6,7 @@
 
 Whoa, you've done a lot! Already you've learned the core mindset and techniques of React which includes a new language, JSX!! Congratulation!
 
-In the past few lessons you've learned how to fetch data, store it in state and rendering it for the human-user's eyes using someone else's code base, React. During that time you've learned how to merge our understanding of programming in JavaScript with the layout and styling of HTML and CSS. We've been working hard! But now it's time to dig a little deeper and figure out how to use some of the statements we learned last week to render certain elements based on conditions that we get in our applications.
+In the past few lessons you've learned how to fetch data, store it in state, and rendering it for the human user’s eyes using someone else's codebase, React. During that time you've learned how to merge our understanding of programming in JavaScript with the layout and styling of HTML and CSS. We've been working hard! But now it's time to dig a little deeper and figure out how to use some of the statements we learned last week to render certain elements based on conditions that we get in our applications.
 
 ## Conditional Rendering Using Local State
 
@@ -65,15 +65,15 @@ All of that was based on the values that are in the `props` object. We can do th
       /* because the component is a class we can also create and use our own methods: */
 
       handleClick = () => {
-        /* What you see below is a ternary operator. It reads like this: "if this.state.isHidden is true - set status to be false , else set it to true". */
+        /* What you see below is a ternary operator. It reads like this: "if `this.state.isHidden` is true - set status to be false , else set it to true". */
 
       let status = this.state.isHidden == true ? false : true
 
-        /* Because we have the variable status set to be the opposite of whatever this.state.isHidden equals... */
+        /* Because we have the variable status set to be the opposite of whatever `this.state.isHidden` equals... */
 
-        /* ...we can use its value to set this.state.isHidden when our button is clicked.*/
+        /* ...we can use its value to set `this.state.isHidden` when our button is clicked.*/
 
-        /* Notice we use the .setState({}) method to change values in our state object. */
+        /* Notice we use the `.setState({})` method to change values in our state object. */
 
       this.setState({
         isHidden: status
@@ -84,7 +84,7 @@ All of that was based on the values that are in the `props` object. We can do th
         /* then we check if the value in state is true or false and render accordingly */
         if (this.state.isHidden) {
           return (
-            /* if the user clicks this component it will trigger the handleClick method which changes the state and then forces the parent component to re-render, which will render the `<UserDetailsCard />` component as well and vice versa! */
+            /* if the user clicks this component it will trigger the `handleClick` method which changes the state and then forces the parent component to re-render, which will render the `<UserDetailsCard />` component as well and vice versa! */
             <UserNameCard revealClick={this.handleClick} userId={props.user.id}/>
           )  
         } else {

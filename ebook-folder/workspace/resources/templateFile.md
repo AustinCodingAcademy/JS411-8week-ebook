@@ -1,5 +1,6 @@
 # TITLE
 
+<!-- cp workspace/resources/templateFile.md docs/module-  -->
 **
 
 ## Overview
@@ -49,7 +50,7 @@
 
 <!-- 
 
-cp workspace/resources/templateFile.md docs/module- 
+
 
 ```javascript
 

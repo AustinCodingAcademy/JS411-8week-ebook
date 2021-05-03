@@ -2,7 +2,7 @@
 
 ## Overview
 
-For the rest of this class we'll be using the create-react-app tool to well...create react apps.
+For the rest of this class, we'll be using the create-react-app tool to well...create react apps.
 
 This lesson will be comprised of a series of videos building upon each other to walk you through using CRA and to build your first project. It's important to follow along in your text editor, understand what's going on in each and make sure you see each of them through completion.
 

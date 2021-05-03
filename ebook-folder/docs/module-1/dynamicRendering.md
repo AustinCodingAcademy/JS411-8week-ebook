@@ -4,7 +4,7 @@
 
 You've done this already but I think it's good to review it so you don't get hung up on a simple and avoidable bug in these next few projects. When we `.map()` over an array in React we must provide the callback function an index for its second argument.
 
-The reason we have to do this is because React works to make our app fast and efficient by watching the actual DOM and comparing it to the virtual DOM. To do this it needs to have a way the identify one instance of a component to an other. When we give the callback function an index we are giving React the chance to apply a unique individual value to each of the nodes that will be created in the DOM tree by each instance of the component.
+The reason we have to do this is that React works to make our app fast and efficient by watching the actual DOM and comparing it to the virtual DOM. To do this it needs to have a way to identify one instance of a component from another. When we give the callback function an index we are giving React the chance to apply a unique individual value to each of the nodes that will be created in the DOM tree by each instance of the component.
 
 The value we give it is called a **key**. To give each of our items in the array a unique and individual key we assign it the value of the index in the callback function of the `.map()` method.
 
@@ -22,9 +22,9 @@ The value we give it is called a **key**. To give each of our items in the array
     );
     ```
 
-Above we see an example of using the index of the item in the array as the key, represented as `i`. This is [not the preferred way but is the fall-back option](https://reactjs.org/docs/lists-and-keys.html) if you don't have [another way to assign unique keys](https://medium.com/dev-genius/the-quicky-lazy-but-effective-way-to-create-unique-keys-for-react-elements-e45d574028a3). If the items came with id keys we could assign the key to `item.id` or even `item.email` instead. All that matters to React is that each element has a unique id so it can do its job of updated and rendering what, when, and where.
+Above we see an example of using the index of the item in the array as the key, represented as `i`. This is [not the preferred way but is the fall-back option](https://reactjs.org/docs/lists-and-keys.html) if you don't have [another way to assign unique keys](https://medium.com/dev-genius/the-quicky-lazy-but-effective-way-to-create-unique-keys-for-react-elements-e45d574028a3). If the items come with `id` keys we could assign the key to `item.id` or even `item.email` instead. All that matters to React is that each element has a unique key so it can do its job of updated and rendering what, when, and where.
 
-  > Note: See how we assigned the className to the status of the todo item. This is JSX syntax that means the same as classname in HTML.
+  > Note: See how we assigned the className to the status of the todo item. This is JSX syntax that means the same as class name in HTML.
 
 ### Map Over & Render Data
 <!-- ! Video Contents: Vimeo, Clayton@ACA - Map Over & Render Data - 411.1.2.7 -->
@@ -41,7 +41,7 @@ Continuing with the Todo app you built last class, you're going to pull out the 
 - [ ] Before you get going make sure you install this most wonderful VS Code Extension: [Simple React Snippets](https://marketplace.visualstudio.com/items?itemName=burkeholland.simple-react-snippets).
 - [ ] Continue with the app you built in the first class of 411.
 - [ ] Make a code plan through whiteboarding what you need to do.
-- [ ] The todoList component should map over the `this.state.todos` and return a todoItem component for each todo in the array.
+- [ ] The `todoList` component should map over the `this.state.todos` and return a `todoItem` component for each todo in the array.
 - [ ] The `todoItem` should be passed props that include handlers like: `handleClick`, `handleChange`, `handleEdit`.
 - [ ] The `todoItem` should have a `state` that maintains the urgency `status` that holds the values of `green`, `yellow` or `red`.
 - [ ] The `todoItem` component should render the `background-color` of the text based on the status of the item.

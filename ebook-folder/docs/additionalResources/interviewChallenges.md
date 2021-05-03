@@ -50,15 +50,11 @@ Speak aloud every thought you have. THIS IS THE MOST IMPORTANT PART!
 
 ### Class 4
 
-- [ ] **Prompt 1: areAnagrams** - *How do you check if two strings are anagrams of each other? Build a program that does just that.
-
-
-return Boolean*
-<!-- - [ ] **Prompt 2: Title** - *description* -->
+- [ ] **Prompt 1: areAnagrams** - *How do you check if two strings are anagrams of each other? Build a program that does just that; return Boolean*
 
 ### Class 5
 
-- [ ] **Prompt 1: Title** - *description*
+- [ ] **Prompt 1: Recursive Reversal** - *How can a given string be reversed using recursion? Build a program to do that.*
 <!-- - [ ] **Prompt 2: Title** - *description* -->
 
 ### Class 6
@@ -115,3 +111,41 @@ return Boolean*
 
 - [ ] **Prompt 1: Title** - *description*
 <!-- - [ ] **Prompt 2: Title** - *description* -->
+
+
+<!-- 
+
+In class we'll work on solving problems while communicating to a group. To get better at this (and you will), you'll have to practice on your own every day. YES, the first few times you work on this you're going to get stuck, frustrated, and want to give up. That's okay. Just take a breathe and take some time away from it. Ten minutes later, come back to it. Then look at the answer. Understand how it was solved and try to repeat it for yourself. In this way you can learn from REALLY smart people. Slowly, but surely, you will pick up the patterns.
+
+We want you to succeed! To make sure our students are doing the right practice, every day, for themselves we're going to give you a problem to work on here. But if you're wanting more to work on try these sites:
+
+- [ ] [HackerRank](https://www.hackerrank.com/)
+- [ ] [Geeks4Geeks](https://www.geeksforgeeks.org/)
+- [ ] [LeetCode](https://leetcode.com/)
+- [ ] [Pramp](https://www.pramp.com/)
+
+In fact, you'll want to get on **HackerRank** and **LeetCode** sooner rather than later because they actually track your progress and your profile is searchable by hiring managers and recruiters!
+
+Remember to follow the rules to whiteboarding success:
+
+Restate, rewrite, and clarify the question
+Write the expected return given an input
+Make a code plan and speak aloud with your interviewers/team/self
+Test and come up with edge case scenarios
+Revise if you can for efficiency
+
+
+How do you count the number of vowels and consonants in a given string?
+
+```javascript
+  const myWord = "puppy"
+
+  const count = (word) => {
+    // what goes here?
+    return // consonants = 3, vowels = 2
+  }
+
+  count(myWord)
+  ```
+  
+   -->

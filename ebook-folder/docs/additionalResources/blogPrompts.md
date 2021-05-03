@@ -26,7 +26,6 @@
 - [ ] Explain event delegation in JavaScript and why it is useful.
 - [ ] Which new JavaScript / browser features are you most excited about and why?
 
-
 ## Class 6
 
 - [ ]

@@ -42,7 +42,7 @@ NOTE: THIS SECTION IS ONLY VISIBLE BY THE INSTRUCTOR. -->
 - [ ] Push Yourself Further
 - [ ] Exit Recap, Attendance, and Reminders
 
-### Questions for Student Led Discussion, 15 mins
+### Questions for Student-Led Discussion, 15 mins
 <!-- This section should be structured with the 5E model: https://lesley.edu/article/empowering-students-the-5e-model-explained -->
 
 [Questions to prompt discussion](./../additionalResources/questionsForDiscussion/qfd-class-1.md)
@@ -60,9 +60,10 @@ NOTE: THIS SECTION IS ONLY VISIBLE BY THE INSTRUCTOR. -->
 
 ## Creation Time, 60-90 mins
 
-As usual it is incredibly important that you read the pre-homework. If you haven't read the pre-homework and worked through the code-along video YOU WILL BE FAR BEHIND TODAY!!!
+As usual, it is incredibly important that you read the pre-homework. If you haven't read the pre-homework and worked through the code-along video YOU WILL BE FAR BEHIND TODAY!!!
+ 
+In the pre-homework, you should have downloaded create-react-app and spun up a create-react-app, built a button that changes state from true to false and then displayed the change of state. Today, we're going to continue that process and build a todo app with React!!
 
-In the pre-homework you should have downloaded create-react-app and spun up a create-react-app, built a button that changes state from true to false and then displayed the change of state. Today, we're going to continue that process and build a todo app with React!!
 
 [Example Simple React Todo App](http://todomvc.com/examples/react/#/)
 
