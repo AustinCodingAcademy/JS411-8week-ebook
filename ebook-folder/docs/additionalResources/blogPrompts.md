@@ -28,7 +28,14 @@
 
 ## Class 6
 
-- [ ]
+- [ ] Discuss in words something you learned in class today or this week.
+- [ ] What is `render()` in React? Explain its purpose.
+- [ ] Is `setState()` async?
+- [ ] What are controlled components?
+- [ ] Which (if there is) node library method could you use to solve the algorithm problem you solved last night in your pre-homework?
+- [ ] Which (if there is) node library method could you use to solve the algorithm problem you solved in class tonight?
+- [ ] What is the event loop in JavaScript?
+- [ ] Why does ReactJS use className over class attribute?
 
 ## Class 8
 

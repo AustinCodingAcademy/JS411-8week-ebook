@@ -37,8 +37,8 @@ Students should prepare in advance, and take their responsibility to the class a
 
 ## Class 7
 
-- [ ] *todo*
-- [ ] *todo*
+- [ ] *What are the different phases of ReactJS component lifecycle?*
+- [ ] *How is React different from VUE?*
 
 ## Class 8
 

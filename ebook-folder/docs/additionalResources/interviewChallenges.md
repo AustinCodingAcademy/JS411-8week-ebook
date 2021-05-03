@@ -59,7 +59,7 @@ Speak aloud every thought you have. THIS IS THE MOST IMPORTANT PART!
 
 ### Class 6
 
-- [ ] **Prompt 1: Title** - *description*
+- [ ] **Prompt 1: Binary Search** - *How is a binary search tree implemented?*
 <!-- - [ ] **Prompt 2: Title** - *description* -->
 
 ### Class 7
@@ -149,3 +149,17 @@ How do you count the number of vowels and consonants in a given string?
   ```
   
    -->
+
+   <!-- 
+   
+   How do you reverse words in a given sentence without using any library method?
+   
+   ```javascript
+       const word = 2
+    const sentence = 'My cat was a dog and ran away.'
+
+    const reverseWord = (arg1, arg2) => {}  
+
+    reverseWord(word, sentence) // returns 'saw'
+    ```
+     -->

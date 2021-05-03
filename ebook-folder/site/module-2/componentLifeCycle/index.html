@@ -1,0 +1,1847 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+    
+    
+      
+        <title>Class Component Lifecycle - JS411 ebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.77f3fd56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#component-lifecycle" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JS411 ebook" class="md-header__button md-logo" aria-label="JS411 ebook">
+      
+  <img src="../../CE_WhiteBlue_Icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JS411 ebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class Component Lifecycle
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JS411 ebook" class="md-nav__button md-logo" aria-label="JS411 ebook">
+      
+  <img src="../../CE_WhiteBlue_Icon.png" alt="logo">
+
+    </a>
+    JS411 ebook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Module One: Intro to React
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Module One: Intro to React" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Module One: Intro to React
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      <label class="md-nav__link" for="__nav_2_1">
+        Pre-Class 1 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 1 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 1 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preCourse/setupInstructions/" class="md-nav__link">
+        Prepare Your Machine
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preCourse/succeedInThisCourse/" class="md-nav__link">
+        Succeed in this Course
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preCourse/submittingHomework/" class="md-nav__link">
+        Submitting Homework
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/introToReact/" class="md-nav__link">
+        Intro to React
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/CRA-overview/" class="md-nav__link">
+        CRA Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/reactDeveloperTools-pt1/" class="md-nav__link">
+        React DevTools
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/bonusLesson/" class="md-nav__link">
+        Bonus - HTML + JSX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/class-1/" class="md-nav__link">
+        Class 1 ToDo App
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      <label class="md-nav__link" for="__nav_2_2">
+        Pre-Class 2 Lesson
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 2 Lesson" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 2 Lesson
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/introToStateAndProps/" class="md-nav__link">
+        State & Props Intro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/fetchStoreRender/" class="md-nav__link">
+        Fetch, Store, Render
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/class-2/" class="md-nav__link">
+        Class 2 Beer App
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      <label class="md-nav__link" for="__nav_2_3">
+        Pre-Class 3 Lesson
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 3 Lesson" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 3 Lesson
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/conditionalRendering/" class="md-nav__link">
+        Conditional Rendering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/dynamicRendering/" class="md-nav__link">
+        Dynamic Rendering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/class-3/" class="md-nav__link">
+        Class 3 Address Book
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      <label class="md-nav__link" for="__nav_2_4">
+        Pre-Class 4 Lesson
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 4 Lesson" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 4 Lesson
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/formsInReact/" class="md-nav__link">
+        Forms in React
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/hackathonOverview/" class="md-nav__link">
+        Hackthon Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/class-4/" class="md-nav__link">
+        Class 4 Hackathon
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Module Two: TITLE
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Module Two: TITLE" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Module Two: TITLE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      <label class="md-nav__link" for="__nav_3_1">
+        Pre-Class 5 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 5 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 5 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../componentStyling/" class="md-nav__link">
+        Component Styling with Material-UI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-5/" class="md-nav__link">
+        Class 5 Music App 1/2
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        Pre-Class 6 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 6 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 6 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Class Component Lifecycle
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Class Component Lifecycle
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    Why?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-it-class-based-component-lifecycle" class="md-nav__link">
+    Read It - Class-Based Component Lifecycle
+  </a>
+  
+    <nav class="md-nav" aria-label="Read It - Class-Based Component Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-componentdidmount-method" class="md-nav__link">
+    The componentDidMount Method
+  </a>
+  
+    <nav class="md-nav" aria-label="The componentDidMount Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-render-method" class="md-nav__link">
+    The render Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-componentdidupdate-method" class="md-nav__link">
+    The componentDidUpdate Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-constructor-method" class="md-nav__link">
+    The constructor Method
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-of-operations" class="md-nav__link">
+    Order of Operations
+  </a>
+  
+    <nav class="md-nav" aria-label="Order of Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mounting-phase" class="md-nav__link">
+    Mounting Phase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-phase" class="md-nav__link">
+    Updating Phase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unmounting-phase" class="md-nav__link">
+    Unmounting Phase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-phase-not-used-to-handle-exceptions" class="md-nav__link">
+    Error Phase - Not used to handle exceptions!
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice-it" class="md-nav__link">
+    Practice It
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#know-your-docs" class="md-nav__link">
+    Know Your Docs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-6/" class="md-nav__link">
+        Class 5
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Additional Resources
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Additional Resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Additional Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/interviewChallenges/" class="md-nav__link">
+        Interview Training
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/studentPresentations/" class="md-nav__link">
+        Student Presentations
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/developSeries/" class="md-nav__link">
+        Develop Series Collection
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      <label class="md-nav__link" for="__nav_4_4">
+        Questions for Discussion Collections
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Questions for Discussion Collections" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Questions for Discussion Collections
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-1/" class="md-nav__link">
+        Day 1 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-2/" class="md-nav__link">
+        Day 2 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-3/" class="md-nav__link">
+        Day 3 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-4/" class="md-nav__link">
+        Day 4 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-5/" class="md-nav__link">
+        Day 5 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-6/" class="md-nav__link">
+        Day 6 QFD
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/blogPrompts/" class="md-nav__link">
+        Blog Prompts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/keyboardShortcuts/" class="md-nav__link">
+        Keyboard Shortcuts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/gitCommands/" class="md-nav__link">
+        Git & CLI Commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/learnYourCLI/" class="md-nav__link">
+        Learn Your CLI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/graduationPrerequisites/" class="md-nav__link">
+        Graduation Prerequisites
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/presentationsQualifications/" class="md-nav__link">
+        Presentation Qualifications
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    Why?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-it-class-based-component-lifecycle" class="md-nav__link">
+    Read It - Class-Based Component Lifecycle
+  </a>
+  
+    <nav class="md-nav" aria-label="Read It - Class-Based Component Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-componentdidmount-method" class="md-nav__link">
+    The componentDidMount Method
+  </a>
+  
+    <nav class="md-nav" aria-label="The componentDidMount Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-render-method" class="md-nav__link">
+    The render Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-componentdidupdate-method" class="md-nav__link">
+    The componentDidUpdate Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-constructor-method" class="md-nav__link">
+    The constructor Method
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-of-operations" class="md-nav__link">
+    Order of Operations
+  </a>
+  
+    <nav class="md-nav" aria-label="Order of Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mounting-phase" class="md-nav__link">
+    Mounting Phase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-phase" class="md-nav__link">
+    Updating Phase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unmounting-phase" class="md-nav__link">
+    Unmounting Phase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-phase-not-used-to-handle-exceptions" class="md-nav__link">
+    Error Phase - Not used to handle exceptions!
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice-it" class="md-nav__link">
+    Practice It
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#know-your-docs" class="md-nav__link">
+    Know Your Docs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="component-lifecycle">Component Lifecycle</h1>
+<p><em>Let us make our future now, and let us make our dreams tomorrow’s reality. —Malala Yousafzai</em></p>
+<p>We've done a lot in the past two weeks getting up to speed with React but there are some deeper level concepts we need to cover and firmly grasp. Today we will take a deeper dive into React's Class-Based Component Lifecycle and the methods involved, but before we do let's look at this JSX syntax a little more closely. </p>
+<!-- ! Video Contents: Vimeo, Clayton@ACA - 411-25-JSX:Why? - 411.2.2.1 -->
+<iframe src="https://player.vimeo.com/video/492186665?color=2565EF&byline=0&portrait=0" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+<h2 id="overview">Overview</h2>
+<p>The <strong>Component Lifecycle</strong> is a set of steps that every class-based component goes through from when the component is referenced/invoked and mounted in the DOM to when it is closed out and removed from the DOM, birth to death. This  <em>Lifecycle</em> can be divided into 4 phases: <strong>Mounting</strong>, <strong>Updating</strong>, <strong>Unmounting</strong>, &amp; <strong>Error</strong>. Inside of each of these phases are individual methods(properties with functions as their definition/value). These methods are appropriately classified as <strong>lifecycle methods</strong> because they get called throughout each phase and each has a purpose... we will get into soon.</p>
+<h3 id="why">Why?</h3>
+<p><em>The purpose of these lifecycle methods is to capture or encapsulate the manipulation, moving, and rendering of data inside of each component, just like JSX provides easier syntax for doing this.</em> Having the ability to pinpoint certain points of execution during a component's "life" gives us greater flexibility, programming customization, and testing opportunities. For example, we may want to load some data into our component before we render it onto the screen. It just so happens that there is a lifecycle method called <code>componentDidMount</code> that fires after the initial <code>render</code> method. This is a great place to make a call for that data. And yes, <code>render()</code> is a lifecycle method too. If your data hasn't come back from the API yet you might offer the user a spinning wheel or cute animation through the use of conditional rendering in your render statement so when your data does come in, you can call render again.</p>
+<p>These methods become more and more useful as you grow into your new trade and become more proficient. For now, let's cover the most commonly used methods and how to mentally model what they are and how to use them.</p>
+<!-- ! Video Contents: Vimeo, Clayton@ACA - 411-26-LifecycleMethods-Why&What - 411.2.2.2 -->
+<iframe src="https://player.vimeo.com/video/492195162?color=2565EF&byline=0&portrait=0" width="655" height="368" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+<h2 id="read-it-class-based-component-lifecycle">Read It - Class-Based Component Lifecycle</h2>
+<p>We've talked briefly about what the component lifecycle is and why it's useful so let's get a little more into the details of the operation. I'd like to start with how these lifecycle methods are accessed.</p>
+<p>From the past couple classes, you've likely become familiar with seeing a component written like this:</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Two ways to extend Component</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
+
+<span class="kd">class</span> <span class="nx">MyComponent</span> <span class="k">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Welcome</span> <span class="nx">to</span> <span class="nx">our</span> <span class="nx">component</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+            <span class="o">&lt;</span><span class="err">/div&gt;</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// Or...</span>
+
+<span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
+
+<span class="kd">class</span> <span class="nx">MyComponent</span> <span class="k">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Welcome</span> <span class="nx">to</span> <span class="nx">our</span> <span class="nx">component</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+            <span class="o">&lt;</span><span class="err">/div&gt;</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>The above two examples are the exact same in terms of functionality. The only difference is that we imported Component separately in the second example. Let's talk about that a little.</p>
+<p>The reason we have access to any of these methods (for example: <code>render</code>) is because of the "Component" keyword on line 1 and/or 3 of the two examples above. When we create our component with <code>class MyComponent</code>... and use <code>extends Component</code>, which we've imported from <code>React</code>, we are saying (in code) that we want our class to have all the capabilities of a React class component (a class that is built into the React node module). The method <code>render</code> actually lives on that <code>Component</code> and the only reason we get to use it is that we "extended" from <code>Component</code> with a class of our own. Fortunately for us, <code>Component</code> has a few other useful methods to use the same way:</p>
+<hr />
+<h3 id="the-componentdidmount-method">The <code>componentDidMount</code> Method</h3>
+<p>This method, when used in your component, fires when the component is inserted into the DOM tree. This happens after the initial "render" method and can be useful for fetching data or updating state based on some conditions. The <code>componentDidMount</code> method (and other lifecycle methods) are usually placed above the <code>render</code> method. Here's an example:</p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Example of componentDidMount</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
+
+<span class="kd">class</span> <span class="nx">MyComponent</span> <span class="k">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+    <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;http://example.com&#39;</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">examples</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">data</span><span class="o">:</span> <span class="nx">examples</span> <span class="p">})</span>
+            <span class="p">})</span>
+    <span class="p">}</span>
+
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Welcome</span> <span class="nx">to</span> <span class="nx">our</span> <span class="nx">component</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+                <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Take</span> <span class="nx">a</span> <span class="nx">look</span> <span class="nx">at</span> <span class="nx">our</span> <span class="nx">data</span><span class="o">:</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+            <span class="o">&lt;</span><span class="err">/div&gt;</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<hr />
+<h4 id="the-render-method">The <code>render</code> Method</h4>
+<p>This may seem redundant but the <code>render</code> method is important to understand since it is the only <em>required</em> method when using a class component. The <code>render</code> method typically returns JSX but it can also return other things, namely:</p>
+<ul>
+<li>Arrays</li>
+<li>Strings/Numbers</li>
+<li>Booleans</li>
+<li>Null</li>
+</ul>
+<p>The above options aren't typical so we will focus on JSX. It's also important to note that the render method should be a "pure function" which means it <strong>doesn't update state</strong>. The second rule to render is that it <strong>must return something</strong>...JSX, <code>null</code>, an array, whatever. It must return something.</p>
+<p>Speaking of state, we need to remember that this render method will be invoked each time the state changes. Calling <code>this.setState()</code> anywhere in your component will cause this function to fire again and update the parts of the DOM that may have changed.</p>
+<p>In the following code, how many times will the render method be called on initiation?</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Simple Class Component</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
+
+<span class="kd">class</span> <span class="nx">MyComponent</span> <span class="k">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="nx">users</span><span class="o">:</span> <span class="p">[]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">u</span> <span class="p">=&gt;</span> <span class="nx">u</span><span class="p">.</span><span class="nx">username</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mf">5</span><span class="p">)</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">users</span><span class="o">:</span> <span class="nx">arr</span> <span class="p">})</span>
+    <span class="p">}</span>
+
+    <span class="nx">handleClick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">users</span><span class="o">:</span> <span class="p">[...</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">users</span><span class="p">].</span><span class="nx">concat</span><span class="p">([</span><span class="s1">&#39;newUser&#39;</span><span class="p">])</span> <span class="p">})</span>
+    <span class="p">}</span>
+
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Welcome</span> <span class="nx">to</span> <span class="nx">our</span> <span class="nx">component</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+                <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Here</span><span class="err">&#39;</span><span class="nx">s</span> <span class="nx">an</span> <span class="nx">array</span> <span class="kd">with</span> <span class="nx">our</span> <span class="nx">users</span><span class="o">:</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">users</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+                <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleClick</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Add</span> <span class="nx">User</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+            <span class="o">&lt;</span><span class="err">/div&gt;</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>The key is in the word <em>"initially"</em>. Hopefully you guessed 2 times. The render will be invoked a third time when the button is clicked.</p>
+<p>The answer is two because <code>this.setState</code> is asynchronous and the initial render will attempt before the <code>componentDidMount</code> function is complete. However, <code>componentDidMount</code> will quickly update the state and re-render the component without the user noticing anything. You can read more about that process in the <a href="https://reactjs.org/docs/react-component.html#componentdidmount">React Docs</a>.</p>
+<p>Before we move to another lifecycle method let's remember that everything is an object including this React component we're extending. What this means is that it too has properties, or methods(because their values are functions). Just like all of the methods on the DOM or any HTML element you've worked with like onclick, hover, blur...etc, this React Component has method that are firing blanks throughout the cycles of its life until YOU, the developer, give them instructions. Here's invalid code but a good visual example of what the Component you're extending looks like under-the-hood.</p>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Under-the-hood look at the lifecycle methods - Invalid Code!</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// * React Class Component /Object-Thing/</span>
+<span class="nx">myComponent</span> <span class="o">=</span> <span class="p">{</span> 
+
+  <span class="nx">constructor</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span><span class="cm">/* create state here */</span><span class="p">},</span>
+
+  <span class="nx">componentDidMount</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span><span class="cm">/* fetch data here */</span><span class="p">},</span> 
+
+  <span class="nx">componentDidUpdate</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{},</span> 
+
+  <span class="nx">componentWillUnmount</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span><span class="cm">/* delete cookies, unsubscribe from current connections, sign out here */</span><span class="p">},</span>
+
+  <span class="nx">render</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span><span class="cm">/* return the visual for the DOM in JSX here */</span><span class="p">},</span>
+
+  <span class="nx">componentDidCatch</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span><span class="cm">/* process error handling here */</span><span class="p">},</span>
+
+  <span class="nx">getDerivedStateFromError</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{},</span>
+
+  <span class="nx">shouldComponentUpdate</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{},</span>
+
+  <span class="nx">getSnapshotBeforeUpdate</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{},</span>
+
+  <span class="nx">getDerivedStateFromProps</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{},</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Now that you see each property is already declared on the class, you can now go and define them with whatever your application's needs are! If you don't need them, don't worry about them they'll just fire blanks with no side-effects!</p>
+<hr />
+<h4 id="the-componentdidupdate-method">The <code>componentDidUpdate</code> Method</h4>
+<p>This method is called when the component is updated. What does "updated" mean? It means when <code>this.setState</code> is called somewhere in the tree that affects the current component. This lifecycle method is not called on the initial load of the component. When it is called it automatically gives us a variable called <code>prevProps</code> that we can use to see if any of the props changed. You can call <code>this.setState</code> in this function but you want to be careful to do it based on some condition. If you don't, you'll cause an infinite loop because <code>setState</code> will cause the component to "update" which will then call <code>setState</code> which will cause it to update again, etc, etc, etc. For this reason, this is </p>
+<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Example of componentDidUpdate</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">componentDidUpdate</span><span class="p">(</span><span class="nx">prevProps</span><span class="p">,</span> <span class="nx">prevState</span><span class="p">,</span> <span class="nx">snapshot</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// will not be invoked if shouldComponentUpdate() returns false.</span>
+
+  <span class="c1">// Use to do side effects if the state or props change and those create a need for a side-effect like a data fetch/network request or visuals</span>
+
+  <span class="c1">// fired every time render is called after the initial render call</span>
+
+  <span class="c1">// If we have a snapshot value, we&#39;ve just added new items.</span>
+
+  <span class="c1">// Adjust scroll so these new items don&#39;t push the old ones out of view.</span>
+
+  <span class="c1">// (snapshot here is the value returned from getSnapshotBeforeUpdate)</span>
+
+
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">snapshot</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kd">const</span> <span class="nx">list</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">listRef</span><span class="p">.</span><span class="nx">current</span><span class="p">;</span>
+
+    <span class="nx">list</span><span class="p">.</span><span class="nx">scrollTop</span> <span class="o">=</span> <span class="nx">list</span><span class="p">.</span><span class="nx">scrollHeight</span> <span class="o">-</span> <span class="nx">snapshot</span><span class="p">;</span>
+
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Usage example of componentDidUpdate</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// this.setState({}) -&gt;</span>
+  <span class="c1">// componentDidUpdate() -&gt;</span>
+<span class="c1">// this.setState({})-&gt;</span>
+  <span class="c1">// componentDidUpdate() -&gt;</span>
+<span class="c1">// this.setState({})-&gt;</span>
+  <span class="c1">// etc.</span>
+<span class="c1">// This lifecycle method can be used like this:</span>
+
+<span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
+
+<span class="kd">class</span> <span class="nx">MyComponent</span> <span class="k">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="nx">users</span><span class="o">:</span> <span class="p">[],</span>
+          <span class="nx">errText</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">componentDidUpdate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mf">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">errText</span><span class="o">:</span> <span class="s1">&#39;There are no users to show&#39;</span> <span class="p">})</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">handleClick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// This line is a shorthand to set the state to equal what the list of users was plus the new user that was added.</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">users</span><span class="o">:</span> <span class="p">[...</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">users</span><span class="p">].</span><span class="nx">concat</span><span class="p">([</span><span class="s1">&#39;newUser&#39;</span><span class="p">])</span> <span class="p">})</span>
+    <span class="p">}</span>
+
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Welcome</span> <span class="nx">to</span> <span class="nx">our</span> <span class="nx">component</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+                <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">errText</span> <span class="o">&amp;&amp;</span> <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">errText</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;}</span>
+                <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Here</span><span class="err">&#39;</span><span class="nx">s</span> <span class="nx">an</span> <span class="nx">array</span> <span class="kd">with</span> <span class="nx">our</span> <span class="nx">users</span><span class="o">:</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">users</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+                <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleClick</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Add</span> <span class="nx">User</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+            <span class="o">&lt;</span><span class="err">/div&gt;</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<hr />
+<h4 id="the-constructor-method">The <code>constructor</code> Method</h4>
+<p>The <code>constructor</code> is the first thing that happens when you load up a component. In fact, it's the first thing that happens anytime you use a class in JavaScript for any purpose (not just React). Inside the constructor is where you initialize variables that your class, or component, will use. For example, this is where you typically set your initial state. You also call the <code>super()</code> function inside of the constructor. This function calls the parent constructor with the data you've passed in, but we don't need to know about the details of that here so let's take a look at how we use the constructor:</p>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Example Usage of constructor</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
+
+<span class="kd">class</span> <span class="nx">MyComponent</span> <span class="k">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">()</span> <span class="c1">// calls the functionality of the grandparent class(the class parent of the Component class)</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nx">count</span><span class="o">:</span> <span class="mf">0</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">handleClick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">count</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span> <span class="o">+</span> <span class="mf">1</span> <span class="p">})</span>
+    <span class="p">}</span>
+
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">The</span> <span class="nx">count</span> <span class="nx">is</span><span class="o">:</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+                <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleClick</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Add</span> <span class="mf">1</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+            <span class="o">&lt;</span><span class="err">/div&gt;</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>It's important to note that many people have stopped using the constructor in such verbose terms since React released shortcuts for writing this. Essentially, it does the same thing behind the scenes but the above can now also be written as:</p>
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">State without calling constructor</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
+
+<span class="kd">class</span> <span class="nx">MyComponent</span> <span class="k">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+    <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">count</span><span class="o">:</span> <span class="mf">0</span>
+    <span class="p">}</span>
+
+    <span class="nx">handleClick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">count</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span> <span class="o">+</span> <span class="mf">1</span> <span class="p">})</span>
+    <span class="p">}</span>
+
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">The</span> <span class="nx">count</span> <span class="nx">is</span><span class="o">:</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+                <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleClick</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Add</span> <span class="mf">1</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+            <span class="o">&lt;</span><span class="err">/div&gt;</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<hr />
+<h3 id="order-of-operations">Order of Operations</h3>
+<p>The lifecycle methods we just covered were not in any specific order so below we'll order them by the way they fire when the component is <strong>mounted</strong>, <strong>rendered</strong>, <strong>updated</strong>, <strong>unmounted</strong>, and if an <strong>error</strong> occurs. These phases are the phases of the components cycle of life, a.k.a the order in which the methods are fired as the component comes into the DOM(mounts) and eventually leaves the DOM (unmounts).</p>
+<h4 id="mounting-phase">Mounting Phase</h4>
+<ul>
+<li><strong>constructor()</strong></li>
+<li><strong>render()</strong></li>
+</ul>
+<h4 id="updating-phase">Updating Phase</h4>
+<ul>
+<li><strong>shouldComponentUpdate(nextProps, nextState)</strong></li>
+<li><strong>render()</strong></li>
+<li><strong>componentDidUpdate(prevProps, prevState, snapshot)</strong></li>
+<li><strong>getSnapshotBeforeUpdate(prevProps, prevState)</strong></li>
+<li><strong>static getDerivedStateFromProps(props, state)</strong></li>
+</ul>
+<h4 id="unmounting-phase">Unmounting Phase</h4>
+<ul>
+<li><strong>componentWillUnmount()</strong> - used to fire before the render method but it is now considered legacy and unsafe to use.</li>
+</ul>
+<h4 id="error-phase-not-used-to-handle-exceptions">Error Phase - Not used to handle exceptions!</h4>
+<ul>
+<li><strong>componentDidCatch()</strong></li>
+<li><strong>getDerivedStateFromError()</strong></li>
+</ul>
+<p>A full, <a href="https://blog.logrocket.com/the-new-react-lifecycle-methods-in-plain-approachable-language-61a2105859f3/">comprehensive breakdown of all lifecycle methods can be found in here</a>. We encourage you to look at this page often as well as use this <a href="http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/">lifecycle cheatsheet</a> as you develop.</p>
+<p>Other component lifecycle methods and properties you should become familiar with are:</p>
+<ul>
+<li><strong>setState()</strong></li>
+<li><strong>forceUpdate()</strong></li>
+<li><strong>defaultProps</strong></li>
+<li><strong>displayName</strong></li>
+</ul>
+<h2 id="summary">Summary</h2>
+<!-- ! Video Contents: Vimeo, Clayton@ACA - 411-27-LifecycleMethod-HighOverview - 411.2.2.3 -->
+<iframe src="https://player.vimeo.com/video/492200585?color=2565EF&byline=0&portrait=0" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+<h2 id="practice-it">Practice It</h2>
+<p>Work through the <a href="https://reactjs.org/docs/state-and-lifecycle.html">React Docs Tutorial</a> to build a timer app that utilizes the lifecycle methods.</p>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox"/> <a href="https://codeburst.io/how-to-use-react-lifecycle-methods-ddc79699b34e">Blog, CodeBurst - How to Use the Lifecycle Methods</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://medium.com/react-ecosystem/react-components-lifecycle-ce09239010df">Blog, Blog - React Component Lifecycle</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/">Reference, Wojtekma - Lifecycle Methods Diagram</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://blog.logrocket.com/the-new-react-lifecycle-methods-in-plain-approachable-language-61a2105859f3/">Reference, LogRocket - The New React Lifecycle Methods</a></li>
+</ul>
+<h2 id="know-your-docs">Know Your Docs</h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox"/> <a href="https://reactjs.org/docs/react-component.html#componentdidmount">React Docs - componentDidMount</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://reactjs.org/docs/react-component.html">React Docs - React Component</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../class-5/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Class 5 Music App 1/2
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../class-6/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Class 5
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>
+      
+    
+  </body>
+</html>

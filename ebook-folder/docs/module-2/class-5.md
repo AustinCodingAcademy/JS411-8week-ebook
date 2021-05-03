@@ -1,4 +1,4 @@
-# Class 5: Music App pt 1 of 2
+# Class 5: Music App - Part 1 of 2
 
 <!-- ! HIDE FROM STUDENT; INSTRUCTOR ONLY CONTENT -->
 <!-- ## Instructor Only Content - HIDE FROM STUDENTS -->
