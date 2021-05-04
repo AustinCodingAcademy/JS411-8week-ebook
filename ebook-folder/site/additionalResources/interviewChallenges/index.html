@@ -494,7 +494,7 @@
   
     <li class="md-nav__item">
       <a href="../../module-1/hackathonOverview/" class="md-nav__link">
-        Hackthon Overview
+        Hackathon Overview
       </a>
     </li>
   
@@ -538,13 +538,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       <label class="md-nav__link" for="__nav_3">
-        Module Two: TITLE
+        Module Two: Styling & Routing
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Module Two: TITLE" data-md-level="1">
+      <nav class="md-nav" aria-label="Module Two: Styling & Routing" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          Module Two: TITLE
+          Module Two: Styling & Routing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -639,6 +639,81 @@
     <li class="md-nav__item">
       <a href="../../module-2/class-6/" class="md-nav__link">
         Class 5
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        Pre-Class 7 Lesson
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 7 Lesson" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 7 Lesson
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/reactRouter/" class="md-nav__link">
+        React Router Intro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/reactRouter-link/" class="md-nav__link">
+        Router Link
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/implement-ReactRouter/" class="md-nav__link">
+        Implement React Router
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/class-7/" class="md-nav__link">
+        Class 7
       </a>
     </li>
   
@@ -988,6 +1063,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../questionsForDiscussion/qfd-class-7/" class="md-nav__link">
+        Day 7 QFD
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1319,7 +1406,7 @@ Speak aloud every thought you have. THIS IS THE MOST IMPORTANT PART!</li>
 
 <h3 id="class-7">Class 7</h3>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <strong>Prompt 1: Title</strong> - <em>description</em></li>
+<li class="task-list-item"><input type="checkbox"/> <strong>Prompt 1: Counting Nodes</strong> - <em>How do you count the number of leaf nodes in a given binary tree?</em></li>
 </ul>
 <!-- - [ ] **Prompt 2: Title** - *description* -->
 
@@ -1401,32 +1488,78 @@ Revise if you can for efficiency
 
 How do you count the number of vowels and consonants in a given string?
 
-```javascript
-  const myWord = "puppy"
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="kd">const</span> <span class="nx">myWord</span> <span class="o">=</span> <span class="s2">&quot;puppy&quot;</span>
 
-  const count = (word) => {
-    // what goes here?
-    return // consonants = 3, vowels = 2
-  }
+  <span class="kd">const</span> <span class="nx">count</span> <span class="o">=</span> <span class="p">(</span><span class="nx">word</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// what goes here?</span>
+    <span class="k">return</span> <span class="c1">// consonants = 3, vowels = 2</span>
+  <span class="p">}</span>
 
-  count(myWord)
-  ```
+  <span class="nx">count</span><span class="p">(</span><span class="nx">myWord</span><span class="p">)</span>
+  <span class="sb">```</span>
 
-   -->
+<span class="sb">   --&gt;</span>
 
-<!-- 
+<span class="sb">   &lt;!-- </span>
 
-   How do you reverse words in a given sentence without using any library method?
+<span class="sb">   How do you reverse words in a given sentence without using any library method?</span>
 
-   ```javascript
-       const word = 2
-    const sentence = 'My cat was a dog and ran away.'
+<span class="sb">   ```</span><span class="nx">javascript</span>
+       <span class="kd">const</span> <span class="nx">word</span> <span class="o">=</span> <span class="mf">2</span>
+    <span class="kd">const</span> <span class="nx">sentence</span> <span class="o">=</span> <span class="s1">&#39;My cat was a dog and ran away.&#39;</span>
 
-    const reverseWord = (arg1, arg2) => {}  
+    <span class="kd">const</span> <span class="nx">reverseWord</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{}</span>  
 
-    reverseWord(word, sentence) // returns 'saw'
-    ```
-     -->
+    <span class="nx">reverseWord</span><span class="p">(</span><span class="nx">word</span><span class="p">,</span> <span class="nx">sentence</span><span class="p">)</span> <span class="c1">// returns &#39;saw&#39;</span>
+    <span class="sb">```</span>
+<span class="sb">     --&gt;</span>
+
+<span class="sb">&lt;!-- Prompt: How is a [bubble sort algorithm](https://www.geeksforgeeks.org/bubble-sort/) implemented?</span>
+
+<span class="sb">```</span><span class="nx">javascript</span>
+    <span class="kd">const</span> <span class="nx">arrayOfNumbers</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2</span><span class="p">,</span> <span class="mf">8</span><span class="p">,</span> <span class="mf">9</span><span class="p">,</span> <span class="mf">3</span><span class="p">,</span> <span class="mf">10</span><span class="p">]</span>
+
+    <span class="kd">const</span> <span class="nx">myBubbleSort</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arg1</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{}</span>  
+
+    <span class="nx">myBubbleSort</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="c1">// returns [2, 3, 8, 9, 10]</span>
+</code></pre></div>
+</td></tr></table>
+
+Don't be afraid to Google around and figure out how this is done.
+ -->
                 
               
               
@@ -1444,7 +1577,7 @@ How do you count the number of vowels and consonants in a given string?
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../../module-2/class-6/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../../module-2/class-7/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1453,7 +1586,7 @@ How do you count the number of vowels and consonants in a given string?
               <span class="md-footer__direction">
                 Previous
               </span>
-              Class 5
+              Class 7
             </div>
           </div>
         </a>

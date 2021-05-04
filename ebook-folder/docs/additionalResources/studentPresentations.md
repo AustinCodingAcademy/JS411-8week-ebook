@@ -42,8 +42,8 @@ Students should prepare in advance, and take their responsibility to the class a
 
 ## Class 8
 
-- [ ] *todo*
-- [ ] *todo*
+- [ ] *What are the major features, advantages, and limitations of ReactJS?*
+- [ ] *It’s ok to admit what you don’t know. Share with the class ways a junior developer may approach senior developers to ask the right questions and get things to working faster. Silence is the worse thing a junior dev can produce!*
 
 ## Class 9
 

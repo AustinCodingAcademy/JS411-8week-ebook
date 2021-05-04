@@ -64,7 +64,7 @@ Speak aloud every thought you have. THIS IS THE MOST IMPORTANT PART!
 
 ### Class 7
 
-- [ ] **Prompt 1: Title** - *description*
+- [ ] **Prompt 1: Counting Nodes** - *How do you count the number of leaf nodes in a given binary tree?*
 <!-- - [ ] **Prompt 2: Title** - *description* -->
 
 ### Class 8
@@ -163,3 +163,16 @@ How do you count the number of vowels and consonants in a given string?
     reverseWord(word, sentence) // returns 'saw'
     ```
      -->
+
+<!-- Prompt: How is a [bubble sort algorithm](https://www.geeksforgeeks.org/bubble-sort/) implemented?
+
+```javascript
+    const arrayOfNumbers = [2, 8, 9, 3, 10]
+
+    const myBubbleSort = (arg1) => {}  
+
+    myBubbleSort(input) // returns [2, 3, 8, 9, 10]
+```
+
+Don't be afraid to Google around and figure out how this is done.
+ -->
