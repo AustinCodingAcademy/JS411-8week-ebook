@@ -56,7 +56,9 @@ nav:
         - Router Link: module-2/reactRouter-link.md
         - Implement React Router: module-2/implement-ReactRouter.md
         - Class 7: module-2/class-7.md
-        # - 'Pre-Class 8 Lesson': 
+      - 'Pre-Class 8 Lesson':
+        - Protected Routes: module-2/protectedRoutes-intro.md
+        - Class 8 Login: module-2/class-8.md
 
 
             # cp workspace/resources/templateFile.md docs/module-
@@ -86,6 +88,7 @@ nav:
         - Day 5 QFD: additionalResources/questionsForDiscussion/qfd-class-5.md
         - Day 6 QFD: additionalResources/questionsForDiscussion/qfd-class-6.md
         - Day 7 QFD: additionalResources/questionsForDiscussion/qfd-class-7.md
+        - Day 8 QFD: additionalResources/questionsForDiscussion/qfd-class-8.md
       - Blog Prompts: additionalResources/blogPrompts.md
       - Keyboard Shortcuts: additionalResources/keyboardShortcuts.md
       - Git & CLI Commands: additionalResources/gitCommands.md

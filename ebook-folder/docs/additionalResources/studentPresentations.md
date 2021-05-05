@@ -47,8 +47,8 @@ Students should prepare in advance, and take their responsibility to the class a
 
 ## Class 9
 
-- [ ] *todo*
-- [ ] *todo*
+- [ ] *What is Context in React? Describe and Demonstrate.*
+- [ ] *Pair programming is valuable. Teach the class why working together is better than going alone.*
 
 ## Class 10
 

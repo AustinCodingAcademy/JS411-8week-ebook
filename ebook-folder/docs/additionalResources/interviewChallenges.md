@@ -69,8 +69,16 @@ Speak aloud every thought you have. THIS IS THE MOST IMPORTANT PART!
 
 ### Class 8
 
-- [ ] **Prompt 1: Title** - *description*
-<!-- - [ ] **Prompt 2: Title** - *description* -->
+- [ ] **Prompt 1: Reverse Word In-Place** - *How do you reverse words in a given sentence without using any library method?*
+  
+   ```javascript
+    const word = 2
+    const sentence = 'My cat was a dog and ran away.'
+
+    const reverseWord = (arg1, arg2) => {}  
+
+    reverseWord(sentence, word) // returns 'saw'
+    ```
 
 ### Class 9
 
@@ -150,20 +158,6 @@ How do you count the number of vowels and consonants in a given string?
   
    -->
 
-   <!-- 
-   
-   How do you reverse words in a given sentence without using any library method?
-   
-   ```javascript
-       const word = 2
-    const sentence = 'My cat was a dog and ran away.'
-
-    const reverseWord = (arg1, arg2) => {}  
-
-    reverseWord(word, sentence) // returns 'saw'
-    ```
-     -->
-
 <!-- Prompt: How is a [bubble sort algorithm](https://www.geeksforgeeks.org/bubble-sort/) implemented?
 
 ```javascript
@@ -173,6 +167,12 @@ How do you count the number of vowels and consonants in a given string?
 
     myBubbleSort(input) // returns [2, 3, 8, 9, 10]
 ```
+
+Don't be afraid to Google around and figure out how this is done.
+ -->
+
+ <!-- 
+ Prompt: [How do you send a JSON object to a server using JavaScript?](https://www.geeksforgeeks.org/how-to-send-a-json-object-to-a-server-using-javascript/)
 
 Don't be afraid to Google around and figure out how this is done.
  -->
