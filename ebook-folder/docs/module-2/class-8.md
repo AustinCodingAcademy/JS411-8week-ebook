@@ -23,7 +23,7 @@
 - [ ] Interview Challenge
 - [ ] Student Presentations
 - [ ] Creation Time
-    * [ ] Fork and Clone the 411_wk4_day2_protected_routes repo
+    * [ ] Fork and Clone the [411_wk4_day2_protected_routes](https://github.com/AustinCodingAcademy/411_wk4_day2_protected_routes) repo
     * [ ] Follow the instructions in the README to complete then turn in.
 - [ ] Push Yourself Further
 <!-- - [ ] Interview Questions: Blog to Show You Know -->

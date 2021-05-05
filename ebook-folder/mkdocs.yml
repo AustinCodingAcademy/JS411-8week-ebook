@@ -59,14 +59,17 @@ nav:
       - 'Pre-Class 8 Lesson':
         - Protected Routes: module-2/protectedRoutes-intro.md
         - Class 8 Login: module-2/class-8.md
-
+    - 'Module Three: App State': 
+      - 'Pre-Class 9 Lesson':
+        - Redux Intro: module-3/redux-mapStateToProps.md
+        - Redux Setup: module-3/redux-theSetup.md
+        - Redux Connect: module-3/redux-connect.md
+        - Class 9: module-3/class-9.md
 
             # cp workspace/resources/templateFile.md docs/module-
 
     # cp workspace/resources/classOutlineTemplate.md docs/module-
 
-      # - 'Module Three: TITLE': 
-        # - 'Pre-Class 9 Lesson': 
         # - 'Pre-Class 10 Lesson': 
         # - 'Pre-Class 11 Lesson': 
         # - 'Pre-Class 12 Lesson': 
@@ -89,6 +92,7 @@ nav:
         - Day 6 QFD: additionalResources/questionsForDiscussion/qfd-class-6.md
         - Day 7 QFD: additionalResources/questionsForDiscussion/qfd-class-7.md
         - Day 8 QFD: additionalResources/questionsForDiscussion/qfd-class-8.md
+        - Day 9 QFD: additionalResources/questionsForDiscussion/qfd-class-9.md
       - Blog Prompts: additionalResources/blogPrompts.md
       - Keyboard Shortcuts: additionalResources/keyboardShortcuts.md
       - Git & CLI Commands: additionalResources/gitCommands.md
