@@ -1,10 +1,8 @@
 # TITLE
 
-<!-- cp workspace/resources/templateFile.md docs/module-  -->
-**
+*cp workspace/resources/templateFile.md docs/module-*
 
 ## Overview
-
 
 
 

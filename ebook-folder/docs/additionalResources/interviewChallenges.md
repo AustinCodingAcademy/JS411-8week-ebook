@@ -178,3 +178,5 @@ Don't be afraid to Google around and figure out how this is done.
  -->
 
  <!-- How is a merge sort algorithm implemented? Create one. -->
+
+ <!-- How do you implement a counting sort algorithm? Do it. -->

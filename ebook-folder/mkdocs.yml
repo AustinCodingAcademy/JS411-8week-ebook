@@ -65,19 +65,30 @@ nav:
         - Redux Setup: module-3/redux-theSetup.md
         - Redux Connect: module-3/redux-connect.md
         - Class 9: module-3/class-9.md
+      - 'Pre-Class 10 Lesson':
+        - Redux Actions: module-3/redux-actions.md  
+        - Redux Reducers: module-3/redux-reducers.md  
+        - Redux MDTP: module-3/redux-mdtp.md  
+        - Redux Using Actions: module-3/redux-usingActions.md  
+        - Class 10: module-3/class-10.md
 
-            # cp workspace/resources/templateFile.md docs/module-
+    # cp workspace/resources/templateFile.md docs/module-
 
     # cp workspace/resources/classOutlineTemplate.md docs/module-
 
-        # - 'Pre-Class 10 Lesson': 
         # - 'Pre-Class 11 Lesson': 
+        # - Class 11: module-3/class-11.md
         # - 'Pre-Class 12 Lesson': 
+        # - Class 12: module-3/class-12.md
       # - 'Module Four: TITLE':
         # - 'Pre-Class 13 Lesson': 
+        # - Class 1: module-4/class-1.md
         # - 'Pre-Class 14 Lesson': 
+        # - Class 1: module-4/class-1.md
         # - 'Pre-Class 15 Lesson': 
+        # - Class 1: module-4/class-1.md
         # - 'Pre-Class 16 Lesson':  
+        # - Class 1: module-4/class-1.md
 
     - 'Additional Resources':
       - Interview Training: additionalResources/interviewChallenges.md
@@ -93,6 +104,7 @@ nav:
         - Day 7 QFD: additionalResources/questionsForDiscussion/qfd-class-7.md
         - Day 8 QFD: additionalResources/questionsForDiscussion/qfd-class-8.md
         - Day 9 QFD: additionalResources/questionsForDiscussion/qfd-class-9.md
+        - Day 10 QFD: additionalResources/questionsForDiscussion/qfd-class-10.md
       - Blog Prompts: additionalResources/blogPrompts.md
       - Keyboard Shortcuts: additionalResources/keyboardShortcuts.md
       - Git & CLI Commands: additionalResources/gitCommands.md
