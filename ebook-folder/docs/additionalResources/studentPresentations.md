@@ -52,8 +52,8 @@ Students should prepare in advance, and take their responsibility to the class a
 
 ## Class 10
 
-- [ ] *todo*
-- [ ] *todo*
+- [ ] *Demonstrate synthetic events in React and explain them.*
+- [ ] *Demonstrate how to tell React to build in Production mode and what will it do.*
 
 ## Class 11
 

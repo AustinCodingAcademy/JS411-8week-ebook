@@ -72,8 +72,6 @@ If you're feeling confident and comfortable with this process, you may use the `
     ```javascript
     import { connect } from 'react-redux'
     import Home from '../components/Home'
-    // import bindActionCreators tool to be able to use it
-    import { bindActionCreators } from 'redux'
     import { addCar, removeCar } from './actions'
 
     //...code removed for simplicity...

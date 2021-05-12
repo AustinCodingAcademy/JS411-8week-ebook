@@ -52,7 +52,15 @@
 
 ## Class 10
 
-- [ ]
+- [ ] Discuss in words something you learned in class today or this week.
+- [ ] What is Redux?
+- [ ] What is ‘Store’ in Redux?
+- [ ] How is state changed in Redux?
+- [ ] What is the difference between a Presentational component and a Container component?
+- [ ] What is the second argument that can optionally be passed to `setState` and what is its purpose?
+- [ ] Which (if there is) node library method could you use to solve the algorithm problem you solved last night in your pre-homework.
+- [ ] Which (if there is) node library method could you use to solve the algorithm problem you solved in class tonight?
+- [ ] What is your opinion of currently popular frameworks/libraries? List and provide your thoughts.
 
 ## Class 12
 

@@ -82,17 +82,17 @@ Speak aloud every thought you have. THIS IS THE MOST IMPORTANT PART!
 
 ### Class 9
 
-- [ ] **Prompt 1: Title** - *description*
+- [ ] **Prompt 1: Bucket Sort** - *How do you implement a bucket sort algorithm?*
 <!-- - [ ] **Prompt 2: Title** - *description* -->
 
 ### Class 10
 
-- [ ] **Prompt 1: Title** - *description*
+- [ ] **Prompt 1: Counting Sort** - *How do you implement a counting sort algorithm? Do it.*
 <!-- - [ ] **Prompt 2: Title** - *description* -->
 
 ### Class 11
 
-- [ ] **Prompt 1: Title** - *description*
+- [ ] **Prompt 1: New Team Member** - *Break into groups and describe how the Redux-Dashboard app works as if you're introducing a new team member to the source code. Your instructor will act as the your "new team member". 20 mins and then we'll come back to do it as a class.*
 <!-- - [ ] **Prompt 2: Title** - *description* -->
 
 ### Class 12
@@ -179,4 +179,4 @@ Don't be afraid to Google around and figure out how this is done.
 
  <!-- How is a merge sort algorithm implemented? Create one. -->
 
- <!-- How do you implement a counting sort algorithm? Do it. -->
+ <!--  -->
