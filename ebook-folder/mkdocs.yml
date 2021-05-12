@@ -32,15 +32,15 @@ nav:
         - React DevTools: module-1/reactDeveloperTools-pt1.md
         - Bonus - HTML + JSX: module-1/bonusLesson.md
         - Class 1 ToDo App: module-1/class-1.md
-      - 'Pre-Class 2 Lesson':
+      - 'Pre-Class 2 Lessons':
         - State & Props Intro: module-1/introToStateAndProps.md
         - Fetch, Store, Render: module-1/fetchStoreRender.md
         - Class 2 Beer App: module-1/class-2.md
-      - 'Pre-Class 3 Lesson':
+      - 'Pre-Class 3 Lessons':
         - Conditional Rendering: module-1/conditionalRendering.md
         - Dynamic Rendering: module-1/dynamicRendering.md
         - Class 3 Address Book: module-1/class-3.md
-      - 'Pre-Class 4 Lesson':
+      - 'Pre-Class 4 Lessons':
         - Forms in React: module-1/formsInReact.md
         - Hackathon Overview: module-1/hackathonOverview.md
         - Class 4 Hackathon: module-1/class-4.md
@@ -51,43 +51,44 @@ nav:
       - 'Pre-Class 6 Lessons':
         - Class Component Lifecycle: module-2/componentLifeCycle.md
         - Class 5: module-2/class-6.md
-      - 'Pre-Class 7 Lesson':
+      - 'Pre-Class 7 Lessons':
         - React Router Intro: module-2/reactRouter.md
         - Router Link: module-2/reactRouter-link.md
         - Implement React Router: module-2/implement-ReactRouter.md
         - Class 7: module-2/class-7.md
-      - 'Pre-Class 8 Lesson':
+      - 'Pre-Class 8 Lessons':
         - Protected Routes: module-2/protectedRoutes-intro.md
         - Class 8 Login: module-2/class-8.md
     - 'Module Three: App State': 
-      - 'Pre-Class 9 Lesson':
+      - 'Pre-Class 9 Lessons':
         - Redux Intro: module-3/redux-mapStateToProps.md
         - Redux Setup: module-3/redux-theSetup.md
         - Redux Connect: module-3/redux-connect.md
         - Class 9: module-3/class-9.md
-      - 'Pre-Class 10 Lesson':
+      - 'Pre-Class 10 Lessons':
         - Redux Actions: module-3/redux-actions.md  
         - Redux Reducers: module-3/redux-reducers.md  
         - Redux MDTP: module-3/redux-mdtp.md  
         - Redux Using Actions: module-3/redux-usingActions.md  
         - Class 10: module-3/class-10.md
+      - 'Pre-Class 11 Lessons': 
+        - Redux-Thunk: module-3/redux-thunk.md
+        # TODO - Class 11: module-3/class-11.md BUILD
+      - 'Pre-Class 12 Lessons': 
+        - React Hooks: module-3/reactHooks-intro.md
+        # TODO - Class 12: module-3/class-12.md
 
     # cp workspace/resources/templateFile.md docs/module-
 
     # cp workspace/resources/classOutlineTemplate.md docs/module-
-
-        # - 'Pre-Class 11 Lesson': 
-        # - Class 11: module-3/class-11.md
-        # - 'Pre-Class 12 Lesson': 
-        # - Class 12: module-3/class-12.md
       # - 'Module Four: TITLE':
-        # - 'Pre-Class 13 Lesson': 
+        # - 'Pre-Class 13 Lessons': 
         # - Class 1: module-4/class-1.md
-        # - 'Pre-Class 14 Lesson': 
+        # - 'Pre-Class 14 Lessons': 
         # - Class 1: module-4/class-1.md
-        # - 'Pre-Class 15 Lesson': 
+        # - 'Pre-Class 15 Lessons': 
         # - Class 1: module-4/class-1.md
-        # - 'Pre-Class 16 Lesson':  
+        # - 'Pre-Class 16 Lessons':  
         # - Class 1: module-4/class-1.md
 
     - 'Additional Resources':

@@ -179,4 +179,4 @@ Don't be afraid to Google around and figure out how this is done.
 
  <!-- How is a merge sort algorithm implemented? Create one. -->
 
- <!--  -->
+ <!-- How is an iterative quicksort algorithm implemented? Can you build one? -->
