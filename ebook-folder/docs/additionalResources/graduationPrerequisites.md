@@ -1,21 +1,22 @@
 # Graduation Prerequisites
 
-A graduate of this program will receive a digital certificate from ACA by:
+A certified graduate of this program will receive a digital certificate from ACA by:
 
-* Completing all 4 courses with an overall grade average of >70,
-* Each course must also be completed with a grade average of >70,
-* Build a full-stack web application using the technology learned in these past 4 courses that:
-    
-    * Has a SQL Database,
-    * Has an rest API to serve the data,
-    * Uses an third-party API,
-    * Has a sign-in strategy,
-    * Has a client-side app for a user to interact with,
+1. Completing all 4 courses with an overall grade average of >70,
+1. While maintaining a grade average of >70 in each individual course,
+1. Missing no more than a total of 4 class days in total and,
+1. Build a full-stack web application using the technology learned in the 4 courses that:
 
-* Deploy and Host the Capstone Project.
-    
-    * Is deployed and publicly accessible,
-    * Is linked to the ACA website.
+    - [ ] has a SQL database
 
-<!-- * Deploy and Host your personal portfolio.
-* Link the project to your Deployed and Hosted personal portfolio. -->
+    - [ ] has a back-end that serves the data
+
+    - [ ] uses a third-party API
+
+    - [ ] has a sign-in strategy
+
+    - [ ] has a client-side(front-end) app for a user to interact with
+
+    - [ ] app is deployed and publicly accessible
+
+To qualify for p**resenting your App** to the public at graduation please see [Presentations Qualifications](./presentationsQualifications.md)

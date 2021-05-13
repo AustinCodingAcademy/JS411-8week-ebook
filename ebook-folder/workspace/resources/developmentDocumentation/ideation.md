@@ -15,3 +15,7 @@ Use this space to record thoughts for future updates and ways to improve the cur
 ## Develop
 
 Scuba stress - https://www.youtube.com/watch?v=d7M8STBlfRs
+
+GCP --> AWS work around
+
+https://www.notion.so/Connect-MySQL-workbench-to-AWS-RDS-Free-tier-a95068f5d6b84383ac0af2fd7bfe15f6

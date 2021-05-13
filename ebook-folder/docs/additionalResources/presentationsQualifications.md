@@ -2,11 +2,12 @@
 
 <!-- Explain the purpose of the presentation -->
 
-To be eligible to present your Capstone Project to the public, family, friends, and recruiters at the graduation ceremony held after the conclusion of this course the candidate must:
+To be eligible to **present** your Capstone App to the public, your family, friends, and recruiters at the graduation ceremony held after the conclusion of this course the candidate must:
 
-* Complete the requirements to graduate (see above)
-* Deploy and host your Capstone Project
-* Rehearse the 5-minute presentation with your Job Placement Instructor and Campus Director.
+- [ ] Complete the requirements to graduate [see Graduation Prerequisites](./graduationPrerequisites.md)
+- [ ] Complete the 501 Job Placement Course
+- [ ] Create a profile and link your app to the ACA graduates page
+- [ ] Rehearse the 5-minute presentation with your Job Placement Instructor and/or Campus Director.
 
 ## Capstone Project Presentation Guidelines
 

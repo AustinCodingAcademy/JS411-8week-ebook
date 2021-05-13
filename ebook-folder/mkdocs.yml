@@ -76,7 +76,8 @@ nav:
         # TODO - Class 11: module-3/class-11.md BUILD
       - 'Pre-Class 12 Lessons': 
         - React Hooks: module-3/reactHooks-intro.md
-        # TODO - Class 12: module-3/class-12.md
+        - Capstone App: module-3/capstoneApp-planning-pt1.md
+        - Class 12: module-3/class-12.md
 
     # cp workspace/resources/templateFile.md docs/module-
 
@@ -107,6 +108,7 @@ nav:
         - Day 9 QFD: additionalResources/questionsForDiscussion/qfd-class-9.md
         - Day 10 QFD: additionalResources/questionsForDiscussion/qfd-class-10.md
         - Day 11 QFD: additionalResources/questionsForDiscussion/qfd-class-11.md
+        - Day 12 QFD: additionalResources/questionsForDiscussion/qfd-class-12.md
       - Blog Prompts: additionalResources/blogPrompts.md
       - Keyboard Shortcuts: additionalResources/keyboardShortcuts.md
       - Git & CLI Commands: additionalResources/gitCommands.md

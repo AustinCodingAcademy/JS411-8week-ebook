@@ -97,7 +97,7 @@ Speak aloud every thought you have. THIS IS THE MOST IMPORTANT PART!
 
 ### Class 12
 
-- [ ] **Prompt 1: Title** - *description*
+- [ ] **Prompt 1: No Temp Swap** - *How do you swap two numbers without using a third variable?*
 <!-- - [ ] **Prompt 2: Title** - *description* -->
 
 ### Class 13
@@ -180,3 +180,5 @@ Don't be afraid to Google around and figure out how this is done.
  <!-- How is a merge sort algorithm implemented? Create one. -->
 
  <!-- How is an iterative quicksort algorithm implemented? Can you build one? -->
+
+ <!-- [Count of Triples (A,B,C) where A*C > B*B](https://www.geeksforgeeks.org/count-of-triples-a-b-c-where-ac-is-greater-than-bb/) -->

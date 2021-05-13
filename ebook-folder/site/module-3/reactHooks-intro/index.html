@@ -1124,6 +1124,30 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstoneApp-planning-pt1/" class="md-nav__link">
+        Capstone App
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-12/" class="md-nav__link">
+        Class 12
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1349,6 +1373,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-12/" class="md-nav__link">
+        Day 12 QFD
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1527,8 +1563,49 @@
 <p>Just to reiterate . . . we are not taking a deep dive into this subject. We are bringing it up here because it is something you will see in the future and we just want to make sure you're prepared for it. Again, the next class is a free class for you to work on your final projects. That means you still come into class!</p>
 <p>That being said . . . why use React Hooks? Well . . . because it allows us to use things like <code>state</code> in our functional components. When we say "state" here we mean local component state. Not global app state created by Redux.</p>
 <h2 id="read-it-react-hooks">Read It - React Hooks</h2>
-<p>What are Hooks? They are simple pieces of React code that were added in 2018, to great fanfare among React developers. As we mentioned above, they allow you to use things like "state" in your functional components (not class components). This promotes code cleanliness as well. The best way to learn about it is to just dive right in so we will look at an example.</p>
+<p>What are Hooks? They are simple pieces of React code that were added in 2018, to great fanfare among React developers. As we mentioned above, they allow you to use "state" in functional components (<em>not class components</em>). This promotes code cleanliness, only functional components, as well, code performance. The best way to learn about it is to just dive right in so we will look at an example.</p>
 <p>The following is an example taken directly from the <a href="https://reactjs.org/docs/hooks-intro.html">React website</a>. Take a look at it and see if you can identify what looks different about it than the other React components you've seen and built.</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Functional <code>ExampleComponent.js</code></label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">ExampleComponent</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Declare a new state variable, which we&#39;ll call `count` with an initial value of `0`</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">You</span> <span class="nx">clicked</span> <span class="p">{</span><span class="nx">count</span><span class="p">}</span> <span class="nx">times</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+      <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mf">1</span><span class="p">)}</span><span class="o">&gt;</span>
+        <span class="nx">Click</span> <span class="nx">me</span>
+      <span class="o">&lt;</span><span class="err">/button&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">ExampleComponent</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>So what's happening in the component above? Well the first thing we notice is that we are importing the hook called <code>useState</code> from <code>React</code>. You can see that being used on the first line of the component. In fact, that's the only other line we need to talk about.</p>
+<p>If you remember, you can declare two variables at once using <a href="https://dev.to/sarah_chima/destructuring-assignment---arrays-16f">array destructuring</a> and that's exactly what's happening here with <code>[count, setCount]</code>. Count will represent the value of state you want to use. Using regular state, this would look like this:</p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Class-Based <code>ExampleComponent.js</code> Equivalent</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1547,35 +1624,47 @@
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>=== &quot;`ExampleComponent.js`&quot;
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
 
-```javascript
- import React, { useState } from &#39;react&#39;;
+  <span class="kd">class</span> <span class="nx">ExampleComponent</span> <span class="k">extends</span> <span class="nx">React</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span>
 
-function ExampleComponent() {
-  // Declare a new state variable, which we&#39;ll call &quot;count&quot; and an initial value of `0`
-  const [count, setCount] = useState(0);
+      <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">count</span><span class="o">:</span> <span class="mf">0</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
 
-  return (
-    &lt;div&gt;
-      &lt;p&gt;You clicked {count} times&lt;/p&gt;
-      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
-        Click me
-      &lt;/button&gt;
-    &lt;/div&gt;
-  );
-}
-```
-</code></pre></div>
-</td></tr></table>
-<p>So what's happening in the component above? Well the first thing we notice is that we are importing the hook called <code>useState</code> from <code>React</code>. You can see that being used on the first line of the component. In fact, that's the only other line we need to talk about.</p>
-<p>If you remember, you can declare two variables at once using <a href="https://dev.to/sarah_chima/destructuring-assignment---arrays-16f">array destructuring</a> and that's exactly what's happening here with <code>[count, setCount]</code>. Count will represent the value of state you want to use. Using regular state, this would look like this:</p>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Regular Local State Equivalent</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">count</span><span class="o">:</span> <span class="mf">0</span>
-<span class="p">}</span>
+    <span class="nx">setCount</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+        <span class="nx">count</span><span class="o">:</span> <span class="nx">count</span> <span class="o">+</span> <span class="mf">1</span>
+      <span class="p">})</span>
+    <span class="p">}</span>
+
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">(</span>
+        <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">You</span> <span class="nx">clicked</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="p">}</span> <span class="nx">times</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+          <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">setCount</span><span class="p">()}</span><span class="o">&gt;</span>
+            <span class="nx">Click</span> <span class="nx">me</span>
+          <span class="o">&lt;</span><span class="err">/button&gt;</span>
+        <span class="o">&lt;</span><span class="err">/div&gt;</span>
+      <span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">export</span> <span class="k">default</span> <span class="nx">ExampleComponent</span>
 </code></pre></div>
 </td></tr></table>
 </div>
@@ -1588,77 +1677,36 @@ function ExampleComponent() {
 <!-- ! Video Contents: YT, ReactConf - Dan Abramov - React 90% Cleaner -->
 <iframe width="655" height="368" src="https://www.youtube.com/embed/dpw9EHDh2bM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<hr />
 <!-- ! Video Contents: YT, TraversyMedia - Introducing React Hooks-->
 <iframe width="655" height="368" src="https://www.youtube.com/embed/mxK8b99iJTg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<hr />
+<hr />
 <h2 id="practice-it">Practice It</h2>
 <!-- https://studio.zollege.com/container/block-v1:ACA+JS411+09282020_JS411_C6+type@vertical+block@1d15a82226e549f99c5b67ea9a78ffd1 -->
+<iframe src="https://codesandbox.io/embed/sharp-leakey-5z0fg?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="sharp-leakey-5z0fg"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
 
-<!-- ! Video Contents: Vimeo, Clayton@ACA - TITLE - 411.1.1.* -->
-<iframe src="https://player.vimeo.com/video/*" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox"/> Import <code>{ useState }</code> on the first line next to React</li>
+<li class="task-list-item"><input type="checkbox"/> Initialize the variables like in the example above. You will want a <code>count</code> and <code>setCount</code> with the default value being <code>0</code></li>
+<li class="task-list-item"><input type="checkbox"/> Create an <code>&lt;h3&gt;</code> that displays the current count</li>
+<li class="task-list-item"><input type="checkbox"/> Create a button that uses <code>setCount</code> on its <code>onClick</code> method to change the <code>count</code></li>
+</ul>
 <h2 id="additional-resources">Additional Resources</h2>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <a href="">YT, tuber - title</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.youtube.com/watch?v=TNhaISOUy6Q">YT, Fireship - 10 React Hooks Explained</a></li>
 <li class="task-list-item"><input type="checkbox"/> <a href="https://dev.to/sarah_chima/destructuring-assignment---arrays-16f">Blog, sarah_chima@dev.to - Array Destructuring</a></li>
 </ul>
 <h2 id="know-your-docs">Know Your Docs</h2>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <a href="">React Docs - title</a></li>
 <li class="task-list-item"><input type="checkbox"/> <a href="https://reactjs.org/docs/hooks-intro.html">React Docs - Intro to Hooks</a></li>
 </ul>
-<!-- ! END OF VIDEO 101.1.3.1 - TITLE-->
-<!-- ? Video Numbering and Title system: CourseNumber.ModuleNumber.LessonNumber.VideoNumber -->
-<!-- * (VIDEO 101.2.4.3 - "CSS Selectors") === 101 Course, Module 2, Lesson 4, Video 3 - "CSS Selectors" -->
-<!-- ! Video Contents:  width="655" height="368" -->
-
-<!-- 
-
-
-
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>
-</code></pre></div>
-</td></tr></table>
-
-| Method      | Description                          |
-| ----------- | ------------------------------------ |
-| `GET`       | Fetch resource                       |
-| `PUT`       | Update resource |
-| `DELETE`    | Delete resource |
-
-
-    `line numbers`
-:do you like 'em?
-
-
-++slash++
-https://facelessuser.github.io/pymdown-extensions/extensions/keys/
-
-=== "Javascript"
-
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>
-</code></pre></div>
-</td></tr></table>
-
-=== "Python"
-
-  <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>
-</code></pre></div>
-</td></tr></table>
-
-=== "Example"
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="go">  .</span>
-</code></pre></div>
-</td></tr></table>
-
-=== "Instructions"
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  .
-</code></pre></div>
-</td></tr></table>
-
-=== "Result"
-    ![PIC](./../images/pic.png)
--->
                 
               
               
@@ -1691,13 +1739,13 @@ https://facelessuser.github.io/pymdown-extensions/extensions/keys/
         </a>
       
       
-        <a href="../../additionalResources/interviewChallenges/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../capstoneApp-planning-pt1/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Interview Training
+              Capstone App
             </div>
           </div>
           <div class="md-footer__button md-icon">

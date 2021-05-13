@@ -14,17 +14,17 @@ That being said . . . why use React Hooks? Well . . . because it allows us to us
 
 ## Read It - React Hooks
 
-What are Hooks? They are simple pieces of React code that were added in 2018, to great fanfare among React developers. As we mentioned above, they allow you to use things like "state" in your functional components (not class components). This promotes code cleanliness as well. The best way to learn about it is to just dive right in so we will look at an example.
+What are Hooks? They are simple pieces of React code that were added in 2018, to great fanfare among React developers. As we mentioned above, they allow you to use "state" in functional components (*not class components*). This promotes code cleanliness, only functional components, as well, code performance. The best way to learn about it is to just dive right in so we will look at an example.
 
 The following is an example taken directly from the [React website](https://reactjs.org/docs/hooks-intro.html). Take a look at it and see if you can identify what looks different about it than the other React components you've seen and built.
 
-    === "`ExampleComponent.js`"
+=== "Functional `ExampleComponent.js`"
 
     ```javascript
-     import React, { useState } from 'react';
+    import React, { useState } from 'react';
 
     function ExampleComponent() {
-      // Declare a new state variable, which we'll call "count" and an initial value of `0`
+      // Declare a new state variable, which we'll call `count` with an initial value of `0`
       const [count, setCount] = useState(0);
 
       return (
@@ -36,18 +36,47 @@ The following is an example taken directly from the [React website](https://reac
         </div>
       );
     }
+
+    export default ExampleComponent
     ```
 
 So what's happening in the component above? Well the first thing we notice is that we are importing the hook called `useState` from `React`. You can see that being used on the first line of the component. In fact, that's the only other line we need to talk about.
 
 If you remember, you can declare two variables at once using [array destructuring](https://dev.to/sarah_chima/destructuring-assignment---arrays-16f) and that's exactly what's happening here with `[count, setCount]`. Count will represent the value of state you want to use. Using regular state, this would look like this:
 
-=== "Regular Local State Equivalent"
+=== "Class-Based `ExampleComponent.js` Equivalent"
 
     ```javascript
-    state = {
-      count: 0
-    }
+      import React, { Component } from 'react'
+      
+      class ExampleComponent extends React {
+        constructor(props) {
+          super(props)
+
+          this.state = {
+            count: 0
+          }
+        }
+
+        setCount = () => {
+          this.setState({
+            count: count + 1
+          })
+        }
+
+        render() {
+          return (
+            <div>
+              <p>You clicked {this.state.count} times</p>
+              <button onClick={this.setCount()}>
+                Click me
+              </button>
+            </div>
+          )
+        }
+      }
+
+      export default ExampleComponent
     ```
 
 You'll notice that I set the `count` equal to `0`. The way that happened with React Hooks was on the second part of the first line, which reads `useState(0)`. The `useState` function is called with the initial value of the variable you want to set, `count`. So there's only one part left and that's the `setCount` variable. That variable represents a function and you call it when you want to change that particular piece of state! If we wanted to change the `count` to `1` we would write `setCount(1)` somewhere in the component. You can see an example of this in the button's `onClick` method. `<button onClick={() => setCount(count + 1)}>`.
@@ -63,74 +92,34 @@ This first video is the introduction of Hooks at the React Dev conference in 201
 <!-- ! Video Contents: YT, ReactConf - Dan Abramov - React 90% Cleaner -->
 <iframe width="655" height="368" src="https://www.youtube.com/embed/dpw9EHDh2bM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+****
+
 <!-- ! Video Contents: YT, TraversyMedia - Introducing React Hooks-->
 <iframe width="655" height="368" src="https://www.youtube.com/embed/mxK8b99iJTg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+*****
+*****
 
 ## Practice It
 
 <!-- https://studio.zollege.com/container/block-v1:ACA+JS411+09282020_JS411_C6+type@vertical+block@1d15a82226e549f99c5b67ea9a78ffd1 -->
+<iframe src="https://codesandbox.io/embed/sharp-leakey-5z0fg?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="sharp-leakey-5z0fg"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
 
-<!-- ! Video Contents: Vimeo, Clayton@ACA - TITLE - 411.1.1.* -->
-<iframe src="https://player.vimeo.com/video/*" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-
+- [ ] Import `{ useState }` on the first line next to React
+- [ ] Initialize the variables like in the example above. You will want a `count` and `setCount` with the default value being `0`
+- [ ] Create an `<h3>` that displays the current count
+- [ ] Create a button that uses `setCount` on its `onClick` method to change the `count`
 
 ## Additional Resources
 
-- [ ] [YT, tuber - title]()
+- [ ] [YT, Fireship - 10 React Hooks Explained](https://www.youtube.com/watch?v=TNhaISOUy6Q)
 - [ ] [Blog, sarah_chima@dev.to - Array Destructuring](https://dev.to/sarah_chima/destructuring-assignment---arrays-16f)
 
 ## Know Your Docs
 
-- [ ] [React Docs - title]()
 - [ ] [React Docs - Intro to Hooks](https://reactjs.org/docs/hooks-intro.html)
-
-<!-- ! END OF VIDEO 101.1.3.1 - TITLE-->
-<!-- ? Video Numbering and Title system: CourseNumber.ModuleNumber.LessonNumber.VideoNumber -->
-<!-- * (VIDEO 101.2.4.3 - "CSS Selectors") === 101 Course, Module 2, Lesson 4, Video 3 - "CSS Selectors" -->
-<!-- ! Video Contents:  width="655" height="368" -->
-
-<!-- 
-
-
-
-```javascript
-
-```
-
-| Method      | Description                          |
-| ----------- | ------------------------------------ |
-| `GET`       | Fetch resource                       |
-| `PUT`       | Update resource |
-| `DELETE`    | Delete resource |
-
-
-    `line numbers`
-:do you like 'em?
-
-
-++slash++
-https://facelessuser.github.io/pymdown-extensions/extensions/keys/
-
-=== "Javascript"
-
-    ```javascript
-    ```
-
-=== "Python"
-
-  ```python
-  ```
-
-=== "Example"
-    ```console
-      .
-    ```
-
-=== "Instructions"
-    ```markdown
-      .
-    ```
-
-=== "Result"
-    ![PIC](./../images/pic.png)
--->

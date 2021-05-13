@@ -62,8 +62,8 @@ Students should prepare in advance, and take their responsibility to the class a
 
 ## Class 12
 
-- [ ] *todo*
-- [ ] *todo*
+- [ ] *What are the basic principals of Redux?*
+- [ ] *Demonstrate the components and flow of data in Redux.*
 
 ## Class 13
 
