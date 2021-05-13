@@ -143,7 +143,7 @@ Test and come up with edge case scenarios
 Revise if you can for efficiency
 
 
-How do you count the number of vowels and consonants in a given string?
+1. How do you count the number of vowels and consonants in a given string?
 
 ```javascript
   const myWord = "puppy"
@@ -158,7 +158,7 @@ How do you count the number of vowels and consonants in a given string?
   
    -->
 
-<!-- Prompt: How is a [bubble sort algorithm](https://www.geeksforgeeks.org/bubble-sort/) implemented?
+<!-- 2. Prompt: How is a [bubble sort algorithm](https://www.geeksforgeeks.org/bubble-sort/) implemented?
 
 ```javascript
     const arrayOfNumbers = [2, 8, 9, 3, 10]
@@ -172,13 +172,13 @@ Don't be afraid to Google around and figure out how this is done.
  -->
 
  <!-- 
- Prompt: [How do you send a JSON object to a server using JavaScript?](https://www.geeksforgeeks.org/how-to-send-a-json-object-to-a-server-using-javascript/)
+ 3. Prompt: [How do you send a JSON object to a server using JavaScript?](https://www.geeksforgeeks.org/how-to-send-a-json-object-to-a-server-using-javascript/)
 
 Don't be afraid to Google around and figure out how this is done.
  -->
 
- <!-- How is a merge sort algorithm implemented? Create one. -->
+ <!-- 4. How is a merge sort algorithm implemented? Create one. -->
 
- <!-- How is an iterative quicksort algorithm implemented? Can you build one? -->
+ <!-- 5. How is an iterative quicksort algorithm implemented? Can you build one? -->
 
- <!-- [Count of Triples (A,B,C) where A*C > B*B](https://www.geeksforgeeks.org/count-of-triples-a-b-c-where-ac-is-greater-than-bb/) -->
+ <!-- 6. [Count of Triples (A,B,C) where A*C > B*B](https://www.geeksforgeeks.org/count-of-triples-a-b-c-where-ac-is-greater-than-bb/) -->
