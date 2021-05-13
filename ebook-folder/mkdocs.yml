@@ -73,7 +73,7 @@ nav:
         - Class 10: module-3/class-10.md
       - 'Pre-Class 11 Lessons': 
         - Redux-Thunk: module-3/redux-thunk.md
-        # TODO - Class 11: module-3/class-11.md BUILD
+        - Class 11: module-3/class-11.md
       - 'Pre-Class 12 Lessons': 
         - React Hooks: module-3/reactHooks-intro.md
         - Capstone App: module-3/capstoneApp-planning-pt1.md

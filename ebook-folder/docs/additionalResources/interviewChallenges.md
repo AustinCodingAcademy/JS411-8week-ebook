@@ -102,7 +102,7 @@ Speak aloud every thought you have. THIS IS THE MOST IMPORTANT PART!
 
 ### Class 13
 
-- [ ] **Prompt 1: Title** - *description*
+- [ ] **Prompt 1: Radix Sort** - *How is a radix sort algorithm implemented?*
 <!-- - [ ] **Prompt 2: Title** - *description* -->
 
 ### Class 14

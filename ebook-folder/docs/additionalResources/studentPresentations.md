@@ -57,8 +57,8 @@ Students should prepare in advance, and take their responsibility to the class a
 
 ## Class 11
 
-- [ ] *todo*
-- [ ] *todo*
+- [ ] *What are the concepts of functional programming?*
+- [ ] *AS A PROGRAMMER, YOU DON’T EXIST WITHIN A BUBBLE: IMMERSE YOURSELF IN THE CULTURE. Share with the class a few meetups, groups, and mailing lists to get on to join the local tech community.*
 
 ## Class 12
 
