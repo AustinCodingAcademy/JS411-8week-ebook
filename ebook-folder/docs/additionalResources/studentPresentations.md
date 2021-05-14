@@ -67,8 +67,8 @@ Students should prepare in advance, and take their responsibility to the class a
 
 ## Class 13
 
-- [ ] *todo*
-- [ ] *todo*
+- [ ] *Distinguish Redux from MVC and Flux.*
+- [ ] *Demonstrate how you would start [planning your react app](https://subscription.packtpub.com/book/web_development/9781783551620/4/ch04lvl1sec30/planning-your-react-application).*
 
 ## Class 14
 

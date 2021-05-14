@@ -2,7 +2,6 @@
 
 ## Tips For Teaching: Learning Styles & Learning Patterns
 
-LEARNING STYLES & LEARNING PATTERNS
 In academia, there are terms that describe ways of teaching and learning. Two of them are [Differentiated Learning](https://resilienteducator.com/classroom-resources/examples-of-differentiated-instruction/) and [Learning Styles](https://www.literacyplanet.com/au/news/engage-7-types-learners-classroom/). They are normally explained and taught as a one-to-one relationship, i.e. if you have a “Physical or Kinesthetic” learner you should only give them active and objective challenges. Humans are **not** as straightforward as this so here we’ll layout a practical way to apply these methodologies which will promote learning in your class and help you feel more accomplished as a teacher.
 
 There are seven types of learning styles:

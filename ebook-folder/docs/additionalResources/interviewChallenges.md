@@ -102,12 +102,12 @@ Speak aloud every thought you have. THIS IS THE MOST IMPORTANT PART!
 
 ### Class 13
 
-- [ ] **Prompt 1: Radix Sort** - *How is a radix sort algorithm implemented?*
+- [ ] **Prompt 1: Pascal's Triangle** - *Define a function that returns n lines of [Pascal’s Triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle)*
 <!-- - [ ] **Prompt 2: Title** - *description* -->
 
 ### Class 14
 
-- [ ] **Prompt 1: Title** - *description*
+- [ ] **Prompt 1: Radix Sort** - *How is a radix sort algorithm implemented?*
 <!-- - [ ] **Prompt 2: Title** - *description* -->
 
 ### Class 15
@@ -182,3 +182,6 @@ Don't be afraid to Google around and figure out how this is done.
  <!-- 5. How is an iterative quicksort algorithm implemented? Can you build one? -->
 
  <!-- 6. [Count of Triples (A,B,C) where A*C > B*B](https://www.geeksforgeeks.org/count-of-triples-a-b-c-where-ac-is-greater-than-bb/) -->
+
+
+ <!-- 7. Prompt: Collatz Conjecture - Start with a number n > 1. Find the number of steps it takes to reach one using the following process: If n is even, divide it by 2. If n is odd, multiply it by 3 and add 1. -->

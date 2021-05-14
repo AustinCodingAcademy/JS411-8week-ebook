@@ -16,7 +16,7 @@ Does it match up with the True Core Functionality of Your App?
 
 At the end of your 300 level class, you built a database and server for the start of your Capstone Project. Hopefully, you followed along with the directions to have a solid beginning to your app. However, your ideas have probably changed and maybe your data needs have too.
 
-You must draw out the data you’ll need for each component of your app so that you can plan your backend. When signing in, you’ll need access to your users and a POST route to take a username and password for verification. When editing a profile you’ll need a PUT route that takes in user info and updates the user’s data. This is what you’re really learning in this course, how to program, which is to say, you think about the steps a user will take from opening your app to closing your app and all of the data that’s needed to complete those tasks. More on this in Step 5.
+You must draw out the data you’ll need for each component of your app so that you can plan your backend. When signing in, you’ll need access to your users and a POST route to take a username and password for verification. When editing a profile you’ll need a PUT route that takes in user info and updates the user’s data. This is what you’re really learning in this course, how to program, which is to say, you think about the steps a user will take from opening your app to closing your app and all of the data that’s needed to complete those tasks. More on this in [Step 5: User Flow Chart](./capstoneApp-planning-pt3.md).
 
 Remember, back-ends come before front-ends. Why? Because the front-end depends on the data coming from the back-end (your server and any third-party APIs you choose to use). Your front-end only serves as an interface for your users to interact with the data you store in the database. Quite simply put, make sure your backend matches your front-end’s needs, **first**.
 
@@ -56,7 +56,6 @@ Make a code plan and speak aloud with your interviewers/team/self
 Test and come up with edge case scenarios
 Revise if you can for efficiency
 
-
-**Prompt: Collatz Conjecture** - *Start with a number n > 1. Find the number of steps it takes to reach one using the following process: If n is even, divide it by 2. If n is odd, multiply it by 3 and add 1.*
+ > **Prompt: Collatz Conjecture** - *Start with a number n > 1. Find the number of steps it takes to reach one using the following process: If n is even, divide it by 2. If n is odd, multiply it by 3 and add 1.*
 
 Don't worry about code on this one, get it down on paper first!!

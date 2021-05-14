@@ -33,6 +33,13 @@
 ### Interview Challenge, 15 mins
 <!-- The last two E happen here: elaborate and evaluate  -->
 <!-- this sections should have a challenge that can be solved with the skills they've learned since their last class. -->
+
+- [ ] **Restate**, rewrite, and clarify the question
+- [ ] **Write** the expected return given the input
+- [ ] **Make** a code plan and speak aloud with your interviewers/team
+- [ ] **Test** and come up with edge cases
+- [ ] **Revise** if you can for efficiency
+
 <!-- ! HIDDEN CONTENT: INSTRUCTOR ONLY -->
 [See Your Challenge Here](./../additionalResources/interviewChallenges.md)
 <!-- ! END HIDDEN CONTENT: INSTRUCTOR ONLY -->
