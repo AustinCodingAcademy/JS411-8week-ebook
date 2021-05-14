@@ -1,11 +1,11 @@
-# Class 13: Planning and Checkpoint Two
+# Class 14: Checkpoint Two - Small Biz App
 
 <!-- ! HIDE FROM STUDENT; INSTRUCTOR ONLY CONTENT -->
 <!-- ## Instructor Only Content - HIDE FROM STUDENTS -->
 <!-- cp workspace/resources/classOutlineTemplate.md docs/module- -->
 <!-- ! END INSTRUCTOR ONLY CONTENT -->
 
-*Sometimes we’re tested not to show our weaknesses, but to discover our strengths.*
+*Great things never come from comfort zones.*
 
 ## Greet, Outline, and Objectify
 
@@ -14,8 +14,7 @@
   
 *OBJECTIVE: Today the student will learn and practice to understand:*
 
-* *Collaborating with a partner in App Design*
-* *Data management*
+* *Critically thinking through the flow of user with conditional paths*
 
 *****
 
@@ -23,14 +22,16 @@
 - [ ] Interview Challenge
 - [ ] Student Presentations
 - [ ] Creation Time
-    * [ ] Capstone Planning with Teammates - 30 mins
-    * [ ] [Checkpoint 2 Project](./checkpointTwo-smallBizApp.md) time - 60 mins
+    * [ ] Capstone User Flow Planning - 45 mins
+    * [ ] Checkpoint 2 Work-time - 45 mins
+- [ ] Push Yourself Further
+- [ ] Interview Questions: Blog to Show You Know
 - [ ] Exit Recap, Attendance, and Reminders
 
 ### Questions for Student-Led Discussion, 15 mins
 <!-- This section should be structured with the 5E model: https://lesley.edu/article/empowering-students-the-5e-model-explained -->
 
-[Questions to prompt discussion](./../additionalResources/questionsForDiscussion/qfd-class-13.md)
+[Questions to prompt discussion](./../additionalResources/questionsForDiscussion/qfd-class-14.md)
 
 ### Interview Challenge, 15 mins
 <!-- The last two E happen here: elaborate and evaluate  -->
@@ -52,36 +53,28 @@
 
 ## Creation Time, 60-90 mins
 
-Today is a very BIG day! Please come in prepared and ready to hit the ground running.
+- [ ] Compare your Google Drawings to your teammate's and decide what tweaks need to be made.
+- [ ] Agree upon one diagram that clearly represents your app.
+- [ ] Take the flow to another group and ask them to walk through it for themselves without your help. Did it make sense to them?
+- [ ] Repeat the last step.
+- [ ] What tasks are on your Trello board that you think you can start doing today? Finish today?
+- [ ] Go do it. Try to time box your tasks. Set a timer for 15 minutes and see what you can get done in that time.
+- [ ] When the timer goes off, stand up, stretch, walk around, breathe, count to 30, then return.
+- [ ] Rinse and repeat.
 
-We'll spend 30 minutes after Whiteboarding and Discussion to plan our Capstone Project with your teammates then we'll move on to discussion, planning, and the building of your [Checkpoint 2 Project](./checkpointTwo-smallBizApp.md).
+Continue working on the Small Business App from last class. If you finish this exercise early, help a friend! Again, one of the best ways to learn is to teach. You will need to have this assignment submitted in Zollege by this weekend.
 
-### Instructions
+### Project Examples & Instructions
 
-#### Part 1 Instructions
+Refer to the [Small Business App examples and instructions](./checkpointTwo-smallBizApp.md).
 
-In your pre-class lesson, you read about the importance of your back-end providing the data your front-end needs to share with users. Get with your partner now and:
+## Blogs to Show You Know
 
-- [ ] Take a look at the core functions of your app.
-- [ ] Look at the routes and database your server from 311 currently have.
-- [ ] What needs to be added?
-- [ ] What needs to be changed?
-- [ ] Write it out, plan it into tasks, and add it to your Trello board.
-- [ ] Bring out the drawings you did last night. Compare and consider.
-- [ ] Do you two have the same vision? Are you able to agree?
-- [ ] Make re-drawings and plan together what it will look like. Consider too that you've been using Material UI. Should you use the components offered with it?
-- [ ] Take pictures of your drawings and add them to your blank sign-in repo in a folder called: `planningImages`
-- [ ] List anything important and link your Trello board to your `README.md` file so you have a place to gather all of your needed materials.
-
-#### Part 2 Instructions
-
-Now that you've got some plans laid out for your Capstone app let's look at your [Checkpoint 2 Project](./checkpointTwo-smallBizApp.md). All of the information and instruction you'll need is on that page.
-
-> Remember, you also have the next class to work on the checkpoint. Spend time researching any material you feel uncomfortable with.
+[Blog Prompts](./../additionalResources/blogPrompts.md)
 
 ## Exit Recap, Attendance, and Reminders, 5 mins
 
-- [ ] Create Checkpoint-2 Assignment
+- [ ] Create Class 14 Blog Assignment
 - [ ] Prepare for next by completing all of your pre-class lessons
 - [ ] Complete the feedback survey
 

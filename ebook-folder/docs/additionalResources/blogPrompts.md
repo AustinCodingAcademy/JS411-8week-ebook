@@ -72,7 +72,13 @@
 
 ## Class 14
 
-- [ ]
+- [ ] Discuss in words something you learned in class today or this week.
+- [ ] What is Redux Thunk used for?
+- [ ] What is the difference between React Native and React?
+- [ ] Are you familiar with AMD/require.js or commonjs? What can they do for you?
+- [ ] Which (if there is) node library method could you use to solve the algorithm problem you solved last night in your pre-homework.
+- [ ] Which (if there is) node library method could you use to solve the algorithm problem you solved in class tonight?
+- [ ] Explain your personal troubleshooting techniques. Include devtools and environments.
 
 ## Class 16
 

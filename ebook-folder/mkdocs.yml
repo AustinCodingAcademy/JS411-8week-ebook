@@ -84,17 +84,18 @@ nav:
         - Folder Structure: module-4/folderStructure.md
         - Capstone App pt.2: module-4/capstoneApp-planning-pt2.md
         - Class 13: module-4/class-13.md
-        - Checkpoint Two: module-4/checkpointTwo-smallBizApp.md
       - 'Pre-Class 14 Lessons':
+        - NPM Build: module-4/npmBuild-intro.md
         - Capstone App pt.3: module-4/capstoneApp-planning-pt3.md
-        # - Class 1: module-4/class-1.md
-
-    # https://studio.zollege.com/container/block-v1:ACA+JS411+09282020_JS411_C6+type@vertical+block@4a5549085a9c4af4817311ddf6f2bd5a
-    # cp workspace/resources/templateFile.md docs/module-4/
-
-    # cp workspace/resources/classOutlineTemplate.md docs/module-
+        - Class 14 Sm. Biz App: module-4/class-14.md
+        - Checkpoint Two: module-4/checkpointTwo-smallBizApp.md
         # - 'Pre-Class 15 Lessons': 
         # - Class 1: module-4/class-1.md
+        # https://studio.zollege.com/course/course-v1:ACA+JS411+09282020_JS411_C6?show=block-v1%3AACA%2BJS411%2B09282020_JS411_C6%2Btype%40chapter%2Bblock%40c6f269eff6d34071b1d3337f69c88b4a
+    
+    # cp workspace/resources/templateFile.md docs/module-4/
+    # cp workspace/resources/classOutlineTemplate.md docs/module-
+        
         # - 'Pre-Class 16 Lessons':s
         # - Class 1: module-4/class-1.md
 
@@ -116,6 +117,7 @@ nav:
         - Day 11 QFD: additionalResources/questionsForDiscussion/qfd-class-11.md
         - Day 12 QFD: additionalResources/questionsForDiscussion/qfd-class-12.md
         - Day 13 QFD: additionalResources/questionsForDiscussion/qfd-class-13.md
+        - Day 14 QFD: additionalResources/questionsForDiscussion/qfd-class-14.md
       - Blog Prompts: additionalResources/blogPrompts.md
       - Keyboard Shortcuts: additionalResources/keyboardShortcuts.md
       - Git & CLI Commands: additionalResources/gitCommands.md

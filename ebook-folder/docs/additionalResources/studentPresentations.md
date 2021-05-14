@@ -72,8 +72,8 @@ Students should prepare in advance, and take their responsibility to the class a
 
 ## Class 14
 
-- [ ] *todo*
-- [ ] *todo*
+- [ ] *How would you start a React-Native project? Demonstrate and describe.*
+- [ ] *What are the benefits of Redux?*
 
 ## Class 15
 

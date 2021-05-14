@@ -117,9 +117,9 @@ When a user clicks the logout button, remove the cookie and reset the "user" sta
 
 You will probably want at least three properties in your Redux state:
 
-    * [ ] user
-    * [ ] listings
-    * [ ] map
+* [ ] user
+* [ ] listings
+* [ ] map
 
 > NOTE: You do not have to name these the same way.
 

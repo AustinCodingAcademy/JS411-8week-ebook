@@ -112,7 +112,7 @@ Speak aloud every thought you have. THIS IS THE MOST IMPORTANT PART!
 
 ### Class 15
 
-- [ ] **Prompt 1: Title** - *description*
+- [ ] **Prompt 1: The Famous Recursive Fibonacci Sequence** - *Use recursion to log a fibonacci sequence of n length.*
 <!-- - [ ] **Prompt 2: Title** - *description* -->
 
 ### Class 16
@@ -185,3 +185,5 @@ Don't be afraid to Google around and figure out how this is done.
 
 
  <!-- 7. Prompt: Collatz Conjecture - Start with a number n > 1. Find the number of steps it takes to reach one using the following process: If n is even, divide it by 2. If n is odd, multiply it by 3 and add 1. -->
+
+ <!-- 8. Prompt: Coin Flip Simulation - Write some code that simulates flipping a single coin however many times the user decides. The code should record the outcomes and count the number of tails and heads. You may use any environment you like. -->
