@@ -19,4 +19,4 @@ A certified graduate of this program will receive a digital certificate from ACA
 
     - [ ] app is deployed and publicly accessible
 
-To qualify for p**resenting your App** to the public at graduation please see [Presentations Qualifications](./presentationsQualifications.md)
+To qualify for **presenting your App** to the public at graduation ceremony please see [Presentations Qualifications](./presentationsQualifications.md)

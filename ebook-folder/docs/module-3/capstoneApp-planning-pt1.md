@@ -1,4 +1,4 @@
-# Capstone App Planning
+# Capstone App Planning - Part 1
 
 *Push yourself, because no one else is going to do it for you.*
 

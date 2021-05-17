@@ -4,7 +4,7 @@ There will be no student presentation for the first class. We'll discuss the pur
 
 In order to develop our students' communication skills around software development, each student will plan, practice, and teach to the class on a subject listed here or in the home page of this textbook. The subject doesn't have to be closely related to what is currently being studied. Another objective of these presentations is to give cursory introductions to important topics that we don't have time to cover in the course.
 
-Students should prepare in advance, and take their responsibility to the class and themselves seriously. Take this time now to decide and record who will present starting next class, Day 2, through Day 4, then Week 5 through Day 16, * classes total. The first three classes, your prompt is: Pitch your graduation app to the class. What’s the problem? How does this app solve it?
+Students should prepare in advance, and own their responsibility to their class and themselves. Take this time now to decide and record who will present starting next class, Day 3, through Day 5, then Week 6 through Day 15 (18 presentations total). The first three classes, your prompt is: Pitch your graduation app to the class. What’s the problem? How does this app solve it?
 
 ## Class 1
 
@@ -77,13 +77,20 @@ Students should prepare in advance, and take their responsibility to the class a
 
 ## Class 15
 
-- [ ] *todo*
-- [ ] *todo*
+- [ ] *Demonstrate to the class where to start searching for jobs and how.*
+- [ ] *Programming is hard. Share with the class how to keep motivated even in the darkness.*
 
 ## Class 16
 
-- [ ] *todo*
-- [ ] *todo*
+Graduation App Pitches - all students or student pairs will pitch their app for the class!
+
+The Capstone App pitch includes:
+
+- [ ] Names and skills graduating with
+- [ ] Problem you were facing
+- [ ] How your app solves that problem
+- [ ] Favorite parts of the app
+- [ ] Where you'd like to see this app go in the future (new features, etc...)
 
 
 <!-- 

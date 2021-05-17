@@ -117,7 +117,7 @@ Speak aloud every thought you have. THIS IS THE MOST IMPORTANT PART!
 
 ### Class 16
 
-- [ ] **Prompt 1: Title** - *description*
+- [ ] **Prompt 1: Pattern Recognition** - *Define a function that takes an Array of Strings and returns the most commonly occurring String in that Array*
 <!-- - [ ] **Prompt 2: Title** - *description* -->
 
 
@@ -187,3 +187,11 @@ Don't be afraid to Google around and figure out how this is done.
  <!-- 7. Prompt: Collatz Conjecture - Start with a number n > 1. Find the number of steps it takes to reach one using the following process: If n is even, divide it by 2. If n is odd, multiply it by 3 and add 1. -->
 
  <!-- 8. Prompt: Coin Flip Simulation - Write some code that simulates flipping a single coin however many times the user decides. The code should record the outcomes and count the number of tails and heads. You may use any environment you like. -->
+
+ <!-- 9. Find the cost of tile to cover W x H floor - Calculate the total cost of tile it would take to cover a floor plan of width and height, using a cost entered by the user. -->
+
+<!-- 10. You have 1000 bottles of soda, and exactly one is poisoned. You have 10 test strips which can be used to detect poison. A single drop of poison will turn the test strip positive permanently. You can put any number of drops on a test strip at once and you can reuse a test strip as many times as you'd like (as long as the results are negative.) However, you can only run tests once per day and it takes seven days to return a result. How would you figure out the poisoned bottle in as few days as possible?
+
+Write code to simulate your approach.
+
+ -->

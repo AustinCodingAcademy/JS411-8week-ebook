@@ -89,16 +89,18 @@ nav:
         - Capstone App pt.3: module-4/capstoneApp-planning-pt3.md
         - Class 14 Sm. Biz App: module-4/class-14.md
         - Checkpoint Two: module-4/checkpointTwo-smallBizApp.md
-        # - 'Pre-Class 15 Lessons': 
-        # - Class 1: module-4/class-1.md
-        # https://studio.zollege.com/course/course-v1:ACA+JS411+09282020_JS411_C6?show=block-v1%3AACA%2BJS411%2B09282020_JS411_C6%2Btype%40chapter%2Bblock%40c6f269eff6d34071b1d3337f69c88b4a
-    
-    # cp workspace/resources/templateFile.md docs/module-4/
-    # cp workspace/resources/classOutlineTemplate.md docs/module-
-        
-        # - 'Pre-Class 16 Lessons':s
-        # - Class 1: module-4/class-1.md
+      - 'Pre-Class 15 Lessons': 
+        - Debugging: module-4/debugging-intro.md
+        - Capstone App pt.4: module-4/capstoneApp-planning-pt4.md
+        - Class 15: module-4/class-15.mds
+      - 'Pre-Class 16 Lessons':
+        - Deployment: module-4/deployment.md
+        - Capstone App pt.5: module-4/capstoneApp-planning-pt5.md
+        - Checkpoint Three: module-4/capstoneApp-checkpoint-3.md
+        - Class 16: module-4/class-16.md
 
+      # https://studio.zollege.com/course/course-v1:ACA+JS411+09282020_JS411_C6?show=block-v1%3AACA%2BJS411%2B09282020_JS411_C6%2Btype%40chapter%2Bblock%40571217217d8a4fd7a17b286aa707411e
+    
     - 'Additional Resources':
       - Interview Training: additionalResources/interviewChallenges.md
       - Student Presentations: additionalResources/studentPresentations.md
@@ -118,6 +120,8 @@ nav:
         - Day 12 QFD: additionalResources/questionsForDiscussion/qfd-class-12.md
         - Day 13 QFD: additionalResources/questionsForDiscussion/qfd-class-13.md
         - Day 14 QFD: additionalResources/questionsForDiscussion/qfd-class-14.md
+        - Day 15 QFD: additionalResources/questionsForDiscussion/qfd-class-15.md
+        - Day 16 QFD: additionalResources/questionsForDiscussion/qfd-class-16.md
       - Blog Prompts: additionalResources/blogPrompts.md
       - Keyboard Shortcuts: additionalResources/keyboardShortcuts.md
       - Git & CLI Commands: additionalResources/gitCommands.md
@@ -125,6 +129,8 @@ nav:
       - Graduation Prerequisites: additionalResources/graduationPrerequisites.md
       - Presentation Qualifications: additionalResources/presentationsQualifications.md
       # - 'Bonus Materials':
+      # cp workspace/resources/templateFile.md docs/module-
+      # cp workspace/resources/classOutlineTemplate.md docs/module-
 
 
 # defines the styles, usually just a single name but `custom_dir` overrides this behavior

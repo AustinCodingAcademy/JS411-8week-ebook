@@ -1,4 +1,4 @@
-# Capstone App Planning Pt. 3
+# Capstone App Planning - Part 3
 
 ## Overview
 
@@ -6,7 +6,7 @@ By this point you’ve put quite a bit of energy into this app and you’re thin
 
 ## Step 5: User Flow Chart
 
-Don’t start coding now, instead use those crude drawings you made in the last step and think about which one comes before which. Draw yourself and your team a chart that shows the flow of your app. It will start looking like a large if/else statement actually. Let’s say a user arrives at your app’s URL. If they choose “Sign-Up” they’ll be routed to the “Sign-Up” component, else they’re routed to the “Sign-In” component. Check out this [User Flow Chart](https://images.app.goo.gl/dnAeYicYjaraYAyJA) for an idea of how to start. This is actually an easy step that means SO much to how long it will take you to build your app. Please stop coding and draw this out on paper with your teammate. Then, work over it again. Draw it again. Draft it over and over until you both are sure this is what you want. Think of it as a contract, because in fact, your next job will know it as a contract.
+Don’t start coding now, instead use those crude drawings you made in the last step and think about which one comes before which. Draw yourself and your team a chart that shows the flow of your app. It will start looking like a large if/else statement actually. Let’s say a user arrives at your app’s URL. *If* they choose “Sign-Up” they’ll be routed to the “Sign-Up” component, else they’re routed to the “Sign-In” component. Check out this [User Flow Chart](https://images.app.goo.gl/dnAeYicYjaraYAyJA) for an idea of how to start. This is actually an easy step that means SO much to how long it will take you to build your app. Please stop coding and draw this out on paper with your teammate. Then, work over it again. Draw it again. Draft it over and over until you both are sure this is what you want. Think of it as a contract, because in fact, your next job will know it as a contract.
 
 ### See It - User Flow Charts
 

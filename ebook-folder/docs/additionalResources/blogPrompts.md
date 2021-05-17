@@ -82,4 +82,12 @@
 
 ## Class 16
 
-- [ ]
+- [ ] Discuss in words something you learned in class today or this week.
+- [ ] Explain the use cases for, and differences between — `bind`, `apply` and `call`.
+- [ ] Which (if there is) node library method could you use to solve the algorithm problem you solved last night in your pre-homework.
+- [ ] Which (if there is) node library method could you use to solve the algorithm problem you solved in class tonight?
+- [ ] How do you handle code organization?
+- [ ] How do you handle dependency management?
+- [ ] What is `React.cloneElement`? And the difference with `this.props.children`?
+- [ ] Walk us through the process of creation of an application or website you've built.
+- [ ] What are the differences between functional and imperative programming styles, and explain your preference, if any.

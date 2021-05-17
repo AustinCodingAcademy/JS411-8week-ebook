@@ -1,4 +1,4 @@
-# Capstone App Planning Pt. 2
+# Capstone App Planning - Part 2
 
 *Weeks of coding can save you hours of planning.*
 
