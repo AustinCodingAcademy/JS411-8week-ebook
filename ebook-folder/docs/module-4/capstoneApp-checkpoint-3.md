@@ -15,7 +15,7 @@ For specific requirements refer to the [Graduation Prerequisites](./../additiona
 
 ## To Present at Graduation Ceremony
 
-To qualify for **presenting your App** to the public at graduation ceremony please see [Presentations Qualifications](./presentationsQualifications.md)
+To qualify for **presenting your App** to the public at graduation ceremony please see [Presentations Qualifications](./../additionalResources/presentationsQualifications.md)
 
 ### Example Graduate Project
 

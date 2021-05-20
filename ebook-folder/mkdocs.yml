@@ -92,7 +92,7 @@ nav:
       - 'Pre-Class 15 Lessons': 
         - Debugging: module-4/debugging-intro.md
         - Capstone App pt.4: module-4/capstoneApp-planning-pt4.md
-        - Class 15: module-4/class-15.mds
+        - Class 15: module-4/class-15.md
       - 'Pre-Class 16 Lessons':
         - Deployment: module-4/deployment.md
         - Capstone App pt.5: module-4/capstoneApp-planning-pt5.md

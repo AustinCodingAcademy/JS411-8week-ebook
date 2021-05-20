@@ -12,7 +12,7 @@ Use this space to record thoughts for future updates and ways to improve the cur
 
 *If it's important enough to you you'll get it done.*
 
-*Follow your bliss and the Universe will open doors where there were only walls. —Joseph Campbell*
+
 
 ## Develop
 

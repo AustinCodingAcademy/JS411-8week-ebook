@@ -50,7 +50,7 @@ The `debugger` will stop your code after the ``count` variable is initialized. Y
 
 However, there are still a lot of options for places to use this especially when you are using class components with multiple methods. For example:
 
-=== ""
+=== "Another user of the `debugger` Keyword"
 
     ```javascript
       class App extends Component {
@@ -80,9 +80,9 @@ However, there are still a lot of options for places to use this especially when
       }
     ```
 
-And yes it also means you can use the debugger command in your Redux actions or reducers.
+And yes it also means you can use the `debugger` statement in your Redux actions or reducers.
 
-=== "title"
+=== "`debugger` used in Redux Action"
 
     ```javascript
     const users = (state = [], action) => {
@@ -128,7 +128,7 @@ And now the `user` will be logged to the console window.
 ## See It - Debugging in VS Code
 
 <!-- ! Video Contents: Vimeo, Ihatetomatoes - How to Debug React Apps in VS Code -->
-<iframe src="https://youtu.be/PJeNReqyH88" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe width="655" height="368" src="https://www.youtube.com/embed/PJeNReqyH88" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Know Your Docs
 

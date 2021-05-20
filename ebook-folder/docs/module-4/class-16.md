@@ -33,7 +33,7 @@
 ### Questions for Student-Led Discussion, 15 mins
 <!-- This section should be structured with the 5E model: https://lesley.edu/article/empowering-students-the-5e-model-explained -->
 
-[Questions to prompt discussion](./../additionalResources/questionsForDiscussion/qfd-class-0.md)
+[Questions to prompt discussion](./../additionalResources/questionsForDiscussion/qfd-class-16.md)
 
 ### Interview Challenge, 15 mins
 <!-- The last two E happen here: elaborate and evaluate  -->
@@ -58,7 +58,7 @@
 Take 5 - 10 minutes now to complete the End of Course Evaluation.This information is incredibly important to our organization to improve, grow our instructors, textbooks, and community.
 
 <!-- TODO find this form and where it's collecting data -->
-
+<!-- TODO Improve this FORM!!!  https://docs.google.com/forms/d/1d99ZNONx6Y2XC8DCv_yisiwDUXL1CM5EuV4md1OVyv8/edit -->
 <iframe id="openedx-zollege" src="https://openedx.zollege.com/end-of-course-survey" style="width: 100%; height: 500px; border: 0">Browser not compatible.</iframe>
 <script src="https://openedx.zollege.com/assets/index.js" type="application/javascript"></script>
 
@@ -72,7 +72,6 @@ After all pitches have been made use this time very wisely to ask your instructo
 
 ## Exit Recap, Attendance, and Reminders, 5 mins
 
-- [ ] Create *** Assignment
 - [ ] Create Class 16 Blog Assignment
 - [ ] Prepare for next by completing all of your pre-class lessons
 - [ ] Complete the feedback survey

@@ -1,93 +1,23 @@
-# TITLE
+# Capstone App Planning- Part 4
 
-*cp workspace/resources/templateFile.md docs/module-*
+*Follow your bliss and the Universe will open doors where there were only walls. —Joseph Campbell*
 
-## Overview
+## Step 6: Create Wireframes So You Know What to Code
 
+Okay, you’ve planned and drawn, thought and discussed and you’re starting to think you’ll never get to coding. That’s okay. [Coding without planning is like ... dumb.](https://medium.com/edge-coders/the-mistakes-i-made-as-a-beginner-programmer-ac8b3e54c312) Take each of these steps seriously, including this one. The more concrete you have your app in your mind, the easier it will be to create. Plus, this is how real development teams work.
 
-
-
-
-
-
-
-<!-- ! Video Contents: Vimeo, Clayton@ACA - TITLE - 411.1.1.* -->
-<iframe src="https://player.vimeo.com/video/*" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-
-<!--
-    === "title"
-
-    ```javascript
-    
-    ```
-    === "title"
-
-    ```javascript
-    
-    ```
--->
+To start, watch this [How To Video on MockFlow](https://youtu.be/hC72nwGNF9U) then go to [MockFlow](https://www.mockflow.com/pricing/) and use the free version to start building the wireframes of your app.
 
 ## Practice It
 
-<!-- ! Video Contents: Vimeo, Clayton@ACA - TITLE - 411.1.1.* -->
-<iframe src="https://player.vimeo.com/video/*" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+Tomorrow you'll be working with your teammate to finalize the look of your app. Make sure you have some things to bring to them. Maybe you can coordinate with which views you'll do and which one's they'll do...
 
+1. Think about which elements can be repeated:
 
-## Additional Resources
+    - [ ] header
+    - [ ] footer
+    - [ ] buttons
+    - [ ] forms
+    - [ ] navigation
 
-- [ ] [YT, tuber - title]()
-
-## Know Your Docs
-
-- [ ] [React Docs - title]()
-
-<!-- ! END OF VIDEO 101.1.3.1 - TITLE-->
-<!-- ? Video Numbering and Title system: CourseNumber.ModuleNumber.LessonNumber.VideoNumber -->
-<!-- * (VIDEO 101.2.4.3 - "CSS Selectors") === 101 Course, Module 2, Lesson 4, Video 3 - "CSS Selectors" -->
-<!-- ! Video Contents:  width="655" height="368" -->
-
-<!-- 
-
-
-
-```javascript
-
-```
-
-| Method      | Description                          |
-| ----------- | ------------------------------------ |
-| `GET`       | Fetch resource                       |
-| `PUT`       | Update resource |
-| `DELETE`    | Delete resource |
-
-
-    `line numbers`
-:do you like 'em?
-
-
-++slash++
-https://facelessuser.github.io/pymdown-extensions/extensions/keys/
-
-=== "Javascript"
-
-    ```javascript
-    ```
-
-=== "Python"
-
-  ```python
-  ```
-
-=== "Example"
-    ```console
-      .
-    ```
-
-=== "Instructions"
-    ```markdown
-      .
-    ```
-
-=== "Result"
-    ![PIC](./../images/pic.png)
--->
+2. All of these elements can be built once and called in place. Think about how to do this so you don't have to build these components multiple times AND so you can become a better programmer.
