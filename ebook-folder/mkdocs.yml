@@ -100,7 +100,7 @@ nav:
         - Class 16: module-4/class-16.md
 
       # https://studio.zollege.com/course/course-v1:ACA+JS411+09282020_JS411_C6?show=block-v1%3AACA%2BJS411%2B09282020_JS411_C6%2Btype%40chapter%2Bblock%40571217217d8a4fd7a17b286aa707411e
-    
+    - Report A Bug: additionalResources/reportABug.md
     - 'Additional Resources':
       - Interview Training: additionalResources/interviewChallenges.md
       - Student Presentations: additionalResources/studentPresentations.md
