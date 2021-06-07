@@ -81,6 +81,10 @@ and finally...
 - [ ] Take pictures of your drawings and add them to a folder in that repo called planningImages
 - [ ] Next add the list Core Functions to a `README.md` file. Turn in the pull request as your CapstonePlanning assignment for today.
 
+## Student Feedback
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjuL10i2xFGMWRwkjtgAL8F1Y5ipMPPjtTCDzkO1ZBcxUYZA/viewform?embedded=true" width="640" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
 ## Blogs to Show You Know
 
 [Blog Prompts](./../additionalResources/blogPrompts.md)

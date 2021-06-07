@@ -79,6 +79,10 @@ Now that you've got some plans laid out for your Capstone app let's look at your
 
 > Remember, you also have the next class to work on the checkpoint. Spend time researching any material you feel uncomfortable with.
 
+## Student Feedback
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjuL10i2xFGMWRwkjtgAL8F1Y5ipMPPjtTCDzkO1ZBcxUYZA/viewform?embedded=true" width="640" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+-
 ## Exit Recap, Attendance, and Reminders, 5 mins
 
 - [ ] Create Checkpoint-2 Assignment

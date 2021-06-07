@@ -55,6 +55,10 @@ This week is dedicated entirely to your final projects. However please make sure
 
 Ask you instructor if you have any questions surrounding your final project, technical or otherwise and he/she will assist you.
 
+## Student Feedback
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjuL10i2xFGMWRwkjtgAL8F1Y5ipMPPjtTCDzkO1ZBcxUYZA/viewform?embedded=true" width="640" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
 ## Exit Recap, Attendance, and Reminders, 5 mins
 
 - [ ] Create Capstone App Assignment

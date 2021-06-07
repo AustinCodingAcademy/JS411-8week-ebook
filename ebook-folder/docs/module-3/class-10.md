@@ -142,6 +142,10 @@ Also, make sure to run the app and go to the dashboard page to see these compone
 
 - [ ] Go back and finish this [this tutorial](https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f) from last class if you haven't already. You may have gotten stuck on some of the topics like `mapDispatchToProps` after last class but you shouldn't anymore.
 
+## Student Feedback
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjuL10i2xFGMWRwkjtgAL8F1Y5ipMPPjtTCDzkO1ZBcxUYZA/viewform?embedded=true" width="640" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
 ## Blogs to Show You Know
 
 [Blog Prompts](./../additionalResources/blogPrompts.md)

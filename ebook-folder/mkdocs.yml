@@ -50,7 +50,7 @@ nav:
         - Class 5 Music App 1/2: module-2/class-5.md
       - 'Pre-Class 6 Lessons':
         - Class Component Lifecycle: module-2/componentLifeCycle.md
-        - Class 5: module-2/class-6.md
+        - Class 6 Music App 2/2: module-2/class-6.md
       - 'Pre-Class 7 Lessons':
         - React Router Intro: module-2/reactRouter.md
         - Router Link: module-2/reactRouter-link.md
@@ -64,16 +64,16 @@ nav:
         - Redux Intro: module-3/redux-mapStateToProps.md
         - Redux Setup: module-3/redux-theSetup.md
         - Redux Connect: module-3/redux-connect.md
-        - Class 9: module-3/class-9.md
+        - Class 9 Redux MSTP: module-3/class-9.md
       - 'Pre-Class 10 Lessons':
         - Redux Actions: module-3/redux-actions.md  
         - Redux Reducers: module-3/redux-reducers.md  
         - Redux MDTP: module-3/redux-mdtp.md  
         - Redux Using Actions: module-3/redux-usingActions.md  
-        - Class 10: module-3/class-10.md
+        - Class 10 Redux MDTP: module-3/class-10.md
       - 'Pre-Class 11 Lessons': 
         - Redux-Thunk: module-3/redux-thunk.md
-        - Class 11: module-3/class-11.md
+        - Class 11 Redux-Thunk: module-3/class-11.md
       - 'Pre-Class 12 Lessons': 
         - React Hooks: module-3/reactHooks-intro.md
         - Capstone App pt.1: module-3/capstoneApp-planning-pt1.md

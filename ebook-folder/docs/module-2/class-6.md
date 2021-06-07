@@ -50,7 +50,11 @@
 Continue working on the Music App from last class. If you finish this exercise early, help a friend! One of the best ways to learn is to teach. You will need to have this assignment submitted by this weekend.
 
 Refer to the Music App examples and instructions provided last class.
-\
+
+## Student Feedback
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjuL10i2xFGMWRwkjtgAL8F1Y5ipMPPjtTCDzkO1ZBcxUYZA/viewform?embedded=true" width="640" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
 ## Blogs to Show You Know
 
 [Blog Prompts](./../additionalResources/blogPrompts.md)

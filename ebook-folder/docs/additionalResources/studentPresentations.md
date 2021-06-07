@@ -39,6 +39,7 @@ Students should prepare in advance, and own their responsibility to their class 
 
 - [ ] *What are the different phases of ReactJS component lifecycle?*
 - [ ] *How is React different from VUE?*
+- [ ] *What is the significance of keys in React? Demonstrate to the class how and when they need to be used.*
 
 ## Class 8
 
@@ -49,6 +50,7 @@ Students should prepare in advance, and own their responsibility to their class 
 
 - [ ] *What is Context in React? Describe and Demonstrate.*
 - [ ] *Pair programming is valuable. Teach the class why working together is better than going alone.*
+- [ ] *Why is the switch keyword used in React Router v4? Demonstrate and Describe.*
 
 ## Class 10
 
