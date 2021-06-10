@@ -23,11 +23,11 @@ You may have already known all that but it's important to reiterate. Now, becaus
 === "Simple React Component"
 
     ```javascript
-    export MyComponent = (props) => (
+    export MyComponent = (props) => {
       <div>
           <h1>Welcome to my component</h1>
       </div>
-    )
+    }
     ```
 
 ...because it's neither plain JavaScript nor HTML (it's a mixture of both), we need to do something with this code to format it in a way that the browser can read. There are two main things we need to do.
