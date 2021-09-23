@@ -34,7 +34,7 @@ To qualify for **presenting your App** to the public at graduation ceremony plea
 
 <!-- TODO The video on Vimeo needs to be edited so the opening frame matches the content -->
 <!-- ! Video Content: Clayton@ACA - Tie It All Together: Ideation & MVP  411.4.5.2 -->
-<iframe src="https://player.vimeo.com/video/496118730?color=2565EF&byline=0&portrait=0" width="65" height="368" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/496118730?color=2565EF&byline=0&portrait=0" width="655" height="368" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 > [GitHub repo of this video](https://github.com/AustinCodingAcademy/tie-it-all-together)
 
