@@ -57,9 +57,7 @@
 
 ## End of Course Feedback
 
-Take 5 - 10 minutes now to complete the End of Course Evaluation. This information is incredibly important to our organization to improve, grow our instructors, textbooks, and community.
-
-- [ ] [End of Course Evaluation](https://docs.google.com/forms/d/e/1FAIpQLScSN8i3bPtmSH5KzpRDtH7RBUO0y4sgIji2t2vZ9N4VueYqdg/viewform)
+Please take 5 - 10 minutes now to complete the [End of Course Evaluation](https://docs.google.com/forms/d/e/1FAIpQLScSN8i3bPtmSH5KzpRDtH7RBUO0y4sgIji2t2vZ9N4VueYqdg/viewform). This information is incredibly important to our organization to improve, grow our instructors, textbooks, and community.
 
 <!-- TODO find this form and where it's collecting data -->
 <!-- TODO Improve this FORM!!!  https://docs.google.com/forms/d/1d99ZNONx6Y2XC8DCv_yisiwDUXL1CM5EuV4md1OVyv8/edit -->
@@ -78,8 +76,8 @@ After all pitches have been made use this time very wisely to ask your instructo
 ## Exit Recap, Attendance, and Reminders, 5 mins
 
 - [ ] Create Class 16 Blog Assignment
-- [ ] Prepare for next by completing all of your pre-class lessons
-- [ ] Complete the feedback survey
+- [ ] Prepare 411 course by completing all of your pre-class lessons
+- [ ] Complete the End of Course Evaluation
 
 <!-- <iframe id="openedx-zollege" src="https://openedx.zollege.com/feedback" style="width: 100%; height: 500px; border: 0">Browser not compatible.</iframe>
 <script src="https://openedx.zollege.com/assets/index.js" type="application/javascript"></script> -->
