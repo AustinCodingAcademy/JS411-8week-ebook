@@ -19,6 +19,7 @@ Why use React Router? As we mentioned above, we use React Router to help us hand
 * `/users/0` -> UserDetails Component with the details of our first user
 
 === "React Router: The High Overview"
+  > NOTE: This video was recorded before reactRouter v6. We don't use `<switch>` anymore. It is now `<Routes>`
 
     <!-- ! Video Contents: Vimeo, Clayton@ACA - 411-28-ReactRouterHighOverview - 411.2.3.1 -->
     <iframe src="https://player.vimeo.com/video/492225296?color=2565EF&byline=0&portrait=0" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
@@ -40,7 +41,7 @@ Why use React Router? As we mentioned above, we use React Router to help us hand
     - [ ] `<Main />`
     - [ ] `<BrowserRouter />`
     - [ ] `<Router />`
-    - [ ] `<Switch />`
+    - [ ] `<Routes />`
     - [ ] `<Route path="/mycomponentofchoice" component={MyComponentOfChoice} />`
     - [ ] `<MyComponentOfChoice />`
     - [ ] `<Link to="/mycomponentofchoice" />`
@@ -76,18 +77,22 @@ After installing the libraries/packages that make up the magic of React Router, 
     const Router = () => {
         return (
             // Then we use Switch and Route. Switch acts like a regular JS Switch Statement
-            <Switch>
+            <Routes>
                 { /* depending on the path in the URL, one of these Routes will be returned and their component rendered */ }
-                <Route exact path="/" component={Home} />
+                <Route exact path="/*" component={Home} />
                 <Route path="/dash" component={Dashboard} />
-            </Switch>
+            </Routes>
         )
     }
     ```
 
-The `Switch` component always wraps multiple `Route`s so it is the single parent container this component returns. As we customize the "Router" component, keep in mind the `Switch` component bares an obvious resemblance in appearance and functionality to the `switch() { case: }` [statement we're familiar with in JavaScript](https://www.w3schools.com/js/js_switch.asp). In this way, it's kind of like an if/else for React components but leaner and cleaner.
+  > NOTE: When using the `*` at the end of a path it means to match deeply or exactly. We can only use `*` at the end of a path, make sure to never use it at the start or middle of a path. You'll only need the trailing `*` when there is another `<Routes>` somewhere in that route's descendant tree. In that case, the descendant `<Routes>` will match on the portion of the pathname that remains.
 
-In summary, `Switch` is telling the application, "hey, look at all of the paths in this section to see if the current path in the browser matches any of these. If so, return the route that's connected to it."
+The `Routes` component always wraps multiple `Route`s, so it is the single parent container this component returns. The `route`s are relative and help with leaner and more predictable code. `route`s are chosen based on the best match, not in order. You can put your `route`s in any order you like, the router will detect the best route for the current URL automatically. For readability if you want to start with "home" thats fine but nothing to worry about if you don't.
+
+  > NOTE: As we customize the "Router" component, keep in mind the `Routes` component bares an obvious resemblance in appearance and functionality to the [`switch() { case: }`](https://www.w3schools.com/js/js_switch.asp). 
+
+In summary, `Routes` is telling the application, "hey, look at all of the paths in this section to see if the current path in the browser matches any of these. If so, return the route that's connected to it."
 
 The `Route` then, is a component which specifies a combination of the correct relationship of "path" and "component". If the URL in the browser matches the path, then the Route sends the application to the correct component. In this case, /`dash` will load up the Dashboard component. You see the `<Route>` is the `case:` statement that says to do this when this is the case.
 

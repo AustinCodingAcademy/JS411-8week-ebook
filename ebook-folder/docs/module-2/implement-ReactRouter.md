@@ -52,10 +52,10 @@ Now that you've gotten a hold of this new tool and have an understanding of why 
       ```javascript
         const Router = () => {
           return (
-              <Switch>
+              <Routes>
                   <Route path="/home" component={Home} />
                   <Route path="/app" component={App} />
-              </Switch>
+              </Routes>
           )
         }
       ```
