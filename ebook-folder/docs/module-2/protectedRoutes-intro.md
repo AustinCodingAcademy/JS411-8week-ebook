@@ -95,10 +95,10 @@ We will put it in our `Router.js` file right above where the router is defined. 
 
       const Router = () => {
         return (
-          <Switch>
+          <Routes>
               <Route exact path="/" component={Home} />
               <ProtectedRoute path="/about" component={About} />
-          </Switch>
+          </Routes>
         )
       }
     ```
@@ -155,7 +155,7 @@ Want to know more about cookies and what you can do with them? Read this very [d
 ## Practice It
 
 <!-- ! Video Contents: CodeSandbox, ProtectedRoute Practice -->
-<iframe src="https://codesandbox.io/embed/vigorous-gauss-pw0wb?fontsize=14&hidenavigation=1&theme=dark"
+<iframe src="https://codesandbox.io/s/yjzyzr29ov?from-embed=&file=/example.js"
   style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
   title="vigorous-gauss-pw0wb"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"

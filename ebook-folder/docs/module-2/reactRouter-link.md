@@ -35,7 +35,7 @@ Once imported we can use it in our code like this:
     }
     ```
 
-Now, when a user clicks on the Dashboard Page link, the URL in the address bar will change, which will be picked up by the `BrowserRouter` component, which then calls the `Router` so the `<Switch>` component in the Router will return the correct component to the `<BrowserRouter>` —in this case, `<Dashboard/>`. The Link component at its simplest, just takes a prop called `to` which represents the path you want to navigate *to*.
+Now, when a user clicks on the Dashboard Page link, the URL in the address bar will change, which will be picked up by the `BrowserRouter` component, which then calls the `Router` so the `<Routes>` component in the Router will return the correct component to the `<BrowserRouter>` —in this case, `<Dashboard/>`. The Link component at its simplest, just takes a prop called `to` which represents the path you want to navigate *to*.
 
   > EXTRA: You won't need this for tomorrow, but it's important to know that Links can send an object of properties through the `to` prop which makes them even more powerful. Take a look below:
 

@@ -15,11 +15,13 @@ The value we give it is called a **key**. To give each of our items in the array
     ```javascript
     const todos = [{title: "Feed Dog", status: "red"}, {title: "Walk Dog", status: "yellow"}, {title: "Pet Dog", status: "green"}]
 
-    const todoItems = todos.map((item, i) =>
-      <li key={i} className={item.status}>
-        {item.title}
-      </li>
-    );
+const todoItems = todos.map((item, i) =>
+return (
+  <li key={i} className={item.status}>
+    {item.title}
+  </li>
+ )
+);
     ```
 
 Above we see an example of using the index of the item in the array as the key, represented as `i`. This is [not the preferred way but is the fall-back option](https://reactjs.org/docs/lists-and-keys.html) if you don't have [another way to assign unique keys](https://medium.com/dev-genius/the-quicky-lazy-but-effective-way-to-create-unique-keys-for-react-elements-e45d574028a3). If the items come with `id` keys we could assign the key to `item.id` or even `item.email` instead. All that matters to React is that each element has a unique key so it can do its job of updated and rendering what, when, and where.
