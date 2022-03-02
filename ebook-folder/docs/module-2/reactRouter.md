@@ -19,7 +19,6 @@ Why use React Router? As we mentioned above, we use React Router to help us hand
 * `/users/0` -> UserDetails Component with the details of our first user
 
 === "React Router: The High Overview"
-  > NOTE: This video was recorded before reactRouter v6. We don't use `<switch>` anymore. It is now `<Routes>`
 
     <!-- ! Video Contents: Vimeo, Clayton@ACA - 411-28-ReactRouterHighOverview - 411.2.3.1 -->
     <iframe src="https://player.vimeo.com/video/492225296?color=2565EF&byline=0&portrait=0" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
@@ -49,6 +48,8 @@ Why use React Router? As we mentioned above, we use React Router to help us hand
     - [ ] Installation
     - [ ] `npm i react-router react-router-dom`
     - [ ] Open up the React Router Docs: [https://reactrouter.com/web/guides/quick-start](https://reactrouter.com/web/guides/quick-start)
+
+    > NOTE: This video was recorded before reactRouter v6. We don't use `<switch>` anymore. It is now `<Routes>`
 
 ## What
 

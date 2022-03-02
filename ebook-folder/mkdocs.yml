@@ -33,7 +33,7 @@ nav:
         - Bonus - HTML + JSX: module-1/bonusLesson.md
         - Class 1 ToDo App: module-1/class-1.md
       - 'Pre-Class 2 Lessons':
-        - Develop I Must Succeed: module-1
+        - Develop I Must Succeed: module-1/developSeries-i-must-succeed.md
         - State & Props Intro: module-1/introToStateAndProps.md
         - Fetch, Store, Render: module-1/fetchStoreRender.md
         - Class 2 Beer App: module-1/class-2.md

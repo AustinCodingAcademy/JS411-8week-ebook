@@ -357,7 +357,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../developSeries-i-must-succeed/" class="md-nav__link">
         Develop I Must Succeed
       </a>
     </li>
@@ -2051,23 +2051,19 @@
 <p>The value we give it is called a <strong>key</strong>. To give each of our items in the array a unique and individual key we assign it the value of the index in the callback function of the <code>.map()</code> method.</p>
 <h2 id="mapping-key-index">Mapping - Key &amp; Index</h2>
 <div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">.map Example with key <code>i</code> as 2nd argument</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">todos</span> <span class="o">=</span> <span class="p">[{</span><span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Feed Dog&quot;</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span><span class="p">},</span> <span class="p">{</span><span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Walk Dog&quot;</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;yellow&quot;</span><span class="p">},</span> <span class="p">{</span><span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Pet Dog&quot;</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;green&quot;</span><span class="p">}]</span>
-
-<span class="kd">const</span> <span class="nx">todoItems</span> <span class="o">=</span> <span class="nx">todos</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">item</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">=&gt;</span>
-  <span class="o">&lt;</span><span class="nx">li</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">i</span><span class="p">}</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">status</span><span class="p">}</span><span class="o">&gt;</span>
-    <span class="p">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span>
-  <span class="o">&lt;</span><span class="err">/li&gt;</span>
-<span class="p">);</span>
-</code></pre></div>
-</td></tr></table>
+<p>```javascript
+const todos = [{title: "Feed Dog", status: "red"}, {title: "Walk Dog", status: "yellow"}, {title: "Pet Dog", status: "green"}]</p>
 </div>
 </div>
+<p>const todoItems = todos.map((item, i) =&gt;
+return (
+<br />
+<li key={i} className={item.status}>
+    {item.title}
+  </li></p>
+<p>)
+);
+    ```</p>
 <p>Above we see an example of using the index of the item in the array as the key, represented as <code>i</code>. This is <a href="https://reactjs.org/docs/lists-and-keys.html">not the preferred way but is the fall-back option</a> if you don't have <a href="https://medium.com/dev-genius/the-quicky-lazy-but-effective-way-to-create-unique-keys-for-react-elements-e45d574028a3">another way to assign unique keys</a>. If the items come with <code>id</code> keys we could assign the key to <code>item.id</code> or even <code>item.email</code> instead. All that matters to React is that each element has a unique key so it can do its job of updated and rendering what, when, and where.</p>
 <blockquote>
 <p>Note: See how we assigned the className to the status of the todo item. This is JSX syntax that means the same as class name in HTML.</p>

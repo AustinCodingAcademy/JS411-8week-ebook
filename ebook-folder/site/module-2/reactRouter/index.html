@@ -355,7 +355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module-1" class="md-nav__link">
+      <a href="../../module-1/developSeries-i-must-succeed/" class="md-nav__link">
         Develop I Must Succeed
       </a>
     </li>
@@ -2080,7 +2080,7 @@
 <li class="task-list-item"><input type="checkbox"/> <code>&lt;Main /&gt;</code></li>
 <li class="task-list-item"><input type="checkbox"/> <code>&lt;BrowserRouter /&gt;</code></li>
 <li class="task-list-item"><input type="checkbox"/> <code>&lt;Router /&gt;</code></li>
-<li class="task-list-item"><input type="checkbox"/> <code>&lt;Switch /&gt;</code></li>
+<li class="task-list-item"><input type="checkbox"/> <code>&lt;Routes /&gt;</code></li>
 <li class="task-list-item"><input type="checkbox"/> <code>&lt;Route path="/mycomponentofchoice" component={MyComponentOfChoice} /&gt;</code></li>
 <li class="task-list-item"><input type="checkbox"/> <code>&lt;MyComponentOfChoice /&gt;</code></li>
 <li class="task-list-item"><input type="checkbox"/> <code>&lt;Link to="/mycomponentofchoice" /&gt;</code></li>
@@ -2089,6 +2089,9 @@
 <li class="task-list-item"><input type="checkbox"/> <code>npm i react-router react-router-dom</code></li>
 <li class="task-list-item"><input type="checkbox"/> Open up the React Router Docs: <a href="https://reactrouter.com/web/guides/quick-start">https://reactrouter.com/web/guides/quick-start</a></li>
 </ul>
+<blockquote>
+<p>NOTE: This video was recorded before reactRouter v6. We don't use <code>&lt;switch&gt;</code> anymore. It is now <code>&lt;Routes&gt;</code></p>
+</blockquote>
 </div>
 </div>
 <h2 id="what">What</h2>
@@ -2128,19 +2131,25 @@
 <span class="kd">const</span> <span class="nx">Router</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">(</span>
         <span class="c1">// Then we use Switch and Route. Switch acts like a regular JS Switch Statement</span>
-        <span class="o">&lt;</span><span class="nx">Switch</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">Routes</span><span class="o">&gt;</span>
             <span class="p">{</span> <span class="cm">/* depending on the path in the URL, one of these Routes will be returned and their component rendered */</span> <span class="p">}</span>
-            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/&quot;</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Home</span><span class="p">}</span> <span class="o">/&gt;</span>
+            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/*&quot;</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Home</span><span class="p">}</span> <span class="o">/&gt;</span>
             <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/dash&quot;</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Dashboard</span><span class="p">}</span> <span class="o">/&gt;</span>
-        <span class="o">&lt;</span><span class="err">/Switch&gt;</span>
+        <span class="o">&lt;</span><span class="err">/Routes&gt;</span>
     <span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 </div>
 </div>
-<p>The <code>Switch</code> component always wraps multiple <code>Route</code>s so it is the single parent container this component returns. As we customize the "Router" component, keep in mind the <code>Switch</code> component bares an obvious resemblance in appearance and functionality to the <code>switch() { case: }</code> <a href="https://www.w3schools.com/js/js_switch.asp">statement we're familiar with in JavaScript</a>. In this way, it's kind of like an if/else for React components but leaner and cleaner.</p>
-<p>In summary, <code>Switch</code> is telling the application, "hey, look at all of the paths in this section to see if the current path in the browser matches any of these. If so, return the route that's connected to it."</p>
+<blockquote>
+<p>NOTE: When using the <code>*</code> at the end of a path it means to match deeply or exactly. We can only use <code>*</code> at the end of a path, make sure to never use it at the start or middle of a path. You'll only need the trailing <code>*</code> when there is another <code>&lt;Routes&gt;</code> somewhere in that route's descendant tree. In that case, the descendant <code>&lt;Routes&gt;</code> will match on the portion of the pathname that remains.</p>
+</blockquote>
+<p>The <code>Routes</code> component always wraps multiple <code>Route</code>s, so it is the single parent container this component returns. The <code>route</code>s are relative and help with leaner and more predictable code. <code>route</code>s are chosen based on the best match, not in order. You can put your <code>route</code>s in any order you like, the router will detect the best route for the current URL automatically. For readability if you want to start with "home" thats fine but nothing to worry about if you don't.</p>
+<blockquote>
+<p>NOTE: As we customize the "Router" component, keep in mind the <code>Routes</code> component bares an obvious resemblance in appearance and functionality to the <a href="https://www.w3schools.com/js/js_switch.asp"><code>switch() { case: }</code></a>. </p>
+</blockquote>
+<p>In summary, <code>Routes</code> is telling the application, "hey, look at all of the paths in this section to see if the current path in the browser matches any of these. If so, return the route that's connected to it."</p>
 <p>The <code>Route</code> then, is a component which specifies a combination of the correct relationship of "path" and "component". If the URL in the browser matches the path, then the Route sends the application to the correct component. In this case, /<code>dash</code> will load up the Dashboard component. You see the <code>&lt;Route&gt;</code> is the <code>case:</code> statement that says to do this when this is the case.</p>
 <div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Remember to Import the Components You Want to Use</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
