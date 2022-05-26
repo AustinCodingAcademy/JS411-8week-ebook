@@ -39,6 +39,7 @@ nav:
         - Class 2 Beer App: module-1/class-2.md
       - 'Pre-Class 3 Lessons':
         - Conditional Rendering: module-1/conditionalRendering.md
+        - Functional Components and Hooks: module-3\functionalComponentHooks.md
         - Dynamic Rendering: module-1/dynamicRendering.md
         - Class 3 Address Book: module-1/class-3.md
       - 'Pre-Class 4 Lessons':
