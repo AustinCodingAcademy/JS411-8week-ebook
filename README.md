@@ -13,26 +13,18 @@ A dead simple Node Express app that serves static [Material Themed docs](https:/
 
 To be able to edit the ebook you will need to follow these steps first:
 
-1. Install Python 3.7+ 
-  * If you have Python < 3.7
-  * to upgrade from 2.6+ you'll need to [install](https://realpython.com/intro-to-pyenv/) [pyenv](https://github.com/pyenv/pyenv-installer)
-  * Use `pyenv` to install latest version of python `pyenv install 3.9.2`
-  * You'll need to delete the path to the last version of Python:
-      * [MacOS](https://www.freecodecamp.org/news/python-version-on-mac-update/)
-      * [Windows](https://docs.python.org/3/using/windows.html)
-  * Then reinstall the path:
-      * `echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile`
-      * `echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile`
-      * `echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bash_profile`
-      * close your terminal and re-open to clear past memory
-      * `pyenv install 3.9.2`
-      * `pyenv global 3.9.2`
-      * `pyenv versions`
-2. Install [pip](https://pip.pypa.io/en/stable/installing/)
+1. [Install Python 3.7+](https://www.python.org/downloads/) on to your computer
+2. pip should be installed with Python but if not: install [pip](https://pip.pypa.io/en/stable/installing/) or [`pip3 install pip`](https://pip.pypa.io/en/stable/installation/)
 3. `cd ebook-folder` to move into the Python package
 4. run `git clone https://github.com/squidfunk/mkdocs-material.git`
-5. Install the Python Packages `pip install -r requirements.txt` (See `requirements.txt`)
+5. Install the Python Packages `pip install -r requirements.txt` (See `requirements.txt`) or `pip3 install -r requirements.txt`
 6. Run `mkdocs build` to build the markdown files into static HTML files into the `site/` directory.
+
+  > NOTE1: if you are running Python 2.7 this will not work. You'll need to [update to Python 3.7 or higher](https://phoenixnap.com/kb/upgrade-python).
+
+  > NOTE2: if you are still running into the error your machine may have Python 2.7 set as a default. [Change it to an alias so you alwasy use 3.7+](https://osxdaily.com/2022/02/15/make-python-3-default-macos/) or [change to alternative versions](https://www.skillsugar.com/how-to-change-the-default-python-version).
+
+  > NOTE3: potential updates needed to Python packages, see `requirements.txt`. Upgraded ` pymdown_extensions-8.1.1` to [`pymdown_extensions-9.4`](https://facelessuser.github.io/pymdown-extensions/) & `mkdocs-1.1.2` to `mkdocs-1.3.0` on May 10, 2022. run `pip3 install <package> --upgrade`
 
 ## Serve
 
