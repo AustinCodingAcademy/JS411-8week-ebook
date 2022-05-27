@@ -17,7 +17,7 @@ To be able to edit the ebook you will need to follow these steps first:
 2. pip should be installed with Python but if not: install [pip](https://pip.pypa.io/en/stable/installing/) or [`pip3 install pip`](https://pip.pypa.io/en/stable/installation/)
 3. `cd ebook-folder` to move into the Python package
 4. run `git clone https://github.com/squidfunk/mkdocs-material.git`
-5. Install the Python Packages `pip install -r requirements.txt` (See `requirements.txt`) or `pip3 install -r requirements.txt`
+5. Install the Python Packages `pip3 install -r requirements.txt` (See `requirements.txt`).
 6. Run `mkdocs build` to build the markdown files into static HTML files into the `site/` directory.
 
   > NOTE1: if you are running Python 2.7 this will not work. You'll need to [update to Python 3.7 or higher](https://phoenixnap.com/kb/upgrade-python).
