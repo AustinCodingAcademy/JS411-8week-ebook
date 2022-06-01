@@ -19,6 +19,8 @@ The reason we are introducing Material UI is because it is a robust, cross-platf
 <!-- ! Video Contents: Vimeo, Clayton@ACA - 411-23-MaterialUIOverview - 411.2.1.1 -->
 <iframe src="https://player.vimeo.com/video/492164671?color=2565EF&byline=0&portrait=0" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
+  > NOTE: In this video at 2:43 use this command to install: `npm install @mui/material @emotion/react @emotion/styled`
+
 ### More on Material-UI
 
 We mentioned the words "component library". But what does that mean? Well...a component library is a set of pre-built components that satisfy some specific design requirement. For example...say I want all the buttons on my website to look the same (or similar). This is something that you usually want for consistency and good design. Well, Material UI provides a pre-built Button component that you can import into your code like this:
@@ -87,6 +89,41 @@ We will use Material UI to style our App in this week's lesson so go get familia
 
 <!-- ! Video Contents: Vimeo, Clayton@ACA - 411-24-UsingMaterialUI - 411.2.1.2 -->
 <iframe src="https://player.vimeo.com/video/492174275?color=2565EF&byline=0&portrait=0" width="655" height="368" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+> NOTE: In this video at 4:49 you will see `makeStyles` but the pefered design pattern is higher order component:
+   ```javascript
+    const ExpandMore = styled((props) => {
+         const { expand, ...other } = props;
+         return <IconButton {...other} />;
+    })(({ theme, expand }) => ({
+      transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+      marginLeft: 'auto',
+      transition: theme.transitions.create('transform', {
+        duration: theme.transitions.duration.shortest,
+      }),
+    }));
+   ```
+   > NOTE-2: If you want to use `makeStyles` you will to make sure it is in a `themeProvider` component see: [V4 to v5 migration](https://mui.com/material-ui/guides/migration-v4/):
+
+   ```javascript
+         // ...imports
+
+      function AppContent(props) {
+        const classes = useStyles(); // ✅ This is safe because it is called inside ThemeProvider
+        return <Card className={classes.root}>...</Card>;
+      }
+
+      function App(props) {
+        return (
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <AppContent {...props} />
+          </ThemeProvider>
+        );
+      }
+
+     export default App;
+   ```
 
 ## Practice It
 
