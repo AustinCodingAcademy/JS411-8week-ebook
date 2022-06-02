@@ -8,7 +8,7 @@ This BrowserRouter is pretty cool because it uses a Router component to route th
 
 Since Web 101 you've know that an `<a>` (anchor) tag is used to create hyperlinks on your site to get to a certain page in your website's folder, which typically look like this: `<a href="/dash">Go to Dashboard</a>`.
 
-React Router provides its own linking mechanism that ensures interaction with our `<Router>` and `<Switch>` statement we created at the beginning of the homework. One of the great things about this component is that we can use it anywhere in our code. To do so, we need to import it first: `import { Link } from 'react-router-dom'`. (Maybe you're picking up on the pattern now?)
+React Router provides its own linking mechanism that ensures interaction with our `<Router>` and `<Routes>` paths we created at the beginning of the homework. One of the great things about this component is that we can use it anywhere in our code. To do so, we need to import it first: `import { Link } from 'react-router-dom'`. (Maybe you're picking up on the pattern now?)
 
 Once imported we can use it in our code like this:
 
@@ -56,4 +56,4 @@ Now, when a user clicks on the Dashboard Page link, the URL in the address bar w
 
 ## Know Your Docs
 
-- [ ] [React Training Docs - Link](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/Link.md)
+- [ ] [React Training Docs - Link](https://reactrouter.com/docs/en/v6/components/link)

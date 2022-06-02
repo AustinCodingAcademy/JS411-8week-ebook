@@ -49,7 +49,7 @@ Why use React Router? As we mentioned above, we use React Router to help us hand
     - [ ] `npm i react-router react-router-dom`
     - [ ] Open up the React Router Docs: [https://reactrouter.com/web/guides/quick-start](https://reactrouter.com/web/guides/quick-start)
 
-    > NOTE: This video was recorded before reactRouter v6. We don't use `<switch>` anymore. It is now `<Routes>`
+    > NOTE: This video was recorded before reactRouter v6. We don't use `<Switch>` anymore. It is now `<Routes>`
 
   > NOTE: This video was recorded before React v8 and the rendering method for React is now ReactDOM.createRoot() which is imported from "react-dom/client".
     ```javascript
@@ -87,7 +87,7 @@ After installing the libraries/packages that make up the magic of React Router, 
 
     const Router = () => {
         return (
-            // Then we use Switch and Route. Switch acts like a regular JS Switch Statement
+            { /* Then we use Routes and Route. Routes acts like a regular JS Switch* Statement */ }
             <Routes>
                 { /* depending on the path in the URL, one of these Routes will be returned and their component rendered */ }
                 <Route path="/*" element={<Home/>} />
