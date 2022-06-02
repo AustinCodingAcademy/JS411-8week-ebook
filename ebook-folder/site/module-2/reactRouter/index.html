@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.0.5">
     
     
       
@@ -432,6 +432,18 @@
     <li class="md-nav__item">
       <a href="../../module-1/conditionalRendering/" class="md-nav__link">
         Conditional Rendering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/functionalComponentHooks/" class="md-nav__link">
+        Functional Components and Hooks
       </a>
     </li>
   
@@ -2101,7 +2113,7 @@
 <h3 id="creating-the-router">Creating the Router</h3>
 <p>After installing the libraries/packages that make up the magic of React Router, we need to create a router, which really is just a function that, when called, returns the component it's assigned to. We start by creating a file called <code>Router.js</code>, usually right inside the <code>src/</code> folder. Here's an example of a simple Router file:</p>
 <div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1"><code>src/Router.js</code></label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2119,27 +2131,26 @@
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"></span>
 
-<span class="c1">// Here is where we are importing to the two main components we need from the React Router package.</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Switch</span><span class="p">,</span> <span class="nx">Route</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-router&#39;</span>
+<span class="c1">// Here is where we are importing to the two main components we need from the React Router package.</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Switch</span><span class="p">,</span><span class="w"> </span><span class="nx">Route</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router&#39;</span><span class="w"></span>
 
-<span class="c1">// Local imports. Import components we built ourselves</span>
-<span class="k">import</span> <span class="nx">Home</span> <span class="nx">from</span> <span class="s1">&#39;./Home&#39;</span>
-<span class="k">import</span> <span class="nx">Dashboard</span> <span class="nx">from</span> <span class="s1">&#39;./components/Dashboard&#39;</span>
+<span class="c1">// Local imports. Import components we built ourselves</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Home</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Home&#39;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Dashboard</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./components/Dashboard&#39;</span><span class="w"></span>
 
-<span class="kd">const</span> <span class="nx">Router</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span>
-        <span class="c1">// Then we use Switch and Route. Switch acts like a regular JS Switch Statement</span>
-        <span class="o">&lt;</span><span class="nx">Routes</span><span class="o">&gt;</span>
-            <span class="p">{</span> <span class="cm">/* depending on the path in the URL, one of these Routes will be returned and their component rendered */</span> <span class="p">}</span>
-            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/*&quot;</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Home</span><span class="p">}</span> <span class="o">/&gt;</span>
-            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/dash&quot;</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Dashboard</span><span class="p">}</span> <span class="o">/&gt;</span>
-        <span class="o">&lt;</span><span class="err">/Routes&gt;</span>
-    <span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">const</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Then we use Switch and Route. Switch acts like a regular JS Switch Statement</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">Routes</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="cm">/* depending on the path in the URL, one of these Routes will be returned and their component rendered */</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">exact</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/*&quot;</span><span class="w"> </span><span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Home</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/dash&quot;</span><span class="w"> </span><span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Dashboard</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/Routes&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <blockquote>
@@ -2152,22 +2163,21 @@
 <p>In summary, <code>Routes</code> is telling the application, "hey, look at all of the paths in this section to see if the current path in the browser matches any of these. If so, return the route that's connected to it."</p>
 <p>The <code>Route</code> then, is a component which specifies a combination of the correct relationship of "path" and "component". If the URL in the browser matches the path, then the Route sends the application to the correct component. In this case, /<code>dash</code> will load up the Dashboard component. You see the <code>&lt;Route&gt;</code> is the <code>case:</code> statement that says to do this when this is the case.</p>
 <div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Remember to Import the Components You Want to Use</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Then import the components you want to use</span>
-<span class="k">import</span> <span class="nx">Home</span> <span class="nx">from</span> <span class="s1">&#39;./Home&#39;</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Then import the components you want to use</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Home</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Home&#39;</span><span class="w"></span>
 
-<span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/&quot;</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Home</span><span class="p">}</span> <span class="o">/&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">exact</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/&quot;</span><span class="w"> </span><span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Home</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>This might seem obvious but it's an important piece to remember. Each of the components you want to use in your Router have to be imported so they're available/registered with the Router component. Also, notice that we used the Home component as the default route. If we're using Router we have to create a default case for the <code>&lt;Switch&gt;</code> component to return, <strong>because ALL components in React must return something</strong>!!!</p>
 <h3 id="rendering-what-comes-out-of-the-router">Rendering What Comes out of the Router</h3>
 <p>Great, so we've created our Router file. Now what? Let's tell the application to use it! Remember, we created the file but haven't made the other parts of the application aware of it. The very first file of our app, the <code>index.js</code> file is our entry point into the app. Go to it and find the component it's currently using, which is most likely <code>&lt;App /&gt;</code>. We're going to make some renovations. Look below at the default setup of our app.</p>
 <div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Basic React <code>index.js</code> file</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2178,20 +2188,19 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="nx">ReactDOM</span> <span class="nx">from</span> <span class="s1">&#39;react-dom&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="s1">&#39;./index.css&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="nx">App</span> <span class="nx">from</span> <span class="s1">&#39;./App&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">serviceWorker</span> <span class="nx">from</span> <span class="s1">&#39;./serviceWorker&#39;</span><span class="p">;</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-dom&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;./index.css&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./App&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">serviceWorker</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./serviceWorker&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">));</span>
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">,</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">));</span><span class="w"></span>
 
-<span class="c1">// If you want your app to work offline and load faster, you can change</span>
-<span class="c1">// unregister() to register() below. Note this comes with some pitfalls.</span>
-<span class="c1">// Learn more about service workers: https://bit.ly/CRA-PWA</span>
-<span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">unregister</span><span class="p">();</span>
-</code></pre></div>
-</td></tr></table>
+<span class="c1">// If you want your app to work offline and load faster, you can change</span><span class="w"></span>
+<span class="c1">// unregister() to register() below. Note this comes with some pitfalls.</span><span class="w"></span>
+<span class="c1">// Learn more about service workers: https://bit.ly/CRA-PWA</span><span class="w"></span>
+<span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">unregister</span><span class="p">();</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <blockquote>
@@ -2199,7 +2208,7 @@
 </blockquote>
 <p>As you probably guessed, we have to import things . . .The first (#1) is <code>BrowserRouter</code>. This, aptly named, package navigates the browser where we want it to. The second (#2) thing we have to import is the <code>Router</code> component we just finished building.</p>
 <div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">React <code>index.js</code> file with BrowserRouter &amp; our Router imported</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2209,19 +2218,18 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="nx">ReactDOM</span> <span class="nx">from</span> <span class="s1">&#39;react-dom&#39;</span><span class="p">;</span>
-<span class="c1">// #1</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserRouter</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="s1">&#39;./index.css&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="nx">App</span> <span class="nx">from</span> <span class="s1">&#39;./App&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">serviceWorker</span> <span class="nx">from</span> <span class="s1">&#39;./serviceWorker&#39;</span><span class="p">;</span>
-<span class="c1">// #2</span>
-<span class="k">import</span> <span class="nx">Router</span> <span class="nx">from</span> <span class="s1">&#39;./Router&#39;</span><span class="p">;</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-dom&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// #1</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BrowserRouter</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;./index.css&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./App&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">serviceWorker</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./serviceWorker&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// #2</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Router&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="c1">// ...more code below here...</span>
-</code></pre></div>
-</td></tr></table>
+<span class="c1">// ...more code below here...</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <blockquote>
@@ -2229,7 +2237,7 @@
 </blockquote>
 <p>Next, or (#3) we have to create a component to return this stuff for us. Let's call it <code>Main</code> and have it return <code>&lt;BrowserRouter&gt;</code>. Then stick our <code>&lt;Router /&gt;</code> component inside of it. This "sticking" inside is actually called "wrapping". We "wrap" the <code>&lt;BrowserRouter&gt;</code> around the <code>&lt;Router&gt;</code> so our <strong>entire</strong> application is encapsulated by the <code>&lt;BrowserRouter&gt;</code>.</p>
 <div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Newly created <code>Main</code> Component in the <code>index.js</code> file</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2242,27 +2250,26 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// ...more code above here...</span>
-<span class="k">import</span> <span class="nx">Router</span> <span class="nx">from</span> <span class="s1">&#39;./Router&#39;</span><span class="p">;</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ...more code above here...</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Router&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="c1">// #3</span>
-<span class="kd">const</span> <span class="nx">Main</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">(</span>
-    <span class="c1">// #4</span>
-    <span class="o">&lt;</span><span class="nx">BrowserRouter</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">Router</span> <span class="o">/&gt;</span>
-    <span class="o">&lt;</span><span class="err">/BrowserRouter&gt;</span>
-<span class="p">)</span>
+<span class="c1">// #3</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">Main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// #4</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">BrowserRouter</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">Router</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/BrowserRouter&gt;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
 
-<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">));</span>
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">,</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">));</span><span class="w"></span>
 
-<span class="c1">// ...more code about service worker blah blah below here...</span>
-</code></pre></div>
-</td></tr></table>
+<span class="c1">// ...more code about service worker blah blah below here...</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>The (#5) step is to use the "wrap". To do this we'll pass to <code>ReactDOM.render()</code> the <code>Main</code> component we just built. Now our app's <code>index.js</code> file should look like this:</p>
 <div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Replaced <code>&lt;App /&gt;</code> with <code>&lt;Main /&gt;</code></label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2282,29 +2289,28 @@
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="nx">ReactDOM</span> <span class="nx">from</span> <span class="s1">&#39;react-dom&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserRouter</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="s1">&#39;./index.css&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="nx">App</span> <span class="nx">from</span> <span class="s1">&#39;./App&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">serviceWorker</span> <span class="nx">from</span> <span class="s1">&#39;./serviceWorker&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="nx">Router</span> <span class="nx">from</span> <span class="s1">&#39;./Router&#39;</span><span class="p">;</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-dom&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BrowserRouter</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;./index.css&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./App&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">serviceWorker</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./serviceWorker&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Router&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">const</span> <span class="nx">Main</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">(</span>
-    <span class="o">&lt;</span><span class="nx">BrowserRouter</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">Router</span> <span class="o">/&gt;</span>
-    <span class="o">&lt;</span><span class="err">/BrowserRouter&gt;</span>
-<span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">Main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">BrowserRouter</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">Router</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/BrowserRouter&gt;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
 
-<span class="c1">// #5</span>
-<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Main</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">));</span>
+<span class="c1">// #5</span><span class="w"></span>
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Main</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">,</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">));</span><span class="w"></span>
 
-<span class="c1">// If you want your app to work offline and load faster, you can change</span>
-<span class="c1">// unregister() to register() below. Note this comes with some pitfalls.</span>
-<span class="c1">// Learn more about service workers: https://bit.ly/CRA-PWA</span>
-<span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">unregister</span><span class="p">();</span>
-</code></pre></div>
-</td></tr></table>
+<span class="c1">// If you want your app to work offline and load faster, you can change</span><span class="w"></span>
+<span class="c1">// unregister() to register() below. Note this comes with some pitfalls.</span><span class="w"></span>
+<span class="c1">// Learn more about service workers: https://bit.ly/CRA-PWA</span><span class="w"></span>
+<span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">unregister</span><span class="p">();</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>We call this "wrapping" stuff <strong>Higher Order Components</strong> or <strong>HOCs</strong> because, just like the Higher Order functions (<code>.map</code>, <code>.reduce</code>, <code>.filter</code>) you learned in 211, they take functions as their arguments and sometimes return functions: <code>render</code> takes in <code>main</code> which returns <code>BrowserRouter</code> which returns <code>Router</code> with returns one of the <code>Routes</code> which returns its appropriate component which then returns the JSX so the <code>render</code> can plug it into the DOM inside an element with the <code>id</code> <code>"root"</code>.</p>
@@ -2329,21 +2335,20 @@
 <p>In step 3, we create a small component function called <code>Main</code> (you can call it something else if you like) and we wrap our <code>&lt;Router /&gt;</code> inside the <code>&lt;BrowserRouter&gt; &lt;/BrowserRouter&gt;</code> tags so the <code>BrowserRouter</code> component returns it.
 You may be thinking, "couldn't we have just done that in the Router file?". Yes, but this pattern will allow you to eventually add components around the router that you want to see on every page. For example, a <code>Header</code> and <code>Footer</code> component, like you see below:</p>
 <div class="tabbed-set" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Example of <code>Main</code> Component</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="kd">const</span> <span class="nx">Main</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">(</span>
-    <span class="o">&lt;</span><span class="nx">BrowserRouter</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">Header</span> <span class="o">/&gt;</span>
-        <span class="o">&lt;</span><span class="nx">Router</span> <span class="o">/&gt;</span> <span class="p">{</span><span class="cm">/* &lt;-- See? Your different routes can be render here while still keeping the Header and Footer the same */</span><span class="p">}</span>
-        <span class="o">&lt;</span><span class="nx">Footer</span> <span class="o">/&gt;</span>
-    <span class="o">&lt;</span><span class="err">/BrowserRouter&gt;</span>
-<span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">Main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">BrowserRouter</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">Header</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">Router</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"> </span><span class="p">{</span><span class="cm">/* &lt;-- See? Your different routes can be render here while still keeping the Header and Footer the same */</span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">Footer</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/BrowserRouter&gt;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <blockquote>
@@ -2427,7 +2432,7 @@ You may be thinking, "couldn't we have just done that in the Router file?". Yes,
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>

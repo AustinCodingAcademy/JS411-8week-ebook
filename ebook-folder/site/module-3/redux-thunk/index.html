@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.0.5">
     
     
       
@@ -432,6 +432,18 @@
     <li class="md-nav__item">
       <a href="../../module-1/conditionalRendering/" class="md-nav__link">
         Conditional Rendering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/functionalComponentHooks/" class="md-nav__link">
+        Functional Components and Hooks
       </a>
     </li>
   
@@ -2130,7 +2142,7 @@
 <p>Let's get into some examples. First, let's talk about how we set up Thunk. It's incredibly easy. All you do is <code>import thunk from "redux-thunk"</code>. Since this is another package you may have also guessed that we need to install <code>"redux-thunk"</code> into our application with the following command: <code>npm i redux-thunk.</code></p>
 <p>To use redux-thunk we also need to import the <code>applyMiddleware</code> tool from Redux so we can tie the thunk into the <code>createStore</code> function call. All of this happens in the <code>store.js</code> file. Here's what it looks like:</p>
 <div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1"><code>redux/store.js</code></label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2138,17 +2150,16 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// import the `applyMiddlware` tool</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">createStore</span><span class="p">,</span> <span class="nx">applyMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span>
-<span class="c1">// import the `thunk` tool</span>
-<span class="k">import</span> <span class="nx">thunk</span> <span class="nx">from</span> <span class="s1">&#39;redux-thunk&#39;</span>
-<span class="k">import</span> <span class="nx">reducers</span> <span class="nx">from</span> <span class="s1">&#39;./reducers&#39;</span>
-<span class="k">import</span> <span class="nx">state</span> <span class="nx">from</span> <span class="s1">&#39;./state&#39;</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// import the `applyMiddlware` tool</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createStore</span><span class="p">,</span><span class="w"> </span><span class="nx">applyMiddleware</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;redux&#39;</span><span class="w"></span>
+<span class="c1">// import the `thunk` tool</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">thunk</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;redux-thunk&#39;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">reducers</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./reducers&#39;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">state</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./state&#39;</span><span class="w"></span>
 
-<span class="c1">// pass them as a third argument to the `createStore` call</span>
-<span class="k">export</span> <span class="k">default</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">reducers</span><span class="p">,</span> <span class="nx">state</span><span class="p">,</span> <span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">thunk</span><span class="p">))</span>
-</code></pre></div>
-</td></tr></table>
+<span class="c1">// pass them as a third argument to the `createStore` call</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">createStore</span><span class="p">(</span><span class="nx">reducers</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">thunk</span><span class="p">))</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>As we can see, there are only three small changes between this <code>store.js</code> file and the one we used last class. They involve the introduction of <code>applyMiddleware</code>, <code>thunk</code> and the application of <code>thunk</code> as the third parameter in <code>createStore()</code>, <code>applyMiddleware(thunk)</code>.</p>
@@ -2156,23 +2167,22 @@
 <h3 id="state">State</h3>
 <p>In the example below we've updated the state for our cars application to include a property called <code>makes</code> to store the available makes of cars. Its default value will be an empty array. It looks like this: <code>makes: []</code></p>
 <div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1"><code>redux/state.js</code></label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
-  <span class="nx">user</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="nx">cars</span><span class="o">:</span> <span class="p">[</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span> <span class="p">,</span><span class="s1">&#39;4&#39;</span> <span class="p">],</span>
-  <span class="nx">makes</span><span class="o">:</span> <span class="p">[]</span> <span class="c1">// &lt;-- Just a place to hold new data</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">cars</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w"> </span><span class="p">,</span><span class="s1">&#39;4&#39;</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">makes</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="c1">// &lt;-- Just a place to hold new data</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <h3 id="action">Action</h3>
 <p>The new action creators we add will return a function instead of an object. They will look like this:</p>
 <div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1"><code>redux/actions.js</code></label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2194,34 +2204,33 @@
 <span class="normal">20</span>
 <span class="normal">21</span>
 <span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="c1">// Remember what our previous action creators looked like:</span>
-  <span class="k">export</span> <span class="kd">const</span> <span class="nx">removeCar</span> <span class="o">=</span> <span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">{</span>
-      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;REMOVE_CAR&#39;</span><span class="p">,</span>
-      <span class="nx">value</span><span class="o">:</span> <span class="nx">index</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="c1">// Remember what our previous action creators looked like:</span><span class="w"></span>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">removeCar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">index</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;REMOVE_CAR&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="nx">index</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// ...more action creators here...</span>
+<span class="w">  </span><span class="c1">// ...more action creators here...</span><span class="w"></span>
 
-  <span class="k">export</span> <span class="kd">const</span> <span class="nx">fetchMakes</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span><span class="nx">dispatch</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-      <span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json&#39;</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
-        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
-          <span class="kd">const</span> <span class="nx">action</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;FETCH_MAKES&#39;</span><span class="p">,</span>
-            <span class="nx">value</span><span class="o">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">Results</span>
-          <span class="p">}</span>
-          <span class="nx">dispatch</span><span class="p">(</span><span class="nx">action</span><span class="p">)</span>
-        <span class="p">})</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">fetchMakes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="nx">dispatch</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;FETCH_MAKES&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">Results</span><span class="w"></span>
+<span class="w">          </span><span class="p">}</span><span class="w"></span>
+<span class="w">          </span><span class="nx">dispatch</span><span class="p">(</span><span class="nx">action</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 <input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">with comments</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2239,27 +2248,26 @@
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="c1">// ...more action creators here...</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="c1">// ...more action creators here...</span><span class="w"></span>
 
-  <span class="k">export</span> <span class="kd">const</span> <span class="nx">fetchMakes</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="c1">// returning a function that has `dispatch` as its only parameter</span>
-    <span class="k">return</span> <span class="p">(</span><span class="nx">dispatch</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-      <span class="c1">// making an asynchronous API call</span>
-      <span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json&#39;</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
-        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
-          <span class="c1">// create a variable to hold an Object for the results</span>
-          <span class="kd">const</span> <span class="nx">action</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;FETCH_MAKES&#39;</span><span class="p">,</span>
-            <span class="nx">value</span><span class="o">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">Results</span>
-          <span class="p">}</span>
-          <span class="c1">// call `dispatch` to send the action Object to the reducer</span>
-          <span class="nx">dispatch</span><span class="p">(</span><span class="nx">action</span><span class="p">)</span>
-        <span class="p">})</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">fetchMakes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// returning a function that has `dispatch` as its only parameter</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="nx">dispatch</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// making an asynchronous API call</span><span class="w"></span>
+<span class="w">      </span><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="c1">// create a variable to hold an Object for the results</span><span class="w"></span>
+<span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;FETCH_MAKES&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">Results</span><span class="w"></span>
+<span class="w">          </span><span class="p">}</span><span class="w"></span>
+<span class="w">          </span><span class="c1">// call `dispatch` to send the action Object to the reducer</span><span class="w"></span>
+<span class="w">          </span><span class="nx">dispatch</span><span class="p">(</span><span class="nx">action</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>So what's happening here? We're returning a function that has <code>dispatch</code> as its only parameter. We can write <code>dispatch</code> there because <code>thunk</code> will inject into our action creator automatically.</p>
@@ -2267,7 +2275,7 @@
 <h3 id="reducer">Reducer</h3>
 <p>Since we have a new property called <code>makes</code> in our state, we need a new reducer called <code>makes</code> to match. Here's what it looks like:</p>
 <div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">redux/reducers.js</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2276,24 +2284,23 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">makes</span> <span class="o">=</span> <span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="k">switch</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">case</span> <span class="s1">&#39;FETCH_MAKES&#39;</span><span class="o">:</span>
-            <span class="k">return</span> <span class="nx">action</span><span class="p">.</span><span class="nx">value</span>
-        <span class="k">default</span><span class="o">:</span>
-            <span class="k">return</span> <span class="nx">state</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">makes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="nx">action</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;FETCH_MAKES&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">action</span><span class="p">.</span><span class="nx">value</span><span class="w"></span>
+<span class="w">        </span><span class="k">default</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">state</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="c1">// ... more reducers here ...</span>
-</code></pre></div>
-</td></tr></table>
+<span class="c1">// ... more reducers here ...</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>The Switch/Case statement handles the <code>FETCH_MAKES</code> action that we specified above. Since we know the results of our API is an array, we're able to simply return the <code>action.value</code> (the array of <code>makes</code> in <code>reducers/state.js</code>).</p>
 <h3 id="wrapping-up">Wrapping Up</h3>
 <p>Now that we've added this action into one of our components using the <code>mapDispatchToProps</code> function like normal, we can call it. When we do, the function will go out and make an API call and then add the results to our global state. The result would look like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2323,39 +2330,38 @@
 <span class="normal">28</span>
 <span class="normal">29</span>
 <span class="normal">30</span>
-<span class="normal">31</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="nx">makes</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-          <span class="nx">Make_ID</span><span class="o">:</span> <span class="mf">440</span><span class="p">,</span>
-          <span class="nx">Make_Name</span><span class="o">:</span> <span class="s2">&quot;Aston Martin&quot;</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-          <span class="nx">Make_ID</span><span class="o">:</span> <span class="mf">441</span><span class="p">,</span>
-          <span class="nx">Make_Name</span><span class="o">:</span> <span class="s2">&quot;Tesla&quot;</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-          <span class="nx">Make_ID</span><span class="o">:</span> <span class="mf">442</span><span class="p">,</span>
-          <span class="nx">Make_Name</span><span class="o">:</span> <span class="s2">&quot;Jaguar&quot;</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-          <span class="nx">Make_ID</span><span class="o">:</span> <span class="mf">443</span><span class="p">,</span>
-          <span class="nx">Make_Name</span><span class="o">:</span> <span class="s2">&quot;Maserati&quot;</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-          <span class="nx">Make_ID</span><span class="o">:</span> <span class="mf">444</span><span class="p">,</span>
-          <span class="nx">Make_Name</span><span class="o">:</span> <span class="s2">&quot;Land Rover&quot;</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-          <span class="nx">Make_ID</span><span class="o">:</span> <span class="mf">445</span><span class="p">,</span>
-          <span class="nx">Make_Name</span><span class="o">:</span> <span class="s2">&quot;Rolls Royce&quot;</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-          <span class="nx">Make_ID</span><span class="o">:</span> <span class="mf">446</span><span class="p">,</span>
-          <span class="nx">Make_Name</span><span class="o">:</span> <span class="s2">&quot;Buell (EBR)&quot;</span>
-      <span class="p">}</span>
-      <span class="c1">// ...etc...</span>
-  <span class="p">]</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="nx">makes</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Make_ID</span><span class="o">:</span><span class="w"> </span><span class="mf">440</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Make_Name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Aston Martin&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Make_ID</span><span class="o">:</span><span class="w"> </span><span class="mf">441</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Make_Name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Tesla&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Make_ID</span><span class="o">:</span><span class="w"> </span><span class="mf">442</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Make_Name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Jaguar&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Make_ID</span><span class="o">:</span><span class="w"> </span><span class="mf">443</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Make_Name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Maserati&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Make_ID</span><span class="o">:</span><span class="w"> </span><span class="mf">444</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Make_Name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Land Rover&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Make_ID</span><span class="o">:</span><span class="w"> </span><span class="mf">445</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Make_Name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Rolls Royce&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Make_ID</span><span class="o">:</span><span class="w"> </span><span class="mf">446</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Make_Name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Buell (EBR)&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// ...etc...</span><span class="w"></span>
+<span class="w">  </span><span class="p">]</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>This is how we would generally start our application if we are fetching data from a database. We would have a state with an empty value and then we would use Redux Thunk to make the call to our database and return the results to it.</p>
 <blockquote>
 <p>NOTE: The biggest change here is just getting used to what the new <strong>action creator</strong> look like.</p>
@@ -2471,7 +2477,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>

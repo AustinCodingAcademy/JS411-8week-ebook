@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.0.5">
     
     
       
@@ -432,6 +432,18 @@
     <li class="md-nav__item">
       <a href="../../module-1/conditionalRendering/" class="md-nav__link">
         Conditional Rendering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/functionalComponentHooks/" class="md-nav__link">
+        Functional Components and Hooks
       </a>
     </li>
   
@@ -2008,19 +2020,18 @@
 <li class="task-list-item"><input type="checkbox"/> Create an <code>actions.js</code> file underneath the "redux" folder.</li>
 <li class="task-list-item"><input type="checkbox"/> Inside this file, export a function called <code>addUser</code> with a <code>type</code> property: <code>"ADD_USER"</code> and a <code>value</code> property that points to the parameter: <code>user</code>. It should look like this:</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="k">export</span> <span class="kd">const</span> <span class="nx">addUser</span> <span class="o">=</span> <span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;ADD_USER&quot;</span><span class="p">,</span>
-        <span class="nx">value</span><span class="o">:</span> <span class="nx">user</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">addUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ADD_USER&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="nx">user</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox"/> Go to the <code>reducers.js</code> file. Update the reducer with a switch/case statement. It should add a user to the array if the <code>type</code> is <code>"ADD_USER"</code>. On the default option, simply <code>return state</code>.</li>
 <li class="task-list-item"><input type="checkbox"/> Go to the <code>UserList</code> CONTAINER and import your action <code>addUser</code> at the top of the file. Now create a <code>mapDispatchToProps</code> function that returns and object with a property called <code>addUser</code> which points to the value of the <code>addUser</code> action creator you just imported. Don't forget to wrap it in <code>dispatch()</code>.</li>
@@ -2043,7 +2054,7 @@
 <h3 id="optional-bindactioncreators">Optional, bindActionCreators</h3>
 <p>If you're feeling confident and comfortable with this process, you may use the <code>bindActionCreators</code> method from redux to simplify your code a little bit. <em>But this is very optional!!</em></p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1"><code>containers/Home.js</code> using <code>bindActionCreators</code></label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2056,25 +2067,24 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">connect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-redux&#39;</span>
-<span class="k">import</span> <span class="nx">Home</span> <span class="nx">from</span> <span class="s1">&#39;../components/Home&#39;</span>
-<span class="c1">// import bindActionCreators tool to be able to use it</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">bindActionCreators</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">addCar</span><span class="p">,</span> <span class="nx">removeCar</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./actions&#39;</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">connect</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-redux&#39;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Home</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../components/Home&#39;</span><span class="w"></span>
+<span class="c1">// import bindActionCreators tool to be able to use it</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">bindActionCreators</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;redux&#39;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">addCar</span><span class="p">,</span><span class="w"> </span><span class="nx">removeCar</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./actions&#39;</span><span class="w"></span>
 
-<span class="c1">//...code removed for simplicity...</span>
-<span class="c1">//...MSTP function here...</span>
+<span class="c1">//...code removed for simplicity...</span><span class="w"></span>
+<span class="c1">//...MSTP function here...</span><span class="w"></span>
 
-<span class="kd">const</span> <span class="nx">mapDispatchToProps</span> <span class="o">=</span> <span class="p">(</span><span class="nx">dispatch</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">bindActionCreators</span><span class="p">({</span> <span class="nx">addCar</span><span class="p">,</span> <span class="nx">removeCar</span> <span class="p">},</span> <span class="nx">dispatch</span><span class="p">)</span>
-<span class="p">}</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">mapDispatchToProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">dispatch</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">bindActionCreators</span><span class="p">({</span><span class="w"> </span><span class="nx">addCar</span><span class="p">,</span><span class="w"> </span><span class="nx">removeCar</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">dispatch</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="k">export</span> <span class="k">default</span> <span class="nx">connect</span><span class="p">(</span><span class="nx">mapStateToProps</span><span class="p">,</span> <span class="nx">mapDispatchToProps</span><span class="p">)(</span><span class="nx">Home</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">connect</span><span class="p">(</span><span class="nx">mapStateToProps</span><span class="p">,</span><span class="w"> </span><span class="nx">mapDispatchToProps</span><span class="p">)(</span><span class="nx">Home</span><span class="p">)</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2"><code>containers/Home.js</code> as before</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2088,23 +2098,22 @@
 <span class="normal">12</span>
 <span class="normal">13</span>
 <span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">connect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-redux&#39;</span>
-<span class="k">import</span> <span class="nx">Home</span> <span class="nx">from</span> <span class="s1">&#39;../components/Home&#39;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">addCar</span><span class="p">,</span> <span class="nx">removeCar</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./actions&#39;</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">connect</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-redux&#39;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Home</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../components/Home&#39;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">addCar</span><span class="p">,</span><span class="w"> </span><span class="nx">removeCar</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./actions&#39;</span><span class="w"></span>
 
-<span class="c1">//...code removed for simplicity...</span>
-<span class="c1">//...MSTP function here...</span>
+<span class="c1">//...code removed for simplicity...</span><span class="w"></span>
+<span class="c1">//...MSTP function here...</span><span class="w"></span>
 
-<span class="kd">const</span> <span class="nx">mapDispatchToProps</span> <span class="o">=</span> <span class="p">(</span><span class="nx">dispatch</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">{</span>
-      <span class="nx">addCar</span><span class="o">:</span> <span class="p">(</span><span class="nx">car</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">dispatch</span><span class="p">(</span><span class="nx">addCar</span><span class="p">(</span><span class="nx">car</span><span class="p">)),</span>
-      <span class="nx">removeCar</span><span class="o">:</span> <span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">dispatch</span><span class="p">(</span><span class="nx">removeCar</span><span class="p">(</span><span class="nx">index</span><span class="p">))</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">mapDispatchToProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">dispatch</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">addCar</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">car</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">dispatch</span><span class="p">(</span><span class="nx">addCar</span><span class="p">(</span><span class="nx">car</span><span class="p">)),</span><span class="w"></span>
+<span class="w">      </span><span class="nx">removeCar</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">index</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">dispatch</span><span class="p">(</span><span class="nx">removeCar</span><span class="p">(</span><span class="nx">index</span><span class="p">))</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="k">export</span> <span class="k">default</span> <span class="nx">connect</span><span class="p">(</span><span class="nx">mapStateToProps</span><span class="p">,</span> <span class="nx">mapDispatchToProps</span><span class="p">)(</span><span class="nx">Home</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">connect</span><span class="p">(</span><span class="nx">mapStateToProps</span><span class="p">,</span><span class="w"> </span><span class="nx">mapDispatchToProps</span><span class="p">)(</span><span class="nx">Home</span><span class="p">)</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
                 
@@ -2174,7 +2183,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>

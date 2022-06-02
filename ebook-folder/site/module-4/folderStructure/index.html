@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.0.5">
     
     
       
@@ -432,6 +432,18 @@
     <li class="md-nav__item">
       <a href="../../module-1/conditionalRendering/" class="md-nav__link">
         Conditional Rendering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/functionalComponentHooks/" class="md-nav__link">
+        Functional Components and Hooks
       </a>
     </li>
   
@@ -2178,14 +2190,14 @@
 <h3 id="folder-structure">Folder Structure</h3>
 <p>When you first run <code>create-react-app</code>(CRA) you end up with a directory that looks like this:</p>
 <div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Basic CRA Folder Structure</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="go">    // my-app</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">    // my-app</span>
 <span class="go">        -- node_modules</span>
 <span class="go">        -- public</span>
 <span class="go">        -- src</span>
@@ -2193,27 +2205,25 @@
 <span class="go">        -- package-lock.json</span>
 <span class="go">        -- package.json</span>
 <span class="go">        -- README.md</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>Let's talk about each of these in some quick detail.</p>
 <h4 id="node_modules"><code>node_modules/</code></h4>
 <p>This folder holds all of your project's dependencies. It is not there by default when you clone something from Git. It gets generated when you run the <code>npm install</code> command. If you ran npm install express then you should expect to see a folder titled <code>express</code> underneath <code>node_modules</code>. Since React is installed by default with <code>create-react-app</code>, we see something like this:</p>
 <div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Node Modules Structure</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="go">    ...</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">    ...</span>
 <span class="go">    -- react</span>
 <span class="go">    -- react-app-polyfill</span>
 <span class="go">    -- react-dev-utils</span>
 <span class="go">    -- react-dom</span>
 <span class="go">    ...</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>What are <code>react-app-polyfill</code>and <code>react-dev-utils</code>? I didn't install those? You're right, that means something else probably did. If you expand one of those folders underneath <code>node_modules</code> you'll see that they each have their own <code>package.json</code> file just like our project does. ...Our dependencies also have dependencies...inception.</p>
@@ -2232,14 +2242,14 @@
 <h4 id="public"><code>public/</code></h4>
 <p>The <code>public/</code> folder is the main starting point of our app. It holds a few key files for getting started and it's directory structure looks like this:</p>
 <div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1"><code>public/</code> Folder Structure</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>```console
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>```console
     -- favicon.ico -&gt; image in the corner of browser tab
     -- index.html -&gt; main starting file
     -- logo192.png -&gt; logo image
@@ -2247,8 +2257,7 @@
     -- manifest.json -&gt; site settings
     -- robots.txt -&gt; seo settings
 ```
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>I've briefly pointed out what most of these files do but I want to talk a little more about the main file which is index.html. Everything you put here will be loaded into your app once a "build" is created. If you wanted to use Bootstrap for example you might load in some extra css/js with a <code>&lt;link&gt;</code> or <code>&lt;script&gt;</code> tag. You would put those in this index.html file. Also of importance . . . look near the bottom of this file in the "body" tags. Notice this: <code>&lt;div id="root"&gt;&lt;/div&gt;</code>. Now go to <code>index.js</code> under the <code>scr</code> folder and notice this: <code>ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));</code>. See a correlation? That tag in the <code>index.html</code>file is where your whole React app gets inserted/rendered.</p>
@@ -2256,21 +2265,20 @@
 <h4 id="src">src</h4>
 <p>This is the main folder for writing your React code. Its directory structure looks like this:</p>
 <div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1"><code>src/</code> Folder Structure</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="go">-- App.css</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">-- App.css</span>
 <span class="go">-- App.js</span>
 <span class="go">-- App.test.js</span>
 <span class="go">-- index.css</span>
 <span class="go">-- index.js</span>
 <span class="go">-- logo.svg</span>
 <span class="go">-- serviceWorker.js</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>Here we have the JS and CSS for the App component, the JS and CSS for the <code>index.js</code> file, a <code>test.js</code> file, a <code>logo.svg</code> and a service worker. Typically, when we start with a React app, we start writing our code in the <code>App</code> component. We also typically create a folder called <code>components/</code> to hold our custom components and a folder called <code>containers/</code> if we hook Redux to our app. Do not worry about the <code>serviceWorker.js</code> file. That's an <a href="https://stackoverflow.com/questions/49314386/what-is-service-worker-in-react-js">advanced subject that we won't cover in this course</a> and it's not required to build React applications.</p>
@@ -2289,14 +2297,14 @@
 <h4 id="packagejson"><code>package.json</code></h4>
 <p>As we mentioned above, the <code>package.json</code> file keeps a list of all the dependencies you have for your application. But it can do more that that. It's also the place where the "scripts" for your application are stored. These scripts are the commands like <code>npm start</code>. For example, by default <code>create-react-app</code> provides the following scripts:</p>
 <div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1"><code>package.json</code> file</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>```json
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>```json
 &quot;scripts&quot;: {
     &quot;start&quot;: &quot;react-scripts start&quot;,
     &quot;build&quot;: &quot;react-scripts build&quot;,
@@ -2304,8 +2312,7 @@
     &quot;eject&quot;: &quot;react-scripts eject&quot;
 }
 ```
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>The <code>start</code> script runs your application, as you know. The <code>build</code> script builds a production version of your application to be served statically (by an express app perhaps). When that script is run a <code>build/</code> folder is created on the top level of your application above the <code>public/</code> folder. We can talk more about what is actually going on in that process in the next pre-homework and in class. Needless to say, the <code>package.json</code> file is basically the <strong>blueprint</strong> of your application. The app won't work without it.</p>
@@ -2314,25 +2321,23 @@
 <p>This file is an extension of the <code>package.json</code> file. It controls the versions for all the dependencies of your dependencies as we saw earlier with the <code>node_modules/</code> folder by <em>locking</em> them in-place. Before NPM 5, there was only a <code>package.json</code> file. That was fine for a long time but eventually developers realized their code was getting out of sync because the sub-dependencies would change versions. Let's give an example.</p>
 <p>You run this command <code>npm i express</code> and it populates your <code>package.json</code> with the following:</p>
 <div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Example <code>package.json</code> File</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>```json
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>```json
 &quot;dependencies&quot;: { &quot;express&quot;: &quot;^4.17.1&quot; }
 ```
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>Great. Now everyone that uses your application and runs <code>npm install</code> will get express version 4.17.1 and all is good. We realized we had a little problem though and that's because express also has dependencies and so a portion of their dependency tree looks like this:</p>
 <div class="tabbed-set" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Example <code>package.json</code> File - Varying Dependencies</label><div class="tabbed-content"></div>
 </div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nt">&quot;dependencies&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;body-parser&quot;</span><span class="p">:</span> <span class="s2">&quot;1.19.0&quot;</span><span class="p">,</span>
-    <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;body-parser&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.19.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>So what ended up happening is someone would bump the version for <code>body-parser</code> to <code>1.20.0</code> and <code>express</code> would inherit that change without changing its own version and then the code would break because while everyone you shared your app with is still getting express version <code>4.17.1</code>, express behind the scenes is now using <code>body-parser</code> version <code>1.20.0</code> and it's possible that change caused some unexpected side-effect.</p>
 <p>Ok . . . that's a lot of information but now that we understand that we can understand what <code>package-lock.json</code> does. It essentially <strong>locks</strong> down the whole dependency tree so that every dependency you install, and all of its dependencies will always have the same versions and you won't run into the issues I described above. It's important to commit your <code>package-lock.json</code> file to GitHub for this reason.</p>
 <hr />
@@ -2415,7 +2420,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>

@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.0.5">
     
     
       
@@ -432,6 +432,18 @@
     <li class="md-nav__item">
       <a href="../../module-1/conditionalRendering/" class="md-nav__link">
         Conditional Rendering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/functionalComponentHooks/" class="md-nav__link">
+        Functional Components and Hooks
       </a>
     </li>
   
@@ -2101,7 +2113,7 @@
 </blockquote>
 <p>It boils down to a bit of JavaScript logic that directs the user to one component or another based on some condition. It's easiest to show an example.</p>
 <div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Protected Route Example - Router.js</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2114,27 +2126,26 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">ProtectedRoute</span> <span class="o">=</span> <span class="p">({</span><span class="nx">component</span><span class="o">:</span> <span class="nx">Component</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">(</span>
-    <span class="o">&lt;</span><span class="nx">Route</span>
-      <span class="c1">// spread the rest of the props that are needed in this component</span>
-      <span class="p">{...</span><span class="nx">rest</span><span class="p">}</span>
-      <span class="c1">// define the value of the render method as a ternary that checks to see if checkAuth returns true or false</span>
-      <span class="nx">render</span><span class="o">=</span><span class="p">{(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">checkAuth</span><span class="p">()</span> <span class="o">===</span> <span class="kc">true</span>
-          <span class="c1">// if true render the component with all the props</span>
-          <span class="o">?</span> <span class="o">&lt;</span><span class="nx">Component</span> <span class="p">{...</span><span class="nx">props</span><span class="p">}</span> <span class="o">/&gt;</span>
-          <span class="c1">// if false, use the Redirect component to update the url to `/login` so they are redirected to the login component</span>
-          <span class="o">:</span> <span class="o">&lt;</span><span class="nx">Redirect</span> <span class="nx">to</span><span class="o">=</span><span class="p">{{</span><span class="nx">pathname</span><span class="o">:</span> <span class="s1">&#39;/login&#39;</span><span class="p">,</span> <span class="nx">state</span><span class="o">:</span> <span class="p">{</span><span class="nx">from</span><span class="o">:</span> <span class="nx">props</span><span class="p">.</span><span class="nx">location</span><span class="p">}}}</span> <span class="o">/&gt;</span><span class="p">}</span>
-    <span class="o">/&gt;</span>
-  <span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">ProtectedRoute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">({</span><span class="nx">component</span><span class="o">:</span><span class="w"> </span><span class="nx">Component</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">rest</span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// spread the rest of the props that are needed in this component</span><span class="w"></span>
+<span class="w">      </span><span class="p">{...</span><span class="nx">rest</span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// define the value of the render method as a ternary that checks to see if checkAuth returns true or false</span><span class="w"></span>
+<span class="w">      </span><span class="nx">render</span><span class="o">=</span><span class="p">{(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">checkAuth</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">          </span><span class="c1">// if true render the component with all the props</span><span class="w"></span>
+<span class="w">          </span><span class="o">?</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Component</span><span class="w"> </span><span class="p">{...</span><span class="nx">props</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="c1">// if false, use the Redirect component to update the url to `/login` so they are redirected to the login component</span><span class="w"></span>
+<span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Redirect</span><span class="w"> </span><span class="nx">to</span><span class="o">=</span><span class="p">{{</span><span class="nx">pathname</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/login&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">location</span><span class="p">}}}</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>So...that was pretty verbose. Let's make it a <em>little</em> simpler:</p>
 <div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Simplified Protected Route Example - Router.js</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2143,18 +2154,17 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">ProtectedRoute</span> <span class="o">=</span> <span class="p">({</span><span class="nx">component</span><span class="o">:</span> <span class="nx">Component</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">(</span>
-    <span class="o">&lt;</span><span class="nx">Route</span>
-    <span class="p">{...</span><span class="nx">rest</span><span class="p">}</span>
-    <span class="nx">render</span><span class="o">=</span><span class="p">{(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">checkAuth</span><span class="p">()</span>
-        <span class="o">?</span> <span class="o">&lt;</span><span class="nx">Component</span> <span class="p">{...</span><span class="nx">props</span><span class="p">}</span> <span class="o">/&gt;</span>
-        <span class="o">:</span> <span class="o">&lt;</span><span class="nx">Redirect</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span> <span class="o">/&gt;</span><span class="p">}</span>
-    <span class="o">/&gt;</span>
-  <span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">ProtectedRoute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">({</span><span class="nx">component</span><span class="o">:</span><span class="w"> </span><span class="nx">Component</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">rest</span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"></span>
+<span class="w">    </span><span class="p">{...</span><span class="nx">rest</span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">render</span><span class="o">=</span><span class="p">{(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">checkAuth</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="o">?</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Component</span><span class="w"> </span><span class="p">{...</span><span class="nx">props</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Redirect</span><span class="w"> </span><span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>Ok now we can talk about what this is doing.</p>
@@ -2171,7 +2181,7 @@
 <p>Where do we put this code?</p>
 <p>We will put it in our <code>Router.js</code> file right above where the router is defined. And we use it by simply replacing one of the regular routes we've built already with this new <code>&lt;ProtectedRoute&gt;</code> that will route to a component that we want to be protected by authentication like this:</p>
 <div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Router.js File with <code>ProtectedRoute</code> Function</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2191,29 +2201,28 @@
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="c1">// ... import statements here...</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="c1">// ... import statements here...</span><span class="w"></span>
 
-  <span class="kd">const</span> <span class="nx">ProtectedRoute</span> <span class="o">=</span> <span class="p">({</span><span class="nx">component</span><span class="o">:</span> <span class="nx">Component</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span>
-      <span class="o">&lt;</span><span class="nx">Route</span>
-      <span class="p">{...</span><span class="nx">rest</span><span class="p">}</span>
-      <span class="nx">render</span><span class="o">=</span><span class="p">{(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">checkAuth</span><span class="p">()</span>
-          <span class="o">?</span> <span class="o">&lt;</span><span class="nx">Component</span> <span class="p">{...</span><span class="nx">props</span><span class="p">}</span> <span class="o">/&gt;</span>
-          <span class="o">:</span> <span class="o">&lt;</span><span class="nx">Redirect</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span> <span class="o">/&gt;</span><span class="p">}</span>
-      <span class="o">/&gt;</span>
-    <span class="p">)</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">ProtectedRoute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">({</span><span class="nx">component</span><span class="o">:</span><span class="w"> </span><span class="nx">Component</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">rest</span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"></span>
+<span class="w">      </span><span class="p">{...</span><span class="nx">rest</span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="nx">render</span><span class="o">=</span><span class="p">{(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">checkAuth</span><span class="p">()</span><span class="w"></span>
+<span class="w">          </span><span class="o">?</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Component</span><span class="w"> </span><span class="p">{...</span><span class="nx">props</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Redirect</span><span class="w"> </span><span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="kd">const</span> <span class="nx">Router</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span>
-      <span class="o">&lt;</span><span class="nx">Routes</span><span class="o">&gt;</span>
-          <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/&quot;</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Home</span><span class="p">}</span> <span class="o">/&gt;</span>
-          <span class="o">&lt;</span><span class="nx">ProtectedRoute</span> <span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/about&quot;</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">About</span><span class="p">}</span> <span class="o">/&gt;</span>
-      <span class="o">&lt;</span><span class="err">/Routes&gt;</span>
-    <span class="p">)</span>
-  <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">Routes</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">exact</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/&quot;</span><span class="w"> </span><span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Home</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">ProtectedRoute</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/about&quot;</span><span class="w"> </span><span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">About</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="err">/Routes&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>Now, the <code>&lt;About /&gt;</code> component will be protected and only be shown based on some condition like authentication, after we add it in, of course.</p>
@@ -2228,15 +2237,14 @@
 <p>The code above will say that you are always logged in and anyone will be able to navigate to your protected route. <strong>In production mode we generally want something more complicated than that.</strong> </p>
 </blockquote>
 <p>Let's look at how to find a cookie from the <strong>browser window</strong>, shall we?</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="kd">const</span> <span class="nx">checkAuth</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-      <span class="kd">const</span> <span class="nx">cookies</span> <span class="o">=</span> <span class="nx">cookie</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">)</span>
-      <span class="k">return</span> <span class="nx">cookies</span><span class="p">[</span><span class="s2">&quot;loggedIn&quot;</span><span class="p">]</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="kc">false</span>
-  <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">checkAuth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">cookies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cookie</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">cookies</span><span class="p">[</span><span class="s2">&quot;loggedIn&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>Look closely at the function above, it's getting all of the cookies that exist on the browser and saying, "If there's one called <code>loggedIn</code>, return <code>true</code>. Otherwise return <code>false</code>. <code>cookie.parse</code> actually comes from the NPM package called <a href="https://www.npmjs.com/package/cookie">cookie</a>. We'll be installing it shortly. (Just make sure you do the following homework.) For now, let's assume if we're looking for a cookie called: loggedIn we probably put one, or set one, there called loggedIn with our app. This means our app can now save data to the local storage of a user's computer, or more specifically, their browser's local storage! This isn't something we've done yet.....ooooh....ahhhh.</p>
 <h2 id="cookies">Cookies</h2>
 <!-- ! Video Contents: Vimeo, Clayton@ACA - 411-34-CookiesAHighOverview - 411.2.4.3 -->
@@ -2348,7 +2356,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>

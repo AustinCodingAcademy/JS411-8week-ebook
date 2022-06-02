@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.0.5">
     
     
       
@@ -432,6 +432,18 @@
     <li class="md-nav__item">
       <a href="../../module-1/conditionalRendering/" class="md-nav__link">
         Conditional Rendering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/functionalComponentHooks/" class="md-nav__link">
+        Functional Components and Hooks
       </a>
     </li>
   
@@ -2056,17 +2068,16 @@
 <p>During your time at ACA you've learned how to use fetch and also axios to make API requests. At some point, you probably already tried to hit your JS311 APIs from your JS411 React app, but if you didn't we'll talk about it.</p>
 <p>Prior to combining the two apps, if you wanted to hit your API from JS311 you needed the full gcloud url of that app engine project. It may have looked something like this: <code>my-project.appspot.com</code>. So if you wanted to hit an API you created to get users for example you would do a fetch like this:</p>
 <div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Example API Request</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://my-project.appspot.com/users&#39;</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
-    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="c1">// do something with users data</span>
-    <span class="p">})</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://my-project.appspot.com/users&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// do something with users data</span><span class="w"></span>
+<span class="w">    </span><span class="p">})</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <blockquote>
@@ -2074,17 +2085,16 @@
 </blockquote>
 <p>The only change here is that when the two Apps are combined, so you no longer need the whole URL and can simply run:</p>
 <div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Example API Request in same folder</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
-      <span class="c1">// do something with users data</span>
-<span class="p">})</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// do something with users data</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>Since the frontend and backend are being served from the same place, Express knows how to handle this. The only situation that could arise is if you named a route the same thing in Express and React Router. For example if you had a page called <code>/users</code> on the frontend. Try to avoid that situation by calling it <code>/listusers</code> or something like that.</p>
@@ -2184,7 +2194,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>

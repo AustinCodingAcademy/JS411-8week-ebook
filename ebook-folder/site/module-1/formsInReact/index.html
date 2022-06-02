@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.0.5">
     
     
       
@@ -434,6 +434,18 @@
     <li class="md-nav__item">
       <a href="../conditionalRendering/" class="md-nav__link">
         Conditional Rendering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functionalComponentHooks/" class="md-nav__link">
+        Functional Components and Hooks
       </a>
     </li>
   
@@ -2049,24 +2061,23 @@
 <h2 id="overview">Overview</h2>
 <p>We've seen a lot in the past few classes. It may seem like a flurry of information but the more you practice this stuff the easier it will get. Always keep looking up React documentation and tutorials to guide you along. Today let's talk about using forms in React. Forms are what you will build over and over again in your career!</p>
 <p>You've seen and used forms in HTML. They're pretty simple and easy to use. A form that takes someone's name looks like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
     Name:
     <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;name&quot;</span> <span class="p">/&gt;</span>
   <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Submit&quot;</span> <span class="p">/&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <p>In HTML, the elements like: <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;select&gt;</code> handle their own state, but in React we want state to be handled in our component’s local state. We call this a <strong>single source of truth</strong>. When a React component that renders a form also controls what happens inside its form based on what the user inputs, we call it a <strong>controlled component</strong>. As the user types, the new state is set with the values they input and the value they see inside the form only represents what is stored in the component’s state. The code snippet below demonstrates a simple <strong>controlled component</strong>.</p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Simple Controlled Component</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2103,49 +2114,48 @@
 <span class="normal">35</span>
 <span class="normal">36</span>
 <span class="normal">37</span>
-<span class="normal">38</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nx">NameForm</span> <span class="k">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
-    <span class="c1">// initialize the state with empty quotes &#39;&#39;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
-      <span class="p">};</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">NameForm</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// initialize the state with empty quotes &#39;&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="p">};</span><span class="w"></span>
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// a method that, when called, changes the value of this.state.value</span>
-  <span class="nx">handleChange</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">value</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">});</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// a method that, when called, changes the value of this.state.value</span><span class="w"></span>
+<span class="w">  </span><span class="nx">handleChange</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// this method is called when the form is submitted. Potentially an API request could go here using the data from this.state</span>
-  <span class="nx">handleSubmit</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// always put this line in on submits, it prevents the page from reloading and wiping your state</span>
-    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;A name was submitted: &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
-    <span class="c1">// after doing something with the data we reset the form value to empty quotes again</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">})</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// this method is called when the form is submitted. Potentially an API request could go here using the data from this.state</span><span class="w"></span>
+<span class="w">  </span><span class="nx">handleSubmit</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// always put this line in on submits, it prevents the page from reloading and wiping your state</span><span class="w"></span>
+<span class="w">    </span><span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;A name was submitted: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// after doing something with the data we reset the form value to empty quotes again</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">})</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span>
-      <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span><span class="p">}</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span>
-          <span class="nx">Name</span><span class="o">:</span>
-          <span class="p">{</span><span class="cm">/* the value of the input is tied to this.state.value so when a user types the handleChange method changes this.state.value to match*/</span><span class="p">}</span>
-          <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">value</span><span class="p">}</span> <span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">}</span> <span class="o">/&gt;</span>
-        <span class="o">&lt;</span><span class="err">/label&gt;</span>
-        <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;Submit&quot;</span> <span class="o">/&gt;</span>
-      <span class="o">&lt;</span><span class="err">/form&gt;</span>
-    <span class="p">);</span>
-  <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="nx">render</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">form</span><span class="w"> </span><span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span><span class="p">}</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Name</span><span class="o">:</span><span class="w"></span>
+<span class="w">          </span><span class="p">{</span><span class="cm">/* the value of the input is tied to this.state.value so when a user types the handleChange method changes this.state.value to match*/</span><span class="p">}</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="w"> </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">value</span><span class="p">}</span><span class="w"> </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/label&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="w"> </span><span class="nx">value</span><span class="o">=</span><span class="s2">&quot;Submit&quot;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="err">/form&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">without comments</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2182,46 +2192,45 @@
 <span class="normal">35</span>
 <span class="normal">36</span>
 <span class="normal">37</span>
-<span class="normal">38</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nx">NameForm</span> <span class="k">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
-    <span class="c1">// initialize the state with empty quotes &#39;&#39;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
-      <span class="p">};</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">NameForm</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// initialize the state with empty quotes &#39;&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="p">};</span><span class="w"></span>
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// a method that, when called, changes the value of this.state.value</span>
-  <span class="nx">handleChange</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">value</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">});</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// a method that, when called, changes the value of this.state.value</span><span class="w"></span>
+<span class="w">  </span><span class="nx">handleChange</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// this method is called when the form is submitted. Potentially an API request could go here using the data from this.state</span>
-  <span class="nx">handleSubmit</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// always put this line in on submits, it prevents the page from reloading and wiping your state</span>
-    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;A name was submitted: &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
-    <span class="c1">// after doing something with the data we reset the form value to empty quotes again</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">})</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// this method is called when the form is submitted. Potentially an API request could go here using the data from this.state</span><span class="w"></span>
+<span class="w">  </span><span class="nx">handleSubmit</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// always put this line in on submits, it prevents the page from reloading and wiping your state</span><span class="w"></span>
+<span class="w">    </span><span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;A name was submitted: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// after doing something with the data we reset the form value to empty quotes again</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">})</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span>
-      <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span><span class="p">}</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span>
-          <span class="nx">Name</span><span class="o">:</span>
-          <span class="p">{</span><span class="cm">/* the value of the input is tied to this.state.value so when a user types the handleChange method changes this.state.value to match*/</span><span class="p">}</span>
-          <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">value</span><span class="p">}</span> <span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">}</span> <span class="o">/&gt;</span>
-        <span class="o">&lt;</span><span class="err">/label&gt;</span>
-        <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;Submit&quot;</span> <span class="o">/&gt;</span>
-      <span class="o">&lt;</span><span class="err">/form&gt;</span>
-    <span class="p">);</span>
-  <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="nx">render</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">form</span><span class="w"> </span><span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span><span class="p">}</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Name</span><span class="o">:</span><span class="w"></span>
+<span class="w">          </span><span class="p">{</span><span class="cm">/* the value of the input is tied to this.state.value so when a user types the handleChange method changes this.state.value to match*/</span><span class="p">}</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="w"> </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">value</span><span class="p">}</span><span class="w"> </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/label&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="w"> </span><span class="nx">value</span><span class="o">=</span><span class="s2">&quot;Submit&quot;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="err">/form&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>In this way, we can control what data is sent off and when it is sent. Before moving on, make sure you read over all the examples laid out in the very clear <a href="https://reactjs.org/docs/forms.html">React Form Docs</a>. Pay special attention to the <code>&lt;select/&gt;</code> and <a href="https://reactjs.org/docs/forms.html#handling-multiple-inputs">Handling Multiple Inputs</a>.</p>
@@ -2264,9 +2273,8 @@
 
 cp workspace/resources/templateFile.md docs/module- 
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
 
 | Method      | Description                          |
 | ----------- | ------------------------------------ |
@@ -2284,25 +2292,21 @@ https://facelessuser.github.io/pymdown-extensions/extensions/keys/
 
 === "Javascript"
 
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>
-</code></pre></div>
-</td></tr></table>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
 
 === "Python"
 
-  <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>
-</code></pre></div>
-</td></tr></table>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
 
 === "Example"
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="go">  .</span>
-</code></pre></div>
-</td></tr></table>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">  .</span>
+</code></pre></div></td></tr></table></div>
 
 === "Instructions"
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  .
-</code></pre></div>
-</td></tr></table>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>  .
+</code></pre></div></td></tr></table></div>
 
 === "Result"
     ![PIC](./../images/pic.png)
@@ -2374,7 +2378,7 @@ https://facelessuser.github.io/pymdown-extensions/extensions/keys/
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>

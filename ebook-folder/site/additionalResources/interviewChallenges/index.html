@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.0.5">
     
     
       
@@ -432,6 +432,18 @@
     <li class="md-nav__item">
       <a href="../../module-1/conditionalRendering/" class="md-nav__link">
         Conditional Rendering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/functionalComponentHooks/" class="md-nav__link">
+        Functional Components and Hooks
       </a>
     </li>
   
@@ -2251,13 +2263,12 @@ Speak aloud every thought you have. THIS IS THE MOST IMPORTANT PART!</li>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox"/> <strong>Prompt 1: sumPairs</strong> - <em>How do you find all pairs of an integer array whose sum is equal to a given number?</em></li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">,</span> <span class="mf">4</span><span class="p">,</span> <span class="mf">5</span><span class="p">,</span> <span class="mf">6</span><span class="p">,</span> <span class="mf">7</span><span class="p">,</span> <span class="mf">8</span><span class="p">,</span> <span class="mf">9</span><span class="p">,</span> <span class="mf">10</span><span class="p">,</span> <span class="mf">11</span><span class="p">,</span> <span class="mf">12</span><span class="p">,</span> <span class="mf">13</span><span class="p">,</span> <span class="mf">14</span><span class="p">,</span> <span class="mf">15</span><span class="p">,</span> <span class="mf">16</span><span class="p">,</span> <span class="mf">32</span><span class="p">,</span> <span class="mf">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">16</span><span class="p">,</span> <span class="mf">8</span><span class="p">]</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">11</span><span class="p">,</span><span class="w"> </span><span class="mf">12</span><span class="p">,</span><span class="w"> </span><span class="mf">13</span><span class="p">,</span><span class="w"> </span><span class="mf">14</span><span class="p">,</span><span class="w"> </span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="mf">32</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">]</span><span class="w"></span>
 
-  <span class="nx">sumPairs</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="mf">16</span><span class="p">)</span> <span class="c1">// --&gt; [[8, 8], [14, 2], [0, 16], [1, 15], [32, -16]]</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="nx">sumPairs</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">)</span><span class="w"> </span><span class="c1">// --&gt; [[8, 8], [14, 2], [0, 16], [1, 15], [32, -16]]</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h3 id="class-4">Class 4</h3>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox"/> <strong>Prompt 1: areAnagrams</strong> - <em>How do you check if two strings are anagrams of each other? Build a program that does just that; return Boolean</em></li>
@@ -2287,15 +2298,14 @@ Speak aloud every thought you have. THIS IS THE MOST IMPORTANT PART!</li>
 <p>```javascript
     const word = 2
     const sentence = 'My cat was a dog and ran away.'</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>const reverseWord = (arg1, arg2) =&gt; {}
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>const reverseWord = (arg1, arg2) =&gt; {}
 
 reverseWord(sentence, word) // returns &#39;saw&#39;
 ```
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <h3 id="class-9">Class 9</h3>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox"/> <strong>Prompt 1: Bucket Sort</strong> - <em>How do you implement a bucket sort algorithm?</em></li>
@@ -2368,7 +2378,7 @@ Revise if you can for efficiency
 
 1. How do you count the number of vowels and consonants in a given string?
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2387,28 +2397,27 @@ Revise if you can for efficiency
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="kd">const</span> <span class="nx">myWord</span> <span class="o">=</span> <span class="s2">&quot;puppy&quot;</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">myWord</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;puppy&quot;</span><span class="w"></span>
 
-  <span class="kd">const</span> <span class="nx">count</span> <span class="o">=</span> <span class="p">(</span><span class="nx">word</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="c1">// what goes here?</span>
-    <span class="k">return</span> <span class="c1">// consonants = 3, vowels = 2</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">word</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// what goes here?</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="c1">// consonants = 3, vowels = 2</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="nx">count</span><span class="p">(</span><span class="nx">myWord</span><span class="p">)</span>
-  <span class="sb">```</span>
+<span class="w">  </span><span class="nx">count</span><span class="p">(</span><span class="nx">myWord</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="sb">```</span>
 
 <span class="sb">   --&gt;</span>
 
 <span class="sb">&lt;!-- 2. Prompt: How is a [bubble sort algorithm](https://www.geeksforgeeks.org/bubble-sort/) implemented?</span>
 
-<span class="sb">```</span><span class="nx">javascript</span>
-    <span class="kd">const</span> <span class="nx">arrayOfNumbers</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2</span><span class="p">,</span> <span class="mf">8</span><span class="p">,</span> <span class="mf">9</span><span class="p">,</span> <span class="mf">3</span><span class="p">,</span> <span class="mf">10</span><span class="p">]</span>
+<span class="sb">```</span><span class="nx">javascript</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">arrayOfNumbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">]</span><span class="w"></span>
 
-    <span class="kd">const</span> <span class="nx">myBubbleSort</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arg1</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{}</span>  
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">myBubbleSort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">arg1</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span>
 
-    <span class="nx">myBubbleSort</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="c1">// returns [2, 3, 8, 9, 10]</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">    </span><span class="nx">myBubbleSort</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span><span class="w"> </span><span class="c1">// returns [2, 3, 8, 9, 10]</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 
 Don't be afraid to Google around and figure out how this is done.
  -->
@@ -2503,7 +2512,7 @@ Write code to simulate your approach.
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>

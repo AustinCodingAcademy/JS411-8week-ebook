@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.0.5">
     
     
       
@@ -509,6 +509,18 @@
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functionalComponentHooks/" class="md-nav__link">
+        Functional Components and Hooks
+      </a>
     </li>
   
 
@@ -2012,22 +2024,21 @@
 <h2 id="conditional-rendering-using-local-state">Conditional Rendering Using Local State</h2>
 <p>Below is a snippet of code that should be very easy for you to read.</p>
 <div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Simple If/Else Statement</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nx">isVerified</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="s2">&quot;is verified&quot;</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="s2">&quot;not verified&quot;</span>
-  <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isVerified</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;is verified&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;not verified&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>This is simple and straightforward JavaScript. We'll now just apply the same logic with React. After all, when we're developing in React we're writing JavaScript!</p>
 <div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">If/Else Statement in React</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2035,23 +2046,22 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"></span>
 
-<span class="kd">const</span> <span class="nx">MyConditionalComponent</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">isVerified</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">IsVerifiedComponent</span> <span class="nx">userId</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span> <span class="o">/&gt;</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">NotVerifiedComponent</span> <span class="nx">userId</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span> <span class="o">/&gt;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="kd">const</span><span class="w"> </span><span class="nx">MyConditionalComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">isVerified</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">IsVerifiedComponent</span><span class="w"> </span><span class="nx">userId</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">NotVerifiedComponent</span><span class="w"> </span><span class="nx">userId</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>Above we see that if the user is verified, <code>(prop.isVerified = true)</code> then we can render a component that might welcome the user like the <code>&lt;IsVerifiedComponent /&gt;</code>, else we can render a component that tells them that their login failed and ask them to try again in the <code>&lt;NotVerifiedComponent /&gt;</code>.</p>
 <p>All of that was based on the values that are in the <code>props</code> object. We can do the same thing with state! Follow along with the comments throughout the code snippet to understand this for yourself.</p>
 <div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Button Changes State</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2102,63 +2112,62 @@
 <span class="normal">49</span>
 <span class="normal">50</span>
 <span class="normal">51</span>
-<span class="normal">52</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// turn your functional component into a class-based component so you can create local state</span>
+<span class="normal">52</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// turn your functional component into a class-based component so you can create local state</span><span class="w"></span>
 
-<span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"></span>
 
-<span class="kd">class</span> <span class="nx">MyConditionalComponent</span> <span class="k">extends</span> <span class="nx">Component</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">MyConditionalComponent</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"></span>
 
-    <span class="cm">/* inside the constructor, initiate the state as an object and give it the keys you want to use, in this case we&#39;ll use a property called isHidden so we know what it&#39;s for. */</span>
+<span class="w">    </span><span class="cm">/* inside the constructor, initiate the state as an object and give it the keys you want to use, in this case we&#39;ll use a property called isHidden so we know what it&#39;s for. */</span><span class="w"></span>
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="nx">isHidden</span><span class="o">:</span> <span class="kc">true</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">isHidden</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-<span class="cm">/* Remember from 211 that classes are functions that return an object with a context or instance of which will require/allow us to use the `this` keyword. */</span>
+<span class="cm">/* Remember from 211 that classes are functions that return an object with a context or instance of which will require/allow us to use the `this` keyword. */</span><span class="w"></span>
 
-  <span class="cm">/* because the component is a class we can also create and use our own methods: */</span>
+<span class="w">  </span><span class="cm">/* because the component is a class we can also create and use our own methods: */</span><span class="w"></span>
 
-  <span class="nx">handleClick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="cm">/* What you see below is a ternary operator. It reads like this: &quot;if `this.state.isHidden` is true - set status to be false , else set it to true&quot;. */</span>
+<span class="w">  </span><span class="nx">handleClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/* What you see below is a ternary operator. It reads like this: &quot;if `this.state.isHidden` is true - set status to be false , else set it to true&quot;. */</span><span class="w"></span>
 
-  <span class="kd">let</span> <span class="nx">status</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isHidden</span> <span class="o">==</span> <span class="kc">true</span> <span class="o">?</span> <span class="kc">false</span> <span class="o">:</span> <span class="kc">true</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isHidden</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
 
-    <span class="cm">/* Because we have the variable status set to be the opposite of whatever `this.state.isHidden` equals... */</span>
+<span class="w">    </span><span class="cm">/* Because we have the variable status set to be the opposite of whatever `this.state.isHidden` equals... */</span><span class="w"></span>
 
-    <span class="cm">/* ...we can use its value to set `this.state.isHidden` when our button is clicked.*/</span>
+<span class="w">    </span><span class="cm">/* ...we can use its value to set `this.state.isHidden` when our button is clicked.*/</span><span class="w"></span>
 
-    <span class="cm">/* Notice we use the `.setState({})` method to change values in our state object. */</span>
+<span class="w">    </span><span class="cm">/* Notice we use the `.setState({})` method to change values in our state object. */</span><span class="w"></span>
 
-  <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
-    <span class="nx">isHidden</span><span class="o">:</span> <span class="nx">status</span>
-    <span class="p">})</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">isHidden</span><span class="o">:</span><span class="w"> </span><span class="nx">status</span><span class="w"></span>
+<span class="w">    </span><span class="p">})</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
-    <span class="cm">/* then we check if the value in state is true or false and render accordingly */</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isHidden</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="p">(</span>
-        <span class="cm">/* if the user clicks this component it will trigger the `handleClick` method which changes the state and then forces the parent component to re-render, which will render the `&lt;UserDetailsCard /&gt;` component as well and vice versa! */</span>
-        <span class="o">&lt;</span><span class="nx">UserNameCard</span> <span class="nx">revealClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleClick</span><span class="p">}</span> <span class="nx">userId</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">/&gt;</span>
-      <span class="p">)</span>  
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="p">(</span>
-        <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-          <span class="o">&lt;</span><span class="nx">UserNameCard</span> <span class="nx">userId</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">/&gt;</span>
-          <span class="o">&lt;</span><span class="nx">UserDetailsCard</span> <span class="nx">hideClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleClick</span><span class="p">}</span> <span class="nx">userId</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span> <span class="o">/&gt;</span>
-        <span class="o">&lt;</span><span class="err">/div&gt;</span>
-      <span class="p">)</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="nx">render</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/* then we check if the value in state is true or false and render accordingly */</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isHidden</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="cm">/* if the user clicks this component it will trigger the `handleClick` method which changes the state and then forces the parent component to re-render, which will render the `&lt;UserDetailsCard /&gt;` component as well and vice versa! */</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">UserNameCard</span><span class="w"> </span><span class="nx">revealClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleClick</span><span class="p">}</span><span class="w"> </span><span class="nx">userId</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="p">)</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">UserNameCard</span><span class="w"> </span><span class="nx">userId</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">UserDetailsCard</span><span class="w"> </span><span class="nx">hideClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleClick</span><span class="p">}</span><span class="w"> </span><span class="nx">userId</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 <input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">without comments</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2190,41 +2199,40 @@
 <span class="normal">30</span>
 <span class="normal">31</span>
 <span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"></span>
 
-<span class="kd">class</span> <span class="nx">MyConditionalComponent</span> <span class="k">extends</span> <span class="nx">Component</span> <span class="p">{</span>
-  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="nx">isHidden</span><span class="o">:</span> <span class="kc">true</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">MyConditionalComponent</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">isHidden</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="nx">handleClick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="kd">let</span> <span class="nx">status</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isHidden</span> <span class="o">==</span> <span class="kc">true</span> <span class="o">?</span> <span class="kc">false</span> <span class="o">:</span> <span class="kc">true</span>
+<span class="w">  </span><span class="nx">handleClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isHidden</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
 
-  <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
-    <span class="nx">isHidden</span><span class="o">:</span> <span class="nx">status</span>
-    <span class="p">})</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">isHidden</span><span class="o">:</span><span class="w"> </span><span class="nx">status</span><span class="w"></span>
+<span class="w">    </span><span class="p">})</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isHidden</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="p">(</span>
-        <span class="o">&lt;</span><span class="nx">UserNameCard</span> <span class="nx">revealClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleClick</span><span class="p">}</span> <span class="nx">userId</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">/&gt;</span>
-      <span class="p">)</span>  
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="p">(</span>
-        <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-          <span class="o">&lt;</span><span class="nx">UserNameCard</span> <span class="nx">userId</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">/&gt;</span>
-          <span class="o">&lt;</span><span class="nx">UserDetailsCard</span> <span class="nx">hideClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleClick</span><span class="p">}</span> <span class="nx">userId</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span> <span class="o">/&gt;</span>
-        <span class="o">&lt;</span><span class="err">/div&gt;</span>
-      <span class="p">)</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="nx">render</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isHidden</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">UserNameCard</span><span class="w"> </span><span class="nx">revealClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleClick</span><span class="p">}</span><span class="w"> </span><span class="nx">userId</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="p">)</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">UserNameCard</span><span class="w"> </span><span class="nx">userId</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">UserDetailsCard</span><span class="w"> </span><span class="nx">hideClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleClick</span><span class="p">}</span><span class="w"> </span><span class="nx">userId</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>In the example above we will have to assume <code>&lt;UserNameCard /&gt;</code>and <code>&lt;UserDetailsCard /&gt;</code> have a button in them that looks like this: <code>&lt;button onClick={this.props.revealClick}&gt;Show Details&lt;/button&gt;</code> and <code>&lt;button onClick={this.props.hideClick}&gt;Hide Details&lt;/button&gt;</code>. Each of these buttons have a built-in property called <code>onClick</code>. We then assign the <code>onClick</code> method to <code>this.props.revealClick</code> which then points back to the original method we built: <code>handleClick</code>.</p>
@@ -2282,13 +2290,13 @@
         </a>
       
       
-        <a href="../dynamicRendering/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../functionalComponentHooks/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Dynamic Rendering
+              Functional Components and Hooks
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -2317,7 +2325,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>
