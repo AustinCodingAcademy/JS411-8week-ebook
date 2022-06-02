@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.0.5">
     
     
       
@@ -2096,7 +2096,7 @@
 <p>Let's look at a simpler example for right now. In the component below we're going to build a button in a functional component that will display either "Was button clicked? true" or "Was button clicked? false" based on whether the button was clicked or not. We'll call this component in a parent component that will hold the state of the button, <code>isClicked: false</code>. We'll then pass the state of the button back to the child component, <code>MyFirstComponent.js</code> via props.</p>
 <p>Check it out.</p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">MyFirstComponent.js</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2111,27 +2111,26 @@
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="c1">// because React is a library we have to call the functionality of it we want to use.</span>
-  <span class="c1">// To do this we will always have to write the following line at the top of our .js file to save the functionality to a variable</span>
-  <span class="k">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="c1">// because React is a library we have to call the functionality of it we want to use.</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// To do this we will always have to write the following line at the top of our .js file to save the functionality to a variable</span><span class="w"></span>
+<span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
 
-  <span class="c1">// simply write a function in ES6+ then pass in the keyword props to access this special object</span>
-  <span class="kd">const</span> <span class="nx">myFirstComponent</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="c1">// every component in React MUST return something...</span>
-    <span class="k">return</span> <span class="p">(</span>
-      <span class="o">&lt;</span><span class="nx">button</span><span class="o">&gt;</span>
-        <span class="nx">Was</span> <span class="nx">button</span> <span class="nx">clicked</span><span class="o">?</span> <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">wasClicked</span><span class="p">}</span>
-      <span class="o">&lt;</span><span class="err">/button&gt;</span>
-    <span class="p">)</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// simply write a function in ES6+ then pass in the keyword props to access this special object</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">myFirstComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// every component in React MUST return something...</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">button</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Was</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="nx">clicked</span><span class="o">?</span><span class="w"> </span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">wasClicked</span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="err">/button&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// Then, because we want to compose our web pages with composable elements, we have to export the code in the file. Always write this line at the end of your .js files:</span>
-  <span class="k">export</span> <span class="k">default</span> <span class="nx">myFirstComponent</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="c1">// Then, because we want to compose our web pages with composable elements, we have to export the code in the file. Always write this line at the end of your .js files:</span><span class="w"></span>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">myFirstComponent</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">without Comments</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2142,26 +2141,25 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="c1">// MyFirstComponent.js</span>
-  <span class="k">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="c1">// MyFirstComponent.js</span><span class="w"></span>
+<span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
 
-  <span class="kd">const</span> <span class="nx">myFirstComponent</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span>
-      <span class="o">&lt;</span><span class="nx">button</span><span class="o">&gt;</span>
-        <span class="nx">Was</span> <span class="nx">button</span> <span class="nx">clicked</span><span class="o">?</span> <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">wasClicked</span><span class="p">}</span>
-      <span class="o">&lt;</span><span class="err">/button&gt;</span>
-    <span class="p">)</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">myFirstComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">button</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Was</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="nx">clicked</span><span class="o">?</span><span class="w"> </span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">wasClicked</span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="err">/button&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="k">export</span> <span class="k">default</span> <span class="nx">myFirstComponent</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">myFirstComponent</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <h4 id="class-based-components-pt1">Class-Based Components pt.1</h4>
 <p>Now let's see what a <strong>class-based component</strong> looks like. Because we need to hold the state of our button and create a method to take the input of the <code>onClick</code> of the button, we'll need to make our parent component of this button a class-based component. This is important. Most components you build will be functional, but as you learn that it needs to hold state or have methods, you'll then change them over to be these class-based components. Check it out . . .</p>
 <div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">MyFirstClassComponent.js</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2201,52 +2199,51 @@
 <span class="normal">38</span>
 <span class="normal">39</span>
 <span class="normal">40</span>
-<span class="normal">41</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="c1">// Again import React to use it but this time we have to destructure it and get to the &quot;Component&quot; key</span>
-  <span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span><span class="nx">Component</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
-  <span class="c1">// We can also import code we&#39;ve already built into these class-based components</span>
-  <span class="k">import</span> <span class="nx">myFirstComponent</span> <span class="nx">from</span> <span class="s1">&#39;./MyFirstComponent&#39;</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="c1">// Again import React to use it but this time we have to destructure it and get to the &quot;Component&quot; key</span><span class="w"></span>
+<span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">Component</span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// We can also import code we&#39;ve already built into these class-based components</span><span class="w"></span>
+<span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="nx">myFirstComponent</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./MyFirstComponent&#39;</span><span class="w"></span>
 
-  <span class="c1">// Notice here we use that &quot;extends&quot; word on the &quot;Component&quot; we imported?</span>
-  <span class="kd">class</span> <span class="nx">MyFirstClassComponent</span> <span class="k">extends</span> <span class="nx">Component</span> <span class="p">{</span>
-    <span class="c1">// All Classes must have a &quot;constructor&quot;, in React we always pass &quot;props&quot;</span>
-    <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
-      <span class="c1">// Remember that if we &quot;extend&quot; a &quot;class&quot; of a &quot;class&quot; we have to call the &quot;super()&quot; method. Just pass it &quot;props&quot; as well.</span>
-      <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
-      <span class="c1">// Class-based Components allow us to have &quot;state&quot;! And this is why/when we use class-based components.</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-        <span class="nx">todos</span><span class="o">:</span> <span class="p">[],</span>
-        <span class="nx">isClicked</span><span class="o">:</span> <span class="kc">false</span>
-      <span class="p">};</span>
+<span class="w">  </span><span class="c1">// Notice here we use that &quot;extends&quot; word on the &quot;Component&quot; we imported?</span><span class="w"></span>
+<span class="w">  </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyFirstClassComponent</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// All Classes must have a &quot;constructor&quot;, in React we always pass &quot;props&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// Remember that if we &quot;extend&quot; a &quot;class&quot; of a &quot;class&quot; we have to call the &quot;super()&quot; method. Just pass it &quot;props&quot; as well.</span><span class="w"></span>
+<span class="w">      </span><span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// Class-based Components allow us to have &quot;state&quot;! And this is why/when we use class-based components.</span><span class="w"></span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">todos</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">        </span><span class="nx">isClicked</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">      </span><span class="p">};</span><span class="w"></span>
 
-      <span class="c1">// Class-based components also allow us to have methods attached to them</span>
-      <span class="nx">onChange</span> <span class="o">=</span> <span class="nx">e</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
-          <span class="nx">text</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span>
-        <span class="p">})</span>
-      <span class="p">}</span>
+<span class="w">      </span><span class="c1">// Class-based components also allow us to have methods attached to them</span><span class="w"></span>
+<span class="w">      </span><span class="nx">onChange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="w"></span>
+<span class="w">          </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="w"></span>
+<span class="w">        </span><span class="p">})</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
 
-      <span class="c1">// Class-based components must have the &quot;render()&quot; method in them for React to call them as an IIFE (immediately invoked function expression)</span>
-      <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
-        <span class="c1">// and the &quot;render()&quot; method must have a return</span>
-        <span class="k">return</span> <span class="p">(</span>
-          <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-            <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Input</span> <span class="nx">Text</span> <span class="nx">Below</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
-            <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span> <span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">onChange</span><span class="p">}</span><span class="o">/&gt;</span>
-            <span class="p">{</span><span class="cm">/* We can make comment in JSX like this, with curlies outside our comment tokens*/</span><span class="p">}</span>
-            <span class="p">{</span><span class="cm">/* We can invoke myFirstComponent here to use it in this component and pass it information via &quot;props&quot;*/</span><span class="p">}</span>
-            <span class="o">&lt;</span><span class="nx">myFirstComponent</span> <span class="nx">wasClicked</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isClicked</span><span class="p">}</span> <span class="o">/&gt;</span>
-          <span class="o">&lt;</span><span class="err">/div&gt;</span>
-        <span class="p">)</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">      </span><span class="c1">// Class-based components must have the &quot;render()&quot; method in them for React to call them as an IIFE (immediately invoked function expression)</span><span class="w"></span>
+<span class="w">      </span><span class="nx">render</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// and the &quot;render()&quot; method must have a return</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Input</span><span class="w"> </span><span class="nx">Text</span><span class="w"> </span><span class="nx">Below</span><span class="o">&lt;</span><span class="err">/h1&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span><span class="w"> </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">onChange</span><span class="p">}</span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="cm">/* We can make comment in JSX like this, with curlies outside our comment tokens*/</span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="cm">/* We can invoke myFirstComponent here to use it in this component and pass it information via &quot;props&quot;*/</span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">myFirstComponent</span><span class="w"> </span><span class="nx">wasClicked</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isClicked</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-  <span class="k">export</span> <span class="k">default</span> <span class="nx">MyFirstClassComponent</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">MyFirstClassComponent</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 <input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">without Comments</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2277,40 +2274,39 @@
 <span class="normal">29</span>
 <span class="normal">30</span>
 <span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="c1">// MyFirstClassComponent.js</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="c1">// MyFirstClassComponent.js</span><span class="w"></span>
 
-  <span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span><span class="nx">Component</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-  <span class="k">import</span> <span class="nx">myFirstComponent</span> <span class="nx">from</span> <span class="s1">&#39;./MyFirstComponent&#39;</span>
+<span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">Component</span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="nx">myFirstComponent</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./MyFirstComponent&#39;</span><span class="w"></span>
 
-  <span class="kd">class</span> <span class="nx">MyFirstClassComponent</span> <span class="k">extends</span> <span class="nx">Component</span> <span class="p">{</span>
-    <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-        <span class="nx">todos</span><span class="o">:</span> <span class="p">[],</span>
-        <span class="nx">isClicked</span><span class="o">:</span> <span class="kc">false</span>
-      <span class="p">};</span>
+<span class="w">  </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyFirstClassComponent</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">todos</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">        </span><span class="nx">isClicked</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">      </span><span class="p">};</span><span class="w"></span>
 
-      <span class="nx">onChange</span> <span class="o">=</span> <span class="nx">e</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
-          <span class="nx">text</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span>
-        <span class="p">})</span>
-      <span class="p">}</span>
+<span class="w">      </span><span class="nx">onChange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="w"></span>
+<span class="w">          </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="w"></span>
+<span class="w">        </span><span class="p">})</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
 
-      <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">(</span>
-          <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-            <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Input</span> <span class="nx">Text</span> <span class="nx">Below</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
-            <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span> <span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">onChange</span><span class="p">}</span><span class="o">/&gt;</span>
-            <span class="o">&lt;</span><span class="nx">myFirstComponent</span> <span class="nx">wasClicked</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isClicked</span><span class="p">}</span> <span class="o">/&gt;</span>
-          <span class="o">&lt;</span><span class="err">/div&gt;</span>
-        <span class="p">)</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">      </span><span class="nx">render</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Input</span><span class="w"> </span><span class="nx">Text</span><span class="w"> </span><span class="nx">Below</span><span class="o">&lt;</span><span class="err">/h1&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span><span class="w"> </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">onChange</span><span class="p">}</span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">myFirstComponent</span><span class="w"> </span><span class="nx">wasClicked</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isClicked</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-  <span class="k">export</span> <span class="k">default</span> <span class="nx">MyFirstClassComponent</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">MyFirstClassComponent</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>You can see that our button element, <code>myFirstComponent</code>, is called in our parent component's <code>render()</code> method and we pass it the prop: <code>wasClicked</code> which is pointing at the parent component's state object, <code>isClicked</code>. Then if you scroll back up and look at the <code>myFirstComponent</code> code you'll see we can display the state by placing the <code>props.wasClicked</code> inside curly braces <code>{}</code>: <code>{props.wasClicked}</code>. Take some time to make sure you have some general grasp of the way these are threaded together.</p>
@@ -2348,9 +2344,8 @@
 
 cp workspace/resources/templateFile.md docs/module- 
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>
-</code></pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
 
 | Method      | Description                          |
 | ----------- | ------------------------------------ |
@@ -2368,25 +2363,21 @@ https://facelessuser.github.io/pymdown-extensions/extensions/keys/
 
 === "Javascript"
 
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>
-</code></pre></div>
-</td></tr></table>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
 
 === "Python"
 
-  <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>
-</code></pre></div>
-</td></tr></table>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
 
 === "Example"
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="go">  .</span>
-</code></pre></div>
-</td></tr></table>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">  .</span>
+</code></pre></div></td></tr></table></div>
 
 === "Instructions"
-    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  .
-</code></pre></div>
-</td></tr></table>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>  .
+</code></pre></div></td></tr></table></div>
 
 === "Result"
     ![PIC](./../images/pic.png)
@@ -2458,7 +2449,7 @@ https://facelessuser.github.io/pymdown-extensions/extensions/keys/
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>

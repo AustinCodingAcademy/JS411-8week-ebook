@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.0.5">
     
     
       
@@ -2037,7 +2037,7 @@
 </blockquote>
 <p>Let's talk about it in more layman's terms and provide some examples.</p>
 <p>We're used to seeing something like this to build a simple React component that is showing a status (on/off) based on the state:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2053,27 +2053,26 @@
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"></span>
 
-  <span class="kd">class</span> <span class="nx">MyComponent</span> <span class="k">extends</span> <span class="nx">Component</span> <span class="p">{</span>
-      <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
-          <span class="nx">on</span><span class="o">:</span> <span class="kc">true</span>
-      <span class="p">}</span>
+<span class="w">  </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyComponent</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">on</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
 
-      <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
-          <span class="k">return</span> <span class="p">(</span>
-              <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-                  <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">The</span> <span class="nx">status</span> <span class="nx">is</span><span class="o">:</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">on</span> <span class="o">?</span> <span class="s1">&#39;On&#39;</span> <span class="o">:</span> <span class="s1">&#39;Off&#39;</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-              <span class="o">&lt;</span><span class="err">/div&gt;</span>
-          <span class="p">)</span>
-      <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">      </span><span class="nx">render</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">              </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">                  </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">The</span><span class="w"> </span><span class="nx">status</span><span class="w"> </span><span class="nx">is</span><span class="o">:</span><span class="w"> </span><span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">on</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;On&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Off&#39;</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span><span class="w"></span>
+<span class="w">              </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="k">export</span> <span class="k">default</span> <span class="nx">MyComponent</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">MyComponent</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>What if we make a new component called <code>MySecondComponent</code>:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2085,21 +2084,20 @@
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"></span>
 
-  <span class="kd">class</span> <span class="nx">MySecondComponent</span> <span class="k">extends</span> <span class="nx">Component</span> <span class="p">{</span>
-      <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
-          <span class="k">return</span> <span class="p">(</span>
-              <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-                  <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">This</span> <span class="nx">is</span> <span class="nx">my</span> <span class="nx">second</span> <span class="nx">component</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-              <span class="o">&lt;</span><span class="err">/div&gt;</span>
-          <span class="p">)</span>
-      <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">class</span><span class="w"> </span><span class="nx">MySecondComponent</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">render</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">              </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">                  </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">This</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">my</span><span class="w"> </span><span class="nx">second</span><span class="w"> </span><span class="nx">component</span><span class="o">&lt;</span><span class="err">/p&gt;</span><span class="w"></span>
+<span class="w">              </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="k">export</span> <span class="k">default</span> <span class="nx">MySecondComponent</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">MySecondComponent</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>Does <code>MySecondComponent</code> have access to the state (<code>on</code>) of the original <code>MyComponent</code>? Of course not. Normal React state only works within the component in which it's defined. So <code>MySecondComponent</code> doesn't have any idea what state <code>MyComponent</code> is in unless we pass the state down as <code>props</code>, but as you've probably already seen, passing <code>props</code> down, to only pass more <code>props</code> down becomes tedious, ugly, and unmanageable. Like filling a cup to pour into another cup and then to only pour into yet another cup. But we can change that process with Redux.</p>
 <p>But first. . . why would we want to do that? Well . . . the previous example might be too specific. <code>MySecondComponent</code> and <code>MyComponent</code> might not need to know about each other or each other's state, but what about if instead of <code>on</code>, <code>MyComponent</code> had the user data for the logged-in user? Then <code>MySecondComponent</code> might want to know about it because it may want to access it at some point in the future. We will eventually handle this by moving the <code>state</code> out of <code>MyComponent</code> and into a <strong>global</strong> Redux <strong>state</strong> that both components will have access to. Whenever one component changes the <code>state</code>, i.e. <code>user</code>, the other one will know about it. That's the power of Redux!</p>
 <p>Before we dive into some examples, let's briefly talk about what Redux is doing and what it <strong>isn't doing</strong>.</p>
@@ -2180,7 +2178,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>

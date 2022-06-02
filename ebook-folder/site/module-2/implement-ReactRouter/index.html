@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.0.5">
     
     
       
@@ -2060,21 +2060,20 @@
 <li class="task-list-item"><input type="checkbox"/> <code>import { BrowserRouter } from 'react-router-dom'</code></li>
 <li class="task-list-item"><input type="checkbox"/> create new component</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="kd">const</span> <span class="nx">Main</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span>
-      <span class="o">&lt;</span><span class="nx">BrowserRouter</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">Router</span> <span class="o">/&gt;</span>
-      <span class="o">&lt;</span><span class="err">/BrowserRouter&gt;</span>
-    <span class="p">)</span>
-  <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">Main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">BrowserRouter</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">Router</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="err">/BrowserRouter&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox"/> and <code>import Router from './Router'</code></li>
 <li class="task-list-item"><input type="checkbox"/> replace <code>&lt;App /&gt;</code> with wrapper function <code>&lt;Main /&gt;</code></li>
@@ -2101,23 +2100,22 @@
 <li class="task-list-item"><input type="checkbox"/> <code>import App from './App'</code></li>
 <li class="task-list-item"><input type="checkbox"/> Create Router function/component:</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="kd">const</span> <span class="nx">Router</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span>
-        <span class="o">&lt;</span><span class="nx">Routes</span><span class="o">&gt;</span>
-            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/home&quot;</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Home</span><span class="p">}</span> <span class="o">/&gt;</span>
-            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/app&quot;</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">App</span><span class="p">}</span> <span class="o">/&gt;</span>
-        <span class="o">&lt;</span><span class="err">/Routes&gt;</span>
-    <span class="p">)</span>
-  <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">Routes</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/home&quot;</span><span class="w"> </span><span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Home</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/app&quot;</span><span class="w"> </span><span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">App</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/Routes&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox"/> <code>export default Router</code></li>
 <li class="task-list-item"><input type="checkbox"/> Go back to <code>index.js</code> and uncomment the import!!</li>
@@ -2151,7 +2149,7 @@
 <p><input type="checkbox"/> 6. Use a Material-UI Button... <code>import Button from '@material-ui/core/Button'</code></p>
 </li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -2159,17 +2157,16 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/home&quot;</span><span class="o">&gt;</span> <span class="o">*</span><span class="err">/}</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="o">&lt;</span><span class="nx">Link</span><span class="w"> </span><span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/home&quot;</span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="err">/}</span><span class="w"></span>
 
-  <span class="o">&lt;</span><span class="nx">Button</span> <span class="nx">style</span><span class="o">=</span><span class="p">{{</span> <span class="nx">margin</span><span class="o">:</span> <span class="s2">&quot;5% auto&quot;</span><span class="p">}}</span> <span class="nx">variant</span><span class="o">=</span><span class="s2">&quot;outlined&quot;</span> <span class="nx">color</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="nx">Button</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="nx">margin</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;5% auto&quot;</span><span class="p">}}</span><span class="w"> </span><span class="nx">variant</span><span class="o">=</span><span class="s2">&quot;outlined&quot;</span><span class="w"> </span><span class="nx">color</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="o">&gt;</span><span class="w"></span>
 
-  <span class="nx">Go</span> <span class="nx">BackHome</span>
+<span class="w">  </span><span class="nx">Go</span><span class="w"> </span><span class="nx">BackHome</span><span class="w"></span>
 
-  <span class="o">&lt;</span><span class="err">/Button&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="err">/Button&gt;</span><span class="w"></span>
 
-  <span class="o">&lt;</span><span class="err">/Link&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="o">&lt;</span><span class="err">/Link&gt;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <ul class="task-list">
 <li class="task-list-item">
 <p><input type="checkbox"/> 7. Create two more components called: <code>&lt;SignIn /&gt;</code> &amp; <code>&lt;SignUp /&gt;</code> and give them all Links to go to</p>
@@ -2204,14 +2201,14 @@
 <li class="task-list-item"><input type="checkbox"/> At the bottom of the file <code>example.js</code> (but before the export, line 79 or 80), create a new functional component called Urls</li>
 <li class="task-list-item"><input type="checkbox"/> The <code>Urls</code> component should return the following:</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>URLs Page<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
           <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://www.google.com&quot;</span><span class="p">&gt;</span>Google<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
@@ -2219,8 +2216,7 @@
           <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://www.amazon.com&quot;</span><span class="p">&gt;</span>Amazon<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 <blockquote>
 <p>NOTE: Try not to copy/paste this code. It's good to practice writing it.</p>
 </blockquote>
@@ -2306,7 +2302,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>
