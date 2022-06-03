@@ -51,7 +51,7 @@ Why use React Router? As we mentioned above, we use React Router to help us hand
 
     > NOTE: This video was recorded before reactRouter v6. We don't use `<Switch>` anymore. It is now `<Routes>`
 
-  > NOTE: This video was recorded before React v8 and the rendering method for React is now ReactDOM.createRoot() which is imported from "react-dom/client".
+  > NOTE: This video was recorded before React v18 and the rendering method for React is now ReactDOM.createRoot() which is imported from "react-dom/client".
     ```javascript
     import ReactDOM from "react-dom/client";
     import "./index.css";
@@ -78,7 +78,7 @@ After installing the libraries/packages that make up the magic of React Router, 
     import React from 'react';
 
     // Here is where we are importing to the two main components we need from the React Router package.
-    import { Routes, Route } from 'react-router';
+    import { Routes, Route } from 'react-router-dom';
 
     // Local imports. Import components we built ourselves
     import Home from './Home';

@@ -89,12 +89,7 @@ Take a look at the images below and notice the URLs in them. Apparently our web 
 
 ### Project Instructions
 
-Fork and clone the following [411_wk4_day1_react_router repository](https://github.com/AustinCodingAcademy/411_wk4_day1_react_router).
-
-Follow the directions in the readme to complete the project and upload the link to your GitHub repository to Zollege. The project directions are also summed up below:
-
-
-- [ ] Fork and clone the following 411_wk4_day1_react_router repository & follow along in the README.md
+Fork and clone the following repo: [411_wk4_day1_react_router repository](https://github.com/AustinCodingAcademy/411_wk4_day1_react_router). The instructions are in the README.
 
 ### Push Yourself Further
 

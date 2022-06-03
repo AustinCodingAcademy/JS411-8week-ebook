@@ -11,7 +11,7 @@ Now that you've gotten a hold of this new tool and have an understanding of why 
     <!-- ! Video Contents: Vimeo, Clayton@ACA - 411-29-ImplementingBrowserRouter - 411.2.3.1 -->
     <iframe src="https://player.vimeo.com/video/492232669?color=2565EF&byline=0&portrait=0" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
      
-    > NOTE: This video was recorded before React v8 and the rendering method for React is now `ReactDOM.createRoot()` which is imported from "react-dom/client". Your example might look like this:
+    > NOTE: This video was recorded before React v18 and the rendering method for React is now `ReactDOM.createRoot()` which is imported from "react-dom/client". Your example might look like this:
       ```javascript
       import ReactDOM from "react-dom/client";
       import "./index.css";
@@ -50,7 +50,7 @@ Now that you've gotten a hold of this new tool and have an understanding of why 
     > NOTE: This video was recorded before reactRouter v6. We don't use `<Switch>` anymore. It is now `<Routes>`. Your example should look more like this:  
     ```javascript
       import React from 'react';
-      import { Routes, Route } from 'react-router';
+      import { Routes, Route } from 'react-router-dom';
       
       import App from './App';
       import Home from './Home';
@@ -142,6 +142,7 @@ Now that you've gotten a hold of this new tool and have an understanding of why 
       * `<HelloWorldOne />` & `<HelloWorldTwo />` & `<SignIn />` & `<SignUp />` or whichever components you've decided to use.
 
 ## Another Method to Implement Link with MUI Button
+
 MUI will also accept another property named `component` which can take the value of any component we want to render in it's place. By doing this, we will not need to overwrite `Link`'s default styling since MUI will overwrite it using this method. You can now also add the `to` property, which we can specify the route we want to navigate to, to our `Button`, and now our `Link` will have access to that `to` property as well.
 Here is an example on how to implement Link and MUI's Button:
 ```javascript
@@ -169,7 +170,7 @@ You can refer to MUI's [Button API](https://mui.com/material-ui/api/button/) to 
 - [ ] We also have a custom Router component being imported. Let's look at the Router file next.
 - [ ] The dependecies have also been imported here for you, `import {Routes, Route} from "react-router-dom"`
 - [ ] We also have some simple custom Components being imported here as well, `"Dashboard"` and `"Login"`
-- [ ] Follow the TODO's marked in the comments of both the App.js and Router.js files.
+- [ ] Follow the TODO's marked in the comments starting at the Router.js file, and then move to App.js.
 - [ ] Practice making other `Route`'s and apply the same logic. Pretty Simple!
 
 ## Additional Resources
