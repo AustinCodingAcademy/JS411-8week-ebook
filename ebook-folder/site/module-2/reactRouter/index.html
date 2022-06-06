@@ -2105,7 +2105,7 @@
 </div>
 <blockquote>
 <p>VIDEO-NOTE-1: This video was recorded before React Router v6. We don't use <code>&lt;Switch&gt;</code> anymore. It is now <code>&lt;Routes&gt;</code></p>
-<p>VIDEO-NOTE-2: This video was recorded before React v18 and the rendering method for React is now ReactDOM.createRoot() which is imported from "react-dom client". See code snippet below.</p>
+<p>VIDEO-NOTE-2: This video was recorded before React v18 and the rendering method for React is now ReactDOM.createRoot() which is imported from "react-dom/client". See code snippet below.</p>
 </blockquote>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2120,8 +2120,9 @@
 <span class="nx">root</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <blockquote>
-<p>VIDEO-NOTE-3: With React Router v6, you'll only import tools(functions) from <code>react-router-dom</code> not <code>react-router</code>.</p>
+<p>VIDEO-NOTE-3: With React Router v6, after <code>ReactDOM</code> you'll import tools(functions) from only <code>react-router-dom</code> not <code>react-router</code>.</p>
 </blockquote>
+<hr />
 <h2 id="what">What</h2>
 <h3 id="install-the-router-packages">Install the Router Packages</h3>
 <p>So how do we integrate React Router into our code? It's actually quite simple . . . it's an NPM package just like Material UI! Who would have thought?!? To install it in our project we just run the command <code>npm i react-router react-router-dom</code> inside our React app. This command installs two packages, as you may have noticed, react-router and react-router-dom. Go ahead and do that in your music app.</p>
@@ -2182,6 +2183,7 @@
 </blockquote>
 </div>
 </div>
+<hr />
 <p>The <code>Routes</code> component always wraps multiple <code>Route</code>'s, so it is the single parent container this component returns. The <code>Route</code>'s are relative and help with leaner and more predictable code. <code>Route</code>'s are chosen based on the best match, not in order. You can put your <code>Route</code>'s in any order you like, the router will detect the best route for the current URL automatically. For readability if you want to start with "home" thats fine but nothing to worry about if you don't.</p>
 <blockquote>
 <p>NOTE: As we customize the "Router" component, keep in mind the <code>Routes</code> component bares an obvious resemblance in appearance and functionality to the <a href="https://www.w3schools.com/js/js_switch.asp"><code>switch() { case: }</code></a>. </p>

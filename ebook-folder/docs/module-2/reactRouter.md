@@ -51,7 +51,7 @@ Why use React Router? As we mentioned above, we use React Router to help us hand
 
 > VIDEO-NOTE-1: This video was recorded before React Router v6. We don't use `<Switch>` anymore. It is now `<Routes>`
 
-> VIDEO-NOTE-2: This video was recorded before React v18 and the rendering method for React is now ReactDOM.createRoot() which is imported from "react-dom client". See code snippet below.
+> VIDEO-NOTE-2: This video was recorded before React v18 and the rendering method for React is now ReactDOM.createRoot() which is imported from "react-dom/client". See code snippet below.
 
 ```javascript
 import ReactDOM from "react-dom/client";
@@ -62,7 +62,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 ```
 
-> VIDEO-NOTE-3: With React Router v6, you'll only import tools(functions) from `react-router-dom` not `react-router`.
+> VIDEO-NOTE-3: With React Router v6, after `ReactDOM` you'll import tools(functions) from only `react-router-dom` not `react-router`.
+
+******
 
 ## What
 
@@ -106,6 +108,7 @@ After installing the libraries/packages that make up the magic of React Router, 
     ```
 
     > NOTE: When using the `*` at the end of a path it means to match deeply or exactly. We can only use `*` at the end of a path, make sure to never use it at the start or middle of a path(security errors will occur). You'll only need the trailing `*` when there is another `<Routes>` somewhere in that route's descendant tree. In that case, the descendant `<Routes>` will match on the portion of the pathname that remains.
+******
 
 The `Routes` component always wraps multiple `Route`'s, so it is the single parent container this component returns. The `Route`'s are relative and help with leaner and more predictable code. `Route`'s are chosen based on the best match, not in order. You can put your `Route`'s in any order you like, the router will detect the best route for the current URL automatically. For readability if you want to start with "home" thats fine but nothing to worry about if you don't.
 

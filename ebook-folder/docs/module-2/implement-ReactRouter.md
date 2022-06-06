@@ -41,6 +41,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 ```
 
+******
+
 ## Building the Router Component
 
 === "Building the Router Component Video"
@@ -105,6 +107,8 @@ Your example should look more like this:
 
   export default Router;
 ```
+
+******
 
 ## Implementing Link
 
