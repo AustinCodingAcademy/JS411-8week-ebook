@@ -2065,7 +2065,7 @@
 <p>For instance: "www.mywebsite.com/contactus" might return the "Contact Us" page whereas "www.mywebsite.com/signup" might return the "Sign Up" page.</p>
 <p>Continue on to get the low down on how to make this work.</p>
 <h2 id="why">Why</h2>
-<p>Why use React Router? As we mentioned above, we use React Router to help us handle multiple routes in our URL. For example, every time you spin up your music dashboard app using npm start it sends the browser to the default path of the application in your computer <code>~/devFolder/musicApp/</code>, or simply, <code>~/</code>. Through the local port 3000 it shows up in your browser as "http://localhost:3000/" . But later, when we add a users page and want the route <code>/users</code> registered with our app's Router so the browser will navigate to the Users component that we built, we use React Router. Thus, we will have the following paths match the following components:</p>
+<p>Why use React Router? As we mentioned above, we use React Router to help us handle multiple routes in our URL. For example, every time you spin up your music dashboard app using <code>npm start</code> it sends the browser to the default path of the application in your computer <code>~/devFolder/musicApp/</code>, or simply, <code>~/</code>. Through the local port 3000 it shows up in your browser as "http://localhost:3000/" . But later, when we add a users page and want the route <code>/users</code> registered with our app's Router so the browser will navigate to the Users component that we built, we use React Router. Thus, we will have the following paths match the following components:</p>
 <ul>
 <li><code>/</code> -&gt; HomePage Component</li>
 <li><code>/users</code> -&gt; Users Component</li>
@@ -2101,14 +2101,30 @@
 <li class="task-list-item"><input type="checkbox"/> <code>npm i react-router react-router-dom</code></li>
 <li class="task-list-item"><input type="checkbox"/> Open up the React Router Docs: <a href="https://reactrouter.com/web/guides/quick-start">https://reactrouter.com/web/guides/quick-start</a></li>
 </ul>
+</div>
+</div>
 <blockquote>
-<p>NOTE: This video was recorded before reactRouter v6. We don't use <code>&lt;switch&gt;</code> anymore. It is now <code>&lt;Routes&gt;</code></p>
+<p>VIDEO-NOTE-1: This video was recorded before React Router v6. We don't use <code>&lt;Switch&gt;</code> anymore. It is now <code>&lt;Routes&gt;</code></p>
+<p>VIDEO-NOTE-2: This video was recorded before React v18 and the rendering method for React is now ReactDOM.createRoot() which is imported from "react-dom client". See code snippet below.</p>
 </blockquote>
-</div>
-</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;react-dom/client&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="s2">&quot;./index.css&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./App&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">createRoot</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;root&quot;</span><span class="p">));</span><span class="w"></span>
+<span class="nx">root</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<blockquote>
+<p>VIDEO-NOTE-3: With React Router v6, you'll only import tools(functions) from <code>react-router-dom</code> not <code>react-router</code>.</p>
+</blockquote>
 <h2 id="what">What</h2>
 <h3 id="install-the-router-packages">Install the Router Packages</h3>
-<p>So how do we integrate React Router into our code? It's actually quite simple . . . it's an NPM package just like Material UI! Who would have thought?!? To install it in our project we just run the command npm i react-router react-router-dom inside our React app. This command installs two packages, as you may have noticed, react-router and react-router-dom. Go ahead and do that in your music app.</p>
+<p>So how do we integrate React Router into our code? It's actually quite simple . . . it's an NPM package just like Material UI! Who would have thought?!? To install it in our project we just run the command <code>npm i react-router react-router-dom</code> inside our React app. This command installs two packages, as you may have noticed, react-router and react-router-dom. Go ahead and do that in your music app.</p>
 <p>It should be noted at this point that all forms of building front-end applications will need the use of a "router" of some shape and form. If you were building with Angular you'd need to use <a href="https://angular.io/guide/router">Angular's RouterModule and Routes</a>. If you were building with Vue you'd need to use <a href="https://router.vuejs.org/">Vue Router</a>. They all do the same job in their respective stacks, so while we're learning to build with React, let's use <a href="https://reacttraining.com/react-router/">React Router</a>.</p>
 <h3 id="creating-the-router">Creating the Router</h3>
 <p>After installing the libraries/packages that make up the magic of React Router, we need to create a router, which really is just a function that, when called, returns the component it's assigned to. We start by creating a file called <code>Router.js</code>, usually right inside the <code>src/</code> folder. Here's an example of a simple Router file:</p>
@@ -2131,112 +2147,66 @@
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"></span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Here is where we are importing to the two main components we need from the React Router package.</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Switch</span><span class="p">,</span><span class="w"> </span><span class="nx">Route</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router&#39;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Routes</span><span class="p">,</span><span class="w"> </span><span class="nx">Route</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Local imports. Import components we built ourselves</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="nx">Home</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Home&#39;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="nx">Dashboard</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./components/Dashboard&#39;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Home</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Home&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Dashboard</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./components/Dashboard&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Profile</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./components/Profile&#39;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// Then we use Switch and Route. Switch acts like a regular JS Switch Statement</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="cm">/* Then we use Routes and Route. Routes acts like a regular JS Switch* Statement */</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="o">&lt;</span><span class="nx">Routes</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="cm">/* depending on the path in the URL, one of these Routes will be returned and their component rendered */</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">exact</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/*&quot;</span><span class="w"> </span><span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Home</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">            </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/dash&quot;</span><span class="w"> </span><span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Dashboard</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/*&quot;</span><span class="w"> </span><span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Home</span><span class="o">/&gt;</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/dash&quot;</span><span class="w"> </span><span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Dashboard</span><span class="o">/&gt;</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/user/:id&quot;</span><span class="w"> </span><span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Profile</span><span class="o">/&gt;</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
 <span class="w">        </span><span class="o">&lt;</span><span class="err">/Routes&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
+
+<span class="c1">//Don&#39;t forget to export your newly create Router component</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">Router</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-</div>
-</div>
 <blockquote>
-<p>NOTE: When using the <code>*</code> at the end of a path it means to match deeply or exactly. We can only use <code>*</code> at the end of a path, make sure to never use it at the start or middle of a path. You'll only need the trailing <code>*</code> when there is another <code>&lt;Routes&gt;</code> somewhere in that route's descendant tree. In that case, the descendant <code>&lt;Routes&gt;</code> will match on the portion of the pathname that remains.</p>
+<p>NOTE: When using the <code>*</code> at the end of a path it means to match deeply or exactly. We can only use <code>*</code> at the end of a path, make sure to never use it at the start or middle of a path(security errors will occur). You'll only need the trailing <code>*</code> when there is another <code>&lt;Routes&gt;</code> somewhere in that route's descendant tree. In that case, the descendant <code>&lt;Routes&gt;</code> will match on the portion of the pathname that remains.</p>
 </blockquote>
-<p>The <code>Routes</code> component always wraps multiple <code>Route</code>s, so it is the single parent container this component returns. The <code>route</code>s are relative and help with leaner and more predictable code. <code>route</code>s are chosen based on the best match, not in order. You can put your <code>route</code>s in any order you like, the router will detect the best route for the current URL automatically. For readability if you want to start with "home" thats fine but nothing to worry about if you don't.</p>
+</div>
+</div>
+<p>The <code>Routes</code> component always wraps multiple <code>Route</code>'s, so it is the single parent container this component returns. The <code>Route</code>'s are relative and help with leaner and more predictable code. <code>Route</code>'s are chosen based on the best match, not in order. You can put your <code>Route</code>'s in any order you like, the router will detect the best route for the current URL automatically. For readability if you want to start with "home" thats fine but nothing to worry about if you don't.</p>
 <blockquote>
 <p>NOTE: As we customize the "Router" component, keep in mind the <code>Routes</code> component bares an obvious resemblance in appearance and functionality to the <a href="https://www.w3schools.com/js/js_switch.asp"><code>switch() { case: }</code></a>. </p>
 </blockquote>
 <p>In summary, <code>Routes</code> is telling the application, "hey, look at all of the paths in this section to see if the current path in the browser matches any of these. If so, return the route that's connected to it."</p>
-<p>The <code>Route</code> then, is a component which specifies a combination of the correct relationship of "path" and "component". If the URL in the browser matches the path, then the Route sends the application to the correct component. In this case, /<code>dash</code> will load up the Dashboard component. You see the <code>&lt;Route&gt;</code> is the <code>case:</code> statement that says to do this when this is the case.</p>
+<p>The <code>Route</code> then, is a component which specifies a combination of the correct relationship of "path" and "component". If the URL in the browser matches the path, then the Route sends the application to the correct component. In this case, <code>/dash</code> will load up the Dashboard component. You see the <code>&lt;Route&gt;</code> is the <code>case:</code> statement that says to do this when this is the case.</p>
 <div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Remember to Import the Components You Want to Use</label><div class="tabbed-content">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Then import the components you want to use</span><span class="w"></span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// You need to use the Home component in the Route component you must import the Home component first</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="nx">Home</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Home&#39;</span><span class="w"></span>
 
-<span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">exact</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/&quot;</span><span class="w"> </span><span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Home</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="o">&lt;</span><span class="nx">Routes</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/&quot;</span><span class="w"> </span><span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Home</span><span class="o">/&gt;</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="o">&lt;</span><span class="err">/Routes&gt;    </span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
-<p>This might seem obvious but it's an important piece to remember. Each of the components you want to use in your Router have to be imported so they're available/registered with the Router component. Also, notice that we used the Home component as the default route. If we're using Router we have to create a default case for the <code>&lt;Switch&gt;</code> component to return, <strong>because ALL components in React must return something</strong>!!!</p>
+<p>This might seem obvious but it's an important piece to remember. Each of the components you want to use in your Router have to be imported so they're available/registered with the Router component. Also, notice that we used the Home component as the default route. If we're using Router we have to create a default case for the <code>&lt;Routes&gt;</code> component to return, <strong>because ALL components in React must return something</strong>!!!</p>
 <h3 id="rendering-what-comes-out-of-the-router">Rendering What Comes out of the Router</h3>
 <p>Great, so we've created our Router file. Now what? Let's tell the application to use it! Remember, we created the file but haven't made the other parts of the application aware of it. The very first file of our app, the <code>index.js</code> file is our entry point into the app. Go to it and find the component it's currently using, which is most likely <code>&lt;App /&gt;</code>. We're going to make some renovations. Look below at the default setup of our app.</p>
-<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Basic React <code>index.js</code> file</label><div class="tabbed-content">
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-dom&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="s1">&#39;./index.css&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./App&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">serviceWorker</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./serviceWorker&#39;</span><span class="p">;</span><span class="w"></span>
-
-<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">,</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">));</span><span class="w"></span>
-
-<span class="c1">// If you want your app to work offline and load faster, you can change</span><span class="w"></span>
-<span class="c1">// unregister() to register() below. Note this comes with some pitfalls.</span><span class="w"></span>
-<span class="c1">// Learn more about service workers: https://bit.ly/CRA-PWA</span><span class="w"></span>
-<span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">unregister</span><span class="p">();</span><span class="w"></span>
-</code></pre></div></td></tr></table></div>
-</div>
-</div>
-<blockquote>
-<p>NOTE: don't worry about the service worker part, it's an API we can learn to use later. Just focus on the steps ahead.</p>
-</blockquote>
-<p>As you probably guessed, we have to import things . . .The first (#1) is <code>BrowserRouter</code>. This, aptly named, package navigates the browser where we want it to. The second (#2) thing we have to import is the <code>Router</code> component we just finished building.</p>
-<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">React <code>index.js</code> file with BrowserRouter &amp; our Router imported</label><div class="tabbed-content">
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-dom&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="c1">// #1</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BrowserRouter</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="s1">&#39;./index.css&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./App&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">serviceWorker</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./serviceWorker&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="c1">// #2</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Router&#39;</span><span class="p">;</span><span class="w"></span>
-
-<span class="c1">// ...more code below here...</span><span class="w"></span>
-</code></pre></div></td></tr></table></div>
-</div>
-</div>
-<blockquote>
-<p>NOTE: The order in which packages and components are imported is not important to the app. The order is only important to you and your team, so find a style you like and develop it. Above you see dependencies listed first, styles, then components.</p>
-</blockquote>
-<p>Next, or (#3) we have to create a component to return this stuff for us. Let's call it <code>Main</code> and have it return <code>&lt;BrowserRouter&gt;</code>. Then stick our <code>&lt;Router /&gt;</code> component inside of it. This "sticking" inside is actually called "wrapping". We "wrap" the <code>&lt;BrowserRouter&gt;</code> around the <code>&lt;Router&gt;</code> so our <strong>entire</strong> application is encapsulated by the <code>&lt;BrowserRouter&gt;</code>.</p>
-<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Newly created <code>Main</code> Component in the <code>index.js</code> file</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Basic React <code>index.js</code> File</label><div class="tabbed-content">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2250,24 +2220,94 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ...more code above here...</span><span class="w"></span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-dom/client&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;./index.css&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./App&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">reportWebVitals</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./reportWebVitals&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">createRoot</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">));</span><span class="w"></span>
+<span class="nx">root</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">React</span><span class="p">.</span><span class="nx">StrictMode</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">App</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/React.StrictMode&gt;</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+<span class="c1">// If you want to start measuring performance in your app, pass a function</span><span class="w"></span>
+<span class="c1">// to log results (for example: reportWebVitals(console.log))</span><span class="w"></span>
+<span class="c1">// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals</span><span class="w"></span>
+<span class="nx">reportWebVitals</span><span class="p">();</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+<blockquote>
+<p>NOTE: Don't worry about the <code>reportWebVitals</code> part. It is an API which we can learn to use later. Just focus on the steps ahead.</p>
+</blockquote>
+<p>As you probably guessed, we have to import things . . .The first (#1) is <code>BrowserRouter</code>. This, aptly named, package navigates the browser where we want it to. The second (#2) step we have to import is the <code>Router</code> component we just finished building.</p>
+<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">React <code>index.js</code> File with <code>BrowserRouter</code> &amp; Our <code>Router</code> imported</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-dom/client&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// #1</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BrowserRouter</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;./index.css&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./App&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">reportWebVitals</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./reportWebVitals&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// #2</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Router&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// ...more code below here...</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+<blockquote>
+<p>NOTE: The order in which packages and components are imported is not important to the app. The order is only important to you and your team, so find a style you like and develop it. In the example above you'll see package dependencies listed first, then styles, then components.</p>
+</blockquote>
+<p>Next, or <strong>#3</strong>, we have to create a component to return this stuff for us. Let's call it <code>Main</code> and have it return <code>&lt;BrowserRouter&gt;</code>. Then stick our <code>&lt;Router /&gt;</code> component inside of it. This "sticking" inside is actually called "wrapping". We "wrap" the <code>&lt;BrowserRouter&gt;</code> around the <code>&lt;Router&gt;</code> so our <strong>entire</strong> application is encapsulated by the <code>&lt;BrowserRouter&gt;</code>.</p>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Newly Created <code>Main</code> Component in the <code>index.js</code> File</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ...more code above here...</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Router&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">createRoot</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;root&quot;</span><span class="p">));</span><span class="w"></span>
 
 <span class="c1">// #3</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">Main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// #4</span><span class="w"></span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">BrowserRouter</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&lt;</span><span class="nx">Router</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="o">&lt;</span><span class="err">/BrowserRouter&gt;</span><span class="w"></span>
-<span class="p">)</span><span class="w"></span>
+<span class="o">&lt;</span><span class="nx">BrowserRouter</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">Router</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="o">&lt;</span><span class="err">/BrowserRouter&gt;</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
 
-<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">,</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">));</span><span class="w"></span>
+<span class="nx">root</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span><span class="o">/&gt;</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// ...more code about service worker blah blah below here...</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
-<p>The (#5) step is to use the "wrap". To do this we'll pass to <code>ReactDOM.render()</code> the <code>Main</code> component we just built. Now our app's <code>index.js</code> file should look like this:</p>
+<p>The <strong>fourth(#4) step</strong> is to use the "wrap". To do this we'll pass the <code>Main</code> component we just built to the <code>root.render()</code> method. Now our app's <code>index.js</code> file should look like this:</p>
 <div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Replaced <code>&lt;App /&gt;</code> with <code>&lt;Main /&gt;</code></label><div class="tabbed-content">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2289,38 +2329,48 @@
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// #1</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-dom&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BrowserRouter</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="s1">&#39;./index.css&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./App&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">serviceWorker</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./serviceWorker&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">reportWebVitals</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./reportWebVitals&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// We no longer need our App component to be imported here...</span><span class="w"></span>
+<span class="c1">// #2</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Router&#39;</span><span class="p">;</span><span class="w"></span>
 
+<span class="kd">const</span><span class="w"> </span><span class="nx">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">createRoot</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;root&quot;</span><span class="p">));</span><span class="w"></span>
+
+<span class="c1">// #3</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">Main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
 <span class="w">    </span><span class="o">&lt;</span><span class="nx">BrowserRouter</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">        </span><span class="o">&lt;</span><span class="nx">Router</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="o">&lt;</span><span class="err">/BrowserRouter&gt;</span><span class="w"></span>
-<span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
 
-<span class="c1">// #5</span><span class="w"></span>
-<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Main</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">,</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">));</span><span class="w"></span>
+<span class="c1">// #4</span><span class="w"></span>
+<span class="nx">root</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Main</span><span class="o">/&gt;</span><span class="p">);</span><span class="w"></span>
 
-<span class="c1">// If you want your app to work offline and load faster, you can change</span><span class="w"></span>
-<span class="c1">// unregister() to register() below. Note this comes with some pitfalls.</span><span class="w"></span>
-<span class="c1">// Learn more about service workers: https://bit.ly/CRA-PWA</span><span class="w"></span>
-<span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">unregister</span><span class="p">();</span><span class="w"></span>
+<span class="c1">// If you want to start measuring performance in your app, pass a function</span><span class="w"></span>
+<span class="c1">// to log results (for example: reportWebVitals(console.log))</span><span class="w"></span>
+<span class="c1">// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals</span><span class="w"></span>
+<span class="nx">reportWebVitals</span><span class="p">();</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
-<p>We call this "wrapping" stuff <strong>Higher Order Components</strong> or <strong>HOCs</strong> because, just like the Higher Order functions (<code>.map</code>, <code>.reduce</code>, <code>.filter</code>) you learned in 211, they take functions as their arguments and sometimes return functions: <code>render</code> takes in <code>main</code> which returns <code>BrowserRouter</code> which returns <code>Router</code> with returns one of the <code>Routes</code> which returns its appropriate component which then returns the JSX so the <code>render</code> can plug it into the DOM inside an element with the <code>id</code> <code>"root"</code>.</p>
+<p>We call this "wrapping" stuff <strong>Higher Order Components</strong> or <strong>HOCs</strong> because, just like the Higher Order functions (<code>.map</code>, <code>.reduce</code>, <code>.filter</code>) you learned in 211, they take functions as their arguments and sometimes return functions: <code>root.render()</code> takes in <code>Main</code> which returns <code>BrowserRouter</code> which returns <code>Router</code> with returns one of the <code>Routes</code> which returns its appropriate component which then returns the JSX so the <code>render</code> can plug it into the DOM inside an element with the <code>id</code> <code>"root"</code>.</p>
 <blockquote>
-<p>Get it? If not, walk through that again slowly. Draw it out.</p>
+<p><strong>Get it?</strong> If not, walk through that again slowly. Draw it out.</p>
 </blockquote>
 <h3 id="notes-on-this-react-routerbrowserrouter-stuff">Notes on this React Router/BrowserRouter stuff:</h3>
 <ol>
 <li>
-<p>Be sure to <code>import { BrowserRouter } from 'react-router-dom'</code></p>
+<p>Be sure to <code>import { BrowserRouter } from 'react-router-dom'</code>, <strong>Step 1</strong></p>
 </li>
 <li>
 <p>It is key that this <code>{ BrowserRouter }</code> wraps our application because it is needed for the communication between our browser and our Router component. Additionally, when we take a look a the React <code>Link</code> component (coming up) we will learn that <code>Link</code>s can only be used inside of a "router" which <code>BrowserRouter</code> takes care of for us.</p>
@@ -2329,41 +2379,62 @@
 </blockquote>
 </li>
 <li>
-<p>Remember to <code>import Router from './Router'</code> so it can be used in the index.js file.</p>
+<p>Remember to import your custom Router component, <code>import Router from './Router'</code> so it can be used in the <code>index.js</code> file, <strong>Step 2</strong>.</p>
 </li>
 <li>
-<p>In step 3, we create a small component function called <code>Main</code> (you can call it something else if you like) and we wrap our <code>&lt;Router /&gt;</code> inside the <code>&lt;BrowserRouter&gt; &lt;/BrowserRouter&gt;</code> tags so the <code>BrowserRouter</code> component returns it.
-You may be thinking, "couldn't we have just done that in the Router file?". Yes, but this pattern will allow you to eventually add components around the router that you want to see on every page. For example, a <code>Header</code> and <code>Footer</code> component, like you see below:</p>
+<p>In <strong>Step 3</strong>, we created a small component function called <code>Main</code> (you can call it something else if you like) and we wrapped our <code>&lt;Router /&gt;</code> inside the <code>&lt;BrowserRouter&gt; &lt;/BrowserRouter&gt;</code> tags so the <code>BrowserRouter</code> component returns it.</p>
+</li>
+</ol>
+<p>You may be thinking, "couldn't we have just done that in the Router file?". Yes, but this pattern will allow you to eventually add components around the router that you want to see on every page. For example, a <code>Header</code> and <code>Footer</code> component, like you see below:</p>
 <div class="tabbed-set" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Example of <code>Main</code> Component</label><div class="tabbed-content">
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">Main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">BrowserRouter</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&lt;</span><span class="nx">Header</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&lt;</span><span class="nx">Router</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"> </span><span class="p">{</span><span class="cm">/* &lt;-- See? Your different routes can be render here while still keeping the Header and Footer the same */</span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="o">&lt;</span><span class="nx">Footer</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="o">&lt;</span><span class="err">/BrowserRouter&gt;</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">Main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">BrowserRouter</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="cm">/*You can use basic HTML elements to wrap your custom components so that you are in line with conventional semantic structural practices*/</span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">header</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;</span><span class="nx">HeaderComponent</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="err">/header&gt;</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">main</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;</span><span class="nx">Router</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"> </span><span class="p">{</span><span class="cm">/* &lt;-- See? Your different routes can be render here while still keeping the Header and Footer the same */</span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="err">/main&gt;</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">footer</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;</span><span class="nx">FooterComponent</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="err">/footer&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/BrowserRouter&gt;</span><span class="w"></span>
 <span class="p">)</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-</div>
-</div>
 <blockquote>
-<p>But do note that you may see slightly different patterns in other tutorials and that's perfectly fine. While you're learning this, let's stick with this pattern.</p>
+<p>But do NOTE that you may see slightly different patterns in other tutorials and that's perfectly fine. While you're learning, let's stick with this pattern. You can explore and diverge later on.</p>
 </blockquote>
-</li>
-<li>
-<p><strong>Step 5</strong> is simply replacing the call to <code>App</code> in <code>ReactDOM.render</code> with the new <code>Main</code> function we just created. Once this step is done you should be able to load up your application and switch between the <code>Home</code> and <code>Dashboard</code> components by typing the corresponding URL in the browser. But of course, typing in that URL is annoying and you're definitely not asked to do that on anyone else's web site. To fix this let's learn how to use the <code>Link</code> part of React Router which is a programmatic way to switch the browser URL.</p>
-</li>
+</div>
+</div>
+<ol>
+<li><strong>Step 4</strong> is simply replacing the call to <code>App</code> in <code>root.render</code> with the new <code>Main</code> function we just created. Once this step is done you should be able to load up your application and switch between the <code>Home</code> and <code>Dashboard</code> components by typing the corresponding URL in the browser. But of course, typing in that URL is annoying and you're definitely not asked to do that on anyone else's web site. To fix this let's learn how to use the <code>Link</code> part of React Router which is a programmatic way to switch the browser URL.</li>
 </ol>
 <h2 id="know-your-docs">Know Your Docs</h2>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox"/> <a href="https://www.w3schools.com/js/js_switch.asp">w3S Docs - Switch Statement</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.w3schools.com/react/react_router.asp">w3S Docs - React Router</a></li>
 <li class="task-list-item"><input type="checkbox"/> <a href="https://reacttraining.com/react-router/">React Training Docs - React Router</a></li>
-<li class="task-list-item"><input type="checkbox"/> <a href="https://reactrouter.com/web/guides/quick-start">React Router Docs - Quick Start</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://reactrouter.com/docs/en/v6/getting-started/overview">React Router Docs - Quick Start</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://reactrouter.com/docs/en/v6">React Router Docs - React Router v6</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://reactrouter.com/docs/en/v6/upgrading/v5">React Router Docs - Upgrading from v5</a></li>
 </ul>
                 
               

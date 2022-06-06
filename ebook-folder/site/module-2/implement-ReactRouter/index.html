@@ -799,6 +799,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#another-method-to-implement-link-with-mui-button" class="md-nav__link">
+    Another Method to Implement Link with MUI Button
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#practice-it" class="md-nav__link">
     Practice It
   </a>
@@ -2012,6 +2019,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#another-method-to-implement-link-with-mui-button" class="md-nav__link">
+    Another Method to Implement Link with MUI Button
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#practice-it" class="md-nav__link">
     Practice It
   </a>
@@ -2092,6 +2106,21 @@
 </ul>
 </div>
 </div>
+<blockquote>
+<p>NOTE: This video was recorded before React v18 and the rendering method for React is now <code>ReactDOM.createRoot()</code> which is imported from "react-dom/client". Your boilerplate might look like this:</p>
+</blockquote>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;react-dom/client&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="s2">&quot;./index.css&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./App&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">createRoot</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;root&quot;</span><span class="p">));</span><span class="w"></span>
+<span class="nx">root</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h2 id="building-the-router-component">Building the Router Component</h2>
 <div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Building the Router Component Video</label><div class="tabbed-content">
 <p><!-- ! Video Contents: Vimeo, Clayton@ACA - 411-30-BuildingTheRouterComponents - 411.2.3.2 -->
@@ -2100,14 +2129,11 @@
 <input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Video Outline</label><div class="tabbed-content">
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox"/> Create <code>Router.js file</code></li>
-<li class="task-list-item"><input type="checkbox"/> import <code>react</code>, <code>switch</code>, &amp; <code>Route</code></li>
-<li class="task-list-item">
-<p><input type="checkbox"/> Import the two components you want to test with!!!</p>
-</li>
-<li class="task-list-item">
-<p><input type="checkbox"/> <code>import React from 'react'</code></p>
-</li>
-<li class="task-list-item"><input type="checkbox"/> <code>import { Switch, Route } from 'react-router'</code></li>
+<li class="task-list-item"><input type="checkbox"/> import <code>React</code></li>
+<li class="task-list-item"><input type="checkbox"/> import <code>Routes</code> &amp; <code>Route</code></li>
+<li class="task-list-item"><input type="checkbox"/> Import the two components you want to test with!!!</li>
+<li class="task-list-item"><input type="checkbox"/> <code>import React from 'react'</code></li>
+<li class="task-list-item"><input type="checkbox"/> <code>import { Routes, Route } from 'react-router-dom'</code></li>
 <li class="task-list-item"><input type="checkbox"/> <code>import Home from './Home'</code></li>
 <li class="task-list-item"><input type="checkbox"/> <code>import App from './App'</code></li>
 <li class="task-list-item"><input type="checkbox"/> Create Router function/component:</li>
@@ -2129,12 +2155,55 @@
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <code>export default Router</code></li>
+<li class="task-list-item"><input type="checkbox"/> Don't forget to: <code>export default Router</code></li>
 <li class="task-list-item"><input type="checkbox"/> Go back to <code>index.js</code> and uncomment the import!!</li>
 <li class="task-list-item"><input type="checkbox"/> Test your App to see if it works!</li>
 </ul>
 </div>
 </div>
+<blockquote>
+<p>NOTE: This video was recorded before reactRouter v6. </p>
+<p>NOTE-2: We don't use <code>&lt;Switch&gt;</code> anymore. It is now <code>&lt;Routes&gt;</code>. </p>
+<p>NOTE-3: And now, you will import <code>Routes</code> and <code>Route</code> from <code>react-router-dom</code>. </p>
+<p>NOTE-4: Also, instead of using the <code>component={ComponentName}</code> prop you'll use the <code>element={&lt;ComponentName}</code> prop.</p>
+</blockquote>
+<p>Your example should look more like this:  </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Routes</span><span class="p">,</span><span class="w"> </span><span class="nx">Route</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./App&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="nx">Home</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Home&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">          </span><span class="p">{</span><span class="w"> </span><span class="cm">/* Then we use Routes and Route. Routes acts like a regular JS Switch Statement */</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">Routes</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">              </span><span class="p">{</span><span class="w"> </span><span class="cm">/* depending on the path in the URL, one of these Routes will be returned and their component rendered */</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">              </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/home&quot;</span><span class="w"> </span><span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Home</span><span class="o">/&gt;</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">              </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/app&quot;</span><span class="w"> </span><span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">App</span><span class="o">/&gt;</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="err">/Routes&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">Router</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h2 id="implementing-link">Implementing Link</h2>
 <div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Implementing Link Video</label><div class="tabbed-content">
 <p><!-- ! Video Contents: Vimeo, Clayton@ACA - 411-31-ImplementingLink - 411.1.1.* -->
@@ -2158,7 +2227,7 @@
 <p><input type="checkbox"/> 5. Remove underline... <code>style={{ textDecoration: "none" }}</code></p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox"/> 6. Use a Material-UI Button... <code>import Button from '@material-ui/core/Button'</code></p>
+<p><input type="checkbox"/> 6. Use a Material-UI Button... <code>import Button from "@mui/material/Button";</code></p>
 </li>
 </ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2169,13 +2238,13 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="o">&lt;</span><span class="nx">Link</span><span class="w"> </span><span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/home&quot;</span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="err">/}</span><span class="w"></span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="o">&lt;</span><span class="nx">Link</span><span class="w"> </span><span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/home&quot;</span><span class="o">&gt;</span><span class="w"></span>
 
-<span class="w">  </span><span class="o">&lt;</span><span class="nx">Button</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="nx">margin</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;5% auto&quot;</span><span class="p">}}</span><span class="w"> </span><span class="nx">variant</span><span class="o">=</span><span class="s2">&quot;outlined&quot;</span><span class="w"> </span><span class="nx">color</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">Button</span><span class="w"> </span><span class="nx">style</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="nx">margin</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;5% auto&quot;</span><span class="p">}}</span><span class="w"> </span><span class="nx">variant</span><span class="o">=</span><span class="s2">&quot;outlined&quot;</span><span class="w"> </span><span class="nx">color</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="o">&gt;</span><span class="w"></span>
 
-<span class="w">  </span><span class="nx">Go</span><span class="w"> </span><span class="nx">BackHome</span><span class="w"></span>
+<span class="w">      </span><span class="nx">Go</span><span class="w"> </span><span class="nx">BackHome</span><span class="w"></span>
 
-<span class="w">  </span><span class="o">&lt;</span><span class="err">/Button&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/Button&gt;</span><span class="w"></span>
 
 <span class="w">  </span><span class="o">&lt;</span><span class="err">/Link&gt;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
@@ -2198,9 +2267,23 @@
 </ul>
 </div>
 </div>
+<h2 id="another-method-to-implement-link-with-mui-button">Another Method to Implement Link with MUI Button</h2>
+<p>MUI will also accept another property named <code>component</code> which can take the value of any component we want to render in it's place. By doing this, we will not need to overwrite <code>Link</code>'s default styling since MUI will overwrite it using this method. You can now also add the <code>to</code> property, which we can specify the route we want to navigate to, to our <code>Button</code>, and now our <code>Link</code> will have access to that <code>to</code> property as well.
+Here is an example on how to implement Link and MUI's Button:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="c1">// Of course, don&#39;t forget your necessary imports...</span><span class="w"></span>
+
+<span class="w">  </span><span class="o">&lt;</span><span class="nx">Button</span><span class="w"> </span><span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Link</span><span class="p">}</span><span class="w"> </span><span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="w"> </span><span class="nx">variant</span><span class="o">=</span><span class="s2">&quot;outlined&quot;</span><span class="w"> </span><span class="nx">color</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Login</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;</span><span class="err">/Button&gt;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+You can refer to MUI's <a href="https://mui.com/material-ui/api/button/">Button API</a> to see a list of different properties the Button component may take.</p>
 <h2 id="practice-it">Practice It</h2>
 <!-- ! Video Contents: CodeSandBox - React Router Basics -->
-<iframe src="https://codesandbox.io/embed/yjzyzr29ov?fontsize=14&hidenavigation=1&theme=dark"
+<iframe src="https://codesandbox.io/embed/react-router-dosker?fontsize=14&hidenavigation=1&theme=dark"
   style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
   title="React Router - Basic"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
@@ -2209,43 +2292,25 @@
 
 <h3 id="practice-section-instructions">Practice Section Instructions</h3>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> Open the code editor and navigate to <code>example.js</code> on the left-hand side</li>
-<li class="task-list-item"><input type="checkbox"/> At the bottom of the file <code>example.js</code> (but before the export, line 79 or 80), create a new functional component called Urls</li>
-<li class="task-list-item"><input type="checkbox"/> The <code>Urls</code> component should return the following:</li>
-</ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>URLs Page<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://www.google.com&quot;</span><span class="p">&gt;</span>Google<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://www.facebook.com&quot;</span><span class="p">&gt;</span>Facebook<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://www.amazon.com&quot;</span><span class="p">&gt;</span>Amazon<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-      <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div></td></tr></table></div>
-<blockquote>
-<p>NOTE: Try not to copy/paste this code. It's good to practice writing it.</p>
-</blockquote>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> Add the <code>Urls</code> component into the <code>Router</code> with a path of <code>/urls</code> just below <code>{Home}</code>, <code>{About}</code>, and <code>{Topics}</code> on line 25.</li>
-<li class="task-list-item"><input type="checkbox"/> Add a <code>Link</code> for this component as well, starting at line 18, that goes <code>to</code> <code>/urls</code>.</li>
-<li class="task-list-item"><input type="checkbox"/> Refresh the browser and click on the link to the <code>Urls</code> component. You should see your new component.</li>
+<li class="task-list-item"><input type="checkbox"/> Open the code editor and navigate to <code>App.js</code> on the left-hand side</li>
+<li class="task-list-item"><input type="checkbox"/> The dependencies have already been imported for you. Notice the imports from <code>"react-router-dom"</code> and <code>"@mui/material"</code></li>
+<li class="task-list-item"><input type="checkbox"/> We also have a custom Router component being imported. Let's look at the <code>Router.js</code> file next.</li>
+<li class="task-list-item"><input type="checkbox"/> The dependencies have also been imported here for you, <code>import {Routes, Route} from "react-router-dom"</code></li>
+<li class="task-list-item"><input type="checkbox"/> We also have some simple custom Components being imported here as well, <code>"Dashboard"</code> and <code>"Login"</code></li>
+<li class="task-list-item"><input type="checkbox"/> Follow the TODO's marked in the comments starting at the Router.js file, and then move to App.js.</li>
+<li class="task-list-item"><input type="checkbox"/> Practice making other <code>Route</code>'s and apply the same logic. Pretty Simple!</li>
 </ul>
 <h2 id="additional-resources">Additional Resources</h2>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <a href="https://www.youtube.com/watch?v=Law7wfdg_ls">YT, Dev Ed - React Router Tutorial | React For Beginners</a></li>
-<li class="task-list-item"><input type="checkbox"/> <a href="https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/Link.md">Reference, GitHub React Training - Link</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.youtube.com/watch?v=UjHT_NKR_gU">YT, PedroTech - React Router v6</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://stackoverflow.com/questions/51642532/how-to-make-a-material-ui-react-button-act-as-a-react-router-dom-link#:~:text=working%20with%20me%3A-,Just%20do%20like%20this%3A,-import%20Button%20from">Reference, StackOverflow - Link</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.youtube.com/watch?v=WfpmvgVZD1A">YT, Net Ninja - React Router 6 Tutorial | Upgrading from v5</a></li>
 </ul>
 <h2 id="know-your-docs">Know Your Docs</h2>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <a href="https://www.npmjs.com/package/react-router">NPM Docs - React-Router</a></li>
-<li class="task-list-item"><input type="checkbox"/> <a href="https://reacttraining.com/react-router/">React Training Docs - React-Router</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://reactrouter.com/docs/en/v6/components/routes">React Training Docs - Routes &amp; Route</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://reactrouter.com/docs/en/v6/getting-started/overview">React Router Docs - Quick Start</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://reactrouter.com/docs/en/v6">React Router Docs - React Router v6</a></li>
 </ul>
                 
               
