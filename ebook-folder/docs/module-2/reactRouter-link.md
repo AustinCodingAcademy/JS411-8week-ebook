@@ -2,7 +2,7 @@
 
 ## Overview
 
-This BrowserRouter is pretty cool because it uses a Router component to route the view to a specific component according to the URL, but how does the URL get changed?
+This `BrowserRouter` is pretty cool because it uses a `Router` component to `Route` to the correct view of a specific component according to the URL, but how does the URL get changed?
 
 ## Using Link
 
@@ -33,9 +33,11 @@ Once imported we can use it in our code like this:
             <p>
         </div>
     }
+
+    export default SomeComponent
     ```
 
-Now, when a user clicks on the Dashboard Page link, the URL in the address bar will change, which will be picked up by the `BrowserRouter` component, which then calls the `Router` so the `<Routes>` component in the Router will return the correct component to the `<BrowserRouter>` —in this case, `<Dashboard/>`. The Link component at its simplest, just takes a prop called `to` which represents the path you want to navigate *to*.
+Now, when a user clicks on the Dashboard Page link, the URL in the address bar will change, which will be picked up by the `BrowserRouter` component, which then calls the `Router` so the `<Routes>` component in the `Router` will return the correct component to the `<BrowserRouter>` —in this case, `<Dashboard/>`. The Link component at its simplest, just takes a prop called `to` which represents the path you want to navigate *to*.
 
   > EXTRA: You won't need this for tomorrow, but it's important to know that Links can send an object of properties through the `to` prop which makes them even more powerful. Take a look below:
 

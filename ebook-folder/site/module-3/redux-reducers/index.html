@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.0.5">
     
     
       
@@ -1956,27 +1956,26 @@
 <p>Before looking at these reducers assume the action creators we defined above are the actions being imported into this reducer file.</p>
 <p>When we started, the reducer file looked like this:</p>
 <div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Our current <code>redux/reducers.js</code> File</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="k">import</span> <span class="p">{</span> <span class="nx">combineReducers</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">combineReducers</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;redux&#39;</span><span class="w"></span>
 
-  <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">state</span><span class="w"></span>
 
-  <span class="kd">const</span> <span class="nx">cars</span> <span class="o">=</span> <span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="p">[])</span> <span class="p">=&gt;</span> <span class="nx">state</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">cars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[])</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">state</span><span class="w"></span>
 
-  <span class="k">export</span> <span class="k">default</span> <span class="nx">combineReducers</span><span class="p">({</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">cars</span> <span class="p">})</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">combineReducers</span><span class="p">({</span><span class="w"> </span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">cars</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>We're only focused on the <code>cars</code> part of these reducers right now so we'll update that reducer first.</p>
 <p>As be rebuild this reducer, think of them as a large if/else statement, that is determining what it's supposed to do, based on the <code>type</code>: passed through it from the action creator. If <code>action.type === ADD_CAR</code> then the switch statement should stop at the <code>ADD_CAR</code> case and <em>add the <code>car</code> to state</em>. If it gets <code>REMOVE_CAR</code> it will stop there and remove the car from state. And the <code>default</code> case is to return the current <code>state</code> which is what we're already doing and passing to <code>mapStateToProps</code>. Let's add those first two cases into the <code>cars</code> reducer:</p>
 <div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Updated <code>redux/reducers.js</code> File</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -1993,29 +1992,28 @@
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="k">import</span> <span class="p">{</span> <span class="nx">combineReducers</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">combineReducers</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;redux&#39;</span><span class="w"></span>
 
-  <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">state</span><span class="w"></span>
 
-  <span class="kd">const</span> <span class="nx">cars</span> <span class="o">=</span> <span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-      <span class="k">switch</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">case</span> <span class="s1">&#39;ADD_CAR&#39;</span><span class="o">:</span>
-              <span class="k">return</span> <span class="p">[</span> <span class="p">...</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">.</span><span class="nx">value</span> <span class="p">]</span>
-          <span class="k">case</span> <span class="s1">&#39;REMOVE_CAR&#39;</span><span class="o">:</span>
-              <span class="kd">const</span> <span class="nx">newState</span> <span class="o">=</span> <span class="p">[</span> <span class="p">...</span><span class="nx">state</span> <span class="p">]</span>
-              <span class="nx">newState</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span> <span class="mf">1</span><span class="p">)</span>
-              <span class="k">return</span> <span class="nx">newState</span>
-          <span class="k">default</span><span class="o">:</span> 
-            <span class="k">return</span> <span class="nx">state</span>
-      <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">cars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="nx">action</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">switch</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;ADD_CAR&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">...</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">action</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;REMOVE_CAR&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">              </span><span class="kd">const</span><span class="w"> </span><span class="nx">newState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">...</span><span class="nx">state</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+<span class="w">              </span><span class="nx">newState</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="nx">newState</span><span class="w"></span>
+<span class="w">          </span><span class="k">default</span><span class="o">:</span><span class="w"> </span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">state</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="k">export</span> <span class="k">default</span> <span class="nx">combineReducers</span><span class="p">({</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">cars</span> <span class="p">})</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">combineReducers</span><span class="p">({</span><span class="w"> </span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">cars</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 <input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">with comments</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2043,37 +2041,36 @@
 <span class="normal">26</span>
 <span class="normal">27</span>
 <span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>  <span class="c1">// you know this, import the `combineReducers` tool from Redux</span>
-  <span class="k">import</span> <span class="p">{</span> <span class="nx">combineReducers</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="c1">// you know this, import the `combineReducers` tool from Redux</span><span class="w"></span>
+<span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">combineReducers</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;redux&#39;</span><span class="w"></span>
 
-  <span class="c1">// same as before, no changes made; just return the state so it can be `map`ped to `props`</span>
-  <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span>
+<span class="w">  </span><span class="c1">// same as before, no changes made; just return the state so it can be `map`ped to `props`</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">state</span><span class="w"></span>
 
-  <span class="c1">// still a reducers, which is just a JS function but with a second parameter now: `action`</span>
-  <span class="kd">const</span> <span class="nx">cars</span> <span class="o">=</span> <span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-      <span class="c1">// create `switch` statement based on the `type` property</span>
-      <span class="k">switch</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">case</span> <span class="s1">&#39;ADD_CAR&#39;</span><span class="o">:</span>
-              <span class="c1">//  if the `type` is `ADD_CAR` then create a new array by spreading (...) `state` into it</span>
-              <span class="c1">// then add the `value` that came in with the action object</span>
-              <span class="k">return</span> <span class="p">[</span> <span class="p">...</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">.</span><span class="nx">value</span> <span class="p">]</span>
-          <span class="k">case</span> <span class="s1">&#39;REMOVE_CAR&#39;</span><span class="o">:</span>
-              <span class="c1">// if `type` is `REMOVE_CAR` then create a copy of the array by spreading `state` into it</span>
-              <span class="kd">const</span> <span class="nx">newState</span> <span class="o">=</span> <span class="p">[</span> <span class="p">...</span><span class="nx">state</span> <span class="p">]</span>
-              <span class="c1">// then `splice` our the car we want to remove but not directly on `state` instead using the copy we made</span>
-              <span class="nx">newState</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span> <span class="mf">1</span><span class="p">)</span>
-              <span class="c1">// finally, return the copy so it becomes the &quot;new&quot; `state`</span>
-              <span class="k">return</span> <span class="nx">newState</span>
-          <span class="k">default</span><span class="o">:</span> 
-            <span class="c1">// if there is no `type` to be evaluated just return `state` as is so it can be used my `mapStateToProps` as normal.</span>
-            <span class="k">return</span> <span class="nx">state</span>
-      <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// still a reducers, which is just a JS function but with a second parameter now: `action`</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">cars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="nx">action</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// create `switch` statement based on the `type` property</span><span class="w"></span>
+<span class="w">      </span><span class="k">switch</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;ADD_CAR&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">              </span><span class="c1">//  if the `type` is `ADD_CAR` then create a new array by spreading (...) `state` into it</span><span class="w"></span>
+<span class="w">              </span><span class="c1">// then add the `value` that came in with the action object</span><span class="w"></span>
+<span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">...</span><span class="nx">state</span><span class="p">,</span><span class="w"> </span><span class="nx">action</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;REMOVE_CAR&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">              </span><span class="c1">// if `type` is `REMOVE_CAR` then create a copy of the array by spreading `state` into it</span><span class="w"></span>
+<span class="w">              </span><span class="kd">const</span><span class="w"> </span><span class="nx">newState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">...</span><span class="nx">state</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+<span class="w">              </span><span class="c1">// then `splice` our the car we want to remove but not directly on `state` instead using the copy we made</span><span class="w"></span>
+<span class="w">              </span><span class="nx">newState</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">              </span><span class="c1">// finally, return the copy so it becomes the &quot;new&quot; `state`</span><span class="w"></span>
+<span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="nx">newState</span><span class="w"></span>
+<span class="w">          </span><span class="k">default</span><span class="o">:</span><span class="w"> </span>
+<span class="w">            </span><span class="c1">// if there is no `type` to be evaluated just return `state` as is so it can be used my `mapStateToProps` as normal.</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">state</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// make these reducers available to the rest of the app with the `combineReducers` tool</span>
-  <span class="k">export</span> <span class="k">default</span> <span class="nx">combineReducers</span><span class="p">({</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">cars</span> <span class="p">})</span>
-</code></pre></div>
-</td></tr></table>
+<span class="w">  </span><span class="c1">// make these reducers available to the rest of the app with the `combineReducers` tool</span><span class="w"></span>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">combineReducers</span><span class="p">({</span><span class="w"> </span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">cars</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>Notice how we added the action argument as the second parameter to the cars reducer (which is just a Function). It represents the <code>action</code> that we're taking on this <code>state</code> and will have the two keys <code>type</code> and <code>value</code> in it.</p>
@@ -2152,7 +2149,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>

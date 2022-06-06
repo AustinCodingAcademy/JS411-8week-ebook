@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.0.5">
     
     
       
@@ -1966,13 +1966,13 @@
                 
                 <h1 id="creating-links-to-update-the-url">Creating Links to Update the URL</h1>
 <h2 id="overview">Overview</h2>
-<p>This BrowserRouter is pretty cool because it uses a Router component to route the view to a specific component according to the URL, but how does the URL get changed?</p>
+<p>This <code>BrowserRouter</code> is pretty cool because it uses a <code>Router</code> component to <code>Route</code> to the correct view of a specific component according to the URL, but how does the URL get changed?</p>
 <h2 id="using-link">Using Link</h2>
 <p>Since Web 101 you've know that an <code>&lt;a&gt;</code> (anchor) tag is used to create hyperlinks on your site to get to a certain page in your website's folder, which typically look like this: <code>&lt;a href="/dash"&gt;Go to Dashboard&lt;/a&gt;</code>.</p>
-<p>React Router provides its own linking mechanism that ensures interaction with our <code>&lt;Router&gt;</code> and <code>&lt;Switch&gt;</code> statement we created at the beginning of the homework. One of the great things about this component is that we can use it anywhere in our code. To do so, we need to import it first: <code>import { Link } from 'react-router-dom'</code>. (Maybe you're picking up on the pattern now?)</p>
+<p>React Router provides its own linking mechanism that ensures interaction with our <code>&lt;Router&gt;</code> and <code>&lt;Routes&gt;</code> paths we created at the beginning of the homework. One of the great things about this component is that we can use it anywhere in our code. To do so, we need to import it first: <code>import { Link } from 'react-router-dom'</code>. (Maybe you're picking up on the pattern now?)</p>
 <p>Once imported we can use it in our code like this:</p>
 <div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">SomeComponent.js</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -1989,50 +1989,52 @@
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// ...some import statements</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Link</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-router-dom&#39;</span>
-<span class="c1">// ...more import statements</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ...some import statements</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Link</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router-dom&#39;</span><span class="w"></span>
+<span class="c1">// ...more import statements</span><span class="w"></span>
 
-<span class="c1">// Now just write in the Link component, tell it where &quot;to&quot; route and give it some text</span>
-<span class="kd">const</span> <span class="nx">SomeComponent</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Welcome</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">SomeComponent</span> <span class="nx">Page</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
-        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
-            <span class="nx">There</span><span class="err">&#39;</span><span class="nx">s</span> <span class="nx">lots</span> <span class="nx">to</span> <span class="k">do</span> <span class="nx">and</span> <span class="nx">see</span> <span class="nx">here</span>
-            <span class="nx">but</span> <span class="k">if</span> <span class="nx">you</span> <span class="nx">want</span> <span class="nx">the</span> <span class="nx">full</span> <span class="nx">range</span> <span class="k">of</span>
-            <span class="nx">capabilities</span> <span class="nx">provided</span> <span class="nx">by</span> <span class="k">this</span> <span class="nx">App</span><span class="p">,</span>
-            <span class="nx">you</span> <span class="nx">need</span> <span class="nx">to</span> <span class="nx">checkout</span> <span class="nx">the</span>
-            <span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/dash&quot;</span><span class="o">&gt;</span><span class="nx">Dashboard</span> <span class="nx">Page</span><span class="o">&lt;</span><span class="err">/Link&gt;</span>
-            <span class="p">.</span>
-        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="err">/div&gt;</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<span class="c1">// Now just write in the Link component, tell it where &quot;to&quot; route and give it some text</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">SomeComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Welcome</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">SomeComponent</span><span class="w"> </span><span class="nx">Page</span><span class="o">&lt;</span><span class="err">/h1&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="nx">There</span><span class="err">&#39;</span><span class="nx">s</span><span class="w"> </span><span class="nx">lots</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">and</span><span class="w"> </span><span class="nx">see</span><span class="w"> </span><span class="nx">here</span><span class="w"></span>
+<span class="w">            </span><span class="nx">but</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">you</span><span class="w"> </span><span class="nx">want</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">full</span><span class="w"> </span><span class="nx">range</span><span class="w"> </span><span class="k">of</span><span class="w"></span>
+<span class="w">            </span><span class="nx">capabilities</span><span class="w"> </span><span class="nx">provided</span><span class="w"> </span><span class="nx">by</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="nx">App</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">you</span><span class="w"> </span><span class="nx">need</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">checkout</span><span class="w"> </span><span class="nx">the</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">Link</span><span class="w"> </span><span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/dash&quot;</span><span class="o">&gt;</span><span class="nx">Dashboard</span><span class="w"> </span><span class="nx">Page</span><span class="o">&lt;</span><span class="err">/Link&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">SomeComponent</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
-<p>Now, when a user clicks on the Dashboard Page link, the URL in the address bar will change, which will be picked up by the <code>BrowserRouter</code> component, which then calls the <code>Router</code> so the <code>&lt;Routes&gt;</code> component in the Router will return the correct component to the <code>&lt;BrowserRouter&gt;</code> —in this case, <code>&lt;Dashboard/&gt;</code>. The Link component at its simplest, just takes a prop called <code>to</code> which represents the path you want to navigate <em>to</em>.</p>
+<p>Now, when a user clicks on the Dashboard Page link, the URL in the address bar will change, which will be picked up by the <code>BrowserRouter</code> component, which then calls the <code>Router</code> so the <code>&lt;Routes&gt;</code> component in the <code>Router</code> will return the correct component to the <code>&lt;BrowserRouter&gt;</code> —in this case, <code>&lt;Dashboard/&gt;</code>. The Link component at its simplest, just takes a prop called <code>to</code> which represents the path you want to navigate <em>to</em>.</p>
 <blockquote>
 <p>EXTRA: You won't need this for tomorrow, but it's important to know that Links can send an object of properties through the <code>to</code> prop which makes them even more powerful. Take a look below:</p>
 </blockquote>
 <div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Example of Assigning an Object to the <code>to</code> prop in Link</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">Link</span>
-  <span class="nx">to</span><span class="o">=</span><span class="p">{{</span>
-      <span class="nx">pathname</span><span class="o">:</span> <span class="s2">&quot;/dash&quot;</span><span class="p">,</span>
-      <span class="nx">search</span><span class="o">:</span> <span class="s2">&quot;?sort=name&quot;</span><span class="p">,</span>
-      <span class="nx">hash</span><span class="o">:</span> <span class="s2">&quot;#the-hash&quot;</span><span class="p">,</span>
-      <span class="nx">state</span><span class="o">:</span> <span class="p">{</span> <span class="nx">fromHome</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
-  <span class="p">}}</span>
-<span class="err">/&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&lt;</span><span class="nx">Link</span><span class="w"></span>
+<span class="w">  </span><span class="nx">to</span><span class="o">=</span><span class="p">{{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">pathname</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/dash&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">search</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;?sort=name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">hash</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;#the-hash&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">state</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">fromHome</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}}</span><span class="w"></span>
+<span class="err">/&gt;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <blockquote>
@@ -2040,7 +2042,7 @@
 </blockquote>
 <h2 id="know-your-docs">Know Your Docs</h2>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <a href="https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/Link.md">React Training Docs - Link</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://reactrouter.com/docs/en/v6/components/link">React Training Docs - Link</a></li>
 </ul>
                 
               
@@ -2109,7 +2111,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>

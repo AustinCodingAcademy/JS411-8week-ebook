@@ -10,16 +10,6 @@ Now that you've gotten a hold of this new tool and have an understanding of why 
 
     <!-- ! Video Contents: Vimeo, Clayton@ACA - 411-29-ImplementingBrowserRouter - 411.2.3.1 -->
     <iframe src="https://player.vimeo.com/video/492232669?color=2565EF&byline=0&portrait=0" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-     
-    > NOTE: This video was recorded before React v18 and the rendering method for React is now `ReactDOM.createRoot()` which is imported from "react-dom/client". Your example might look like this:
-      ```javascript
-      import ReactDOM from "react-dom/client";
-      import "./index.css";
-      import App from "./App";
-
-      const root = ReactDOM.createRoot(document.getElementById("root"));
-      root.render(<App />);
-      ```
 
 === "Video Outline"
 
@@ -40,34 +30,23 @@ Now that you've gotten a hold of this new tool and have an understanding of why 
     - [ ] and `import Router from './Router'`
     - [ ] replace `<App />` with wrapper function `<Main />`
 
+> NOTE: This video was recorded before React v18 and the rendering method for React is now `ReactDOM.createRoot()` which is imported from "react-dom/client". Your boilerplate might look like this:
+      
+```javascript
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
+```
+
 ## Building the Router Component
 
 === "Building the Router Component Video"
 
     <!-- ! Video Contents: Vimeo, Clayton@ACA - 411-30-BuildingTheRouterComponents - 411.2.3.2 -->
     <iframe src="https://player.vimeo.com/video/492236276?color=2565EF&byline=0&portrait=0" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-
-    > NOTE: This video was recorded before reactRouter v6. We don't use `<Switch>` anymore. It is now `<Routes>`. Your example should look more like this:  
-    ```javascript
-      import React from 'react';
-      import { Routes, Route } from 'react-router-dom';
-      
-      import App from './App';
-      import Home from './Home';
-
-      const Router = () => {
-          return (
-              { /* Then we use Routes and Route. Routes acts like a regular JS Switch Statement */ }
-              <Routes>
-                  { /* depending on the path in the URL, one of these Routes will be returned and their component rendered */ }
-                  <Route path="/home" element={<Home/>} />
-                  <Route path="/app" element={<App/>} />
-              </Routes>
-          );
-      }
-
-      export default Router;
-    ```
 
 === "Video Outline"
 
@@ -92,9 +71,40 @@ Now that you've gotten a hold of this new tool and have an understanding of why 
         }
       ```
 
-    - [ ] Dont forget to: `export default Router`
+    - [ ] Don't forget to: `export default Router`
     - [ ] Go back to `index.js` and uncomment the import!!
     - [ ] Test your App to see if it works!
+
+> NOTE: This video was recorded before reactRouter v6. 
+
+> NOTE-2: We don't use `<Switch>` anymore. It is now `<Routes>`. 
+
+> NOTE-3: And now, you will import `Routes` and `Route` from `react-router-dom`. 
+
+> NOTE-4: Also, instead of using the `component={ComponentName}` prop you'll use the `element={<ComponentName}` prop.
+
+Your example should look more like this:  
+    
+```javascript
+  import React from 'react';
+  import { Routes, Route } from 'react-router-dom';
+  
+  import App from './App';
+  import Home from './Home';
+
+  const Router = () => {
+      return (
+          { /* Then we use Routes and Route. Routes acts like a regular JS Switch Statement */ }
+          <Routes>
+              { /* depending on the path in the URL, one of these Routes will be returned and their component rendered */ }
+              <Route path="/home" element={<Home/>} />
+              <Route path="/app" element={<App/>} />
+          </Routes>
+      );
+  }
+
+  export default Router;
+```
 
 ## Implementing Link
 
@@ -166,9 +176,9 @@ You can refer to MUI's [Button API](https://mui.com/material-ui/api/button/) to 
 ### Practice Section Instructions
 
 - [ ] Open the code editor and navigate to `App.js` on the left-hand side
-- [ ] The dependecies have already been imported for you. Notice the imports from `"react-router-dom"` and `"@mui/material"`
-- [ ] We also have a custom Router component being imported. Let's look at the Router file next.
-- [ ] The dependecies have also been imported here for you, `import {Routes, Route} from "react-router-dom"`
+- [ ] The dependencies have already been imported for you. Notice the imports from `"react-router-dom"` and `"@mui/material"`
+- [ ] We also have a custom Router component being imported. Let's look at the `Router.js` file next.
+- [ ] The dependencies have also been imported here for you, `import {Routes, Route} from "react-router-dom"`
 - [ ] We also have some simple custom Components being imported here as well, `"Dashboard"` and `"Login"`
 - [ ] Follow the TODO's marked in the comments starting at the Router.js file, and then move to App.js.
 - [ ] Practice making other `Route`'s and apply the same logic. Pretty Simple!
