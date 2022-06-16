@@ -151,7 +151,7 @@ theme:
     accent: pink
     # Defines the logo in the top-left, file must be in the /doc directory
   logo: CE_WhiteBlue_Icon.png
-  
+
   # ? Not rendering as expected??
   extra:
     copyright: Copyright &copy; 2013 - 2021 Austin Coding Academy

@@ -853,6 +853,19 @@
     Where Do We Put this Code?
   </a>
   
+    <nav class="md-nav" aria-label="Where Do We Put this Code?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changing-a-route-to-a-protectedroute" class="md-nav__link">
+    Changing a Route to a ProtectedRoute
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -864,7 +877,7 @@
         
           <li class="md-nav__item">
   <a href="#the-checkauth-function" class="md-nav__link">
-    The checkAuth Function
+    The checkAuth() Function
   </a>
   
 </li>
@@ -2023,6 +2036,19 @@
     Where Do We Put this Code?
   </a>
   
+    <nav class="md-nav" aria-label="Where Do We Put this Code?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changing-a-route-to-a-protectedroute" class="md-nav__link">
+    Changing a Route to a ProtectedRoute
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2034,7 +2060,7 @@
         
           <li class="md-nav__item">
   <a href="#the-checkauth-function" class="md-nav__link">
-    The checkAuth Function
+    The checkAuth() Function
   </a>
   
 </li>
@@ -2100,19 +2126,23 @@
                 
                 <h1 id="protected-routes">Protected Routes</h1>
 <p><em>I arise full of eagerness and energy, knowing well what achievement lies ahead of me. —Zane Grey</em></p>
-<p>In the last lesson we learned how to route a user to a specific component/view based on the URL, but what if we needed to prevent certain users from seeing certain components. Let's say, if we has a class grading app we would want to prevent the students from seeing the <code>allGradesComponent</code> while still allowing the teacher to see it. We would put this <code>allGradesComponent</code> behind a <strong>Protected Route</strong> that will work like an if/else statement to see if the user is allowed to view it our not. Check it out below.</p>
+<p>In the last lesson we learned how to route a user to a specific component/view based on the URL, but what if we needed to prevent certain users from seeing certain components. Let's say, if we had a class grading app we would want to prevent the students from seeing the <code>allGradesComponent</code> while still allowing the teacher to see it. We would put this <code>allGradesComponent</code> behind a <strong>Protected Route</strong> that will work like an if/else statement to see if the user is allowed to view it our not. Check it out below.</p>
 <h2 id="overview">Overview</h2>
-<p>Why are we learning about this? Well, protected routes and authentication are tools we can use to secure our app from unwanted guests. It's also a way to keep us logged in. You might have noticed last week that when we "logged in" to our app, everything was fine but when we refreshed the page we had to "log in" again. That's because the app had no way of understanding that we had an active session or cookie stored. Using protected routes and authentication will allow us to leave our machine (<em>computer</em>), come back the next day and open the app and remain right where we were when we left off. Only if our cookie has expired will we be required to log in again. Let's explore these processes further.</p>
+<p>Why are we learning about this? Well, protected routes and authentication are tools we can use to secure our app from unwanted guests. It's also a way to keep us logged in. You might have noticed last week that when we "logged into" our app, everything was fine but when we refreshed the page we had to "log in" again. That's because the app had no way of understanding that we had an active session or cookie stored. Using protected routes and authentication will allow us to leave our machine (<em>computer</em>), come back the next day and open the app and remain right where we were when we left off. Only if our cookie has expired will we be required to log in again. Let's explore these processes further.</p>
 <!-- ! Video Contents: Vimeo, Clayton@ACA - 411-32-ProtectedRoutes - 411.2.4.1 -->
 <iframe src="https://player.vimeo.com/video/492249128?color=2565EF&byline=0&portrait=0" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
+<blockquote>
+<p>NOTE=1: This video was recorded before React v18 and the rendering method for React is now <code>ReactDOM.createRoot()</code> which is imported from "react-dom/client".</p>
+<p>NOTE: This video was recorded before <code>react-router</code> &amp; <code>react-router-dom</code> v6. We don't use <code>&lt;Switch&gt;</code> anymore, it is now <code>&lt;Routes&gt;</code>. Also, <code>&lt;Redirect&gt;</code> has been replaced by <code>&lt;Navigate&gt;</code>.</p>
+</blockquote>
 <h2 id="what-and-how">What and How</h2>
 <p>First and foremost, what is a <strong>Protected Route</strong>? Just like the routes we worked with last class, these routes are protected by some logic. Think:</p>
 <blockquote>
-<p><code>if (userIsAuthorized) =&gt; go to profile; else {"Sorry, you're not authorized"}.</code></p>
+<p><code>if (userIsAuthorized) =&gt; go to profile; else {"Sorry, you're not authorized, please log in."}.</code></p>
 </blockquote>
 <p>It boils down to a bit of JavaScript logic that directs the user to one component or another based on some condition. It's easiest to show an example.</p>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Protected Route Example - Router.js</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Protected Route Example without comments</label><div class="tabbed-content">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2124,63 +2154,21 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">ProtectedRoute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">({</span><span class="nx">component</span><span class="o">:</span><span class="w"> </span><span class="nx">Component</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">rest</span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Navigate</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;react-router-dom&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">ProtectedRoute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">component</span><span class="o">:</span><span class="w"> </span><span class="nx">Component</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">rest</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">props</span><span class="p">;</span><span class="w"></span>
+
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// spread the rest of the props that are needed in this component</span><span class="w"></span>
-<span class="w">      </span><span class="p">{...</span><span class="nx">rest</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// define the value of the render method as a ternary that checks to see if checkAuth returns true or false</span><span class="w"></span>
-<span class="w">      </span><span class="nx">render</span><span class="o">=</span><span class="p">{(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">checkAuth</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">          </span><span class="c1">// if true render the component with all the props</span><span class="w"></span>
-<span class="w">          </span><span class="o">?</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Component</span><span class="w"> </span><span class="p">{...</span><span class="nx">props</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">          </span><span class="c1">// if false, use the Redirect component to update the url to `/login` so they are redirected to the login component</span><span class="w"></span>
-<span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Redirect</span><span class="w"> </span><span class="nx">to</span><span class="o">=</span><span class="p">{{</span><span class="nx">pathname</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/login&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">location</span><span class="p">}}}</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">  </span><span class="p">)</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">checkAuth</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Component</span><span class="w"> </span><span class="p">{...</span><span class="nx">rest</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Navigate</span><span class="w"> </span><span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">ProtectedRoute</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 </div>
-</div>
-<p>So...that was pretty verbose. Let's make it a <em>little</em> simpler:</p>
-<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Simplified Protected Route Example - Router.js</label><div class="tabbed-content">
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">ProtectedRoute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">({</span><span class="nx">component</span><span class="o">:</span><span class="w"> </span><span class="nx">Component</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">rest</span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"></span>
-<span class="w">    </span><span class="p">{...</span><span class="nx">rest</span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="nx">render</span><span class="o">=</span><span class="p">{(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">checkAuth</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="o">?</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Component</span><span class="w"> </span><span class="p">{...</span><span class="nx">props</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Redirect</span><span class="w"> </span><span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">  </span><span class="p">)</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div></td></tr></table></div>
-</div>
-</div>
-<p>Ok now we can talk about what this is doing.</p>
-<p>This <code>ProtectedRoute</code> function can accept any amount of props but the props we really want are the   and the <code>component</code> props from the route in question. On the first line...</p>
-<p><code>const ProtectedRoute = ({component: Component, ...rest}) =&gt; {</code></p>
-<p>...we "split" out the Component from the <code>rest</code> of the props in order to use it more easily later.</p>
-<p>Next we return a <code>Route</code> component (from <code>'react-router'</code> package) and we send it the <code>...rest</code> of the components. Those could be things like <code>exact</code>, for example.</p>
-<p>Then, we use the <code>render</code> function to determine what to show based on a conditions. We are referencing a custom-built <code>checkAuth()</code> function that we will create later. If <code>checkAuth</code> returns <code>true</code> then we will send the user on to the component they want to visit.</p>
-<p>If <code>checkAuth</code> returns <code>false</code> then we will <code>Redirect</code> them to the <code>login</code> component so that they can log in.</p>
-<blockquote>
-<p>NOTE: You don't have to remember all of this right now but know where to reference it. In the future when you are using protected routes (sometimes called <strong>Private Routes</strong>) you should be able to Google something like "React protected route" for an example.</p>
-</blockquote>
-<h3 id="where-do-we-put-this-code">Where Do We Put this Code?</h3>
-<p>Where do we put this code?</p>
-<p>We will put it in our <code>Router.js</code> file right above where the router is defined. And we use it by simply replacing one of the regular routes we've built already with this new <code>&lt;ProtectedRoute&gt;</code> that will route to a component that we want to be protected by authentication like this:</p>
-<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Router.js File with <code>ProtectedRoute</code> Function</label><div class="tabbed-content">
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Protected Route Example with comments</label><div class="tabbed-content">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2201,51 +2189,220 @@
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="c1">// ... import statements here...</span><span class="w"></span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Import `Navigate` from react-router-dom</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Navigate</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;react-router-dom&quot;</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">ProtectedRoute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">({</span><span class="nx">component</span><span class="o">:</span><span class="w"> </span><span class="nx">Component</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">rest</span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"></span>
-<span class="w">      </span><span class="p">{...</span><span class="nx">rest</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="nx">render</span><span class="o">=</span><span class="p">{(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">checkAuth</span><span class="p">()</span><span class="w"></span>
-<span class="w">          </span><span class="o">?</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Component</span><span class="w"> </span><span class="p">{...</span><span class="nx">props</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Redirect</span><span class="w"> </span><span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="c1">// Create a component that takes props that will serve our Protected Routes</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">ProtectedRoute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="o">&lt;</span><span class="nx">Routes</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">          </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">exact</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/&quot;</span><span class="w"> </span><span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Home</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">          </span><span class="o">&lt;</span><span class="nx">ProtectedRoute</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/about&quot;</span><span class="w"> </span><span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">About</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">      </span><span class="o">&lt;</span><span class="err">/Routes&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Destructure the props passed to this component. </span><span class="w"></span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">component</span><span class="o">:</span><span class="w"> </span><span class="nx">Component</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">rest</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">props</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="cm">/*  </span>
+<span class="cm">  The ProtectedRoute function is going to take in props as an argument. </span>
+<span class="cm">  These props will contain at the bare minimum a component that will be </span>
+<span class="cm">  rendered if the condition is met. Therefore, when we destructure the </span>
+<span class="cm">  props we will say that the component to be rendered is the component </span>
+<span class="cm">  being passed: `component: Component`</span>
+
+<span class="cm">  See? We&#39;re taking the component that was passed...whatever it was and </span>
+<span class="cm">  storing it in a variable called `component` (lower-case C) so we can </span>
+<span class="cm">  `render()` it later by called `&lt;Component /&gt;`</span>
+
+<span class="cm">  Since React will expect all components to begin with a capital letter, </span>
+<span class="cm">  and the &#39;component&#39; property is the prop that is storing the reference </span>
+<span class="cm">  to the `Component` we want to render, we simply rename `component` to </span>
+<span class="cm">  &#39;Component`.</span>
+
+<span class="cm">  Now we have a reference to what ever component was passed to this </span>
+<span class="cm">  `ProtectedRoute` functions i.e. `MySettings`, `MyAccount`, etc.</span>
+
+<span class="cm">  The `{...rest}` of the properties we spread into a variable called `rest` </span>
+<span class="cm">  which uses the spread operator `...` to capture and give us a reference to </span>
+<span class="cm">  any remaining properties that may have been passed to this function. We </span>
+<span class="cm">  can then again reference `rest` when we need to pass those properties to </span>
+<span class="cm">  another Component down the chain.</span>
+<span class="cm">  */</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// We will create this function `checkAuth()` soon, but for now, know</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// it returns either `true` or `false` depending on whether someone is</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// logged in or not.</span><span class="w"></span>
+<span class="w">    </span><span class="nx">checkAuth</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// IF? &quot;checkAuth()&quot; returns `true`, render this Component. See? A </span><span class="w"></span>
+<span class="w">      </span><span class="nx">component</span><span class="w"> </span><span class="kr">protected</span><span class="w"> </span><span class="nx">by</span><span class="w"> </span><span class="nx">some</span><span class="w"> </span><span class="nx">logic</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">Component</span><span class="w"> </span><span class="p">{...</span><span class="nx">rest</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// ELSE: `checkAuth()` must be `false` and we want to &quot;Navigate&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// the user to the &quot;/login&quot; route by changing their URL using the</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// `Navigate` component from `react-router-dom`. The `to=` property</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// point to the path we want to replace the URL with: `&quot;/login&quot;`</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">Navigate</span><span class="w"> </span><span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">ProtectedRoute</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
-<p>Now, the <code>&lt;About /&gt;</code> component will be protected and only be shown based on some condition like authentication, after we add it in, of course.</p>
+<p>Let's talk about what this is doing:</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox"/> This <code>ProtectedRoute</code> component can accept any amount of props but the props we really want is the <code>component</code> property from the Route in question. On the first line...</li>
+</ul>
+<blockquote>
+<p><code>const ProtectedRoute = ({component: Component, ...rest}) =&gt; {</code></p>
+<p>...we "split" out the Component from the <code>rest</code> of the props in order to use it more easily later.</p>
+</blockquote>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox"/> Next, we want to either return the <code>Component</code> or <code>Navigate</code> the user to the <code>Login</code> component. This will be based on a condition we will define. Think of your <code>checkForWin()</code> function in ticTacToe.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox"/> We are referencing a custom-built <code>checkAuth()</code> function that we will create later. If <code>checkAuth</code> returns <code>true</code> then we will send the user on to the component they want to visit.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox"/> If <code>checkAuth</code> returns <code>false</code> then we will <code>Navigate</code> them to the <code>login</code> component so that they can log in.</p>
+</li>
+</ul>
+<blockquote>
+<p>NOTE: You don't have to remember all of this right now but know where to reference it. In the future when you are using Protected Routes (sometimes called <strong>Private Routes</strong>) you should be able to Google something like "React Protected Route" for an example.</p>
+</blockquote>
+<h3 id="where-do-we-put-this-code">Where Do We Put this Code?</h3>
+<p>Where do we put this code?</p>
+<p>The <code>ProtectedRoute</code> component built above will be imported into our <code>Router.js</code> where we'll replace the <code>element=</code> prop of any <code>Route</code> we want to protect. </p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Router.js File with <code>ProtectedRoute</code> Function</label><div class="tabbed-content"></div>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Routes</span><span class="p">,</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;react-router-dom&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Home</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./components/Home&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// #1 Import the component you want to be protected</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Dashboard</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./components/Dashboard&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// #2 Import the ProtectedRoute</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">ProtectedRoute</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./components/ProtectedRoute&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">Routes</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/&quot;</span><span class="w"> </span><span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Home</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"></span>
+<span class="w">        </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/dashboard&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="cm">/* #3 Replace the element prop with the ProtectedRoute and give the </span>
+<span class="cm">        component you want to be rendered as ITS element prop. */</span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">ProtectedRoute</span><span class="w"> </span><span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Dashboard</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/Routes&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">Router</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<blockquote>
+<p>NOTE: Notice how we are just sending the instance of the <code>Dashboard</code> component, this will be rendered by the Protected Route component based on the condition that someone is Authenticated or not. This does not to be wrapped like a JSX element <code>&lt;Dashboard /&gt;</code>. You need to simply pass in the <code>Dashboard</code> reference, from our import at the top of the file, as a property into our <code>ProtectedRoute</code> component.</p>
+</blockquote>
+<p>Now, the <code>&lt;Dashboard /&gt;</code> component will be protected and only be shown based on some condition like is the user authenticated, <em>after we add it in</em>, of course.</p>
+<p>We use the <code>ProtectedRoute</code> component by simply replacing the element property being rendered from one of the regular <code>Route</code>'s we've already built.</p>
+<h4 id="changing-a-route-to-a-protectedroute">Changing a <code>Route</code> to a <code>ProtectedRoute</code></h4>
+<p>For just a little more on this, let's look at them side by side, changing <code>Route</code> to a <code>ProtectedRoute</code></p>
+<p>We simply change this <code>Route</code> to a <code>ProtectedRoute</code> by changing the <code>element=</code> property(prop).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// This</span><span class="w"></span>
+<span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/dashboard&quot;</span><span class="w"> </span><span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Dashboard</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+
+<span class="c1">// Becomes this</span><span class="w"></span>
+<span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/dashboard&quot;</span><span class="w"> </span><span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">ProtectedRoute</span><span class="w"> </span><span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Dashboard</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">}</span><span class="o">&gt;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>We pass in the <code>ProtectedRoute</code> component instead and make sure to include the component we just replaced with the <code>ProtectedRoute</code> as ITS <code>component=</code> prop.</p>
+<blockquote>
+<p>NOTE: The <code>&lt;ProtectedRoute /&gt;</code> element can also take any properties you want to include, but we want to make sure to include the component we do want to render IF the user is Authenticated or "loggedIn".</p>
+</blockquote>
 <h3 id="see-it-protected-routes">See It - Protected Routes</h3>
 <!-- ! Video Contents: Vimeo, Clayton@ACA - 411-33-ImplementingProtectedRoutes - 411.2.4.2 -->
 <iframe src="https://player.vimeo.com/video/492251808?color=2565EF&byline=0&portrait=0" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
-<h3 id="the-checkauth-function">The <code>checkAuth</code> Function</h3>
-<p>A very simple way to test if your protected route is working is build a dumb function like the one below:</p>
-<p><code>const checkAuth = () =&gt; true</code></p>
 <blockquote>
-<p>The code above will say that you are always logged in and anyone will be able to navigate to your protected route. <strong>In production mode we generally want something more complicated than that.</strong> </p>
+<p>NOTE: This video was recorded before <code>react-router</code> &amp; <code>react-router-dom</code> v6. We don't use <code>&lt;Switch&gt;</code> anymore, it is now <code>&lt;Routes&gt;</code>. Also, <code>&lt;Redirect&gt;</code> has been replaced by <code>&lt;Navigate&gt;</code>.</p>
 </blockquote>
+<h3 id="the-checkauth-function">The <code>checkAuth()</code> Function</h3>
+<p>A very simple way to test if your protected route is working is to build a dumb function like the one below:</p>
+<p><code>const checkAuth = () =&gt; true</code></p>
+<p>The code above will say that you are always logged in and anyone will be able to navigate to your protected route. <strong>In production mode we generally want something more complicated than that.</strong> Maybe when the person enters their email and password, our server app verifies they are who they say they are then sends a token to be stored as a cookie to prove they've been authenticated. From there, our front-end app could check to see if a valid cookie exists and allows the user to the protected component/view.</p>
 <p>Let's look at how to find a cookie from the <strong>browser window</strong>, shall we?</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">CheckAuth function &amp; NPM cookie</label><div class="tabbed-content"></div>
+</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">checkAuth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">cookies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cookie</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">cookies</span><span class="p">[</span><span class="s2">&quot;loggedIn&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// With a special NPM Package called &quot;cookie&quot;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">cookie</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;cookie&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">checkAuth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">cookies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cookie</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">cookies</span><span class="p">[</span><span class="s2">&quot;loggedIn&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<p>Look closely at the function above, it's getting all of the cookies that exist on the browser and saying, "If there's one called <code>loggedIn</code>, return <code>true</code>. Otherwise return <code>false</code>. <code>cookie.parse</code> actually comes from the NPM package called <a href="https://www.npmjs.com/package/cookie">cookie</a>. We'll be installing it shortly. (Just make sure you do the following homework.) For now, let's assume if we're looking for a cookie called: loggedIn we probably put one, or set one, there called loggedIn with our app. This means our app can now save data to the local storage of a user's computer, or more specifically, their browser's local storage! This isn't something we've done yet.....ooooh....ahhhh.</p>
+<p>Look closely at the function above, it's getting all of the cookies that exist on the browser and saying, "If there's one called <code>loggedIn</code>, return <code>true</code>. Otherwise return <code>false</code>. <code>cookie.parse</code> actually comes from the NPM package called <a href="https://www.npmjs.com/package/cookie">cookie</a>. We'll be installing it shortly. (Just make sure you do the following homework.) For now, let's assume if we're looking for a cookie called: <code>loggedIn</code> we probably put one, or <em>set one</em>, there called <code>loggedIn</code> with our app. This means our app can now save data to the local storage of a user's computer, or more specifically, their browser's local storage! This isn't something we've done yet.....ooooh....ahhhh.</p>
 <h2 id="cookies">Cookies</h2>
 <!-- ! Video Contents: Vimeo, Clayton@ACA - 411-34-CookiesAHighOverview - 411.2.4.3 -->
 <iframe src="https://player.vimeo.com/video/492259264?color=2565EF&byline=0&portrait=0" width="655" height="368" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
@@ -2253,11 +2410,123 @@
 <p>Cookies are small bits of information that websites store on your browser. They are key-value pairs like objects but they only contain text. They help the browser make certain decisions using the content that's been stored in these cookies. That's exactly what we are going to do here.</p>
 <p>You can interact with cookies at anytime by typing <code>document.cookie</code> in the console of your browser. Go ahead and do that now...</p>
 <p><code>document.cookie</code> + <span class="keys"><kbd class="key-enter">Enter</kbd></span> ==&gt; <code>"ASPSESSIONIDAACDSPBS=IENHHCBEBANMBEPJNLICGFGP"</code> (or something like that)</p>
-<p>If you did it should have brought back a string of characters that's hard to do anything with. This problem is solved with the <a href="https://www.npmjs.com/package/cookie">cookie package from npm</a>. It can be installed with the regular <code>npm i cookie</code> command.</p>
-<p>Getting a list of our available cookies is easy with <code>cookie.parse</code>. Let's talk about setting cookies. In fact, you don't even need the cookie package to do this. You simply write:</p>
-<p><code>document.cookie = "loggedIn=true;max-age=60*1000"</code></p>
-<p>The <code>max-age</code> property decides how long the cookie will live for/be valid for. This property is counted in milliseconds so if you want the cookie to last one minute, you have to use <code>60*1000</code>, <em>(1000 milliseconds = 1 second; 1 second X 60 = 1 minute)</em>.</p>
+<p>If you did this, it should have brought back a string of characters that's hard to do anything with. This problem is solved with the <a href="https://www.npmjs.com/package/cookie">cookie package from npm</a>. It can be installed with the regular <code>npm i cookie</code> command.</p>
+<p>Getting a list of our available cookies is easy with <code>cookie.parse</code>. But first, let's talk about setting cookies. In fact, you don't even need the cookie package to do this. You simply write something like this in your browser console:</p>
+<p><code>document.cookie = "loggedIn=true;Max-Age=60*1000"</code> + <span class="keys"><kbd class="key-enter">Enter</kbd></span></p>
+<p>The <code>Max-Age</code> property decides how long the cookie will live for/be valid for. This property is counted in milliseconds so if you want the cookie to last one minute, you have to use <code>60*1000</code>, <em>(1000 milliseconds = 1 second; 1 second X 60 = 1 minute)</em>.</p>
+<p>In React &amp; Node world, we can use the <code>cookie</code> package to write simple cookies as well. It will look something like this:</p>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Setting cookies using the <code>cookie</code> package</label><div class="tabbed-content"></div>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">cookie</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;cookie&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// Or</span><span class="w"></span>
+<span class="c1">// const cookie = require(&quot;cookie&quot;);</span><span class="w"></span>
+
+<span class="c1">// Set a new cookie</span><span class="w"></span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cookie</span><span class="p">.</span><span class="nx">serialize</span><span class="p">(</span><span class="s2">&quot;loggedIn&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">maxAge</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+
+<span class="c1">// Delete a cookie</span><span class="w"></span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cookie</span><span class="p">.</span><span class="nx">serialize</span><span class="p">(</span><span class="s2">&quot;loggedIn&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">maxAge</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+
+<span class="c1">// To check your new cookies</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">));</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>cookie.serialize()</code> method takes in 3 parameters: the <code>key</code>, the <code>value</code>, then an Object that takes in some key/value pairs as options. The list of options when using the <code>cookie</code> package can be found <a href="" title="https://www.npmjs.com/package/cookie#:~:text=//%20foo%3Dbar-,Options,-cookie.serialize%20accepts">here</a>.</p>
+<p>Setting the <code>maxAge</code> attribute to 0, or a negative number, will delete the cookie from memory.</p>
 <p>So now we've set this cookie on Login which means at Logout we'll want to clear it. <em>Keep this in mind as we move forward because we're going to continue working on the Login in portion for now.</em></p>
+<blockquote>
+<p>NOTE: Without the <code>cookie</code> package, we would need to do some extra work in order to get our cookies to be more readable and usable. By default, <code>document.cookie</code> will return a concatenated string with all our key/values separated by a semi-colon. This makes it hard for us to extract the right bit of information we need. The npm package, <code>cookie</code>, simplifies that process for us, making it more practical.</p>
+</blockquote>
+<p>Lets take a look at what it looks like to get a cookie without that <code>cookie</code> package.</p>
+<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Cookies without NPM cookie - without comments</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;loggedin=true;Max-Age=1000*60&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;anotherKey=anotherValue;Max-Age=1000*60&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">cookies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">keyValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">el</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="nx">cookies</span><span class="p">[</span><span class="nx">keyValue</span><span class="p">[</span><span class="mf">0</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">keyValue</span><span class="p">[</span><span class="mf">1</span><span class="p">]);</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</div>
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Cookies without NPM cookie - with comments</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Set some cookies</span><span class="w"></span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;loggedin=true;Max-Age=1000*60&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;anotherKey=anotherValue;Max-Age=1000*60&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// Create an object called `cookies` which will be used to store our </span><span class="w"></span>
+<span class="nx">key</span><span class="o">/</span><span class="nx">values</span><span class="w"> </span><span class="nx">AFTER</span><span class="w"> </span><span class="nx">we</span><span class="w"> </span><span class="k">break</span><span class="w"> </span><span class="nx">them</span><span class="w"> </span><span class="nx">down</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">cookies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+
+<span class="c1">// Get cookies by calling to the cookie method on the document: </span><span class="w"></span>
+<span class="c1">//  &quot;document.cookie&quot;</span><span class="w"></span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="w"> </span><span class="c1">// &quot;loggedin=true;anotherKey=anotherValue</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Split that concatenated string of joined key/values at the semicolons </span><span class="w"></span>
+<span class="w">  </span><span class="c1">//  and place it into an array</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// returns [&quot;loggedin=false&quot;, &quot;anotherKey=anotherValue&quot;]</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// For each element in our new Array of strings</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Split the element AT the &quot;equal&quot; sign</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">keyValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">el</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// [&quot;loggedin&quot;, &quot;false&quot;]</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// And for every element, we return a new key/value pair and attach it </span><span class="w"></span>
+<span class="w">    </span><span class="c1">// to our cookies object we create first</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="nx">cookies</span><span class="p">[</span><span class="nx">keyValue</span><span class="p">[</span><span class="mf">0</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">keyValue</span><span class="p">[</span><span class="mf">1</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// At the end we get an object with 2 key values, which is much easier </span><span class="w"></span>
+<span class="w">    </span><span class="c1">// to work with: </span><span class="w"></span>
+<span class="w">    </span><span class="c1">// {loggedin: &quot;true&quot;, anotherKey: &quot;anotherValue&quot;}</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
 <p>Want to know more about cookies and what you can do with them? Read this very <a href="http://www.whatarecookies.com/">detailed article on What Are Cookies</a>.</p>
 <h2 id="practice-it">Practice It</h2>
 <!-- ! Video Contents: CodeSandbox, ProtectedRoute Practice -->
@@ -2280,13 +2549,13 @@
 </ul>
 <h2 id="additional-resources">Additional Resources</h2>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <a href="https://www.youtube.com/watch?v=Y0-qdp-XBJg">YT, freeCodeCamp.org - Protected Routes in React with React-Router</a></li>
-<li class="task-list-item"><input type="checkbox"/> <a href="https://rossbulat.medium.com/using-cookies-in-react-redux-and-react-router-4-f5f6079905dc">Blog, Medium - Using Cookies in React, Redux, React-Router</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.youtube.com/watch?v=Y0-qdp-XBJg">YT, Coding Addict - React Router 6 - Protected Route</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.youtube.com/watch?v=i7oL_K_FmM8">YT,Bro Code - WTF is a JavaScript "cookie"? 🍪</a></li>
 <li class="task-list-item"><input type="checkbox"/> <a href="http://www.whatarecookies.com/">Article, WhatAreCookies.com - What Are Cookies</a></li>
 </ul>
 <h2 id="know-your-docs">Know Your Docs</h2>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <a href="https://reacttraining.com/react-router/web/example/auth-workflow">React Training Docs - Redirects</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://reactrouter.com/docs/en/v6/components/navigate">React Training Docs - Navigate </a></li>
 <li class="task-list-item"><input type="checkbox"/> <a href="https://www.npmjs.com/package/cookie">NPM Docs - cookie</a></li>
 </ul>
                 
