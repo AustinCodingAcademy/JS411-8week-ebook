@@ -16,12 +16,15 @@ Firebase is a Backend-as-a-Service (BaaS) a google cloud service for developers 
 - [ ] In the main firebase console page find the gear icon top left click it and select project settings
 <!-- - [ ] Interview Questions: Blog to Show You Know -->
 - [ ] Under Your apps you will see no projects and several icons click the one for web </>
-- [ ] Under Register app Give your app a name then click register app.
+- [ ] Under Register app Give your app a name then click register app and SAVE ALL the code fireBase gives you! Click continue to console.
+- [ ] Enable authentication in firebase console by clicking authentication in the menu click Get Started  then select sign-in method tab. Click on email/password and slide the first one over to enable then hit save.
 
 
- When connecting to FireBase. We want to use a `.env` file, a place to put environment specific sensitive data. This includes  `user`, `database names`, `API_keys`, and etc. The final step to safeguarding our sensitive information is to include our `.env` file in a `.gitignore` file so our git software will *ignore* the `.env` file and not push it up to the repo when we commit changes.
 
-#### How to use `.env`
+
+## How to use `.env`
+
+  When connecting to FireBase. We want to use a `.env` file, a place to put environment specific sensitive data. This includes  `user`, `database names`, `API_keys`, and etc. The final step to safeguarding our sensitive information is to include our `.env` file in a `.gitignore` file so our git software will *ignore* the `.env` file and not push it up to the repo when we commit changes.
 
 - [ ] First `cd` into the root directory and `touch .env` will be put there.
 - [ ] Create React app will have a `.gitignore` file go to it and type `.env` to ignore the file.
@@ -59,7 +62,7 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 ```
 
-Enable authentication in firebase console by clicking authentication in the menu click Get Started and select and sign-in method tab. Click on email/password and slide the first one over to enable then hit save.
+## How to Authenticate with FireBase
 
 Find the App.js file then add code bellow for signing up a user to [authenticate](https://firebase.google.com/docs/auth/web/password-auth) in FireBase. The data is stored on a cloud server based on the credentials in the config file. see the results in the FireBase Dashboard under Authentication. In addition you will see `auth.currentUser` is logged at the bottom.
 
