@@ -8,6 +8,7 @@ Firebase is a Backend-as-a-Service (BaaS) a google cloud service for developers 
 
  First create a new folder called learn-firebase in your dev folder and create a new react app there. Next, Sign up for [firebase](https://firebase.google.com/). You may have to create a google account if you do not have one. Remember The service is [free](https://firebase.google.com/pricing) upto 1 gigabyte in storage. 
 
+- [ ] Install firebase into your node_modules and add it to package.json `npm i firebase` 
 - [ ] When you are signed in to your google account click the get started button on the main firebase page.
 - [ ] Click the add project button and create a project name called learn-firebase then click continue.
 - [ ] We will not use google analytics so leaving it on or off will not matter just leave it as default.
@@ -16,7 +17,7 @@ Firebase is a Backend-as-a-Service (BaaS) a google cloud service for developers 
 - [ ] In the main firebase console page find the gear icon top left click it and select project settings
 <!-- - [ ] Interview Questions: Blog to Show You Know -->
 - [ ] Under Your apps you will see no projects and several icons click the one for web </>
-- [ ] Under Register app Give your app a name then click register app and SAVE ALL the code fireBase gives you! Click continue to console.
+- [ ] Under Register app Give your app a name then click register app and SAVE ALL the code for later in a file called firebaseConfig! Click continue to console.
 - [ ] Enable authentication in firebase console by clicking authentication in the menu click Get Started  then select sign-in method tab. Click on email/password and slide the first one over to enable then hit save.
 
 
@@ -41,7 +42,7 @@ REACT_APP_FIREBASE_SENDER_ID="54980240976"
 REACT_APP_FIREBASE_APP_ID="1:667664985586:web:27ce56b3475ad9ffa86P"
 REACT_APP_FIREBASE_MEASUREMENT_ID="G-75ed0jhjm9"
 ```
-Once you are signed up for firebase and recive a firebaseConfig object then use `npm i firebase`  to `import {initializeApp} from "firebase/app"`  and export it to any part that needs authentication and authorization. 
+Use the firebaseConfig credentials you saved earlier to put them in the `.env` with the corospnding name use the above as an example. Make a file in the src directory and `firebase-config.js`. `process.env` is a node variable the stores your `.env` enviroment variables.
 === "src/firebase-config.js"
 ```javascript
    // src/firebase-config.js
