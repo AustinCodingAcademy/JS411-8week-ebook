@@ -62,7 +62,7 @@ nav:
       - 'Pre-Class 8 Lessons':
         - Develop Discipline: module-2/developSeries-discipline.md
         - Protected Routes: module-2/protectedRoutes-intro.md
-        - FireBase: module-2/FireBase.md
+        - Authentication with FireBase: module-2/FireBase.md
         - Class 8 Login: module-2/class-8.md
     - 'Module Three: App State': 
       - 'Pre-Class 9 Lessons':
