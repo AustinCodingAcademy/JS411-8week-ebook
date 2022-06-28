@@ -47,7 +47,7 @@
 
 ## Creation Time, 60-90 mins
 
-Today we are going to practice what we learned about Protected Routes. We will create a login page, set cookies, and build protected routes to provide a more reliable login experience for the users of the cars application we worked on before.
+If you have not already create a FireBase account. Directions for setting up an account and learning FireBase located in the pre-class material. Today we are going to practice what we learned about Authentication and Protected Routes with FireBase. We will create a login page, use FireBase functions, and build protected routes to provide a more reliable login experience for the users of the cars application we worked on before.
 
 ![fake-car-login-example](./../images/fake-car-login-example.png)
 
