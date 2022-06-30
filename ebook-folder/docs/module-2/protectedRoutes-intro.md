@@ -55,19 +55,16 @@ It boils down to a bit of JavaScript logic that directs the user to one componen
       
       /*  
       The ProtectedRoute function is going to take in props as an argument. 
-      These props will contain at the bare minimum a component that will be 
-      rendered if the condition is met. Therefore, when we destructure the 
-      props we will say that the component to be rendered is the component 
-      being passed: `component: Component`
+      These props will contain, at the bare minimum, a component that will be rendered if the condition is met. Therefore, when we destructure the props we will say that the component to be rendered is the component being passed: `component: Component`
       
       See? We're taking the component that was passed...whatever it was and 
-      storing it in a variable called `component` (lower-case C) so we can 
+      storing it in a variable called `component` (lower-case c) so we can 
       `render()` it later by called `<Component />`
 
       Since React will expect all components to begin with a capital letter, 
       and the 'component' property is the prop that is storing the reference 
       to the `Component` we want to render, we simply rename `component` to 
-      'Component`.
+      'Component` (upper-case C).
       
       Now we have a reference to what ever component was passed to this 
       `ProtectedRoute` functions i.e. `MySettings`, `MyAccount`, etc.
@@ -84,14 +81,14 @@ It boils down to a bit of JavaScript logic that directs the user to one componen
         // it returns either `true` or `false` depending on whether someone is
         // logged in or not.
         checkAuth() === true ? (
-          // IF? "checkAuth()" returns `true`, render this Component. See? A 
-          component protected by some logic.
+          // IF? "checkAuth()" returns `true`, render this Component. 
+          // See? A component protected by some logic.
           <Component {...rest} />
         ) : (
           // ELSE: `checkAuth()` must be `false` and we want to "Navigate"
           // the user to the "/login" route by changing their URL using the
           // `Navigate` component from `react-router-dom`. The `to=` property
-          // point to the path we want to replace the URL with: `"/login"`
+          // points to the path we want to replace the URL with: `"/login"`
           <Navigate to="/login" />
         )
       );
@@ -118,11 +115,9 @@ Let's talk about what this is doing:
 
 ### Where Do We Put this Code?
 
-Where do we put this code?
-
 The `ProtectedRoute` component built above will be imported into our `Router.js` where we'll replace the `element=` prop of any `Route` we want to protect. 
 
-=== "Router.js File with `ProtectedRoute` Function"
+=== "`Router.js` File with `ProtectedRoute` Function"
 
 ```javascript
 import { Routes, Router } from "react-router-dom";
@@ -149,9 +144,9 @@ const Router = () => {
 export default Router;
 ```
 
-> NOTE: Notice how we are just sending the instance of the `Dashboard` component, this will be rendered by the Protected Route component based on the condition that someone is Authenticated or not. This does not to be wrapped like a JSX element `<Dashboard />`. You need to simply pass in the `Dashboard` reference, from our import at the top of the file, as a property into our `ProtectedRoute` component.
+> NOTE: Notice how we are just sending the instance of the `Dashboard` component, this will be rendered by the Protected Route component based on the condition that someone is Authenticated or not. This does not need to be wrapped like a JSX element `<Dashboard />`. You need to simply pass in the `Dashboard` reference, from our import at the top of the file, as a property into our `ProtectedRoute` component.
 
-Now, the `<Dashboard />` component will be protected and only be shown based on some condition like is the user authenticated, *after we add it in*, of course.
+Now, the `<Dashboard />` component will be protected and only be shown based on some condition like is the user authenticated, *after we add the checkAuth-functionality in*, of course.
 
 We use the `ProtectedRoute` component by simply replacing the element property being rendered from one of the regular `Route`'s we've already built.
 
@@ -186,11 +181,11 @@ A very simple way to test if your protected route is working is to build a dumb 
 
 `const checkAuth = () => true`
 
-The code above will say that you are always logged in and anyone will be able to navigate to your protected route. **In production mode we generally want something more complicated than that.** Maybe when the person enters their email and password, our server app verifies they are who they say they are then sends a token to be stored as a cookie to prove they've been authenticated. From there, our front-end app could check to see if a valid cookie exists and allows the user to the protected component/view.
+The code above will say that you are always logged in and anyone will be able to navigate to your protected route. **In production mode we generally want something more complicated than that. See [Protected Routes with Firebase lesson](./protectedRoutesWithFirebase.md).** Maybe when the person enters their email and password, our server app verifies they are who they say they are then sends a token to be stored as a cookie to prove they've been authenticated. From there, our front-end app could check to see if a valid cookie exists and allows the user to the protected component/view.
 
 Let's look at how to find a cookie from the **browser window**, shall we?
 
-=== "CheckAuth function & NPM cookie"
+=== "CheckAuth Function & NPM cookie"
 
 ```javascript
 // With a special NPM Package called "cookie"

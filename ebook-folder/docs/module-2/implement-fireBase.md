@@ -178,7 +178,7 @@ Earlier you copy/pasted a config file from the Firebase dashboard into a `fireba
     // Initialize Firebase and store in a variable called `app`
     const app = initializeApp(firebaseConfig);
 
-    // create a connection for the app to the getAuth tool.
+    // create a connection for the app with the getAuth tool.
     const auth = getAuth(app);
 
     export default auth
@@ -197,16 +197,16 @@ import auth from './firebaseConfig'; // credentials provided by firebaseConfig f
 import { createUserWithEmailAndPassword, signOut } from 'firebase/auth' // import firebase dependency 
 
 function App() {
-  const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
+  const [registeredEmail, setRegisteredEmail] = useState("");
+  const [registeredPassword, setRegisteredPassword] = useState("");
 
   const register = async () => {
     try { 
-      // TRY CATCH MUST BE USED WITH FIRE BASE ASYNC AWAIT FIRE BASE AUTHENTICATION
+      // TRY CATCH MUST BE USED ASYNC/AWAIT WHEN WORKING WITH FIREBASE
       const user = await createUserWithEmailAndPassword(
           auth,
-          registerEmail,
-          registerPassword
+          registeredEmail,
+          registeredPassword
       );
       console.log(user);
     } catch (error) { // Give the user indication they need to try again and why
@@ -235,14 +235,14 @@ function App() {
         <input
           placeholder="Email..."
           onChange={(event) => {
-              setRegisterEmail(event.target.value);
+              setRegisteredEmail(event.target.value);
           }}
         />
         <input
           type="password"
           placeholder="Password..."
           onChange={(event) => {
-              setRegisterPassword(event.target.value);
+              setRegisteredPassword(event.target.value);
           }}
         />
         <button onClick={register}> Create User</button>
