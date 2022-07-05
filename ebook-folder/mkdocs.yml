@@ -71,6 +71,7 @@ nav:
         - Redux Intro: module-3/redux-mapStateToProps.md
         - Redux Setup: module-3/redux-theSetup.md
         - Redux Connect: module-3/redux-connect.md
+        - Database Intro: module-3/databaseIntro.md
         - Class 9 Redux MSTP: module-3/class-9.md
       - 'Pre-Class 10 Lessons':
         - Redux Actions: module-3/redux-actions.md  
