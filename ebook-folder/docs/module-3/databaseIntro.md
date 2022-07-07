@@ -103,15 +103,20 @@ A **read** operation means we are fetching or reading some data from the databas
 === "Example of fetching data from a DB in App.js"
     
     ```javascript
+    import {db} from './firebase-config'
     // first import the functions
     import { collection, getDocs} from '@firebase/firestore'
-
+    
     // Then use the `collection` to specify and store a reference to the data you want
     const carsCollection = collection(db, 'cars');
+
+    // The following would be inside an await function to your async function(`useCallback()`)
 
     // Use the `getDocs` function to retrieve data, pass in the `carsCollection` variable to tell it what DB and what collection to retrieve.
     const data = await getDocs(carsCollection);
     ```
+
+> NOTE: this code snippet is not functional by itself. You will need to add this to the rest of your component.
 
 ### WRITE
 
@@ -120,24 +125,39 @@ A **write** operation is something that **c**reates, **u**pdates or **d**eletes 
 === "Example of adding data to a DB inApp.js"
     
     ```javascript
+    import {db} from './firebase-config'
     // first import the functions
     import { collection, addDoc} from '@firebase/firestore'
 
-    // Then use the `collection` to specify and store a reference to the data you want
+    // Then use the `collection` to specify and store a reference to the data 
+    //  you want
     const carsCollection = collection(db, 'cars');    
     
     // Use a new object to build the document to be stored
-    const newCar = { year: 2017, price: 32000, make: "Hyundai", model: "Tucson", color: "white", km: 10560 };
+    const newCar = { 
+        year: 2017, 
+        price: 3200, 
+        make: "Hyundai", 
+        model: "Tucson", 
+        color: "white", 
+        km: 10560 
+    };
     
-    // use the `addDoc` function send the new object to be stored as a document in the cars collection
+    // The following would be inside an await function to your async 
+    //  function(`useCallback()`)
+    
+    // use the `addDoc` function send the new object to be stored as a 
+    //  document in the cars collection
     await addDoc(carsCollection, newCar);
     ```
+
+> NOTE: this code snippet is not functional by itself. You will need to add this to the rest of your component.
 
 If you look at your **Firebase** console you'll see a new document has been stored in the "cars" collection as a document in the **Firestore** database.
 
 <!-- TODO Replace this image with new one from Kyle -->
 
-![FireBase-Collection-Example](../images/database-example.png)
+![firestore-Document-Example](../images/firestore-Document-Example.png)
 
 ## Additional Resources
 
