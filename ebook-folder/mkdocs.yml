@@ -81,6 +81,8 @@ nav:
       - 'Pre-Class 11 Lessons': 
         - Redux-Thunk: module-3/redux-thunk.md
         - Intro to CRUD: module-3/crud-intro.md
+        - CR - Firestore: module-3/cr-firestore.md
+        - UD - Firestore: module-3/ud-firestore.md
         - Class 11 Redux-Thunk: module-3/class-11.md
       - 'Pre-Class 12 Lessons': 
         - React Hooks: module-3/reactHooks-intro.md
