@@ -107,12 +107,15 @@ A **read** operation means we are fetching or reading some data from the databas
     // first import the functions
     import { collection, getDocs} from '@firebase/firestore'
     
-    // Then use the `collection` to specify and store a reference to the data you want
+    // Then use the `collection` to specify and store a reference to the data 
+    //   you want
     const carsCollection = collection(db, 'cars');
 
-    // The following would be inside an await function to your async function(`useCallback()`)
+    // The following would be inside an await function to your async 
+    //   function(`useCallback()`)
 
-    // Use the `getDocs` function to retrieve data, pass in the `carsCollection` variable to tell it what DB and what collection to retrieve.
+    // Use the `getDocs` function to retrieve data, pass in the `carsCollection` 
+    //   variable to tell it what DB and what collection to retrieve.
     const data = await getDocs(carsCollection);
     ```
 
