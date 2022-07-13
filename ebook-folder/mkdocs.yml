@@ -73,6 +73,7 @@ nav:
         - Redux Connect: module-3/redux-connect.md
         - Class 9 Redux MSTP: module-3/class-9.md
       - 'Pre-Class 10 Lessons':
+        - Serverless: module-3/serverless.md  
         - Redux Actions: module-3/redux-actions.md  
         - Redux Reducers: module-3/redux-reducers.md  
         - Redux MDTP: module-3/redux-mdtp.md  
