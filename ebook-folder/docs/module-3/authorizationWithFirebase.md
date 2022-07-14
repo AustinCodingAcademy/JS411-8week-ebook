@@ -2,7 +2,7 @@
 
 So far you've learned something about **Serverless Functions**(FireBase Cloud functions). You've sent data from the back end with **node** to the front end browser. We can do the same with our applications. Sending data back and forth from the front end react app to the back end is a very useful tool to have. Not all applications will need  **Serverless Functions** but, there is no way to accomplish certain tasks with out backend code. One of those tasks is **Authorization**.
 
-**Authorization** needs to be done securely. If anyone can access your **Authorization** process and tokens it could compromise your app. Doing this server-side on the back end is much safer since everything is exposed on the front end.
+**Authorization** needs to be done securely. If anyone can access your **Authorization** process it could compromise your app. Doing this server-side on the back end is much safer since everything is exposed on the front end.
 
 ## Authentication vs Authorization
 
@@ -14,16 +14,16 @@ When we build apps with data that needs to be allowed to certain person-users an
 
 Maybe you're building a classroom management app for you and your students. All of the data for this app will be stored in the same database and served by the same server but you don't want your students to have access to other students' grades and turned-in assignments but still have access to their own assignments and grades. However, for you, the teacher you want to be able to see all of the student's grades. To solve this problem you would assign each user of the app a role when they sign-up so each has specific levels of **authorization**. Teachers would get a `teacher` role, students would get a `student` role and maybe parents would get a `parent` role.
 
-In your Express server you'd add an `if` statement to each route that asks if they are a `teacher` to access the resources behind the `getAllGrades()` so that `student` and `parent` users would be blocked from this particular resource.
+In your app you'd add an `if` statement to each ask if they are a `teacher` to access the resources behind the `getAllGrades()` so that `student` and `parent` users would be blocked from this particular resource.
 
   > ...**authorization** is a backstage pass. Beyond being admitted to the concert(**authentication**) you're also allowed to go backstage and maybe meet the artists!
 
 	
-## Setup Serverless Cloud Functions from FireBase with the Database
+## Setup Serverless Cloud Functions with the Database
 
 The following is a follow-along where you'll continue from the previous app you were working on in the **serverless** lesson.
 
-1. Setup the config file so our app and database will connect with the local functions firebase emulator. 
+1. Setup the config file so our app and database will connect with the local firebase functions emulator. 
 
 Add:
 `import { getFunctions,connectFunctionsEmulator } from 'firebase/functions';` 
@@ -114,9 +114,9 @@ methods and **node** to create a function that is callable on the front end. Aga
 ```
 #### Call the Cloud Function
 
-Now We need to call the `addAdminRole` **Cloud function** on the front end when a user signs in so that they can be assigned a role. To do that we will add a `createRole` function to the file our user signs up and calls the `register` function.
+Now We need to call the `addAdminRole` **Cloud function** on the front end. When a user signs in they can be assigned a role. To do that we will add a `createRole` function in the file where our user signs up and invokes the `register` function.
 
-  >Note: userCredential?.user is called [object chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/) enables you to read the value of a property located on an object without having to check that the property exists first. It will return `undefined` instead of crashing/throwing an error.
+  >Note: Below userCredential?.user is using [object chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/) it enables you to read the value of a property located on an object without having to check if the property exists first. It will return `undefined` instead of crashing/throwing an error.
 
 ```javascript
 // App.js
