@@ -2,19 +2,19 @@
 
 ## Overview
 
-In this sections, we will be covering the last two operations of a **_"CRUD"_** application, **_U_**pdate and **_D_**elete. As of know, we are only familiar with **Reading** and **Creating** data, but we also want to allow the user to **Update** or **Delete** this data as needed, some data doesn't always stay the same, after all.
+In this section, we will be covering the last two operations of a **_"CRUD"_** application, **_U_**pdate and **_D_**elete.
 
-Let's say for example, a user **created** a book **document** but misspelled the title. Well, we want the user to be able to **edit** this error and **update** our **collection**. Maybe the user just wants to **delete** the **document** as a whole? Well they should be able to **delete** the data as well.
+Let's say a user **created** a book **document** but misspelled the title. Well, we want the user to be able to edit this error and **update** the **collection**. Or maybe the user just wants to delete the book they added as a whole? Well they should be able to **delete** the data as well.
 
-We will begin with **delete**, as it is a bit simpler, and then move on to **update**.
+We will begin with **delete**, as it is a bit simpler, and then move on to **update**/PUT.
 
 ## **_D_**elete
 
-So to **delete** a **document** from our Firestore DB, we need to bring in a couple of functions from the **firebase/firestore** library. We will be importing `{ doc, deleteDoc }` from `"firebase/firestore"`. Make sure to also import the **db** instance from our **config** file.
+To **delete** a **document** from our Firestore DB, we need to bring in a couple of functions from the **firebase/firestore** library. We will be importing `{ doc, deleteDoc }` from `"firebase/firestore"`. Make sure to also import the **db** instance from our **config** file.
 
 Follow along in the example below. We begin with a higher overview followed by an example for React.
 
-=== "Deleting a Document - Overview"
+=== "Delete a Document - Overview"
 
     ```javascript
     // import our 'db' instance from our 'config' file
@@ -24,15 +24,15 @@ Follow along in the example below. We begin with a higher overview followed by a
     import { doc, deleteDoc } from "firebase/firestore";
 
     // `deleteDoc` will take one parameter, the document reference provided by
-    // `doc`. `doc` will take 3 parameters: our db instance, the collection to
-    // reference, and a Unique Identifier. We will wait for the results.
+    //  `doc`. `doc` will take 3 parameters: our db instance, the collection to
+    //  reference, and a Unique Identifier. We will wait for the results.
     await deleteDoc(doc(db, "books", id));
 
     // See next slide to see a more robust example using React...
 
     ```
 
-=== "Delete - React Example"
+=== "Delete a Document in React"
 
     ```javascript
     import React, { useState } from "react";
@@ -42,27 +42,27 @@ Follow along in the example below. We begin with a higher overview followed by a
     const List = (props) => {
 
       // Let's assume we already have our data and we are passing it in as
-      // props to our List component and setting our state here.
+      //  props to our List component and setting our state here.
       const [data, setData] = useState(props.data)
 
       // We will handle our delete document event in this function, this is
-      // being called by the onClick property on Line 26
+      //  being called by the onClick property on Line 26
       const handleDelete = async (id) => {
 
         // We make a request to Firestore to delete a specific document by id
         await deleteDoc(doc(db, "books", id));
 
         // We also want to update our current state to reflect the changes
-        // we have made. We will use filter here to update our state instead
-        // of making an unnecessary request to Firestore.
+        //  we have made. We will use filter here to update our state with the
+        //  item instead of making an additional/unnecessary request to Firestore.
         const newData = data.filter((item) => item.id !== id)
 
-        // Set the data of our new updated Array an re-render the component.
+        // Set the data of our new updated Array and force a re-render.
         setData(newData)
     };
 
     return (
-      {/* This is a simple example, style as necessary or implement MUI */}
+      {/* This is a simple example; style as necessary or implement MUI */}
       <div>
         <ul>
           {data.map((item) => (
@@ -84,21 +84,22 @@ Follow along in the example below. We begin with a higher overview followed by a
 
 There you go, it's that simple! Deleting a specific document is one of the easier operations and does not require much to implement. As long as you update the state properly, your component should reflect that of our database.
 
-You can always make another request to the DB to get an updated list, but if we can avoid unnecessary requests, we will always opt for that. Remember, data costs money, so do making requests. Although we, hopefully, won't make enough requests to go over the the free tier limit, it is always best practice to minimize any extra work our app needs to do.
+You can always make another request to the DB to get an updated list, but if we can avoid unnecessary requests, we will always opt for that. Remember, data transfers(requests) costs money. Although we(hopefully), won't make enough requests to go over the the free tier limit in this class, it is always best practice to minimize any extra work our app needs to do because this app could run thousands or millions of times a day with all of our users!!
 
-There are other ways to delete data from our Firestore DB, make sure you check out the [Firebase Documentation about Deleting data]("https://firebase.google.com/docs/firestore/manage-data/delete-data) if you are interested in deleting a collection or maybe just specific fields in a document.
+> NOTE: There are other ways to delete data from our FireStore DB, make sure you check out the [Firebase Documentation about Deleting data]("https://firebase.google.com/docs/firestore/manage-data/delete-data) if you are interested in deleting a collection or maybe just specific fields in a document.
 
-Next, let's talk about updating data.
+Next, let's turn now to updating data.
 
 ## **_U_**pdate
 
-We have finally arrived at to ***U***pdating data. By now, we have learned to create, read, and delete data, and hopefully we still have some data to update. To update a document, we need to bring in two functions from the "firebase/firestore" library. We need to import `doc` to create a reference to specific document by it's ID. To create that reference, we need to provide the `doc` function our `db` instance, the collection the document exists in, and last, the ID the document has. 
+We have finally arrived at to ***U***pdating data. By now, we have learned to create, read, and delete data, and hopefully we still have some data to update :fingers_crossed: :sweat_smile:. To update a document, we need to bring in two functions from the "firebase/firestore" library. We need to import `doc` to create a reference to a specific document by it's ID. To create that reference, we need to provide the `doc` function our `db` instance, the collection the document exists in, and the `id` of the document.
 
-It is possible for this ID to come dynamically from maybe `react-router-dom`, using the `useParams` or `useLocation` method, or maybe by passing along props to a "Edit" component, or by many other ways. In these examples, we are going to hardcode an ID that we know exists in our Firestore DB. If you are following along, make sure to go to your Firestore DB and get an existing ID from your *book* collection to use in the React example below.
+<!-- TODO, Ceasar, why are we hardcoding? Can we show them how to get it from react-router-dom and passing props? -->
+It is possible for this ID to come dynamically from maybe `react-router-dom`, using the `useParams` or `useLocation` method, or maybe by passing along props to an `Edit.js` component, or by many other ways. In these examples, we are going to *"hardcode"* an ID that we know exists in our FireStore DB. If you are following along, make sure to go to your FireStore DB and get an existing ID from one of your books in the *book* collection to use in the React example below.
 
-First, we will begin with a high overview, followed by a somewhat complex React example that includes a `getDocs` function called inside a useEffect to get us the data we want to edit. We also talk about Timestamp a little more in depth in this section as well as the "date" type input. There is a lot going on here, so make sure to go over it slowly.
+First, we will begin with a high overview, followed by a somewhat complex React example that includes a `getDocs` function called inside a `useEffect` to get us the data we want to edit. We also talk about Timestamp a little more in depth in this section as well as the "date" type input. There is a lot going on here, so make sure to go over it slowly.
 
-=== "Updating a document - Overview"
+=== "Update a Document - Overview"
 
     ```javascript
     // As always, import the db instance
@@ -108,12 +109,12 @@ First, we will begin with a high overview, followed by a somewhat complex React 
     import { doc, updateDoc } from "firebase/firestore";
 
     // Create a reference to the document you want to update. The `doc` function
-    // will take in 3 parameters: the `db` instance, the collection we want to
-    // reference, and the ID of the specific document we want to update.
+    //  will take in 3 parameters: the `db` instance, the collection we want to
+    //  reference, and the ID of the specific document we want to update.
     const documentRef = doc(db, "books", "UniqueID123"); {/* Document ID */}
 
     // We await the results of `updateDoc`. `updateDoc` will take in two 
-    // parameters: the document reference and the fields we want to update.
+    //  parameters: the document reference and the fields we want to update.
     await updateDoc(documentRef, {
       title: "Lord of the Rings: The Two Towers",
       author: "J. R. R. Tolkien",
@@ -122,70 +123,72 @@ First, we will begin with a high overview, followed by a somewhat complex React 
     })
 
     // If you look back at the "Create" example, you can see I am updating this 
-    // current document with a new title and a new character, while the date 
-    // stays the same.
+    //  current document with a new title and a new character, while the date 
+    //  stays the same.
 
-    // Firestore will only update the Fields mentioned in the object and will 
-    // not overwrite any existing data that is not mentioned.
+    // NOTE: FireStore will only update the ffields mentioned in the object and will 
+    //  not overwrite any existing data that is not mentioned.
 
     // Check next slide for an example in React.
     ```
 
-    >Note: Although you can update data by specifying fields to update, it is normal convention to include all fields in the document when creating a client-side "edit" form. In order to do so, you want to make sure you have the documents current data and lay them out in the input fields provided to the user. By doing this, you are preemptively assuring all data is capable of being edited and returned properly to the DB. Even if the user doesn't specifically edit all of the fields, we will be sure that we will still be getting back the same data along with any new data.
+    > Note: Although you can update data by specifying fields to update, it is normal convention to include all fields in the document when creating a client-side "edit" form. In order to do so, you want to make sure you have the documents current data and lay them out in the input fields provided to the user. By doing this, you are preemptively assuring all data is capable of being edited and returned properly to the DB. Even if the user doesn't specifically edit all of the fields, we will be sure that we will still be getting back the same data along with any new data.
 
-=== "Updating a document - React Example"
-    
-    This is a bigger example, so try to follow along as best you can. We are going to request some data from our Firestore DB so that we can edit it. To this, we need to have a document and it's ID to reference that document. We can do this by copying it from the collection on the Firestore console. For this, we are also going to need to `import {getDoc} from "firebase/firestore"`. `getDoc` will allow us to get a single document, where `getDocs`, another method we previously used in the ***R***ead example, will get all the documents in a collection. We are also going to import `{Timestamp} from 'firebase/firestore' as the *Timestamp* constructor will allow us to format a basic Date string into a Firestore timestamp. We will talk a little more about this timestamp as we go through this example.
+=== "Update a Document in React w/Comments"
+
+    This is a bigger example, so try to follow along as best you can. We are going to request some data from our FireStore DB so that we can edit it. To this, we need to have a document and it's `id` to reference that document. We can do this by copying it from the collection on the FireStore console. For this, we are also going to need to `import {getDoc} from "firebase/firestore"`. `getDoc` will allow us to get a single document, where `getDocs`, another method we previously used in the ***R***ead example, will get **all** the documents in a collection. We are also going to import `{Timestamp} from 'firebase/firestore' as the *Timestamp* constructor will allow us to format a basic Date string into a FireStore timestamp. We will talk a little more about this timestamp as we go through this example.
 
     ```javascript
     import React, { useEffect, useState } from "react";
     // Make sure to include all the imports needed in this component
+
     import { doc, updateDoc, getDoc, Timestamp } from "firebase/firestore";
     // This is a function in another example we are going to use to format a
-    // date. Please look at that example to get a better understanding.
+    //  date. Please look at that example to get a better understanding.
+
     import dateTypeFormat from "../util/dateTypeFormat";
     // Also, there is a css sheet example you can use as a template that works
-    // with this component. The classnames have already been created.
+    //  with this component. The classnames have already been created.
     import "./styles.css";
 
     const Edit = () => {
       // Set our body to null at initial render, we will set data later
       const [body, setBody] = useState(null);
 
-      // This state will help us push character names items into an array
+      // This state will help us push character name items into an array
       const [character, setCharacter] = useState("");
 
-      // We will useEffect here to request data by it's ID from Firestore
+      // We will useEffect here to request data by it's ID from FireStore
       useEffect(() => {
         // We create an asynchronous function here since we will have to
-        // wait for our results from Firestore.
+        //  wait for our results from FireStore.
         const getDocument = async () => {
           // Create the reference to a document, include your ID here
           const documentRef = doc(db, "books", "BOOK_ID_HERE");
           // "await" the results from "getDoc" and assign the results to
-          // a variable called "document"
+          //  a variable called "document"
           const docResults = await getDoc(documentRef);
           // Check if a document exists with that ID. We use the ".exists()"
-          // function that comes from our result, remember, the Firestore 
-          // results will be an object with different fields we can use, 
-          // including functions. 
+          //  function that comes from our result, remember, the FireStore 
+          //  results will be an object with different fields we can use, 
+          //  including functions. 
           if (!docResults.exists()) return console.log("Document doesn't exist");
-          // Now, lets some our body data from our results
+          // Now, let's some our body data from our results
           setBody({
             // We want to include the documents ID from the results
             id: docResults.id,
             // We call the ".data()" function that comes from our results.
-            // This is where we get the actual document, by call this function.
-            // We use the "..." spread operator to lay the fields from our
-            // document into this object we are creating
+            //  This is where we get the actual document, by call this function.
+            //  We use the "..." spread operator to lay the fields from our
+            //    document into this object we are creating
             ...docResults.data(),
             // Format the data, please see the "dateTypeFormat" example. Pass
-            // a date into the "dateTypeFormat()" function. This date is a 
-            // Firestore Timestamp which is an object which we need to convert
-            // to a readable string for us to use properly. The ".toDate()"
-            // function turns our date into a JS Date object which we then
-            // call the JS method ".toLocaleDateString()"to extract only the
-            // date which looks like this "07/07/2020".
+            //  a date into the "dateTypeFormat()" function. This date is a 
+            //  FireStore Timestamp which is an object which we need to convert
+            //  to a readable string for us to use properly. The ".toDate()"
+            //  function turns our date into a JS Date object which we then
+            //  call the JS method ".toLocaleDateString()"to extract only the
+            //  date which looks like this "07/07/2020".
             publish_date: dateTypeFormat(
               docResults.data().publish_date.toDate().toLocaleDateString()
             ),
@@ -205,29 +208,29 @@ First, we will begin with a high overview, followed by a somewhat complex React 
       }, []);
 
       // This event handler function will allow us to "push" a string to our
-      // characters array inside our body.
+      //  characters array inside our body.
       const addToArrayHandler = () => {
         // Copy current state and assign object to a variable "newBody"
         const newBody = { ...body };
         // Use dot-notation to get the characters array and push new character
         newBody.characters.push(character);
         // set our "body" state with our "newBody" object we created with our
-        // new data.
+        //  new data.
         setBody(newBody);
         // Set the character state to an empty string to await another input
         setCharacter("");
       };
 
       // This event handler function is similar since we are also making a
-      // shallow copy of our current state and updating it with new data.
-      // Except the new data will be the removal of a character inside our
-      // characters array. We pass the character "string" as "item" in the
-      // parameter.
+      //  shallow copy of our current state and updating it with new data.
+      //  Except the new data will be the removal of a character inside our
+      //    characters array. We pass the character "string" as "item" in the
+      //    parameter.
       cont deleteFromArrayHandler = (item) => {
         const newBody = { ...body };
         // We use the .filter method here to filter our array to all our
-        // character "strings" that do not match the character item "string 
-        // we want to remove. Returns a new array.
+        //  character "strings" that do not match the character item "string 
+        //  we want to remove. Returns a new array.
         const newArr = newBody.characters.filter((i) => i !== item);
         // Replace the characters array in our newBody with our new Array
         newBody.characters = newArr;
@@ -236,9 +239,9 @@ First, we will begin with a high overview, followed by a somewhat complex React 
       };
 
       // This event handler function just takes care of a user pressing enter
-      // when inside our add character input field. It prevents it from
-      // submitting the form completely, while still adding the character 
-      // and emptying the input. We pass the event in the parameter
+      //  when inside our add character input field. It prevents it from
+      //  submitting the form completely, while still adding the character 
+      //  and emptying the input. We pass the event in the parameter
       const handleEnter = (e) => {
         // If the key pressed is "Enter"
         if (e.key === "Enter") {
@@ -250,39 +253,39 @@ First, we will begin with a high overview, followed by a somewhat complex React 
       };
 
       // Finally, this function takes care of actually updating our document.
-      // We pass in the event in the parameter, again, to prevent default 
-      // behavior from the form when we "submit" it.
+      //  We pass in the event in the parameter, again, to prevent default 
+      //    behavior from the form when we "submit" it.
       const handleSubmit = (e) => {
         e.preventDefault();
         // Create the reference to the specific document we want to update.
-        // This will include the ID of the document we have stored inside
-        // the body "state"
+        //  This will include the ID of the document we have stored inside
+        //    the body "state"
         const docRef = doc(db, "books", body.id);
         // Await the result from "updateDoc", this function takes in our
-        // document reference and an object with the fields we are updating
-        // in the document. We are using the "..." spread operator to lay 
-        // all the fields in our body 'state' into this object.
+        //  document reference and an object with the fields we are updating
+        //  in the document. We are using the "..." spread operator to lay 
+        //  all the fields in our body 'state' into this object.
         await updateDoc(docRef, {
           ...body,
-          // We do need format our date again to be a Firestore Timestamp
-          // We call our Timestamp constructor, call the "fromDate" from the
-          // Timestamp object, and then create a "new Date" with our date string 
-          // from our body "state". 
+          // We do need to format our date again to be a FireStore Timestamp.
+          //  To do so, all our Timestamp constructor, call the "fromDate" 
+          //    from the Timestamp object, and then create a "new Date" with 
+          //    our date string from our body "state". 
           publish_date: Timestamp.fromDate(new Date(body.publish_date)),
         });
       };
 
       // We want to render a message that says "loading..." while our
-      // useEffect is making the query to our Firestore DB. While body
-      // is still null, we get this message. Now, if you never get the 
-      // actual data, it is possible a document with that ID doesn't exist.
+      //  useEffect is making the query to our FireStore DB. While body
+      //  is still null, we get this message. Heads up, if you never get the 
+      //  actual data, it is possible a document with that ID doesn't exist.
       if(!body){
         return <p>"loading..."</p>
       }
 
       // Once body actually has our data, we render our actual page details.
-      // Look through the form and understand how it all works. You can see
-      // certain inputs have certain events calling the functions above. 
+      //  Look through the form and understand how it all works. You can see
+      //    certain inputs have certain events calling the functions above. 
       return (
         <div className="edit_container">
           <h3 className="edit_title">Edit Book</h3>
@@ -355,21 +358,22 @@ First, we will begin with a high overview, followed by a somewhat complex React 
     export default Edit;
     ```
 
-=== "Date Type Input (Date Format) - Function Example"
-    This function is in charge of changing the format of our date to fit that of an input with the type of "date".
+=== "Formatting Date Type Input Example"
+
+    This function is in charge of changing the format of our date to match the data type of "date".
 
     Why is this important? Well, when we update a document, we want to provide all current data inside the document. We can fill our inputs to have these values already and the user will simply change what needs to be changed and send the whole document back up to update. If we are working with Timestamps, we have to convert that data to a readable format, and break it down even further to be readable by the date input.
     
-    The date input will return a string in the format of "2014-06-05". When we get our Timestamp from Firestore, and convert to a string using the "toDate() function, we get a readable date, but we still need to convert this to an even more readable string and also extract the date specifically. We use a JS method called `.toLocaleDateString()` to get back the date in string format. Ex. "6/5/2014".
+    The date input will return a string in the format of "YYYY-MM-DD". When we get our Timestamp from FireStore, and convert to a string using the "toDate() function, we get a readable date, but we still need to convert this to an even more readable string and also extract the date specifically. We use a JS method called `.toLocaleDateString()` to get back the date in string format. Ex. "2014-06-05" >> "6/5/2014".
 
     We will take a quick look at the example we used earlier.
 
     ```javascript
         docResults.data().publish_date.toDate().toLocaleDateString()
-        // This returns the string in "6/5/2014". Let's break it down
+        // This returns the string in "6/5/2014". Let's break it down.
         
         docResults.data().publish_date
-        // returns {seconds: 1402012800, nanoseconds: 0}
+        // returns {seconds: 1402012800, nanoseconds: 0} (see Timestamp Unix Epoch)
         
         docResults.data().publish_date.toDate()
         // returns "Thu Jun 05 2014 19:00:00 GMT-0500 (Central Daylight Time)"
@@ -384,12 +388,14 @@ First, we will begin with a high overview, followed by a somewhat complex React 
     Since, "2014-06-05" is not the same format as "6/5/2014", if we try to provide a value to the date input without formatting it, we get an error saying:
 
     ```console
-      The specified value "6/5/2014" does not conform to the required format, "yyyy-MM-dd"
+      The specified value "6/5/2014" does not conform to the required format, "yyyy-mm-dd"
     ```
-    In order for a date input to have a default value, we need to format our string to be the format it expects it to be, which is why we have this helper function. Feel free to use it if you decide Timestamps are for you!
+
+    In order for a date input to have a default value, we need to format our string to be the format it expects it to be, which is why we have this helper function. Feel free to use it if you decide Timestamps aren't for you!
 
     ```javascript
-    const dateTypeFormat = (date) => {
+    // dateTypeFormatter
+    const dateTypeFormatter = (date) => {
       let newDate = date.split("/");
       const year = newDate.pop();
       newDate.unshift(year);
@@ -404,13 +410,15 @@ First, we will begin with a high overview, followed by a somewhat complex React 
       return newDate;
     };
 
-    export default dateTypeFormat
+    export default dateTypeFormatter
+    // import this function wherever you need to format timestamps, i.e. createCarForm...
     ```
+
     Now all this can be completely unnecessary and entirely up to you. Of course, at the end of the day, you could always just save the date in a string instead of a Timestamp... but where is the fun in that?
 
 === "Styles - CSS"
 
-    Here are some included css styles if you take the large snippet from this book. Feel free to change it more to your styles, it is a good template to start with, especially for demonstration purposes.
+    Here are some included CSS styles if you take the large snippet from this book. Feel free to change it more to your preferences. It's a good template to start with, especially for demonstration purposes.
 
     In your actual project, feel free to use MUI instead.
 
@@ -475,7 +483,8 @@ First, we will begin with a high overview, followed by a somewhat complex React 
     }
 
     ```
-=== "React Example - Clean Version"
+
+=== "Update a Document in React w/o Comments"
 
     ```javascript
     import React, { useEffect, useState } from "react";
@@ -610,13 +619,11 @@ First, we will begin with a high overview, followed by a somewhat complex React 
     export default Edit;    
     ```
 
-
-
 Awesome, we just saw a great example on how to ***U***pdate data inside a Firestore DB. As mentioned before, there are several ways to update data, and though this is just one example, [feel free to explore other methods](https://firebase.google.com/docs/firestore/manage-data/add-data#:~:text=is%20more%20convenient.-,Update%20a%20document,-To%20update%20some) used to update data and make sure to use the methods that best fit your database. At the end of the day, consistency will be a crucial factor in your Firestore DB.
 
 ## Summary
 
-Alright! We have covered all four basic operations that make up a **CRUD** app, that's: ***C***reate, ***R***ead, ***U***pdate, and ***D***elete. These four basic operations will help you create your first Full-Stack application with Firebase.  
+Alright! We have covered all four basic operations that make up a **CRUD** app, that's: ***C***reate, ***R***ead, ***U***pdate, and ***D***elete. These four basic operations will help you create your first Full-Stack application with FireBase.  
 
 ## Additional Resources
 
