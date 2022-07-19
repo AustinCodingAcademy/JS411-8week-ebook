@@ -83,6 +83,8 @@ nav:
       - 'Pre-Class 11 Lessons': 
         - Redux-Thunk: module-3/redux-thunk.md
         - Intro to CRUD: module-3/crud-intro.md
+        - CR - Firestore: module-3/cr-firestore.md
+        - UD - Firestore: module-3/ud-firestore.md
         - Intro to Firestore: module-3/firestore.md
         - Class 11 Redux-Thunk: module-3/class-11.md
       - 'Pre-Class 12 Lessons': 
@@ -204,6 +206,9 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.keys
   - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -213,7 +218,6 @@ markdown_extensions:
       clickable_checkbox: true
   - def_list
   - pymdownx.tabbed
-
 
  
 
