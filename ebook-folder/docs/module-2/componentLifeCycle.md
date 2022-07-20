@@ -71,6 +71,11 @@ This method, when used in your component, fires when the component is inserted i
     import React, { Component } from 'react'
 
     class MyComponent extends Component {
+        constructor() {
+            this.state = {
+                data: []
+                }
+        }
         componentDidMount() {
             fetch('http://example.com')
                 .then(res => res.json())
@@ -87,6 +92,30 @@ This method, when used in your component, fires when the component is inserted i
                 </div>
             )
         }
+    }
+    ```
+=== "Functional version with hooks"
+
+    ```javascript
+    import React, { useState, useEffect } from 'react'
+
+    function MyComponent() {
+        const [data, setData] = useState([]);
+        
+        useEffect(() => {
+            fetch('http://example.com')
+                .then(res => res.json())
+                .then(examples => {
+                    setData(examples)
+                })
+        }, []); // empty dependency array so it will only run when first mounting
+
+            return (
+                <div>
+                    <h1>Welcome to our component</p>
+                    <p>Take a look at our data: {data}</p>
+                </div>
+            )
     }
     ```
 
@@ -139,6 +168,36 @@ In the following code, how many times will the render method be called on initia
         }
     }
     ```
+=== "Functional version with hooks"
+
+    ```javascript
+    import React, { useState,useEffect } from 'react'
+
+    function MyComponent(props) {
+        const [users, setusers] = useState([]);
+        const propUsers = props.users;
+	 
+        useEffect(() => {
+           const arr = propUsers.filter(u => u.username.length > 5)
+            setusers(arr)
+        }, [propUsers]); // any props used inside this useEffect must go in the dependency array
+            
+        const handleClick = () => {
+             setusers([...users].concat(['newUser']))
+        }
+        
+        return (
+            <div>
+                <h1>Welcome to our component</h1>
+                {errText && <p>{errText}</p>}
+                <p>Here's an array with our users: {users}</p>
+                <button onClick={handleClick}>Add User</button>
+            </div>
+        )
+    }
+    ```
+
+
 
 The key is in the word *"initially"*. Hopefully you guessed 2 times. The render will be invoked a third time when the button is clicked.
 
@@ -213,7 +272,7 @@ This method is called when the component is updated. What does "updated" mean? I
     }
     ```
 
-=== "Usage example of componentDidUpdate"
+=== "Example of componentDidUpdate"
 
     ```javascript
     // this.setState({}) ->
@@ -257,6 +316,36 @@ This method is called when the component is updated. What does "updated" mean? I
         }
     }
     ```
+=== "Functional version with hooks"
+
+    ```javascript
+    import React, { useState,useEffect } from 'react'
+
+    function MyComponent() {
+        const [users, setusers] = useState([]);
+	    const [errText, setErrText] = useState('');
+	 
+        useEffect(() => {
+            if (users.length === 0) {
+                setErrText('There are no users to show' )
+            }
+        }, [users]); 
+            
+        const handleClick = () => {
+            setusers([...users].concat(['newUser']))
+        }
+        
+        return (
+            <div>
+                <h1>Welcome to our component</h1>
+                {errText && <p>{errText}</p>}
+                <p>Here's an array with our users: {users}</p>
+                <button onClick={handleClick}>Add User</button>
+            </div>
+        )
+    }
+    ```
+
 
 *****
 
