@@ -78,7 +78,8 @@ nav:
         - Redux Actions: module-3/redux-actions.md  
         - Redux Reducers: module-3/redux-reducers.md  
         - Redux MDTP: module-3/redux-mdtp.md  
-        - Redux Using Actions: module-3/redux-usingActions.md  
+        - Redux Using Actions: module-3/redux-usingActions.md
+        - Authorization with FireBase: module-3/authorizationWithFirebase.md    
         - Class 10 Redux MDTP: module-3/class-10.md
       - 'Pre-Class 11 Lessons': 
         - Redux-Thunk: module-3/redux-thunk.md
