@@ -94,7 +94,8 @@ This method, when used in your component, fires when the component is inserted i
         }
     }
     ```
-=== "Functional version with hooks"
+    
+=== "Functional version with Hooks"
 
     ```javascript
     import React, { useState, useEffect } from 'react'
@@ -168,7 +169,8 @@ In the following code, how many times will the render method be called on initia
         }
     }
     ```
-=== "Functional version with hooks"
+    
+=== "Functional version with Hooks"
 
     ```javascript
     import React, { useState,useEffect } from 'react'
@@ -316,7 +318,8 @@ This method is called when the component is updated. What does "updated" mean? I
         }
     }
     ```
-=== "Functional version with hooks"
+    
+=== "Functional version with Hooks"
 
     ```javascript
     import React, { useState,useEffect } from 'react'
