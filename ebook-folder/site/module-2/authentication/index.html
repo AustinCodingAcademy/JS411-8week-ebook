@@ -1,0 +1,2773 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.0.5">
+    
+    
+      
+        <title>Authentication - JS411 ebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.77f3fd56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="pink">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#intro-to-authentication" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JS411 ebook" class="md-header__button md-logo" aria-label="JS411 ebook">
+      
+  <img src="../../CE_WhiteBlue_Icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JS411 ebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Authentication
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JS411 ebook" class="md-nav__button md-logo" aria-label="JS411 ebook">
+      
+  <img src="../../CE_WhiteBlue_Icon.png" alt="logo">
+
+    </a>
+    JS411 ebook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Module One: Intro to React
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Module One: Intro to React" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Module One: Intro to React
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      <label class="md-nav__link" for="__nav_2_1">
+        Pre-Class 1 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 1 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 1 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preCourse/setupInstructions/" class="md-nav__link">
+        Prepare Your Machine
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preCourse/succeedInThisCourse/" class="md-nav__link">
+        Succeed in this Course
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preCourse/submittingHomework/" class="md-nav__link">
+        Submitting Homework
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/introToReact/" class="md-nav__link">
+        Intro to React
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/CRA-overview/" class="md-nav__link">
+        CRA Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/reactDeveloperTools-pt1/" class="md-nav__link">
+        React DevTools
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/bonusLesson/" class="md-nav__link">
+        Bonus - HTML + JSX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/class-1/" class="md-nav__link">
+        Class 1 ToDo App
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      <label class="md-nav__link" for="__nav_2_2">
+        Pre-Class 2 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 2 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 2 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/developSeries-i-must-succeed/" class="md-nav__link">
+        Develop I Must Succeed
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/introToStateAndProps/" class="md-nav__link">
+        State & Props Intro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/fetchStoreRender/" class="md-nav__link">
+        Fetch, Store, Render
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/class-2/" class="md-nav__link">
+        Class 2 Beer App
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      <label class="md-nav__link" for="__nav_2_3">
+        Pre-Class 3 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 3 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 3 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/conditionalRendering/" class="md-nav__link">
+        Conditional Rendering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/functionalComponentHooks/" class="md-nav__link">
+        Functional Components and Hooks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/dynamicRendering/" class="md-nav__link">
+        Dynamic Rendering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/class-3/" class="md-nav__link">
+        Class 3 Address Book
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      <label class="md-nav__link" for="__nav_2_4">
+        Pre-Class 4 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 4 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 4 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/developSeries-stopBeingLazy/" class="md-nav__link">
+        Develop Not Lazy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/formsInReact/" class="md-nav__link">
+        Forms in React
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/hackathonOverview/" class="md-nav__link">
+        Hackathon Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/class-4/" class="md-nav__link">
+        Class 4 Hackathon
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Module Two: Styling & Routing
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Module Two: Styling & Routing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Module Two: Styling & Routing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      <label class="md-nav__link" for="__nav_3_1">
+        Pre-Class 5 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 5 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 5 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../componentStyling/" class="md-nav__link">
+        Component Styling with Material-UI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-5/" class="md-nav__link">
+        Class 5 Music App 1/2
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        Pre-Class 6 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 6 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 6 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../componentLifeCycle/" class="md-nav__link">
+        Class Component Lifecycle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-6/" class="md-nav__link">
+        Class 6 Music App 2/2
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        Pre-Class 7 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 7 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 7 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reactRouter/" class="md-nav__link">
+        React Router Intro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reactRouter-link/" class="md-nav__link">
+        Router Link
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../implement-ReactRouter/" class="md-nav__link">
+        Implement React Router
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-7/" class="md-nav__link">
+        Class 7
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" checked>
+      
+      <label class="md-nav__link" for="__nav_3_4">
+        Pre-Class 8 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 8 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 8 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developSeries-discipline/" class="md-nav__link">
+        Develop Discipline
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protectedRoutes-intro/" class="md-nav__link">
+        Protected Routes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Authentication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Authentication
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-authenticate" class="md-nav__link">
+    Why Authenticate?
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Authenticate?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication-vs-authorization" class="md-nav__link">
+    Authentication vs Authorization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-steps-of-authentication" class="md-nav__link">
+    The Steps of Authentication
+  </a>
+  
+    <nav class="md-nav" aria-label="The Steps of Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-sign-up-overview" class="md-nav__link">
+    The Sign-Up Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashing" class="md-nav__link">
+    Hashing
+  </a>
+  
+    <nav class="md-nav" aria-label="Hashing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-code-for-hashing" class="md-nav__link">
+    The Code for Hashing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-sign-in-overview" class="md-nav__link">
+    The Sign-In Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="The Sign-In Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-jwt" class="md-nav__link">
+    Creating a JWT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-workflow" class="md-nav__link">
+    Authentication Workflow
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reading-the-jwt" class="md-nav__link">
+    Reading the JWT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#but-why" class="md-nav__link">
+    But Why?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#know-your-docs" class="md-nav__link">
+    Know Your Docs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../implement-fireBase/" class="md-nav__link">
+        Authentication with FireBase
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protectedRoutesWithFirebase/" class="md-nav__link">
+        Protected Routes with FireBase
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-8/" class="md-nav__link">
+        Class 8 Login
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Module Three: App State
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Module Three: App State" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Module Three: App State
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      <label class="md-nav__link" for="__nav_4_1">
+        Pre-Class 9 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 9 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 9 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/redux-mapStateToProps/" class="md-nav__link">
+        Redux Intro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/redux-theSetup/" class="md-nav__link">
+        Redux Setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/redux-connect/" class="md-nav__link">
+        Redux Connect
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/databaseIntro/" class="md-nav__link">
+        Database Intro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/class-9/" class="md-nav__link">
+        Class 9 Redux MSTP
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        Pre-Class 10 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 10 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 10 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/serverless/" class="md-nav__link">
+        Serverless
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/redux-actions/" class="md-nav__link">
+        Redux Actions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/redux-reducers/" class="md-nav__link">
+        Redux Reducers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/redux-mdtp/" class="md-nav__link">
+        Redux MDTP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/redux-usingActions/" class="md-nav__link">
+        Redux Using Actions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/authorizationWithFirebase/" class="md-nav__link">
+        Authorization with FireBase
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/class-10/" class="md-nav__link">
+        Class 10 Redux MDTP
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        Pre-Class 11 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 11 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 11 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/redux-thunk/" class="md-nav__link">
+        Redux-Thunk
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/crud-intro/" class="md-nav__link">
+        Intro to CRUD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/cr-firestore/" class="md-nav__link">
+        CR - Firestore
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/ud-firestore/" class="md-nav__link">
+        UD - Firestore
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/firestore/" class="md-nav__link">
+        Intro to Firestore
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/class-11/" class="md-nav__link">
+        Class 11 Redux-Thunk
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      <label class="md-nav__link" for="__nav_4_4">
+        Pre-Class 12 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 12 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 12 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/reactHooks-intro/" class="md-nav__link">
+        React Hooks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/capstoneApp-planning-pt1/" class="md-nav__link">
+        Capstone App pt.1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/class-12/" class="md-nav__link">
+        Class 12
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Module Four: App Design
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Module Four: App Design" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Module Four: App Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      <label class="md-nav__link" for="__nav_5_1">
+        Pre-Class 13 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 13 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 13 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/developSeries-stopWastingTime/" class="md-nav__link">
+        Develop Not Wasting Time
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/folderStructure/" class="md-nav__link">
+        Folder Structure
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/capstoneApp-planning-pt2/" class="md-nav__link">
+        Capstone App pt.2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/class-13/" class="md-nav__link">
+        Class 13
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        Pre-Class 14 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 14 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 14 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/developSeries-ICanDoIt/" class="md-nav__link">
+        Develop I Can Do It
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/npmBuild-intro/" class="md-nav__link">
+        NPM Build
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/capstoneApp-planning-pt3/" class="md-nav__link">
+        Capstone App pt.3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/class-14/" class="md-nav__link">
+        Class 14 Sm. Biz App
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/checkpointTwo-smallBizApp/" class="md-nav__link">
+        Checkpoint Two
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      <label class="md-nav__link" for="__nav_5_3">
+        Pre-Class 15 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 15 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 15 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/debugging-intro/" class="md-nav__link">
+        Debugging
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/capstoneApp-planning-pt4/" class="md-nav__link">
+        Capstone App pt.4
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/class-15/" class="md-nav__link">
+        Class 15
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      <label class="md-nav__link" for="__nav_5_4">
+        Pre-Class 16 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 16 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 16 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/developSeries-dominate2021/" class="md-nav__link">
+        Develop Commitment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/mvpShopInfo/" class="md-nav__link">
+        MVP Shop
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/deployment/" class="md-nav__link">
+        Deployment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/capstoneApp-planning-pt5/" class="md-nav__link">
+        Capstone App pt.5
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/capstoneApp-checkpoint-3/" class="md-nav__link">
+        Checkpoint Three
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/class-16/" class="md-nav__link">
+        Class 16
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/reportABug/" class="md-nav__link">
+        Report A Bug
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Additional Resources
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Additional Resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Additional Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/interviewChallenges/" class="md-nav__link">
+        Interview Training
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/studentPresentations/" class="md-nav__link">
+        Student Presentations
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/developSeries/" class="md-nav__link">
+        Develop Series Collection
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_4" type="checkbox" id="__nav_7_4" >
+      
+      <label class="md-nav__link" for="__nav_7_4">
+        Questions for Discussion Collections
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Questions for Discussion Collections" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          Questions for Discussion Collections
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-1/" class="md-nav__link">
+        Day 1 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-2/" class="md-nav__link">
+        Day 2 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-3/" class="md-nav__link">
+        Day 3 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-4/" class="md-nav__link">
+        Day 4 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-5/" class="md-nav__link">
+        Day 5 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-6/" class="md-nav__link">
+        Day 6 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-7/" class="md-nav__link">
+        Day 7 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-8/" class="md-nav__link">
+        Day 8 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-9/" class="md-nav__link">
+        Day 9 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-10/" class="md-nav__link">
+        Day 10 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-11/" class="md-nav__link">
+        Day 11 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-12/" class="md-nav__link">
+        Day 12 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-13/" class="md-nav__link">
+        Day 13 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-14/" class="md-nav__link">
+        Day 14 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-15/" class="md-nav__link">
+        Day 15 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-16/" class="md-nav__link">
+        Day 16 QFD
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/blogPrompts/" class="md-nav__link">
+        Blog Prompts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/keyboardShortcuts/" class="md-nav__link">
+        Keyboard Shortcuts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/gitCommands/" class="md-nav__link">
+        Git & CLI Commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/learnYourCLI/" class="md-nav__link">
+        Learn Your CLI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/graduationPrerequisites/" class="md-nav__link">
+        Graduation Prerequisites
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/presentationsQualifications/" class="md-nav__link">
+        Presentation Qualifications
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-authenticate" class="md-nav__link">
+    Why Authenticate?
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Authenticate?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication-vs-authorization" class="md-nav__link">
+    Authentication vs Authorization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-steps-of-authentication" class="md-nav__link">
+    The Steps of Authentication
+  </a>
+  
+    <nav class="md-nav" aria-label="The Steps of Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-sign-up-overview" class="md-nav__link">
+    The Sign-Up Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashing" class="md-nav__link">
+    Hashing
+  </a>
+  
+    <nav class="md-nav" aria-label="Hashing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-code-for-hashing" class="md-nav__link">
+    The Code for Hashing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-sign-in-overview" class="md-nav__link">
+    The Sign-In Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="The Sign-In Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-jwt" class="md-nav__link">
+    Creating a JWT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-workflow" class="md-nav__link">
+    Authentication Workflow
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reading-the-jwt" class="md-nav__link">
+    Reading the JWT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#but-why" class="md-nav__link">
+    But Why?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#know-your-docs" class="md-nav__link">
+    Know Your Docs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="intro-to-authentication">Intro to Authentication</h1>
+<p><em>Nothing will ever be attempted if all possible objections must first be overcome.</em></p>
+<p><em>—Samuel Johnson</em></p>
+<h2 id="overview">Overview</h2>
+<p>Authentication is an important part of creating APIs. As I am sure we can all guess, authentication is used to lock down specific endpoints so that they cannot be freely accessed. To learn how to implement authentication, we will need to understand the process or <strong>workflow</strong> as well as a few new terms.</p>
+<p>Although we will be building our back-end server with <a href="https://firebase.google.com/">Google Firebase</a>, it is important to understand the fundamentals of core authentication. There are many ways to implement authentication, but we will be discussing one of the more commonly used methods, <a href="https://jwt.io/introduction">JSON Web Token/JWT</a> authentication. This requires our front-end app to communicate with a back-end server by sending some authentication data, i.e. <em>username</em> and <em>password</em>. Once the <strong>request</strong> is received, the server checks the database for the user and compares the password, if they match, the server generates a unique <strong>authentication token</strong> and sends it back to the front-end app in the <strong>response</strong>. Once received, the front-end app stores into <strong>cookies</strong>. This token, will then be appended to any request made by the user (front-end app) to get protected/private data from the server.</p>
+<p>There are a few more details in there like <em>how's is the token generated</em> and <em>what is cookies</em> and <em>how is a cookie appended to a request</em> but that's the main gist. In this lesson we'll cover all of it so you have a clear understanding about how authentication works. Let's get started!</p>
+<h2 id="why-authenticate">Why Authenticate?</h2>
+<p>Authentication is used by a server to give permission to a user based on the credentials they have provided. Without implementing some type of authentication to a server, the server can be exposed to data that we otherwise did not want to expose. Also, it allows anyone the ability to send multiple requests to routes that have been built, and that can lead to many problems such as database storage capacity exceeding certain limits, and storing data is not cheap. There is a lot of malicious intent surrounding cyber security, so making sure we set up some layer of protection is a must. It's important to understand authentication because it's necessary for the security of your app and it gives you some insight on what every app on the internet does when you sign in.</p>
+<h3 id="authentication-vs-authorization">Authentication vs Authorization</h3>
+<p>Let's first clear up the definition of these two words. <strong>Authentication</strong> is the process of verifying whether a person-user has access to an application (your server); <em>Are they a user?</em> It's like buying a ticket to a concert and flashing it at the gate(authentication), and you're allowed to go in and enjoy the music!</p>
+<p>... but what's a <strong>authorization</strong>? It's a <em>backstage pass</em>.</p>
+<p>Think of all the "levels" you can buy at a music festival:</p>
+<blockquote>
+<ul>
+<li><strong>Wristband</strong> : Allows a person only access to the general floor<br></li>
+<li><strong>VIP Backstage</strong> : Allows a person access to both backstage area and the floor <br></li>
+<li><strong>Security Badge</strong> : Allows a person to access any area and might has additional security access <br></li>
+<li><strong>Meet the Band</strong> : All-access (non-security), free drinks, and good times!</li>
+</ul>
+</blockquote>
+<p>Imagine these are "Roles" assigned to people at a concert. This is <strong>authorization</strong> who is allowed to do what. Typically in applications we have <strong>users</strong> for basic use, <strong>admin</strong> for high influence use, and a few other various roles for various levels of access. Although restrictions should apply to everyone, there is always someone trying to get in for free or trying to bypass the security.</p>
+<p>When we build apps with data that needs to be allowed to certain person-users but restricted to others, we need to implement <strong>Authorization</strong>. This is the process of assigning roles to each person-user.</p>
+<p>Maybe you're building a classroom management app for you and your students. All of the data for this app will be stored in the same database and served by the same server but you don't want your students to have access to other students' grades and turned-in assignments but still have access to their own assignments and grades. However, for you, as the teacher you want to be able to see all of the student's grades. To solve this problem you would assign each user of the app a role when they sign-up so each has specific levels of authorization. Teachers would get a <code>teacher</code> role, students would get a <code>student</code> role and maybe parents would get a <code>parent</code> role so they could see their child's grades but not submit assignments for them.</p>
+<p>In your Firebase project, you will be writing rules that that asks if they are a teacher to access the resources behind the <code>getAllGrades()</code> so that <code>student</code> and <code>parent</code> users would be blocked from this particular resource. This will allow them access using <code>if</code> statements asking if the current signed in user has a certain role.</p>
+<p>For example, if a teacher/user is signed in, and that teacher is trying to access all data pertaining to grades for their students, that teacher/user must have the role <code>teacher</code> in order to access any documents about the students grades. This will prevent the roles <code>student</code> and <code>parent</code> from seeing these particular documents, unless those particular grades refer back to the student in requesting it. We can also set rules based on a user's <code>id</code>. This will allow us to connect certain documents with the current <code>user</code> that is signed in. So if a <code>user</code>/student is logged in, they should only have access to their grades and will be restricted from trying to see any other type of document stored in our database.</p>
+<h2 id="the-steps-of-authentication">The Steps of Authentication</h2>
+<p>Authentication is the process of comparing passwords to passwords to verify or authenticate the identity of a user.</p>
+<p><img alt="PIC" src="../../images/stepsOfAuth.png" /></p>
+<ol>
+<li>The username and password are sent to the server.</li>
+<li>The server accesses its database of users that holds the username and password.</li>
+<li>The server checks the provided username &amp; password against the username &amp; password in the database.</li>
+<li>If the credentials match, the user's identity is verified, and the application decides what's next.</li>
+<li>If not, a generic error message is returned.</li>
+</ol>
+<h3 id="the-sign-up-overview">The Sign-Up Overview</h3>
+<p>There's a difference between <strong>Sign-Up</strong> and <strong>Sign-In</strong>. We first need to <strong>Sign-Up</strong>, obviously.</p>
+<p><img alt="PIC" src="../../images/writeToDatabase.png" /></p>
+<p>The first step of authentication is to sign-up! After all, we can't verify your identity if we don't have credentials to compare with what you provide to confirm you are who you say you are.... When one signs-up on any web app, their credentials (username/email &amp; password) will be sent from the front-end to the server and written to the database.</p>
+<blockquote>
+<p>NOTE: It's important to understand this because it will help you visualize how the server will be checking incoming "sign-in" credentials against previously written "sign-up" credentials.</p>
+</blockquote>
+<ol>
+<li>Input and submit email/username &amp; password info on front-end to "sign-up"</li>
+<li>Front-End sends POST request with the the email/username &amp; password to the server</li>
+<li>The server receives the credentials and INSERTs a new entry in the users table</li>
+<li>The user returns to the app to login by inputting and submitting their email &amp; password on the front-end</li>
+<li>The front-end sends a POST Request with the credentials to the server</li>
+<li>The server SELECTS the previously written email that matches and checks to see if the passwords match</li>
+<li>If true the next page in the app is sent to the front-end and a bearer token is stored in cookies (more on this soon)</li>
+<li>If false another "login" page is sent to the front-end</li>
+</ol>
+<h3 id="hashing">Hashing</h3>
+<p>There's a small step in Step 3 &amp; 6 of the summary above that was excluded called <strong>hashing</strong>. See, when we store passwords in our database we don't want to store <strong>plaintext</strong> because if our database is ever breached(hacked) the passwords will be readable by human-eyes and simple JavaScript functions. To protect our users we create new strings that represent the passwords called a <code>hash</code>.</p>
+<p>A <code>hash</code> is a unique and complicated string created by passing a simple string into a mathematical formula (algorithm) that scrambles and generates a unique string. The way it works is highly mathematical (luckily there are <a href="https://www.npmjs.com/package/argon2">Node packages</a> for it) but in short it could look like this:</p>
+<p><strong>MD5 Password Hashing Algorithm</strong></p>
+<table>
+<thead>
+<tr>
+<th>Simple String</th>
+<th>The Hashed String</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pony</td>
+<td>4B3E3C2F99046F92A61BAB6775848577</td>
+</tr>
+<tr>
+<td>apple</td>
+<td>1F3870BE274F6C49B3E31A0C6728957F</td>
+</tr>
+<tr>
+<td>pony</td>
+<td>4B3E3C2F99046F92A61BAB6775848577</td>
+</tr>
+</tbody>
+</table>
+<p>No matter what, if you pass <code>pony</code> through this specific hashing algorithm (MD5) is will also produce the <code>4B3E3C2F99046F92A61BAB6775848577</code> every time. This is how passwords can be stored as hashes and later compared, hash to hash. We just use a hashing algorithm in the route on our server between receiving the request to "login" and when the server reads the previously stored hash in the database created during "sign-up".</p>
+<blockquote>
+<p>You can play with how the <a href="https://passwordsgenerator.net/md5-hash-generator/">MD5 hashing algorithm</a> will create unique strings with any common string you put in here.</p>
+</blockquote>
+<p>Once the plaintext password has been hashed the new unique String will be stored in the database along with the username/email.</p>
+<h4 id="the-code-for-hashing">The Code for Hashing</h4>
+<p>Below is a small Express server that has a hashing algorithm added to it called <strong>argon2</strong>. Read over the code and see if you can make sense of what's going on.</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Express Server App with Argon2 Hashing</label><div class="tabbed-content"></div>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;express&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="c1">// import argon for hashing</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">argon2i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;argon2-ffi&quot;</span><span class="p">).</span><span class="nx">argon2i</span><span class="p">;</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">crypto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;crypto&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">bodyParser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;body-parser&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// create express app</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">jsonParser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span><span class="w"></span>
+
+<span class="c1">// post request route for when a user signs up for the app</span><span class="w"></span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/signup&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">jsonParser</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// if no data has been sent, send back status 400</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">sendStatus</span><span class="p">(</span><span class="mf">400</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// using argon2, hash the request body that has the password.</span><span class="w"></span>
+<span class="w">  </span><span class="nx">crypto</span><span class="p">.</span><span class="nx">randonBytes</span><span class="p">(</span><span class="mf">32</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">salt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="nx">err</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">argon2i</span><span class="p">.</span><span class="nx">hash</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span><span class="w"> </span><span class="nx">salt</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">hash</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// don&#39;t log in production code...for learning purposes only</span><span class="w"></span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hash</span><span class="p">);</span><span class="w"> </span><span class="c1">//...replace with code to write the username &amp; password to the database</span><span class="w"></span>
+
+<span class="w">      </span><span class="c1">// then send a 201 status that it was successful.</span><span class="w"></span>
+<span class="w">      </span><span class="nx">res</span><span class="p">.</span><span class="nx">sendStatus</span><span class="p">(</span><span class="mf">201</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="c1">// ...more routes would go here...</span><span class="w"></span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mf">3001</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;listening on port 3001&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>As you might have seen, when someone sends a <code>POST</code> request to the <code>/signup</code> route, it should include a <code>username</code> and <code>password</code>. If it does, the server will run the hashing function <code>crypto.randonBytes</code> &amp; <code>argon2i</code>.hash on the password. You are probably wondering what <code>salt</code> is. <code>Salt</code> is the number of times the algorithm is supposed to run before the hash is determined "complete".</p>
+<p>Hackers have access to run the same algorithm that creates your password hashes. This means, if they get ahold of your list of usernames &amp; passwords they can run them backwards as well and learn the plaintext version of your passwords and then access your user's data. Nevertheless, they will still be guessing at possible inputs to get to the correct password. To break through this barrier they will formulate something called a <strong>Brute Force attack</strong>, where in, they tell a powerful computer to run the same algorithm over and over on the list of hashed passwords attempting to get the right passwords. This is where a <strong>salt round</strong> comes in. A <strong>salt round</strong> is the number of times the algorithm scrambles the plaintext password. 1 salt = 1 time, 5 salts = 5 times. Each time you increase the salt you increase the difficulty for the hacker by a factor of about 10! By increasing this number you make it more expensive in both time and energy for the hacker to make it profitable to hack your users. The double-edge of this sword is that it also makes it more expensive for your computers to run the hashing algorithm. The trick is to find a happy medium! Usually 12 is the ideal number; but, some have suggested <a href="https://security.stackexchange.com/questions/17207/recommended-of-rounds-for-bcrypt">you calculate the number with the total amount of time you can stand</a>.</p>
+<p>To get an idea of why salting is so important when hashing password, check out this post from 2011.</p>
+<p><img alt="PIC" src="../../images/securityStackExchange-saltingGuesses.png" /></p>
+<p><em>Luckily, you won't have to be dealing with Express Servers, Argon 2, Hashing or Salting because you'll be using Firebase!</em></p>
+<h3 id="the-sign-in-overview">The Sign-In Overview</h3>
+<p>Now that we know passwords will be hashed on <strong>sign-up</strong>, what happens when a user signs-in?</p>
+<p>Obviously we don't want our user to have to input a username and password for every page and resource they'd like to access. Instead, we want them to have them sign-in once and then allow them to freely move around their account until they sign-off.</p>
+<p>The trouble is that our server (just a computer) doesn't know who they are like we humans would if we saw them. So, to make this work we have to give the user a "wristband" that they would show to each part of the server when they wanted to see a new page or resource. This "wristband" is called a <strong>bearer token</strong>.</p>
+<p>A <strong>bearer token</strong>, or a <strong>JSON Web Token (JWT)</strong>, is a unique set of letters and numbers created by the server the represents a successful sign-in. It's generated when username &amp; passwords match and sent back to the client (the user) as proof of the matching username and password. It's then stored on their device so that it can be sent back to the server with each new subsequent request to see a new page or resource. In this way, the user can move freely about their account without worrying about signing-in over and over; but instead we developers just have to be smart enough to make that front-end client send the bearer token back with each new request, and make our server require a bearer token to allow the resources to be sent back with the response.</p>
+<h4 id="creating-a-jwt">Creating a JWT</h4>
+<p><strong>A JWT might look like this:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</span>
+</code></pre></div></td></tr></table></div>
+<p>Look closely and you'll see two <code>"."</code> periods between these random strings of letters and numbers. These separate the token into three parts:</p>
+<table>
+<thead>
+<tr>
+<th>Part Name</th>
+<th>Example</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Header</td>
+<td>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</td>
+<td>includes information about the type, as in JWT, and the algorithm, alg, used to created it.</td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ</td>
+<td>the actual data stored in it, like the username &amp; iat (issued at) which tells the time the token was issued.</td>
+</tr>
+<tr>
+<td>Signature</td>
+<td>SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</td>
+<td>contains the hash of our server's key</td>
+</tr>
+</tbody>
+</table>
+<h3 id="authentication-workflow">Authentication Workflow</h3>
+<p>Now let's talk through the process from a high perspective. You'll be seeing code snippets as we go but just know there may be some modifications to this code in live code bases. But please read the pseudo-code so you picture, for yourself, this process.</p>
+<p>The first step in this process is that the client/front-end will make a request to a server/API:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// front-end app</span><span class="w"></span>
+<span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;https://ourapi.com/user?ID=12345&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// handle success</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>Just as a server is built to do, it will be listening for <strong>requests</strong> to that URL endpoint and return a <strong>response</strong> with the resource that was requested:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// back-end app(server)</span><span class="w"></span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/users&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// perform some logic to go get data from database</span><span class="w"></span>
+<span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">users</span><span class="p">);</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>But now we want to see if the user is registered in our server, aka <strong>authenticate</strong> them, before we let them get to the resource they want... To do this the server will ask the user to sign-in with their username and password. If they are successful with their sign-in, the server will send to them a "wristband", or an <strong>authorization token</strong>, that proves they have been <strong>authenticated</strong>. Now that they have been <strong>authorized</strong>, the stored <strong>token</strong> will be used on all of their following requests (until they logout) so they don't have to keep entering their username and password. This token is called a <strong>bearer token</strong>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// back-end</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">login</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">username</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// * build and call your own authentication function using our server&#39;s secret key</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">jwtSecret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;secret123&#39;</span><span class="w"></span>
+
+<span class="w">  </span><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/jwt&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">jsonwebtoken</span><span class="p">.</span><span class="nx">sign</span><span class="p">({</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;username&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">jwtSecret</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// the response object has a method on it called` that takes three arguments:</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// * name of the cookie</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// * value of the cookie</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// * parameters of the cookie</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// and sets a cookie on the user&#39;s browser/client.</span><span class="w"></span>
+<span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">cookie</span><span class="p">(</span><span class="s1">&#39;our_token&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">token</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">httpOnly</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">})</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// -or-</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// * send the username &amp; password to a third-party like Auth0, see below:</span><span class="w"></span>
+<span class="w">  </span><span class="nx">axios</span><span class="p">(</span><span class="sb">`https://</span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">AUTH0_DOMAIN</span><span class="si">}</span><span class="sb">/oauth/token`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ...more on this later...</span><span class="w"></span>
+<span class="w">  </span><span class="p">})</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// if the username &amp; passwords are correct send the token back to the client/front-end</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">access_token</span><span class="w"></span>
+<span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">cookie</span><span class="p">(</span><span class="s1">&#39;our_token&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">token</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">httpOnly</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">})</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+<span class="w">  </span><span class="p">})</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>Once the <code>res.cookie</code> method has been called a cookie that is specific to our server's domain has been set on the user's browser/client and it's sent in the headers of each subsequent request:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// front-end</span><span class="w"></span>
+
+<span class="c1">// create a configuration object with the the correct keys and values</span><span class="w"></span>
+<span class="c1">// the token should be in the headers</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">withCredentials</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Authorization</span><span class="o">:</span><span class="w"> </span><span class="sb">`Bearer: </span><span class="si">${</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">our_token</span><span class="si">}</span><span class="sb">`</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// send the config object with the request</span><span class="w"></span>
+<span class="nx">axios</span><span class="p">(</span><span class="s2">&quot;https://ourapi.com/user?ID=12345&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// handle success</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h4 id="reading-the-jwt">Reading the JWT</h4>
+<p>Now we'll build some logic into our server that asks to see that token <em>"wristband"</em> and verifies if it's valid before sending the requested resources back.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// back-end</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">checkForAuthToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">specialToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s2">&quot;our_token&quot;</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">checkIsValid</span><span class="p">(</span><span class="nx">specialToken</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">sendStatus</span><span class="p">(</span><span class="mf">401</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nx">next</span><span class="p">();</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// build your own</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">checkIsValid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">token</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// this function would run the RFC 7519 algorithm to see if the token is valid(see below)</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// * if valid return true</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// * if not valid return false</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">//  -- or --</span><span class="w"></span>
+<span class="c1">// use a third-party like Auth0</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>If this check fails we could choose to send them a 403 or re-route them to the login page, ...or both!</p>
+<h4 id="but-why">But Why?</h4>
+<p>This is a good question! Why do we need to send a JWT with a header, payload and signature? The answer to this question is security.</p>
+<p>Think way back to your Prep Course when we first learned about HTTP(S) and how the internet is possible because computers are all built to read the same language and use the same protocol(HTTP). This means that all information sent over wifi, fiber, coax, satellite or copper is available to all computers in-between you and the server you're talking to across the country or world.</p>
+<p>This space between you and that server or other computer is a very vulnerable space because it can be intercepted and read by many computers without you evening knowing. For this reason we have to <strong>encrypt</strong> the data we need to be private. <strong>Encryption</strong> is the act of "scrambling" the information in a mathematical way with a key only the sender and the receiver have. ...And this is the foundation of Cyber Security.</p>
+<p>With this in mind you might be thinking that creating your password hashes and bearer tokens is very difficult. It's actually not because we just use Node packages to generate them and we just tie them together to make them work for our app.</p>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.taniarascia.com/full-stack-cookies-localstorage-react-express/">Article, Tania Rascia - Client-side Authentication the Right Way (Cookies vs. Local Storage)</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.youtube.com/watch?v=UBUNrFtufWo">YT, Fireship - Session vs Token Authentication in 100 Seconds</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.youtube.com/watch?v=iD49_NIQ-R4">YT, Ben Awad - How to Store JWT for Authentication</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://jwt.io/introduction">Article, jwt.io - Introduction to JSON Web Tokens</a></li>
+</ul>
+<blockquote>
+<p>NOTE: The following videos are about setting up authentication in your Node Express Server. Because you'll be using Firebase you won't need these.</p>
+</blockquote>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.youtube.com/watch?v=7Q17ubqLfaM">YT, Web Dev Simplified - What is JWT</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.youtube.com/watch?v=mbsmsi7l3r4">YT, Web Dev Simplified - JWT Authentication Tutorial - Node.js</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://owasp.org/www-community/attacks/csrf">Article, OWASP - Cookie &amp; CSRF, Cross-Site Request Forgery</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.veracode.com/blog/secure-development/zero-hashing-under-10-minutes-argon2-nodejs">Article, Veracode - Zero to Hashing in 10 minutes</a></li>
+</ul>
+<h2 id="know-your-docs">Know Your Docs</h2>
+<blockquote>
+<p>NOTE: These are packages for your Node Express Server. Because you'll be using Firebase you won't need these.</p>
+</blockquote>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.npmjs.com/package/argon2">NPM Docs - argon2</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.npmjs.com/package/jsonwebtoken">NPM Docs - jsonwebtoken</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API">MDN Docs - Web Authentication</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../protectedRoutes-intro/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Protected Routes
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../implement-fireBase/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Authentication with FireBase
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>
+      
+    
+  </body>
+</html>

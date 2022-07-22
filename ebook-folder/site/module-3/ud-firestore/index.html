@@ -1,0 +1,3322 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.0.5">
+    
+    
+      
+        <title>UD - Firestore - JS411 ebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.77f3fd56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="pink">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#update-and-delete-firestore" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JS411 ebook" class="md-header__button md-logo" aria-label="JS411 ebook">
+      
+  <img src="../../CE_WhiteBlue_Icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JS411 ebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UD - Firestore
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JS411 ebook" class="md-nav__button md-logo" aria-label="JS411 ebook">
+      
+  <img src="../../CE_WhiteBlue_Icon.png" alt="logo">
+
+    </a>
+    JS411 ebook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Module One: Intro to React
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Module One: Intro to React" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Module One: Intro to React
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      <label class="md-nav__link" for="__nav_2_1">
+        Pre-Class 1 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 1 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 1 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preCourse/setupInstructions/" class="md-nav__link">
+        Prepare Your Machine
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preCourse/succeedInThisCourse/" class="md-nav__link">
+        Succeed in this Course
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preCourse/submittingHomework/" class="md-nav__link">
+        Submitting Homework
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/introToReact/" class="md-nav__link">
+        Intro to React
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/CRA-overview/" class="md-nav__link">
+        CRA Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/reactDeveloperTools-pt1/" class="md-nav__link">
+        React DevTools
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/bonusLesson/" class="md-nav__link">
+        Bonus - HTML + JSX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/class-1/" class="md-nav__link">
+        Class 1 ToDo App
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      <label class="md-nav__link" for="__nav_2_2">
+        Pre-Class 2 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 2 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 2 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/developSeries-i-must-succeed/" class="md-nav__link">
+        Develop I Must Succeed
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/introToStateAndProps/" class="md-nav__link">
+        State & Props Intro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/fetchStoreRender/" class="md-nav__link">
+        Fetch, Store, Render
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/class-2/" class="md-nav__link">
+        Class 2 Beer App
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      <label class="md-nav__link" for="__nav_2_3">
+        Pre-Class 3 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 3 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 3 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/conditionalRendering/" class="md-nav__link">
+        Conditional Rendering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/functionalComponentHooks/" class="md-nav__link">
+        Functional Components and Hooks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/dynamicRendering/" class="md-nav__link">
+        Dynamic Rendering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/class-3/" class="md-nav__link">
+        Class 3 Address Book
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      <label class="md-nav__link" for="__nav_2_4">
+        Pre-Class 4 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 4 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 4 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/developSeries-stopBeingLazy/" class="md-nav__link">
+        Develop Not Lazy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/formsInReact/" class="md-nav__link">
+        Forms in React
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/hackathonOverview/" class="md-nav__link">
+        Hackathon Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/class-4/" class="md-nav__link">
+        Class 4 Hackathon
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Module Two: Styling & Routing
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Module Two: Styling & Routing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Module Two: Styling & Routing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      <label class="md-nav__link" for="__nav_3_1">
+        Pre-Class 5 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 5 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 5 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/componentStyling/" class="md-nav__link">
+        Component Styling with Material-UI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/class-5/" class="md-nav__link">
+        Class 5 Music App 1/2
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        Pre-Class 6 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 6 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 6 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/componentLifeCycle/" class="md-nav__link">
+        Class Component Lifecycle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/class-6/" class="md-nav__link">
+        Class 6 Music App 2/2
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        Pre-Class 7 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 7 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 7 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/reactRouter/" class="md-nav__link">
+        React Router Intro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/reactRouter-link/" class="md-nav__link">
+        Router Link
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/implement-ReactRouter/" class="md-nav__link">
+        Implement React Router
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/class-7/" class="md-nav__link">
+        Class 7
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      <label class="md-nav__link" for="__nav_3_4">
+        Pre-Class 8 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 8 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 8 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/developSeries-discipline/" class="md-nav__link">
+        Develop Discipline
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/protectedRoutes-intro/" class="md-nav__link">
+        Protected Routes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/authentication/" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/implement-fireBase/" class="md-nav__link">
+        Authentication with FireBase
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/protectedRoutesWithFirebase/" class="md-nav__link">
+        Protected Routes with FireBase
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/class-8/" class="md-nav__link">
+        Class 8 Login
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        Module Three: App State
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Module Three: App State" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Module Three: App State
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      <label class="md-nav__link" for="__nav_4_1">
+        Pre-Class 9 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 9 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 9 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redux-mapStateToProps/" class="md-nav__link">
+        Redux Intro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redux-theSetup/" class="md-nav__link">
+        Redux Setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redux-connect/" class="md-nav__link">
+        Redux Connect
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databaseIntro/" class="md-nav__link">
+        Database Intro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-9/" class="md-nav__link">
+        Class 9 Redux MSTP
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        Pre-Class 10 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 10 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 10 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless/" class="md-nav__link">
+        Serverless
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redux-actions/" class="md-nav__link">
+        Redux Actions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redux-reducers/" class="md-nav__link">
+        Redux Reducers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redux-mdtp/" class="md-nav__link">
+        Redux MDTP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redux-usingActions/" class="md-nav__link">
+        Redux Using Actions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authorizationWithFirebase/" class="md-nav__link">
+        Authorization with FireBase
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-10/" class="md-nav__link">
+        Class 10 Redux MDTP
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" checked>
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        Pre-Class 11 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 11 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 11 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redux-thunk/" class="md-nav__link">
+        Redux-Thunk
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crud-intro/" class="md-nav__link">
+        Intro to CRUD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cr-firestore/" class="md-nav__link">
+        CR - Firestore
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          UD - Firestore
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        UD - Firestore
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    Delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    Update
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#know-your-docs" class="md-nav__link">
+    Know Your Docs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firestore/" class="md-nav__link">
+        Intro to Firestore
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-11/" class="md-nav__link">
+        Class 11 Redux-Thunk
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      <label class="md-nav__link" for="__nav_4_4">
+        Pre-Class 12 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 12 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 12 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reactHooks-intro/" class="md-nav__link">
+        React Hooks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstoneApp-planning-pt1/" class="md-nav__link">
+        Capstone App pt.1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-12/" class="md-nav__link">
+        Class 12
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Module Four: App Design
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Module Four: App Design" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Module Four: App Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      <label class="md-nav__link" for="__nav_5_1">
+        Pre-Class 13 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 13 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 13 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/developSeries-stopWastingTime/" class="md-nav__link">
+        Develop Not Wasting Time
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/folderStructure/" class="md-nav__link">
+        Folder Structure
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/capstoneApp-planning-pt2/" class="md-nav__link">
+        Capstone App pt.2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/class-13/" class="md-nav__link">
+        Class 13
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        Pre-Class 14 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 14 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 14 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/developSeries-ICanDoIt/" class="md-nav__link">
+        Develop I Can Do It
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/npmBuild-intro/" class="md-nav__link">
+        NPM Build
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/capstoneApp-planning-pt3/" class="md-nav__link">
+        Capstone App pt.3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/class-14/" class="md-nav__link">
+        Class 14 Sm. Biz App
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/checkpointTwo-smallBizApp/" class="md-nav__link">
+        Checkpoint Two
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      <label class="md-nav__link" for="__nav_5_3">
+        Pre-Class 15 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 15 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 15 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/debugging-intro/" class="md-nav__link">
+        Debugging
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/capstoneApp-planning-pt4/" class="md-nav__link">
+        Capstone App pt.4
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/class-15/" class="md-nav__link">
+        Class 15
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      <label class="md-nav__link" for="__nav_5_4">
+        Pre-Class 16 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 16 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 16 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/developSeries-dominate2021/" class="md-nav__link">
+        Develop Commitment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/mvpShopInfo/" class="md-nav__link">
+        MVP Shop
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/deployment/" class="md-nav__link">
+        Deployment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/capstoneApp-planning-pt5/" class="md-nav__link">
+        Capstone App pt.5
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/capstoneApp-checkpoint-3/" class="md-nav__link">
+        Checkpoint Three
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/class-16/" class="md-nav__link">
+        Class 16
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/reportABug/" class="md-nav__link">
+        Report A Bug
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Additional Resources
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Additional Resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Additional Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/interviewChallenges/" class="md-nav__link">
+        Interview Training
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/studentPresentations/" class="md-nav__link">
+        Student Presentations
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/developSeries/" class="md-nav__link">
+        Develop Series Collection
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_4" type="checkbox" id="__nav_7_4" >
+      
+      <label class="md-nav__link" for="__nav_7_4">
+        Questions for Discussion Collections
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Questions for Discussion Collections" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          Questions for Discussion Collections
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-1/" class="md-nav__link">
+        Day 1 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-2/" class="md-nav__link">
+        Day 2 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-3/" class="md-nav__link">
+        Day 3 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-4/" class="md-nav__link">
+        Day 4 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-5/" class="md-nav__link">
+        Day 5 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-6/" class="md-nav__link">
+        Day 6 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-7/" class="md-nav__link">
+        Day 7 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-8/" class="md-nav__link">
+        Day 8 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-9/" class="md-nav__link">
+        Day 9 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-10/" class="md-nav__link">
+        Day 10 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-11/" class="md-nav__link">
+        Day 11 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-12/" class="md-nav__link">
+        Day 12 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-13/" class="md-nav__link">
+        Day 13 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-14/" class="md-nav__link">
+        Day 14 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-15/" class="md-nav__link">
+        Day 15 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-16/" class="md-nav__link">
+        Day 16 QFD
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/blogPrompts/" class="md-nav__link">
+        Blog Prompts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/keyboardShortcuts/" class="md-nav__link">
+        Keyboard Shortcuts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/gitCommands/" class="md-nav__link">
+        Git & CLI Commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/learnYourCLI/" class="md-nav__link">
+        Learn Your CLI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/graduationPrerequisites/" class="md-nav__link">
+        Graduation Prerequisites
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/presentationsQualifications/" class="md-nav__link">
+        Presentation Qualifications
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    Delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    Update
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#know-your-docs" class="md-nav__link">
+    Know Your Docs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="update-and-delete-firestore"><strong><em>U</em></strong>pdate and <strong><em>D</em></strong>elete - Firestore</h1>
+<h2 id="overview">Overview</h2>
+<p>In this section, we will be covering the last two operations of a <strong><em>"CRUD"</em></strong> application, <strong><em>U</em></strong>pdate and <strong><em>D</em></strong>elete.</p>
+<p>Let's say a user <strong>created</strong> a book <strong>document</strong> but misspelled the title. Well, we want the user to be able to edit this error and <strong>update</strong> the <strong>collection</strong>. Or maybe the user just wants to delete the book they added as a whole? Well they should be able to <strong>delete</strong> the data as well.</p>
+<p>We will begin with <strong>delete</strong>, as it is a bit simpler, and then move on to <strong>update</strong>/PUT.</p>
+<h2 id="delete"><strong><em>D</em></strong>elete</h2>
+<p>To <strong>delete</strong> a <strong>document</strong> from our Firestore DB, we need to bring in a couple of functions from the <strong>firebase/firestore</strong> library. We will be importing <code>{ doc, deleteDoc }</code> from <code>"firebase/firestore"</code>. Make sure to also import the <strong>db</strong> instance from our <strong>config</strong> file.</p>
+<p>Follow along in the example below. We begin with a higher overview followed by an example for React.</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Delete a Document - Overview</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// import our &#39;db&#39; instance from our &#39;config&#39; file</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../firebase/config&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// import doc and deleteDoc from &#39;firebase/firestore</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">doc</span><span class="p">,</span><span class="w"> </span><span class="nx">deleteDoc</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;firebase/firestore&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// `deleteDoc` will take one parameter, the document reference provided by</span><span class="w"></span>
+<span class="c1">//  `doc`. `doc` will take 3 parameters: our db instance, the collection to</span><span class="w"></span>
+<span class="c1">//  reference, and a Unique Identifier. We will wait for the results.</span><span class="w"></span>
+<span class="k">await</span><span class="w"> </span><span class="nx">deleteDoc</span><span class="p">(</span><span class="nx">doc</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;books&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="p">));</span><span class="w"></span>
+
+<span class="c1">// See next slide to see a more robust example using React...</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Delete a Document in React</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;react&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../firebase/config&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">doc</span><span class="p">,</span><span class="w"> </span><span class="nx">deleteDoc</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;firebase/firestore&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">List</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Let&#39;s assume we already have our data and we are passing it in as</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//  props to our List component and setting our state here.</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">setData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// We will handle our delete document event in this function, this is</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//  being called by the onClick property on Line 26</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleDelete</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">id</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// We make a request to Firestore to delete a specific document by id</span><span class="w"></span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">deleteDoc</span><span class="p">(</span><span class="nx">doc</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;books&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="p">));</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// We also want to update our current state to reflect the changes</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//  we have made. We will use filter here to update our state with the</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//  item instead of making an additional/unnecessary request to Firestore.</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">item</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">id</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Set the data of our new updated Array and force a re-render.</span><span class="w"></span>
+<span class="w">    </span><span class="nx">setData</span><span class="p">(</span><span class="nx">newData</span><span class="p">)</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="cm">/* This is a simple example; style as necessary or implement MUI */</span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="nx">data</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">li</span><span class="w"> </span><span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">              </span><span class="p">{</span><span class="cm">/* This button has our event handler  */</span><span class="p">}</span><span class="w"></span>
+<span class="w">              </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleDelete</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">X</span><span class="o">&lt;</span><span class="err">/button&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="err">/span&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/li&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="p">))}</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/ul&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">List</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+<p>There you go, it's that simple! Deleting a specific document is one of the easier operations and does not require much to implement. As long as you update the state properly, your component should reflect that of our database.</p>
+<p>You can always make another request to the DB to get an updated list, but if we can avoid unnecessary requests, we will always opt for that. Remember, data transfers(requests) costs money. Although we(hopefully), won't make enough requests to go over the the free tier limit in this class, it is always best practice to minimize any extra work our app needs to do because this app could run thousands or millions of times a day with all of our users!!</p>
+<blockquote>
+<p>NOTE: There are other ways to delete data from our FireStore DB, make sure you check out the <a href="&quot;https://firebase.google.com/docs/firestore/manage-data/delete-data">Firebase Documentation about Deleting data</a> if you are interested in deleting a collection or maybe just specific fields in a document.</p>
+</blockquote>
+<p>Next, let's turn now to updating data.</p>
+<h2 id="update"><strong><em>U</em></strong>pdate</h2>
+<p>We have finally arrived at to <strong><em>U</em></strong>pdating data. By now, we have learned to create, read, and delete data, and hopefully we still have some data to update <img alt="🤞" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f91e.svg" title=":fingers_crossed:" /> <img alt="😅" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f605.svg" title=":sweat_smile:" />. To update a document, we need to bring in two functions from the "firebase/firestore" library. We need to import <code>doc</code> to create a reference to a specific document by it's ID. To create that reference, we need to provide the <code>doc</code> function our <code>db</code> instance, the collection the document exists in, and the <code>id</code> of the document.</p>
+<!-- TODO, Ceasar, why are we hardcoding? Can we show them how to get it from react-router-dom and passing props? -->
+<p>It is possible for this ID to come dynamically from maybe <code>react-router-dom</code>, using the <code>useParams</code> or <code>useLocation</code> method, or maybe by passing along props to an <code>Edit.js</code> component, or by many other ways. In these examples, we are going to <em>"hardcode"</em> an ID that we know exists in our FireStore DB. If you are following along, make sure to go to your FireStore DB and get an existing ID from one of your books in the <em>book</em> collection to use in the React example below.</p>
+<p>First, we will begin with a high overview, followed by a somewhat complex React example that includes a <code>getDocs</code> function called inside a <code>useEffect</code> to get us the data we want to edit. We also talk about Timestamp a little more in depth in this section as well as the "date" type input. There is a lot going on here, so make sure to go over it slowly.</p>
+<div class="tabbed-set" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Update a Document - Overview</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// As always, import the db instance</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../firebase/config&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">//import these functions from `firebase/firestore` library</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">doc</span><span class="p">,</span><span class="w"> </span><span class="nx">updateDoc</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;firebase/firestore&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// Create a reference to the document you want to update. The `doc` function</span><span class="w"></span>
+<span class="c1">//  will take in 3 parameters: the `db` instance, the collection we want to</span><span class="w"></span>
+<span class="c1">//  reference, and the ID of the specific document we want to update.</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">documentRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">doc</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;books&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;UniqueID123&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">{</span><span class="cm">/* Document ID */</span><span class="p">}</span><span class="w"></span>
+
+<span class="c1">// We await the results of `updateDoc`. `updateDoc` will take in two </span><span class="w"></span>
+<span class="c1">//  parameters: the document reference and the fields we want to update.</span><span class="w"></span>
+<span class="k">await</span><span class="w"> </span><span class="nx">updateDoc</span><span class="p">(</span><span class="nx">documentRef</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Lord of the Rings: The Two Towers&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;J. R. R. Tolkien&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">publish_date</span><span class="o">:</span><span class="w"> </span><span class="nx">Timestamp</span><span class="p">.</span><span class="nx">fromDate</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="s2">&quot;1954-07-27&quot;</span><span class="p">)),</span><span class="w"></span>
+<span class="w">  </span><span class="nx">characters</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Frodo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Gandalf&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Smeagol&quot;</span><span class="p">]</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+
+<span class="c1">// If you look back at the &quot;Create&quot; example, you can see I am updating this </span><span class="w"></span>
+<span class="c1">//  current document with a new title and a new character, while the date </span><span class="w"></span>
+<span class="c1">//  stays the same.</span><span class="w"></span>
+
+<span class="c1">// NOTE: FireStore will only update the ffields mentioned in the object and will </span><span class="w"></span>
+<span class="c1">//  not overwrite any existing data that is not mentioned.</span><span class="w"></span>
+
+<span class="c1">// Check next slide for an example in React.</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<blockquote>
+<p>Note: Although you can update data by specifying fields to update, it is normal convention to include all fields in the document when creating a client-side "edit" form. In order to do so, you want to make sure you have the documents current data and lay them out in the input fields provided to the user. By doing this, you are preemptively assuring all data is capable of being edited and returned properly to the DB. Even if the user doesn't specifically edit all of the fields, we will be sure that we will still be getting back the same data along with any new data.</p>
+</blockquote>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Update a Document in React w/Comments</label><div class="tabbed-content">
+<p>This is a bigger example, so try to follow along as best you can. We are going to request some data from our FireStore DB so that we can edit it. To this, we need to have a document and it's <code>id</code> to reference that document. We can do this by copying it from the collection on the FireStore console. For this, we are also going to need to <code>import {getDoc} from "firebase/firestore"</code>. <code>getDoc</code> will allow us to get a single document, where <code>getDocs</code>, another method we previously used in the <strong><em>R</em></strong>ead example, will get <strong>all</strong> the documents in a collection. We are also going to import `{Timestamp} from 'firebase/firestore' as the <em>Timestamp</em> constructor will allow us to format a basic Date string into a FireStore timestamp. We will talk a little more about this timestamp as we go through this example.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useEffect</span><span class="p">,</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;react&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// Make sure to include all the imports needed in this component</span><span class="w"></span>
+
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">doc</span><span class="p">,</span><span class="w"> </span><span class="nx">updateDoc</span><span class="p">,</span><span class="w"> </span><span class="nx">getDoc</span><span class="p">,</span><span class="w"> </span><span class="nx">Timestamp</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;firebase/firestore&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// This is a function in another example we are going to use to format a</span><span class="w"></span>
+<span class="c1">//  date. Please look at that example to get a better understanding.</span><span class="w"></span>
+
+<span class="k">import</span><span class="w"> </span><span class="nx">dateTypeFormat</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../util/dateTypeFormat&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// Also, there is a css sheet example you can use as a template that works</span><span class="w"></span>
+<span class="c1">//  with this component. The classnames have already been created.</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="s2">&quot;./styles.css&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">Edit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Set our body to null at initial render, we will set data later</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">setBody</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// This state will help us push character name items into an array</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">character</span><span class="p">,</span><span class="w"> </span><span class="nx">setCharacter</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// We will useEffect here to request data by it&#39;s ID from FireStore</span><span class="w"></span>
+<span class="w">  </span><span class="nx">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// We create an asynchronous function here since we will have to</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//  wait for our results from FireStore.</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">getDocument</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// Create the reference to a document, include your ID here</span><span class="w"></span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">documentRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">doc</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;books&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;BOOK_ID_HERE&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// &quot;await&quot; the results from &quot;getDoc&quot; and assign the results to</span><span class="w"></span>
+<span class="w">      </span><span class="c1">//  a variable called &quot;document&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">docResults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">getDoc</span><span class="p">(</span><span class="nx">documentRef</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// Check if a document exists with that ID. We use the &quot;.exists()&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="c1">//  function that comes from our result, remember, the FireStore </span><span class="w"></span>
+<span class="w">      </span><span class="c1">//  results will be an object with different fields we can use, </span><span class="w"></span>
+<span class="w">      </span><span class="c1">//  including functions. </span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">docResults</span><span class="p">.</span><span class="nx">exists</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Document doesn&#39;t exist&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// Now, let&#39;s some our body data from our results</span><span class="w"></span>
+<span class="w">      </span><span class="nx">setBody</span><span class="p">({</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// We want to include the documents ID from the results</span><span class="w"></span>
+<span class="w">        </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">docResults</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// We call the &quot;.data()&quot; function that comes from our results.</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//  This is where we get the actual document, by call this function.</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//  We use the &quot;...&quot; spread operator to lay the fields from our</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//    document into this object we are creating</span><span class="w"></span>
+<span class="w">        </span><span class="p">...</span><span class="nx">docResults</span><span class="p">.</span><span class="nx">data</span><span class="p">(),</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Format the data, please see the &quot;dateTypeFormat&quot; example. Pass</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//  a date into the &quot;dateTypeFormat()&quot; function. This date is a </span><span class="w"></span>
+<span class="w">        </span><span class="c1">//  FireStore Timestamp which is an object which we need to convert</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//  to a readable string for us to use properly. The &quot;.toDate()&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//  function turns our date into a JS Date object which we then</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//  call the JS method &quot;.toLocaleDateString()&quot;to extract only the</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//  date which looks like this &quot;07/07/2020&quot;.</span><span class="w"></span>
+<span class="w">        </span><span class="nx">publish_date</span><span class="o">:</span><span class="w"> </span><span class="nx">dateTypeFormat</span><span class="p">(</span><span class="w"></span>
+<span class="w">          </span><span class="nx">docResults</span><span class="p">.</span><span class="nx">data</span><span class="p">().</span><span class="nx">publish_date</span><span class="p">.</span><span class="nx">toDate</span><span class="p">().</span><span class="nx">toLocaleDateString</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">),</span><span class="w"></span>
+<span class="w">      </span><span class="p">});</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// The &quot;body&quot; state should look like this at this point:</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// {</span><span class="w"></span>
+<span class="w">      </span><span class="c1">//   id: &quot;65fds6a+56s&quot;, </span><span class="w"></span>
+<span class="w">      </span><span class="c1">//   title:&quot;Some Book&quot;,</span><span class="w"></span>
+<span class="w">      </span><span class="c1">//   author:&quot;Some Author&quot;,</span><span class="w"></span>
+<span class="w">      </span><span class="c1">//   publish_date: &quot;2020-07-07&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="c1">//   characters: [&quot;Character 1&quot;, &quot;Character 2&quot;, ...]</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// }</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// We need to call the async function we just created</span><span class="w"></span>
+<span class="w">    </span><span class="nx">getDocument</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// We leave the dependency array empty to prevent an infinite loop</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">[]);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// This event handler function will allow us to &quot;push&quot; a string to our</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//  characters array inside our body.</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">addToArrayHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Copy current state and assign object to a variable &quot;newBody&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="nx">body</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Use dot-notation to get the characters array and push new character</span><span class="w"></span>
+<span class="w">    </span><span class="nx">newBody</span><span class="p">.</span><span class="nx">characters</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">character</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// set our &quot;body&quot; state with our &quot;newBody&quot; object we created with our</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//  new data.</span><span class="w"></span>
+<span class="w">    </span><span class="nx">setBody</span><span class="p">(</span><span class="nx">newBody</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Set the character state to an empty string to await another input</span><span class="w"></span>
+<span class="w">    </span><span class="nx">setCharacter</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// This event handler function is similar since we are also making a</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//  shallow copy of our current state and updating it with new data.</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//  Except the new data will be the removal of a character inside our</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//    characters array. We pass the character &quot;string&quot; as &quot;item&quot; in the</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//    parameter.</span><span class="w"></span>
+<span class="w">  </span><span class="nx">cont</span><span class="w"> </span><span class="nx">deleteFromArrayHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">item</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="nx">body</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// We use the .filter method here to filter our array to all our</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//  character &quot;strings&quot; that do not match the character item &quot;string </span><span class="w"></span>
+<span class="w">    </span><span class="c1">//  we want to remove. Returns a new array.</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newArr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newBody</span><span class="p">.</span><span class="nx">characters</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">item</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Replace the characters array in our newBody with our new Array</span><span class="w"></span>
+<span class="w">    </span><span class="nx">newBody</span><span class="p">.</span><span class="nx">characters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newArr</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Push that new body into our body &quot;state&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">setBody</span><span class="p">(</span><span class="nx">newBody</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// This event handler function just takes care of a user pressing enter</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//  when inside our add character input field. It prevents it from</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//  submitting the form completely, while still adding the character </span><span class="w"></span>
+<span class="w">  </span><span class="c1">//  and emptying the input. We pass the event in the parameter</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleEnter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// If the key pressed is &quot;Enter&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">key</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;Enter&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// Prevent the default behavior of pressing &quot;Enter&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// Call our &quot;addToArray&quot; function from above to do the same work</span><span class="w"></span>
+<span class="w">      </span><span class="nx">addToArrayHandler</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Finally, this function takes care of actually updating our document.</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//  We pass in the event in the parameter, again, to prevent default </span><span class="w"></span>
+<span class="w">  </span><span class="c1">//    behavior from the form when we &quot;submit&quot; it.</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleSubmit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Create the reference to the specific document we want to update.</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//  This will include the ID of the document we have stored inside</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//    the body &quot;state&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">docRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">doc</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;books&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Await the result from &quot;updateDoc&quot;, this function takes in our</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//  document reference and an object with the fields we are updating</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//  in the document. We are using the &quot;...&quot; spread operator to lay </span><span class="w"></span>
+<span class="w">    </span><span class="c1">//  all the fields in our body &#39;state&#39; into this object.</span><span class="w"></span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">updateDoc</span><span class="p">(</span><span class="nx">docRef</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="p">...</span><span class="nx">body</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// We do need to format our date again to be a FireStore Timestamp.</span><span class="w"></span>
+<span class="w">      </span><span class="c1">//  To do so, all our Timestamp constructor, call the &quot;fromDate&quot; </span><span class="w"></span>
+<span class="w">      </span><span class="c1">//    from the Timestamp object, and then create a &quot;new Date&quot; with </span><span class="w"></span>
+<span class="w">      </span><span class="c1">//    our date string from our body &quot;state&quot;. </span><span class="w"></span>
+<span class="w">      </span><span class="nx">publish_date</span><span class="o">:</span><span class="w"> </span><span class="nx">Timestamp</span><span class="p">.</span><span class="nx">fromDate</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">publish_date</span><span class="p">)),</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// We want to render a message that says &quot;loading...&quot; while our</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//  useEffect is making the query to our FireStore DB. While body</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//  is still null, we get this message. Heads up, if you never get the </span><span class="w"></span>
+<span class="w">  </span><span class="c1">//  actual data, it is possible a document with that ID doesn&#39;t exist.</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">body</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="s2">&quot;loading...&quot;</span><span class="o">&lt;</span><span class="err">/p&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Once body actually has our data, we render our actual page details.</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//  Look through the form and understand how it all works. You can see</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//    certain inputs have certain events calling the functions above. </span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="nx">className</span><span class="o">=</span><span class="s2">&quot;edit_container&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">h3</span><span class="w"> </span><span class="nx">className</span><span class="o">=</span><span class="s2">&quot;edit_title&quot;</span><span class="o">&gt;</span><span class="nx">Edit</span><span class="w"> </span><span class="nx">Book</span><span class="o">&lt;</span><span class="err">/h3&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">form</span><span class="w"> </span><span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">handleSubmit</span><span class="p">}</span><span class="w"> </span><span class="nx">className</span><span class="o">=</span><span class="s2">&quot;edit_form&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Title</span><span class="o">:</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">body</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">              </span><span class="nx">setBody</span><span class="p">({</span><span class="w"> </span><span class="p">...</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="w">            </span><span class="p">}}</span><span class="w"></span>
+<span class="w">          </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/label&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Author</span><span class="o">:</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">body</span><span class="p">.</span><span class="nx">author</span><span class="p">}</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">              </span><span class="nx">setBody</span><span class="p">({</span><span class="w"> </span><span class="p">...</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="w">            </span><span class="p">}}</span><span class="w"></span>
+<span class="w">          </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/label&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="nb">Date</span><span class="o">:</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"></span>
+<span class="w">            </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">body</span><span class="p">.</span><span class="nx">publish_date</span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">              </span><span class="nx">setBody</span><span class="p">({</span><span class="w"> </span><span class="p">...</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">publish_date</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="w">            </span><span class="p">}}</span><span class="w"></span>
+<span class="w">          </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/label&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Add</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">Character</span><span class="o">:</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">span</span><span class="w"> </span><span class="nx">className</span><span class="o">=</span><span class="s2">&quot;add_character_container&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"></span>
+<span class="w">              </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="w"></span>
+<span class="w">              </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">character</span><span class="p">}</span><span class="w"></span>
+<span class="w">              </span><span class="nx">onKeyPress</span><span class="o">=</span><span class="p">{</span><span class="nx">handleEnter</span><span class="p">}</span><span class="w"></span>
+<span class="w">              </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setCharacter</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}</span><span class="w"></span>
+<span class="w">            </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">addToArrayHandler</span><span class="p">}</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">              </span><span class="nx">Add</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="err">/button&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="err">/span&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/label&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Character</span><span class="w"> </span><span class="nx">List</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">ol</span><span class="w"> </span><span class="nx">className</span><span class="o">=</span><span class="s2">&quot;character_list_container&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="p">{</span><span class="nx">body</span><span class="p">.</span><span class="nx">characters</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">item</span><span class="p">,</span><span class="w"> </span><span class="nx">index</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">li</span><span class="w"> </span><span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">index</span><span class="p">}</span><span class="w"> </span><span class="nx">className</span><span class="o">=</span><span class="s2">&quot;character_item&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">              </span><span class="p">{</span><span class="nx">item</span><span class="p">}</span><span class="w"></span>
+<span class="w">              </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"></span>
+<span class="w">                </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">deleteFromArrayHandler</span><span class="p">(</span><span class="nx">item</span><span class="p">)}</span><span class="w"></span>
+<span class="w">                </span><span class="nx">className</span><span class="o">=</span><span class="s2">&quot;remove_character_btn&quot;</span><span class="w"></span>
+<span class="w">              </span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">                </span><span class="nx">X</span><span class="w"></span>
+<span class="w">              </span><span class="o">&lt;</span><span class="err">/button&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="err">/li&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="p">))}</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/ol&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="o">&gt;</span><span class="nx">Submit</span><span class="o">&lt;</span><span class="err">/button&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="err">/form&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">Edit</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</div>
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">Formatting Date Type Input Example</label><div class="tabbed-content">
+<p>This function is in charge of changing the format of our date to match the data type of "date".</p>
+<p>Why is this important? Well, when we update a document, we want to provide all current data inside the document. We can fill our inputs to have these values already and the user will simply change what needs to be changed and send the whole document back up to update. If we are working with Timestamps, we have to convert that data to a readable format, and break it down even further to be readable by the date input.</p>
+<p>The date input will return a string in the format of "YYYY-MM-DD". When we get our Timestamp from FireStore, and convert to a string using the "toDate() function, we get a readable date, but we still need to convert this to an even more readable string and also extract the date specifically. We use a JS method called <code>.toLocaleDateString()</code> to get back the date in string format. Ex. "2014-06-05" &gt;&gt; "6/5/2014".</p>
+<p>We will take a quick look at the example we used earlier.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="nx">docResults</span><span class="p">.</span><span class="nx">data</span><span class="p">().</span><span class="nx">publish_date</span><span class="p">.</span><span class="nx">toDate</span><span class="p">().</span><span class="nx">toLocaleDateString</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// This returns the string in &quot;6/5/2014&quot;. Let&#39;s break it down.</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">docResults</span><span class="p">.</span><span class="nx">data</span><span class="p">().</span><span class="nx">publish_date</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// returns {seconds: 1402012800, nanoseconds: 0} (see Timestamp Unix Epoch)</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">docResults</span><span class="p">.</span><span class="nx">data</span><span class="p">().</span><span class="nx">publish_date</span><span class="p">.</span><span class="nx">toDate</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// returns &quot;Thu Jun 05 2014 19:00:00 GMT-0500 (Central Daylight Time)&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">docResults</span><span class="p">.</span><span class="nx">data</span><span class="p">().</span><span class="nx">publish_date</span><span class="p">.</span><span class="nx">toDate</span><span class="p">().</span><span class="nx">toLocaleDateString</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// finally we get this result: &quot;6/5/2014&quot;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>You would expect that to be enough, but remember, the date input format is "2014-06-05", and yes, even the 0's matter as well as the year placement. </p>
+<p>Since, "2014-06-05" is not the same format as "6/5/2014", if we try to provide a value to the date input without formatting it, we get an error saying:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">  The specified value &quot;6/5/2014&quot; does not conform to the required format, &quot;yyyy-mm-dd&quot;</span>
+</code></pre></div></td></tr></table></div>
+<p>In order for a date input to have a default value, we need to format our string to be the format it expects it to be, which is why we have this helper function. Feel free to use it if you decide Timestamps aren't for you!</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// dateTypeFormatter</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">dateTypeFormatter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">date</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">newDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">date</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newDate</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="nx">newDate</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="nx">year</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">newDate</span><span class="p">[</span><span class="mf">1</span><span class="p">].</span><span class="nx">length</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">newDate</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">newDate</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">newDate</span><span class="p">[</span><span class="mf">2</span><span class="p">].</span><span class="nx">length</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">newDate</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">newDate</span><span class="p">[</span><span class="mf">2</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">newDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newDate</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newDate</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">newDate</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">dateTypeFormatter</span><span class="w"></span>
+<span class="c1">// import this function wherever you need to format timestamps, i.e. createCarForm...</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>Now all this can be completely unnecessary and entirely up to you. Of course, at the end of the day, you could always just save the date in a string instead of a Timestamp... but where is the fun in that?</p>
+</div>
+<input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><label for="__tabbed_2_4">Styles - CSS</label><div class="tabbed-content">
+<p>Here are some included CSS styles if you take the large snippet from this book. Feel free to change it more to your preferences. It's a good template to start with, especially for demonstration purposes.</p>
+<p>In your actual project, feel free to use MUI instead.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">.</span><span class="nc">edit_container</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">250</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">black</span><span class="w"> </span><span class="kc">solid</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">box-shadow</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="w"> </span><span class="mi">6</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">edit_title</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">edit_form</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">flex-direction</span><span class="p">:</span><span class="w"> </span><span class="kc">column</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">edit_form</span><span class="w"> </span><span class="nt">input</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">box-sizing</span><span class="p">:</span><span class="w"> </span><span class="kc">border-box</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">add_character_container</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">character_list_container</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">flex-wrap</span><span class="p">:</span><span class="w"> </span><span class="kc">wrap</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">character_item</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">gray</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">list-style</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">align-items</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">remove_character_btn</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">margin-left</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">cursor</span><span class="p">:</span><span class="w"> </span><span class="kc">pointer</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</div>
+<input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><label for="__tabbed_2_5">Update a Document in React w/o Comments</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useEffect</span><span class="p">,</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;react&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">doc</span><span class="p">,</span><span class="w"> </span><span class="nx">updateDoc</span><span class="p">,</span><span class="w"> </span><span class="nx">getDoc</span><span class="p">,</span><span class="w"> </span><span class="nx">Timestamp</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;firebase/firestore&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">dateTypeFormat</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../util/dateTypeFormat&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="s2">&quot;./styles.css&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">Edit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">setBody</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">character</span><span class="p">,</span><span class="w"> </span><span class="nx">setCharacter</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="nx">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">getDocument</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">documentRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">doc</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;books&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;BOOK_ID_HERE&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">docResults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">getDoc</span><span class="p">(</span><span class="nx">documentRef</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">docResults</span><span class="p">.</span><span class="nx">exists</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Document doesn&#39;t exist&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="nx">setBody</span><span class="p">({</span><span class="w"></span>
+<span class="w">        </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">docResults</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">...</span><span class="nx">docResults</span><span class="p">.</span><span class="nx">data</span><span class="p">(),</span><span class="w"></span>
+<span class="w">        </span><span class="nx">publish_date</span><span class="o">:</span><span class="w"> </span><span class="nx">dateTypeFormat</span><span class="p">(</span><span class="w"></span>
+<span class="w">          </span><span class="nx">docResults</span><span class="p">.</span><span class="nx">data</span><span class="p">().</span><span class="nx">publish_date</span><span class="p">.</span><span class="nx">toDate</span><span class="p">().</span><span class="nx">toLocaleDateString</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">),</span><span class="w"></span>
+<span class="w">      </span><span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="nx">getDocument</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">[]);</span><span class="w"></span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">addToArrayHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="nx">body</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="nx">newBody</span><span class="p">.</span><span class="nx">characters</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">character</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">setBody</span><span class="p">(</span><span class="nx">newBody</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">setCharacter</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">deleteFromArrayHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">item</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="nx">body</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newArr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newBody</span><span class="p">.</span><span class="nx">characters</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">item</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">newBody</span><span class="p">.</span><span class="nx">characters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newArr</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">setBody</span><span class="p">(</span><span class="nx">newBody</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleEnter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">key</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;Enter&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="nx">addToArrayHandler</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleSubmit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">docRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">doc</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;books&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">updateDoc</span><span class="p">(</span><span class="nx">docRef</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="p">...</span><span class="nx">body</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">publish_date</span><span class="o">:</span><span class="w"> </span><span class="nx">Timestamp</span><span class="p">.</span><span class="nx">fromDate</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">publish_date</span><span class="p">)),</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">body</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="s2">&quot;loading...&quot;</span><span class="o">&lt;</span><span class="err">/p&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="nx">className</span><span class="o">=</span><span class="s2">&quot;edit_container&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">h3</span><span class="w"> </span><span class="nx">className</span><span class="o">=</span><span class="s2">&quot;edit_title&quot;</span><span class="o">&gt;</span><span class="nx">Edit</span><span class="w"> </span><span class="nx">Book</span><span class="o">&lt;</span><span class="err">/h3&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">form</span><span class="w"> </span><span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">handleSubmit</span><span class="p">}</span><span class="w"> </span><span class="nx">className</span><span class="o">=</span><span class="s2">&quot;edit_form&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Title</span><span class="o">:</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">body</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">              </span><span class="nx">setBody</span><span class="p">({</span><span class="w"> </span><span class="p">...</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="w">            </span><span class="p">}}</span><span class="w"></span>
+<span class="w">          </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/label&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Author</span><span class="o">:</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">body</span><span class="p">.</span><span class="nx">author</span><span class="p">}</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">              </span><span class="nx">setBody</span><span class="p">({</span><span class="w"> </span><span class="p">...</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="w">            </span><span class="p">}}</span><span class="w"></span>
+<span class="w">          </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/label&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="nb">Date</span><span class="o">:</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"></span>
+<span class="w">            </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">body</span><span class="p">.</span><span class="nx">publish_date</span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">              </span><span class="nx">setBody</span><span class="p">({</span><span class="w"> </span><span class="p">...</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">publish_date</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="w">            </span><span class="p">}}</span><span class="w"></span>
+<span class="w">          </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/label&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Add</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">Character</span><span class="o">:</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">span</span><span class="w"> </span><span class="nx">className</span><span class="o">=</span><span class="s2">&quot;add_character_container&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"></span>
+<span class="w">              </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="w"></span>
+<span class="w">              </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">character</span><span class="p">}</span><span class="w"></span>
+<span class="w">              </span><span class="nx">onKeyPress</span><span class="o">=</span><span class="p">{</span><span class="nx">handleEnter</span><span class="p">}</span><span class="w"></span>
+<span class="w">              </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setCharacter</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}</span><span class="w"></span>
+<span class="w">            </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">addToArrayHandler</span><span class="p">}</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">              </span><span class="nx">Add</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="err">/button&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="err">/span&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/label&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Character</span><span class="w"> </span><span class="nx">List</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">ol</span><span class="w"> </span><span class="nx">className</span><span class="o">=</span><span class="s2">&quot;character_list_container&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="p">{</span><span class="nx">body</span><span class="p">.</span><span class="nx">characters</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">item</span><span class="p">,</span><span class="w"> </span><span class="nx">index</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">li</span><span class="w"> </span><span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">index</span><span class="p">}</span><span class="w"> </span><span class="nx">className</span><span class="o">=</span><span class="s2">&quot;character_item&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">              </span><span class="p">{</span><span class="nx">item</span><span class="p">}</span><span class="w"></span>
+<span class="w">              </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"></span>
+<span class="w">                </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">deleteFromArrayHandler</span><span class="p">(</span><span class="nx">item</span><span class="p">)}</span><span class="w"></span>
+<span class="w">                </span><span class="nx">className</span><span class="o">=</span><span class="s2">&quot;remove_character_btn&quot;</span><span class="w"></span>
+<span class="w">              </span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">                </span><span class="nx">X</span><span class="w"></span>
+<span class="w">              </span><span class="o">&lt;</span><span class="err">/button&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="err">/li&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="p">))}</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/ol&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="o">&gt;</span><span class="nx">Submit</span><span class="o">&lt;</span><span class="err">/button&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="err">/form&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">Edit</span><span class="p">;</span><span class="w">    </span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+<p>Awesome, we just saw a great example on how to <strong><em>U</em></strong>pdate data inside a Firestore DB. As mentioned before, there are several ways to update data, and though this is just one example, <a href="https://firebase.google.com/docs/firestore/manage-data/add-data#:~:text=is%20more%20convenient.-,Update%20a%20document,-To%20update%20some">feel free to explore other methods</a> used to update data and make sure to use the methods that best fit your database. At the end of the day, consistency will be a crucial factor in your Firestore DB.</p>
+<h2 id="summary">Summary</h2>
+<p>Alright! We have covered all four basic operations that make up a <strong>CRUD</strong> app, that's: <strong><em>C</em></strong>reate, <strong><em>R</em></strong>ead, <strong><em>U</em></strong>pdate, and <strong><em>D</em></strong>elete. These four basic operations will help you create your first Full-Stack application with FireBase.  </p>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.youtube.com/watch?v=Przhgs-GJ2s">YT, The Net Ninja - Getting Started with Firebase 9 #10 - Updating Documents</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.youtube.com/watch?v=s1frrNxq4js&amp;list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb&amp;index=5">YT, The Net Ninja - Getting Started with Firebase 9 #5 - Adding &amp; Deleting Documents</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://softauthor.com/firebase-firestore-delete-document-deletedoc/">Blog, Soft Author - Raja Tamil - Firebase V9 Firestore DELETE Document Using deleteDoc()</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://softauthor.com/firebase-firestore-get-document-by-id/">Blog, Soft Author - Raja Tamil - Firebase V9 Firestore DELETE Document Using deleteDoc()</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://softauthor.com/firebase-firestore-update-document-data-updatedoc/">Firebase 9 Firestore Get A Document By ID Using getDoc()</a></li>
+</ul>
+<h2 id="know-your-docs">Know Your Docs</h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox"/> <a href="https://firebase.google.com/docs/firestore/manage-data/delete-data">Firebase Documentation - Delete data from Cloud Firestore</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://firebase.google.com/docs/firestore/manage-data/add-data">Firebase Documentation - Add data to Cloud Firestore</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://firebase.google.com/docs/reference/js/v8/firebase.firestore.Timestamp">Firebase Documentation - firebase.firestore.Timestamp</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://firebase.google.com/docs/reference/node/firebase.firestore.DocumentReference">Firebase Documentation - firebase.firestore.Timestamp</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../cr-firestore/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              CR - Firestore
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../firestore/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Intro to Firestore
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>
+      
+    
+  </body>
+</html>

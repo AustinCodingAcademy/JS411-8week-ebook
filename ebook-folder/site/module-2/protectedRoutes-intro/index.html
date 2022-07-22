@@ -941,6 +941,42 @@
   
   
     <li class="md-nav__item">
+      <a href="../authentication/" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../implement-fireBase/" class="md-nav__link">
+        Authentication with FireBase
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protectedRoutesWithFirebase/" class="md-nav__link">
+        Protected Routes with FireBase
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../class-8/" class="md-nav__link">
         Class 8 Login
       </a>
@@ -1046,6 +1082,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../module-3/databaseIntro/" class="md-nav__link">
+        Database Intro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../module-3/class-9/" class="md-nav__link">
         Class 9 Redux MSTP
       </a>
@@ -1079,6 +1127,18 @@
           Pre-Class 10 Lessons
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/serverless/" class="md-nav__link">
+        Serverless
+      </a>
+    </li>
+  
+
           
             
   
@@ -1133,6 +1193,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../module-3/authorizationWithFirebase/" class="md-nav__link">
+        Authorization with FireBase
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../module-3/class-10/" class="md-nav__link">
         Class 10 Redux MDTP
       </a>
@@ -1174,6 +1246,54 @@
     <li class="md-nav__item">
       <a href="../../module-3/redux-thunk/" class="md-nav__link">
         Redux-Thunk
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/crud-intro/" class="md-nav__link">
+        Intro to CRUD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/cr-firestore/" class="md-nav__link">
+        CR - Firestore
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/ud-firestore/" class="md-nav__link">
+        UD - Firestore
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/firestore/" class="md-nav__link">
+        Intro to Firestore
       </a>
     </li>
   
@@ -2220,10 +2340,7 @@
 <span class="normal">49</span>
 <span class="normal">50</span>
 <span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Import `Navigate` from react-router-dom</span><span class="w"></span>
+<span class="normal">52</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Import `Navigate` from react-router-dom</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Navigate</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;react-router-dom&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Create a component that takes props that will serve our Protected Routes</span><span class="w"></span>
@@ -2235,19 +2352,16 @@
 
 <span class="w">  </span><span class="cm">/*  </span>
 <span class="cm">  The ProtectedRoute function is going to take in props as an argument. </span>
-<span class="cm">  These props will contain at the bare minimum a component that will be </span>
-<span class="cm">  rendered if the condition is met. Therefore, when we destructure the </span>
-<span class="cm">  props we will say that the component to be rendered is the component </span>
-<span class="cm">  being passed: `component: Component`</span>
+<span class="cm">  These props will contain, at the bare minimum, a component that will be rendered if the condition is met. Therefore, when we destructure the props we will say that the component to be rendered is the component being passed: `component: Component`</span>
 
 <span class="cm">  See? We&#39;re taking the component that was passed...whatever it was and </span>
-<span class="cm">  storing it in a variable called `component` (lower-case C) so we can </span>
+<span class="cm">  storing it in a variable called `component` (lower-case c) so we can </span>
 <span class="cm">  `render()` it later by called `&lt;Component /&gt;`</span>
 
 <span class="cm">  Since React will expect all components to begin with a capital letter, </span>
 <span class="cm">  and the &#39;component&#39; property is the prop that is storing the reference </span>
 <span class="cm">  to the `Component` we want to render, we simply rename `component` to </span>
-<span class="cm">  &#39;Component`.</span>
+<span class="cm">  &#39;Component` (upper-case C).</span>
 
 <span class="cm">  Now we have a reference to what ever component was passed to this </span>
 <span class="cm">  `ProtectedRoute` functions i.e. `MySettings`, `MyAccount`, etc.</span>
@@ -2264,14 +2378,14 @@
 <span class="w">    </span><span class="c1">// it returns either `true` or `false` depending on whether someone is</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// logged in or not.</span><span class="w"></span>
 <span class="w">    </span><span class="nx">checkAuth</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// IF? &quot;checkAuth()&quot; returns `true`, render this Component. See? A </span><span class="w"></span>
-<span class="w">      </span><span class="nx">component</span><span class="w"> </span><span class="kr">protected</span><span class="w"> </span><span class="nx">by</span><span class="w"> </span><span class="nx">some</span><span class="w"> </span><span class="nx">logic</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// IF? &quot;checkAuth()&quot; returns `true`, render this Component. </span><span class="w"></span>
+<span class="w">      </span><span class="c1">// See? A component protected by some logic.</span><span class="w"></span>
 <span class="w">      </span><span class="o">&lt;</span><span class="nx">Component</span><span class="w"> </span><span class="p">{...</span><span class="nx">rest</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
 <span class="w">      </span><span class="c1">// ELSE: `checkAuth()` must be `false` and we want to &quot;Navigate&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="c1">// the user to the &quot;/login&quot; route by changing their URL using the</span><span class="w"></span>
 <span class="w">      </span><span class="c1">// `Navigate` component from `react-router-dom`. The `to=` property</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// point to the path we want to replace the URL with: `&quot;/login&quot;`</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// points to the path we want to replace the URL with: `&quot;/login&quot;`</span><span class="w"></span>
 <span class="w">      </span><span class="o">&lt;</span><span class="nx">Navigate</span><span class="w"> </span><span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">);</span><span class="w"></span>
@@ -2304,9 +2418,8 @@
 <p>NOTE: You don't have to remember all of this right now but know where to reference it. In the future when you are using Protected Routes (sometimes called <strong>Private Routes</strong>) you should be able to Google something like "React Protected Route" for an example.</p>
 </blockquote>
 <h3 id="where-do-we-put-this-code">Where Do We Put this Code?</h3>
-<p>Where do we put this code?</p>
 <p>The <code>ProtectedRoute</code> component built above will be imported into our <code>Router.js</code> where we'll replace the <code>element=</code> prop of any <code>Route</code> we want to protect. </p>
-<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Router.js File with <code>ProtectedRoute</code> Function</label><div class="tabbed-content"></div>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1"><code>Router.js</code> File with <code>ProtectedRoute</code> Function</label><div class="tabbed-content"></div>
 </div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2353,9 +2466,9 @@
 <span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">Router</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <blockquote>
-<p>NOTE: Notice how we are just sending the instance of the <code>Dashboard</code> component, this will be rendered by the Protected Route component based on the condition that someone is Authenticated or not. This does not to be wrapped like a JSX element <code>&lt;Dashboard /&gt;</code>. You need to simply pass in the <code>Dashboard</code> reference, from our import at the top of the file, as a property into our <code>ProtectedRoute</code> component.</p>
+<p>NOTE: Notice how we are just sending the instance of the <code>Dashboard</code> component, this will be rendered by the Protected Route component based on the condition that someone is Authenticated or not. This does not need to be wrapped like a JSX element <code>&lt;Dashboard /&gt;</code>. You need to simply pass in the <code>Dashboard</code> reference, from our import at the top of the file, as a property into our <code>ProtectedRoute</code> component.</p>
 </blockquote>
-<p>Now, the <code>&lt;Dashboard /&gt;</code> component will be protected and only be shown based on some condition like is the user authenticated, <em>after we add it in</em>, of course.</p>
+<p>Now, the <code>&lt;Dashboard /&gt;</code> component will be protected and only be shown based on some condition like is the user authenticated, <em>after we add the checkAuth-functionality in</em>, of course.</p>
 <p>We use the <code>ProtectedRoute</code> component by simply replacing the element property being rendered from one of the regular <code>Route</code>'s we've already built.</p>
 <h4 id="changing-a-route-to-a-protectedroute">Changing a <code>Route</code> to a <code>ProtectedRoute</code></h4>
 <p>For just a little more on this, let's look at them side by side, changing <code>Route</code> to a <code>ProtectedRoute</code></p>
@@ -2384,9 +2497,9 @@
 <h3 id="the-checkauth-function">The <code>checkAuth()</code> Function</h3>
 <p>A very simple way to test if your protected route is working is to build a dumb function like the one below:</p>
 <p><code>const checkAuth = () =&gt; true</code></p>
-<p>The code above will say that you are always logged in and anyone will be able to navigate to your protected route. <strong>In production mode we generally want something more complicated than that.</strong> Maybe when the person enters their email and password, our server app verifies they are who they say they are then sends a token to be stored as a cookie to prove they've been authenticated. From there, our front-end app could check to see if a valid cookie exists and allows the user to the protected component/view.</p>
+<p>The code above will say that you are always logged in and anyone will be able to navigate to your protected route. <strong>In production mode we generally want something more complicated than that. See <a href="../protectedRoutesWithFirebase/">Protected Routes with Firebase lesson</a>.</strong> Maybe when the person enters their email and password, our server app verifies they are who they say they are then sends a token to be stored as a cookie to prove they've been authenticated. From there, our front-end app could check to see if a valid cookie exists and allows the user to the protected component/view.</p>
 <p>Let's look at how to find a cookie from the <strong>browser window</strong>, shall we?</p>
-<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">CheckAuth function &amp; NPM cookie</label><div class="tabbed-content"></div>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">CheckAuth Function &amp; NPM cookie</label><div class="tabbed-content"></div>
 </div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2590,13 +2703,13 @@
         </a>
       
       
-        <a href="../class-8/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../authentication/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Class 8 Login
+              Authentication
             </div>
           </div>
           <div class="md-footer__button md-icon">

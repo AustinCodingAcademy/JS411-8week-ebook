@@ -1,0 +1,2951 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.0.5">
+    
+    
+      
+        <title>CR - Firestore - JS411 ebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.77f3fd56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="pink">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#create-and-read-firestore" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JS411 ebook" class="md-header__button md-logo" aria-label="JS411 ebook">
+      
+  <img src="../../CE_WhiteBlue_Icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JS411 ebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CR - Firestore
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JS411 ebook" class="md-nav__button md-logo" aria-label="JS411 ebook">
+      
+  <img src="../../CE_WhiteBlue_Icon.png" alt="logo">
+
+    </a>
+    JS411 ebook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Module One: Intro to React
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Module One: Intro to React" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Module One: Intro to React
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      <label class="md-nav__link" for="__nav_2_1">
+        Pre-Class 1 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 1 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 1 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preCourse/setupInstructions/" class="md-nav__link">
+        Prepare Your Machine
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preCourse/succeedInThisCourse/" class="md-nav__link">
+        Succeed in this Course
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preCourse/submittingHomework/" class="md-nav__link">
+        Submitting Homework
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/introToReact/" class="md-nav__link">
+        Intro to React
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/CRA-overview/" class="md-nav__link">
+        CRA Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/reactDeveloperTools-pt1/" class="md-nav__link">
+        React DevTools
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/bonusLesson/" class="md-nav__link">
+        Bonus - HTML + JSX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/class-1/" class="md-nav__link">
+        Class 1 ToDo App
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      <label class="md-nav__link" for="__nav_2_2">
+        Pre-Class 2 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 2 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 2 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/developSeries-i-must-succeed/" class="md-nav__link">
+        Develop I Must Succeed
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/introToStateAndProps/" class="md-nav__link">
+        State & Props Intro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/fetchStoreRender/" class="md-nav__link">
+        Fetch, Store, Render
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/class-2/" class="md-nav__link">
+        Class 2 Beer App
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      <label class="md-nav__link" for="__nav_2_3">
+        Pre-Class 3 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 3 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 3 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/conditionalRendering/" class="md-nav__link">
+        Conditional Rendering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/functionalComponentHooks/" class="md-nav__link">
+        Functional Components and Hooks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/dynamicRendering/" class="md-nav__link">
+        Dynamic Rendering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/class-3/" class="md-nav__link">
+        Class 3 Address Book
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      <label class="md-nav__link" for="__nav_2_4">
+        Pre-Class 4 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 4 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 4 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/developSeries-stopBeingLazy/" class="md-nav__link">
+        Develop Not Lazy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/formsInReact/" class="md-nav__link">
+        Forms in React
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/hackathonOverview/" class="md-nav__link">
+        Hackathon Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/class-4/" class="md-nav__link">
+        Class 4 Hackathon
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Module Two: Styling & Routing
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Module Two: Styling & Routing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Module Two: Styling & Routing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      <label class="md-nav__link" for="__nav_3_1">
+        Pre-Class 5 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 5 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 5 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/componentStyling/" class="md-nav__link">
+        Component Styling with Material-UI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/class-5/" class="md-nav__link">
+        Class 5 Music App 1/2
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        Pre-Class 6 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 6 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 6 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/componentLifeCycle/" class="md-nav__link">
+        Class Component Lifecycle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/class-6/" class="md-nav__link">
+        Class 6 Music App 2/2
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        Pre-Class 7 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 7 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 7 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/reactRouter/" class="md-nav__link">
+        React Router Intro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/reactRouter-link/" class="md-nav__link">
+        Router Link
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/implement-ReactRouter/" class="md-nav__link">
+        Implement React Router
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/class-7/" class="md-nav__link">
+        Class 7
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      <label class="md-nav__link" for="__nav_3_4">
+        Pre-Class 8 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 8 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 8 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/developSeries-discipline/" class="md-nav__link">
+        Develop Discipline
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/protectedRoutes-intro/" class="md-nav__link">
+        Protected Routes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/authentication/" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/implement-fireBase/" class="md-nav__link">
+        Authentication with FireBase
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/protectedRoutesWithFirebase/" class="md-nav__link">
+        Protected Routes with FireBase
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-2/class-8/" class="md-nav__link">
+        Class 8 Login
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        Module Three: App State
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Module Three: App State" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Module Three: App State
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      <label class="md-nav__link" for="__nav_4_1">
+        Pre-Class 9 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 9 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 9 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redux-mapStateToProps/" class="md-nav__link">
+        Redux Intro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redux-theSetup/" class="md-nav__link">
+        Redux Setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redux-connect/" class="md-nav__link">
+        Redux Connect
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databaseIntro/" class="md-nav__link">
+        Database Intro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-9/" class="md-nav__link">
+        Class 9 Redux MSTP
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        Pre-Class 10 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 10 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 10 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless/" class="md-nav__link">
+        Serverless
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redux-actions/" class="md-nav__link">
+        Redux Actions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redux-reducers/" class="md-nav__link">
+        Redux Reducers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redux-mdtp/" class="md-nav__link">
+        Redux MDTP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redux-usingActions/" class="md-nav__link">
+        Redux Using Actions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authorizationWithFirebase/" class="md-nav__link">
+        Authorization with FireBase
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-10/" class="md-nav__link">
+        Class 10 Redux MDTP
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" checked>
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        Pre-Class 11 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 11 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 11 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redux-thunk/" class="md-nav__link">
+        Redux-Thunk
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crud-intro/" class="md-nav__link">
+        Intro to CRUD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          CR - Firestore
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        CR - Firestore
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connect-react-app-firestore" class="md-nav__link">
+    Connect React App &amp; FireStore
+  </a>
+  
+    <nav class="md-nav" aria-label="Connect React App &amp; FireStore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#config" class="md-nav__link">
+    Config
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-get" class="md-nav__link">
+    Read / GET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-post" class="md-nav__link">
+    Create / POST
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document-oriented-database" class="md-nav__link">
+    Document-Oriented Database
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#know-your-docs" class="md-nav__link">
+    Know Your Docs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ud-firestore/" class="md-nav__link">
+        UD - Firestore
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firestore/" class="md-nav__link">
+        Intro to Firestore
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-11/" class="md-nav__link">
+        Class 11 Redux-Thunk
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      <label class="md-nav__link" for="__nav_4_4">
+        Pre-Class 12 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 12 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 12 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reactHooks-intro/" class="md-nav__link">
+        React Hooks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstoneApp-planning-pt1/" class="md-nav__link">
+        Capstone App pt.1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class-12/" class="md-nav__link">
+        Class 12
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Module Four: App Design
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Module Four: App Design" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Module Four: App Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      <label class="md-nav__link" for="__nav_5_1">
+        Pre-Class 13 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 13 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 13 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/developSeries-stopWastingTime/" class="md-nav__link">
+        Develop Not Wasting Time
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/folderStructure/" class="md-nav__link">
+        Folder Structure
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/capstoneApp-planning-pt2/" class="md-nav__link">
+        Capstone App pt.2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/class-13/" class="md-nav__link">
+        Class 13
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        Pre-Class 14 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 14 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 14 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/developSeries-ICanDoIt/" class="md-nav__link">
+        Develop I Can Do It
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/npmBuild-intro/" class="md-nav__link">
+        NPM Build
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/capstoneApp-planning-pt3/" class="md-nav__link">
+        Capstone App pt.3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/class-14/" class="md-nav__link">
+        Class 14 Sm. Biz App
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/checkpointTwo-smallBizApp/" class="md-nav__link">
+        Checkpoint Two
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      <label class="md-nav__link" for="__nav_5_3">
+        Pre-Class 15 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 15 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 15 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/debugging-intro/" class="md-nav__link">
+        Debugging
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/capstoneApp-planning-pt4/" class="md-nav__link">
+        Capstone App pt.4
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/class-15/" class="md-nav__link">
+        Class 15
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      <label class="md-nav__link" for="__nav_5_4">
+        Pre-Class 16 Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pre-Class 16 Lessons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Pre-Class 16 Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/developSeries-dominate2021/" class="md-nav__link">
+        Develop Commitment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/mvpShopInfo/" class="md-nav__link">
+        MVP Shop
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/deployment/" class="md-nav__link">
+        Deployment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/capstoneApp-planning-pt5/" class="md-nav__link">
+        Capstone App pt.5
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/capstoneApp-checkpoint-3/" class="md-nav__link">
+        Checkpoint Three
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-4/class-16/" class="md-nav__link">
+        Class 16
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/reportABug/" class="md-nav__link">
+        Report A Bug
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Additional Resources
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Additional Resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Additional Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/interviewChallenges/" class="md-nav__link">
+        Interview Training
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/studentPresentations/" class="md-nav__link">
+        Student Presentations
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/developSeries/" class="md-nav__link">
+        Develop Series Collection
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_4" type="checkbox" id="__nav_7_4" >
+      
+      <label class="md-nav__link" for="__nav_7_4">
+        Questions for Discussion Collections
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Questions for Discussion Collections" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          Questions for Discussion Collections
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-1/" class="md-nav__link">
+        Day 1 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-2/" class="md-nav__link">
+        Day 2 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-3/" class="md-nav__link">
+        Day 3 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-4/" class="md-nav__link">
+        Day 4 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-5/" class="md-nav__link">
+        Day 5 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-6/" class="md-nav__link">
+        Day 6 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-7/" class="md-nav__link">
+        Day 7 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-8/" class="md-nav__link">
+        Day 8 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-9/" class="md-nav__link">
+        Day 9 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-10/" class="md-nav__link">
+        Day 10 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-11/" class="md-nav__link">
+        Day 11 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-12/" class="md-nav__link">
+        Day 12 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-13/" class="md-nav__link">
+        Day 13 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-14/" class="md-nav__link">
+        Day 14 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-15/" class="md-nav__link">
+        Day 15 QFD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/questionsForDiscussion/qfd-class-16/" class="md-nav__link">
+        Day 16 QFD
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/blogPrompts/" class="md-nav__link">
+        Blog Prompts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/keyboardShortcuts/" class="md-nav__link">
+        Keyboard Shortcuts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/gitCommands/" class="md-nav__link">
+        Git & CLI Commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/learnYourCLI/" class="md-nav__link">
+        Learn Your CLI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/graduationPrerequisites/" class="md-nav__link">
+        Graduation Prerequisites
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../additionalResources/presentationsQualifications/" class="md-nav__link">
+        Presentation Qualifications
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connect-react-app-firestore" class="md-nav__link">
+    Connect React App &amp; FireStore
+  </a>
+  
+    <nav class="md-nav" aria-label="Connect React App &amp; FireStore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#config" class="md-nav__link">
+    Config
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-get" class="md-nav__link">
+    Read / GET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-post" class="md-nav__link">
+    Create / POST
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document-oriented-database" class="md-nav__link">
+    Document-Oriented Database
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#know-your-docs" class="md-nav__link">
+    Know Your Docs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="create-and-read-firestore"><strong><em>C</em></strong>reate and <strong><em>R</em></strong>ead - FireStore</h1>
+<h2 id="overview">Overview</h2>
+<p>So now we have become familiar with FireBase's awesome service, FireStore, where we can create and store our very own database. If you followed along in the previous lesson, you should have initiated your database and created your first <strong>collection</strong> along with its first document. Hopefully you also add in a couple extra documents yourself since we are now going to <em>read</em> those documents from the client side. Although we created some data using the FireStore dashboard, we also want to be able to create data from the client.</p>
+<p>In this lesson, we are going to go more into depth about those basic CRUD operations we spoke about in the previous lesson. Remember, <strong>CRUD</strong> is the acronym to <strong><em>C</em></strong>reate, <strong><em>R</em></strong>ead, <strong><em>U</em></strong>pdate, and <strong><em>D</em></strong>elete data. We are going to connect our database instance with a React app and go over these CRUD operations together.</p>
+<h2 id="connect-react-app-firestore">Connect React App &amp; FireStore</h2>
+<p>We are going to begin by first <strong>R</strong>eading some data, so I encourage you to make sure you have some data stored in a collection on your FireStore database instance, and if not, you can skip down to the <a href="#create"><strong>C</strong>reate portion of this lesson</a> to create some data. But, in order to begin, we need to go back into our Firebase <strong>config</strong> file and create some new instances, so lets start there.</p>
+<h3 id="config">Config</h3>
+<p>At this point, you should have already set up a configuration file before. We are going to be using that same file for most things Firebase related, including both <code>Auth</code> and now <code>Firestore</code>. If you are starting a new project, we can use the same information from our previous config file, assuming you are still working on that same Firebase project, or update the configuration information with any new information.</p>
+<p>You can also find this information on your <a href="https://console.firebase.google.com/u/0/">Firebase console</a> under your projects settings, under the <code>General</code> settings tab.</p>
+<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Finding Configuration File - 1</label><div class="tabbed-content">
+<p><img alt="finding-config-file-1" src="../../images/firebase-config-settings.png" /></p>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Finding Configuration File - 2</label><div class="tabbed-content">
+<p><img alt="finding-config-file-2" src="../../images/firebase-config-settings2.png" /></p>
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Finding Configuration File - 3</label><div class="tabbed-content">
+<p><img alt="finding-config-file-3" src="../../images/firebase-config-settings3.png" /></p>
+</div>
+</div>
+<p>On your config file, we simply need to add two things. We want to import <code>getFireStore</code> from <code>firebase/firestore</code>, then we want to create an instance of our database (<code>db</code>) using <code>getFirestore</code>. Then we're going to export this so we can use it in other files of our project, where we will be making requests to our database.</p>
+<p>Your configuration file should look like this:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">initializeApp</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;firebase/app&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getAuth</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;firebase/auth&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getFirestore</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;firebase/firestore&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">firebaseConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">apiKey</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_API_KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">authDomain</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_AUTH_DOMAIN</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">projectId</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_PROJECT_ID</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">storageBucket</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_STORAGE_BUCKET</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">messagingSenderId</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_MESSAGING_SENDER_ID</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">appId</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_APP_ID</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">measurementId</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_MEASUREMENT_ID</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// initialize  firebase</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">initializeApp</span><span class="p">(</span><span class="nx">firebaseConfig</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// initialize auth</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">auth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getAuth</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// initialize FireStore</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getFirestore</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox"/> Be sure to add: <code>import { getFirestore } from "firebase/firestore"</code></li>
+<li class="task-list-item"><input type="checkbox"/> Then add: <code>export const db = getFirestore(app)</code></li>
+</ul>
+<h2 id="read-get"><strong><em>R</em></strong>ead / GET</h2>
+<p>Now that we have instantiated our <code>db</code> with our Firebase project, we can now use that instance to make requests to that database. Remember those documents you created in the previous lesson? Let's see if we can make a request to our DB and <strong>R</strong>ead those documents.</p>
+<p>In order to get a <strong>list</strong> of all the <strong>documents</strong> of a <strong>collection</strong>, we need to first <code>import</code> some functions from the <code>firebase/firestore</code> library. We are going to import <code>collection</code> to make a reference to the <strong>collection</strong> we are trying to request data from, and <code>getDocs</code> to get a list of all documents in that <strong>collection</strong>.</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Getting a List of Documents</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// import our &#39;db&#39; instance from our &#39;config&#39; file</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./firebase/config&#39;</span><span class="w"></span>
+
+<span class="c1">// import collection and getDocs from &#39;firebase/firestore</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">collection</span><span class="p">,</span><span class="w"> </span><span class="nx">getDocs</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;firebase/firestore&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// Create a reference to the db and the collection we want to use, this </span><span class="w"></span>
+<span class="c1">//  example is the &quot;video_games&quot; collection. Please substitute this with</span><span class="w"></span>
+<span class="c1">//  a collection in your database.</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">collectionRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collection</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;video_games&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">// Now that we have a reference, let&#39;s get all the documents from that </span><span class="w"></span>
+<span class="c1">//  collection `getDocs` returns a promise, so lets wait for it to resolve</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">getDocs</span><span class="p">(</span><span class="nx">collectionRef</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">// We now need to go through each document in our results and invoke a </span><span class="w"></span>
+<span class="c1">// function that is returned to us from FireStore to actually see the data</span><span class="w"></span>
+<span class="nx">results</span><span class="p">.</span><span class="nx">docs</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">doc</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// for each &#39;doc&#39;, we&#39;ll console log an object with it&#39;s own id and spread</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// the object that is returned to us by called the &#39;doc.data()&#39; function</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//  with our actual data</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">doc</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="nx">doc</span><span class="p">.</span><span class="nx">data</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="p">})</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+
+<span class="c1">// See next slide to see a more robust example using React...</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2"><code>useEffect</code> Example</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useEffect</span><span class="p">,</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;react&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">collection</span><span class="p">,</span><span class="w"> </span><span class="nx">getDocs</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;firebase/firestore&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../firebase/config&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">List</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">setData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">getCollection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collection</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;video_games&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">docs</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">getDocs</span><span class="p">(</span><span class="nx">ref</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">            </span><span class="nx">docs</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">doc</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">list</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">doc</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="p">...</span><span class="nx">doc</span><span class="p">.</span><span class="nx">data</span><span class="p">()</span><span class="w"></span>
+<span class="w">                </span><span class="p">})</span><span class="w"></span>
+<span class="w">            </span><span class="p">});</span><span class="w"></span>
+<span class="w">            </span><span class="nx">setData</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">        </span><span class="nx">getCollection</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">[]);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// We&#39;re using useEffect here so we can monitor any changes </span><span class="w"></span>
+<span class="w">    </span><span class="c1">//  made to our &#39;data&#39; state</span><span class="w"></span>
+<span class="w">    </span><span class="nx">useEffect</span><span class="p">(()=&gt;{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;effect:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">[</span><span class="nx">data</span><span class="p">])</span><span class="w"> </span><span class="c1">// data inside our dependency array</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">This</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">listing</span><span class="w"> </span><span class="nx">page</span><span class="o">&lt;</span><span class="err">/div&gt;;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">List</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+<p>Once you get your list, make sure you render your <code>List</code> component to map through the data and display the list however you'd like.</p>
+<p>Next, we are moving on to <strong><em>C</em></strong>reating data.</p>
+<h2 id="create-post"><strong><em>C</em></strong>reate / POST</h2>
+<p>Creating new data for our FireStore DB is pretty simple. You will take everything you have learned about React thus far, such as setting some <em>state</em> and handling <em>events</em>, and implement FireStore's simple methods to write some new data.</p>
+<p>Again, we will be using our <code>db</code> instance, and we'll be importing two things from <code>firebase/firestore</code>, <code>addDoc</code> and <code>collection</code>. We can also import <code>Timestamp</code> if we are using FireStore's own version of <code>Timestamp</code>. </p>
+<blockquote>
+<p>NOTE: We could create our own timestamp in JS but would just need to do a little extra work to convert our regular timestamp to the FireStore <code>Timestamp</code>.</p>
+</blockquote>
+<p>Follow along with the high overview example below, followed by a practical React use case.</p>
+<div class="tabbed-set" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Creating a Document</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// import our &#39;db&#39; instance from our &#39;config&#39; file</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./firebase/config&#39;</span><span class="w"></span>
+
+<span class="c1">// import collection, addDoc, and Timestamp from &#39;firebase/firestore</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">collection</span><span class="p">,</span><span class="w"> </span><span class="nx">addDoc</span><span class="p">,</span><span class="w"> </span><span class="nx">Timestamp</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;firebase/firestore&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// Again, we will create a reference, but this time we will be doing </span><span class="w"></span>
+<span class="c1">//  something a little different. When we refer to a collection that DOES </span><span class="w"></span>
+<span class="c1">//  NOT EXIST in the DB, one will be created for us. This makes it simple </span><span class="w"></span>
+<span class="c1">//  to add a collection from anywhere. In this example, we&#39;ll be creating</span><span class="w"></span>
+<span class="c1">//  a new table called &#39;books</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">collectionRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collection</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;books&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">// Now we have a reference to a collection (that is yet to exist). Let&#39;s </span><span class="w"></span>
+<span class="c1">//  create a new document in this new collection by using our `addDoc`</span><span class="w"></span>
+<span class="c1">//  function. Again, this returns a Promise, so let&#39;s wait for it to resolve.</span><span class="w"></span>
+<span class="c1">//  `addDoc` takes two parameters, the collection and an Object with the new</span><span class="w"></span>
+<span class="c1">//  data we want to add to the document. FireStore can take most data types </span><span class="w"></span>
+<span class="c1">//  so adding nested arrays or objects is valid.</span><span class="w"></span>
+<span class="k">await</span><span class="w"> </span><span class="nx">addDoc</span><span class="p">(</span><span class="nx">collectionRef</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;The Lord of the Rings&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;J. R. R. Tolkien&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">characters</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Frodo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Gandalf&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Smeagol&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Use Timestamp to convert a Date string to a FireStore Timestamp</span><span class="w"></span>
+<span class="w">    </span><span class="nx">publish_date</span><span class="o">:</span><span class="w"> </span><span class="nx">Timestamp</span><span class="p">.</span><span class="nx">fromDate</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="s2">&quot;1954-07-27&quot;</span><span class="p">))</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+
+<span class="c1">// If successful, `addDoc` should have had created a new collection and </span><span class="w"></span>
+<span class="c1">// added our new document to that collection.</span><span class="w"></span>
+
+<span class="c1">// See next slide to see a more robust example using React...</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Create a Document using React w/Comments</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useEffect</span><span class="p">,</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;react&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">collection</span><span class="p">,</span><span class="w"> </span><span class="nx">addDoc</span><span class="p">,</span><span class="w"> </span><span class="nx">Timestamp</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;firebase/firestore&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../firebase/config&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">Add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Make sure you implement some state to keep track of your inputs.</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">setBody</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">publish_date</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">characters</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// This state below is in charge with helping with the &#39;characters&#39; </span><span class="w"></span>
+<span class="w">  </span><span class="c1">//    array in our body. Keep in mind we have a &#39;body.characters&#39; array</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//    and &#39;character&#39; string, these are both different. This state below</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//    is simply a placeholder for our character input which we push to</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//    the &#39;body&#39; state, shown a little later...</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">character</span><span class="p">,</span><span class="w"> </span><span class="nx">setCharacter</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// This event handler function will allow us to &quot;push&quot; a string to our</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//    characters array inside our body.</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">addToArrayHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Copy current state and assign object to a variable &quot;newBody&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="nx">body</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Push new character into newBody.characters array</span><span class="w"></span>
+<span class="w">    </span><span class="nx">newBody</span><span class="p">.</span><span class="nx">characters</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">character</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Set our &quot;body&quot; state with our &quot;newBody&quot; object we created with </span><span class="w"></span>
+<span class="w">    </span><span class="c1">//  our new data.</span><span class="w"></span>
+<span class="w">    </span><span class="nx">setBody</span><span class="p">(</span><span class="nx">newBody</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Set the character state to an empty string to await another input</span><span class="w"></span>
+<span class="w">    </span><span class="nx">setCharacter</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Finally we have the &#39;submit&#39; function which add the document to our </span><span class="w"></span>
+<span class="w">  </span><span class="c1">// FireStore collection</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleSubmit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collection</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;books&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// We will use a try/catch block here in case we run into any errors</span><span class="w"></span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nx">addDoc</span><span class="p">(</span><span class="nx">ref</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="p">...</span><span class="nx">body</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// overwrite our &quot;publish_date&quot; as a FireStore Timestamp</span><span class="w"></span>
+<span class="w">            </span><span class="nx">publish_date</span><span class="o">:</span><span class="w"> </span><span class="nx">Timestamp</span><span class="p">.</span><span class="nx">fromDate</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">publish_date</span><span class="p">))</span><span class="w"></span>
+<span class="w">        </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Reset state to it&#39;s initial state if we want to add a different </span><span class="w"></span>
+<span class="w">    </span><span class="c1">// input after</span><span class="w"></span>
+<span class="w">    </span><span class="nx">setBody</span><span class="p">({</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">publish_date</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">characters</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// We&#39;re using useEffect here so we can monitor any changes made to our </span><span class="w"></span>
+<span class="w">  </span><span class="c1">// &#39;body&#39; state</span><span class="w"></span>
+<span class="w">  </span><span class="nx">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;effect:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">[</span><span class="nx">body</span><span class="p">])</span><span class="w"> </span><span class="c1">// body inside our dependency array</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">return</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">form</span><span class="w"> </span><span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">handleSubmit</span><span class="p">}</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">body</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)=&gt;{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">setBody</span><span class="p">({...</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">})</span><span class="w"></span>
+<span class="w">        </span><span class="p">}}</span><span class="w"> </span>
+<span class="w">      </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">body</span><span class="p">.</span><span class="nx">author</span><span class="p">}</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)=&gt;{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">setBody</span><span class="p">({...</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">})</span><span class="w"></span>
+<span class="w">        </span><span class="p">}}</span><span class="w"> </span>
+<span class="w">      </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">body</span><span class="p">.</span><span class="nx">publish_date</span><span class="p">}</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)=&gt;{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">setBody</span><span class="p">({...</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">publish_date</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">})</span><span class="w"></span>
+<span class="w">        </span><span class="p">}}</span><span class="w">  </span>
+<span class="w">      </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="cm">/* This will list out any added characters in your body separated by </span>
+<span class="cm">      a comma and a space. */</span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Currently</span><span class="w"> </span><span class="nx">added</span><span class="w"> </span><span class="nx">Characters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">body</span><span class="p">.</span><span class="nx">characters</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">)}</span><span class="o">&lt;</span><span class="err">/p&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span>
+<span class="w">          </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="w"> </span>
+<span class="w">          </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">character</span><span class="p">}</span><span class="w"> </span>
+<span class="w">          </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)=&gt;{</span><span class="nx">setCharacter</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}}</span><span class="w"> </span>
+<span class="w">          </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s1">&#39;button&#39;</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">addToArrayHandler</span><span class="p">}</span><span class="w"> </span><span class="o">&gt;</span><span class="nx">Add</span><span class="o">&lt;</span><span class="err">/button&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="err">/span&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="w"> </span><span class="o">&gt;</span><span class="nx">Submit</span><span class="o">&lt;</span><span class="err">/button&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/form&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">Add</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</div>
+<input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><label for="__tabbed_3_3">Create a Document using React w/o Comments</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useEffect</span><span class="p">,</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;react&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">collection</span><span class="p">,</span><span class="w"> </span><span class="nx">addDoc</span><span class="p">,</span><span class="w"> </span><span class="nx">Timestamp</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;firebase/firestore&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../firebase/config&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">Add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">setBody</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">({</span><span class="w"></span>
+<span class="w">        </span><span class="nx">title</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">publish_date</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">characters</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">character</span><span class="p">,</span><span class="w"> </span><span class="nx">setCharacter</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">addToArrayHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">newBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="nx">body</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">        </span><span class="nx">newBody</span><span class="p">.</span><span class="nx">characters</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">character</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="nx">setBody</span><span class="p">(</span><span class="nx">newBody</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="nx">setCharacter</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleSubmit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collection</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;books&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="nx">addDoc</span><span class="p">(</span><span class="nx">ref</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="p">...</span><span class="nx">body</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nx">publish_date</span><span class="o">:</span><span class="w"> </span><span class="nx">Timestamp</span><span class="p">.</span><span class="nx">fromDate</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">publish_date</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="p">})</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span><span class="p">){</span><span class="w"></span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="nx">setBody</span><span class="p">({</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">publish_date</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">characters</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">useEffect</span><span class="p">(()=&gt;{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;effect:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">[</span><span class="nx">body</span><span class="p">])</span><span class="w"> </span>
+
+<span class="w">    </span><span class="k">return</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">form</span><span class="w"> </span><span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">handleSubmit</span><span class="p">}</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span>
+<span class="w">                </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="w"> </span>
+<span class="w">                </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">body</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="w"> </span>
+<span class="w">                </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)=&gt;{</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">setBody</span><span class="p">({...</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">})</span><span class="w"></span>
+<span class="w">                </span><span class="p">}}</span><span class="w"> </span>
+<span class="w">            </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span>
+<span class="w">                </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="w"> </span>
+<span class="w">                </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">body</span><span class="p">.</span><span class="nx">author</span><span class="p">}</span><span class="w"> </span>
+<span class="w">                </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)=&gt;{</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">setBody</span><span class="p">({...</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">})</span><span class="w"></span>
+<span class="w">                </span><span class="p">}}</span><span class="w"> </span>
+<span class="w">            </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span>
+<span class="w">                </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="w"> </span>
+<span class="w">                </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">body</span><span class="p">.</span><span class="nx">publish_date</span><span class="p">}</span><span class="w"> </span>
+<span class="w">                </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)=&gt;{</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">setBody</span><span class="p">({...</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">publish_date</span><span class="o">:</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">})</span><span class="w"></span>
+<span class="w">                </span><span class="p">}}</span><span class="w">  </span>
+<span class="w">            </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Currently</span><span class="w"> </span><span class="nx">added</span><span class="w"> </span><span class="nx">Characters</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">body</span><span class="p">.</span><span class="nx">characters</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">)}</span><span class="o">&lt;</span><span class="err">/p&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span>
+<span class="w">                    </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="w"> </span>
+<span class="w">                    </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">character</span><span class="p">}</span><span class="w"> </span>
+<span class="w">                </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)=&gt;{</span><span class="nx">setCharacter</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}}</span><span class="w"> </span>
+<span class="w">                </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s1">&#39;button&#39;</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">addToArrayHandler</span><span class="p">}</span><span class="w"> </span><span class="o">&gt;</span><span class="nx">Add</span><span class="o">&lt;</span><span class="err">/button&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="err">/span&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="w"> </span><span class="o">&gt;</span><span class="nx">Submit</span><span class="o">&lt;</span><span class="err">/button&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/form&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">Add</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+<p>Nice! We created some data and stored it in our FireStore DB. You can create as many <em>collections</em> as needed, all with their own documents that serve the needs of your App. You might want to store a <em>collection</em> of <em>books, cars, video games, blog posts, users</em>... you get the point. As we move on through this course, keep your Capstone idea in mind as you will be creating these <em>collections</em> in a similar manner.</p>
+<h2 id="document-oriented-database">Document-Oriented Database</h2>
+<p>At this point, it's important to talk about <strong>consistency</strong> in our data. Since FireStore is <strong>NOT</strong> a <strong>Relational Database</strong> such as <strong>SQL</strong>, which stores data into tables, columns, and rows, FireStore is a little more relaxed when it comes to creating data; meaning you can create multiple documents of various shapes (different values and data types). FireStore is a <strong>NoSQL</strong>, document-oriented database, which allows us to have different fields in a document within a collection, meaning, the documents can have completely different data from one to the next. Although you are <em>allowed</em> to do this, it is important to keep in mind that you want consistent data through your data so you can depend on on the data structure of each document to be like the last. In addition, this can create errors down the line when you are expecting a certain field in every document and all of a sudden a document doesn't have an expected field. Check out the images below:</p>
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Consistent Collection</label><div class="tabbed-content">
+<p><img alt="consistent" src="../../images/exampleOfCollection-consistent.png" /> </p>
+<blockquote>
+<p>NOTE: Keeping your database consistent will better help serve your app's when you are building the client-side. So, if a field expects an Object or an Array, make sure to be specify that it does when creating new documents from the client-side. This will make for a reliable data structures and better flow.</p>
+</blockquote>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Inconsistent Collection</label><div class="tabbed-content">
+<p><img alt="finding-config-file-2" src="../../images/exampleOfCollection-inconsistent.png" /></p>
+<blockquote>
+<p>NOTE: Do you see the difference between "DocumentA" and "DocumentB"? The fields are different! Although very similar this can create lots of havoc for you later down the line. Even though you <em>can</em> create different data structures across the documents in a collection, this is <strong>strongly</strong> discouraged as you might run into unexpected later. Your app will be designed to render the data from these collections, and they will need to be consistent, dependable, and reliable across the board in order to function properly.</p>
+</blockquote>
+</div>
+</div>
+<p>As the saying goes, <strong>"Just because you can, doesn't mean you should"</strong>, applies to the way we model our documents inside our collections. Even though we can create completely different documents, do we really want to? Most of the data that will be stored into a FireStore DB will come from our client-side, where we will specify exactly what will be going into every document as it is created by the user. So there should not be much to worry about, after all, we are developers.</p>
+<h2 id="summary">Summary</h2>
+<p>We should now have a basic understanding on how to <strong><em>C</em></strong>reate and <strong><em>R</em></strong>ead documents. We have covered the <em>"CR"</em> in <strong><em>CRUD</em></strong> in this section.</p>
+<p>Next, we learn the <strong><em>U</em></strong>pdate and <strong><em>D</em></strong>elete portion.</p>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.youtube.com/watch?v=haMOUb3KVSo">YT, Firebase - How to Structure Your Data | Get to know Cloud FireStore #5</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.youtube.com/watch?v=o7d5Zeic63s">YT, Firebase - Maps, Arrays and Subcollections, Oh My! | Get to know Cloud FireStore #4</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://softauthor.com/firebase-firestore-get-documents-data-in-collection/">Blog, Soft Author - Raja Tamil - Firebase 9 FireStore GET ALL DOCUMENTS Data From A Collection</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://softauthor.com/firebase-firestore-add-document-data-using-adddoc/">Blog, Soft Author - Raja Tamil - Firebase V9 FireStore Add Document Data Using addDoc()</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.youtube.com/watch?v=jCY6DH8F4oc&amp;t=2244s">YT, PedroTech -CRUD Tutorial Using React + Firebase | Firebase 9 and FireStore Tutorial</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://medium.flutterdevs.com/firebase-data-modeling-tips-2fc61724743a">YT, CodeWithChris - Firebase FireStore Tutorial - Data Model (Lesson 2)</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://www.youtube.com/watch?v=OunS3tLLrPY">YT, Fireship - FireStore Data Modeling - Five Cool Techniques</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://medium.flutterdevs.com/firebase-data-modeling-tips-2fc61724743a">Blog, Naveen Srivastava - Firebase Data Modeling Tips</a></li>
+</ul>
+<h2 id="know-your-docs">Know Your Docs</h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox"/> <a href="https://firebase.google.com/docs/firestore/data-model">Firebase Documentation - Cloud FireStore Data model</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://firebase.google.com/docs/firestore/manage-data/data-types">Firebase Documentation - Supported data types</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://firebase.google.com/docs/firestore/manage-data/structure-data">Firebase Documentation - Choose a data structure</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://firebase.google.com/docs/firestore/query-data/get-data">Firebase Documentation - Get data with Cloud FireStore</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://firebase.google.com/docs/firestore/manage-data/add-data">Firebase Documentation - Add data to Cloud FireStore</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../crud-intro/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Intro to CRUD
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../ud-firestore/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              UD - Firestore
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>
+      
+    
+  </body>
+</html>
