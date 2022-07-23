@@ -26,80 +26,39 @@ We are going to go through the process of creating a data model for a **Restaura
 
 We will think about our data step by step. The First functionality we want is for a user to be able to search restaurants and click a button to look at the menu. We will start with a data model for the "restaurant" collection.
 
-- [ ] Follow the image below and Model the data for our "restaurant" collection  [Draw.io](https://www.draw.io/) for out **ERD** (Entity Relationship Diagram). 
+#### UML Notation
 
-(IMAGE)
+Entity Relationship Diagrams are written in **[UML Notation](https://www.tutorialspoint.com/uml/uml_basic_notations.htm)** to visualize the relationships between tables. **UML** stands for **Unified Modeling Language** and it is basically the go-to for designing object-oriented systems.
+
+- [ ] Follow Along and do the same as the image below and Model the data for our "restaurant" collection  [Draw.io](https://www.draw.io/) for our **ERD** (Entity Relationship Diagram). 
+
+![er-diagram-InitialERDSETUP](./../images/InitialERDSETUPWithRestaurant.png)
+
+
+
+
 <!-- INSERT IMAGE OF DRAW ENTITY RELATION -->
-- [ ] Now think about this from the user's perspective. You only want to send the data that is immediately relevant. Sending extra data can be slow and costly. What data is unneeded for the initial search and would take up to much space?
+- [ ] Now think about this from the user's perspective. You only want to send the data that is immediately relevant. Sending extra data can be slow and costly. What data is unneeded for the initial search and would take up to much space? Look at the data in the picture that you put in your **ER diagram**. Which one of the 4 (Name,Rating,Tags,Menu) should be separated out from the search?
 <details><summary>Reason for Separation</summary>
 Receiving the menu data at this point is unneeded since we want the user to click on a button for then menu and at that point we could query the menu items from the database.
 </details>
 
+### Put Data in a sub collection
+
+It is not always the right way there are pros and const but in general each potential separate user action with our data should be in its own collection. So Searching for restaurants and pressing a button to look at the menu are two separate actions and putting the data in different collections makes the most sense for this use case.
+
 
 ![er-diagram-example](./../images/biggerVsSubCollection.png)
 
-- [ ] Find the elements you need under the "Entity Relation" tab on the left toolbar.
+Here is how we would model it in our ER Diagram. Follow along and make your diagram look the same. Notice We have the label "Restaurants/Menu item" This shows Menu Item is a sub collection of Restaurants. Notice that there are several relationship lines to pick (**One-to-One**, **One-to-Many** ect..). Zoom in on the picture with the browser on the if unable to see.
 
 
-
-=== "School Entity Table "
-
-    | `school_id` | `school_name` | `street_address` | `campus_director` | `phone_number` | `website_URL` | `email` | `school_id` |
-    | `001` | - | - | - | - | - | - |
-    | `002` | `Austin Dental School` | `123 Main Street` | `058` | `555-123-5520` | `waterloodental.us` | `waterloodental@email.com` |
-    | `003` | `Dallas Dental School` | `123 Main Avenue` | `091` | `555-123-2250` | `dfwdental.us` | `dfwdental@email.com` |
-    | `004` | `Houston Dental School` | `123 Main Boulevard` | `014` | `555-123-0025` | `htowndental.us` | `htowndental@email.com` |
-
-Then each of the `employee`s that worked at these schools would have different **properties** from the schools but the same **properties** to each other with different **values**. For this reason they would go into a different table:
-
-=== "Employee Entity Table"
-
-  | `employee_id` | `first_name` | `last_name` | `phone_number` | `address` | `email` |
-  | - | - | - | - | - | - |
-  | `014` | `Alice` | `Walker` | `555-9963` | `900 Finney Street` | `alice@email.com` |
-  | `058` | `Lena` | `Heady` | `555-6399` | `900 Comal Street` | `lena@email.com` |
-  | `091` | `James` | `Dean` | `555-3699` | `900 Commerce Street` | `james@email.com` |
-  | `011` | `Edward` | `Newton` | `555-6936` | `900 Flat Street` | `edward@email.com` |
-
-Notice the `campus_director` property on the School Entity Table. Do you see how it's just a number? This number would relate to an employee in the Employee Entity Table. Since our `employee_id_` property will never changes and will always represent a single employee we can use this property in  other tables to *relate* the pieces of data without having to duplicate the information in both tables. We can have the `employee_id_` in the schools's table and then use it again in our Payroll Table, for example, to maximize efficiency. When creating our data models we want to always be thinking about maximizing the re-use of our properties. Take the time to think about all the individual relationships each entity and property can have for your final project's.
-
-  > NOTE: `employee_id` is an example of a **primary key** (PK) and will follow strict rules to be considered a **PK**. It will never change and can only be assigned to one person. Since it follows these rules we can re-use this throughout our database.
-
-  > NOTE 2: Generally, `id`s are created one at a time in ascending order with each new entity entry. This is default and automatic in mySQL.
-
-*****
-
-## UML Notation
-
-Entity Relationship Diagrams are written in **[UML Notation](https://www.tutorialspoint.com/uml/uml_basic_notations.htm)** to visualize the relationships between tables. **UML** stands for **Unified Modeling Language** and it is basically the go-to for designing object-oriented systems.
-
-Remember our ER Diagram from Week 3 . . .
-
-![er-diagram-example](./../images/er-diagram-example.png)
-
-### Fields & Entities
-
-*In short: each row is an **entity** and each column is a **field**.*
-
-In the diagram above, the rectangles with our **table** names on them `usersContact` are called **entities**. It's just an object that represents some type of data. The table, once saved in the database would accept and store multiple entities with these **fields** (properties) on them.
-
-  > NOTE: Remember, tables are made of rows and columns. In a SQL table, each entry (**entity**) is a row. And each column is a **field** (property/attribute) of the entity. The cells would represent the values stored in each field on each entity.
-
-Inside of the entity we see the **attributes** that correspond to our tables. Those are the **field**/column names and there may be symbols next to those fields. In fact, there is generally a symbol there that gives us some information about the field's responsibility. If it has a key icon, for example, that indicates that the field is the **primary key**(PK). You can see a [list of other field icons here](https://stackoverflow.com/questions/10778561/what-do-the-mysql-workbench-column-icons-mean).
-
-Here's another diagram to look at. Notice the icons on these tables.
-
-![er-diagram-example-icon-highlighting](./../images/er-diagram-example-icon-highlighting.png)
+![er-diagram-exampleInitialSetup](./../images/ERDOneToManyCollectionsRestaurantsToMenu.png)
 
 ### Cardinality
 
-The last thing we need to talk about in order to understand our ER diagrams is **cardinality**. Cardinality refers to the type of relationships that we maintain between our entities. These types of relationships are how we can enforce data integrity throughout our database. For example, I can't assign a `userId` on a child table like usersContacts to an `id` that DOESN'T EXIST on the parent table users. But what cardinality is really talking about is the maximum or minimum number of relationships that can be maintained between two entities. For example, a `user` can have multiple `userContacts` but only one `usersAddress`.
+The lines correspond with **cardinality**. Cardinality refers to the type of relationships that we maintain between our entities. These types of relationships are how we can enforce data integrity throughout our database. For example, Each restaurant has many menu items(**One-to-Many** relationship). But what cardinality is really talking about is the maximum or minimum number of relationships that can be maintained between two entities. For example, a `user` can have multiple `userContacts` but only one `usersAddress`.
 
-These relationships are usually described as **"one-to-many"**, **"one-to-one"**, or **"many-to-many"**. The lines between the entities and the small notations at the end of them dictate these relationships.
-
-![cardinality-notation-table](./../images/cardinality-notation-table.png)
-
-*****
 
 ## Relationships Explained
 
@@ -111,18 +70,14 @@ These relationships are usually described as **"one-to-many"**, **"one-to-one"**
 
 - [ ] **Many-to-Many**: An example of this would be a Course table to a Student table. Each Course can have many students and each Student can have many Courses.
 
-### Entity Relationships Further Explained
+- [ ] Find the elements you need under the "Entity Relation" tab on the left toolbar.
 
-Let's look at the data from the `employees` database above:  
+![cardinality-notation-table](./../images/cardinality-notation-table.png)
 
-- [ ] Follow the line between the `employees` table to the `salaries` table. Starting at the `employees` table we see a double hash mark, this means that the relationship an entity in the `employees` table can have **one and only one** relationship with what ever table its connected to on this line.
-- [ ] at the other end of that line connected to the `salaries` table we see a trident and a hash mark. This means that each entity in this table can have one or many relationships with entities in the table it's connected to.
-- [ ] Summary: Each employee can have one and only one salary. But a salary amount could be given to one or, even, all of the employees.
-- [ ] Going further, looking at the `salaries` table we can see that there are `from_date` and `to_date` fields. So it looks like that table holds a history of each salary an employee has had over the course of some time.
+When a user orders they are going to pick one restaurant to order from on a per transaction basis. So add a user to the data. The user has a **One-to-One** relationship with a restaurant. Bellow Under "User" collection the Contact data is The **map data** type. It is found in FireStore and is what we would call an object in javaScript. And we would expect to find a object with `{state, city, address}` ect...
 
-Are we starting to understand how to read these? You can see more cardinality symbols on the [bottom of this page](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning).
+![er-diagram-example](./../images/ERDOneToOneUsertoRestaurants.png)
 
-To further illustrate, take a look at the `departments` entity. Notice the double hash and trident lines? This shows that each `department` can have only one `title` but multiple `dept_emp` (department employees).
 
 ## Determining Our Data Model
 
@@ -146,23 +101,58 @@ Let's now assume that we are starting completely from scratch. We do not have a 
 
 This is the thought process you will go through as you develop MySQL databases on your own. It may seem simple or it may seem complicated but data modeling is an important part of the development process and a good skill to have. Always begin by drawing it out on paper so you have a good visual understanding of your database's needs.
 
+## Model a piece of data in code with Schema.
+
+Schemas are objects that define the structure of the data. We use it in our code to determine how our data is laid out before we enter it into the database. Previously just used  object literals `{}`. The disadvantage of this is we have to keep checking  back to all the places we have modified or inserted using the same setup in the same collection. With a schema we can setup a standard process for how our data is structured and put in safeguards like default values. We can do this by using classes to create objects we will put into our database. The class would Represent how a piece of data wold look in the collection. Bellow is an example of a "User" collection.
+
+
+```javascript
+// Models/schema.js
+class User {
+  constructor(name, transactionId,city,state,address) {
+    this.name = name || "";//if name is null/undefined or does not 
+                            //exist empty  string will be the default
+    this.transactionId = transactionId || 0; //our code expects number
+    this.contact = getContact(city,state,address);
+
+  // Default values if none are provided
+    function getContact(city = "",state = "",address = ""){
+  /// more predictability in code
+     return {city,state,address}
+    }
+  }
+}
+
+const userOne = new User( 'Ted', 78, 'Lake Stevens', 'WA');
+console.log(userOne);
+//{ name:'Ted',transactionId: 78,
+//  contact: {city:'Lake Stevens', state:'WA', address: "" }
+// }
+
+const userTwo= new User( 'Max', null , 'Denver', 'CO', '14221 sun set');
+console.log(userTwo);
+// { name:'Max',transactionId: 0, 
+//   contact: {city:'Denver', state:'CO', address: '14221 sun set' }
+// }
+
+
+//// add in FireBase FireStore database
+await addDoc(userCollectionRef, userOne)
+
+```
+
 ## Practice It
 
-![lucid-chart-erd-example](./../images/lucid-chart-erd-example.png)
-
-- [ ] Re-create the above diagram on [Draw.io](https://www.draw.io/)
-- [ ] Find the elements you need under the "Entity Relation" tab on the left toolbar
-  
-  > Hint: You can use an SQL statement to have the app automatically create the entities (tables) for you . . .
+You will practice by going back to your firebase assignments project and changing one of or more of the object literals `{}` you put in the database with a schema. Go to one of the Previous 1-4 day assignments and create a `Models/schema.js` folder and file create a class that follows your data from a collection and export the class. Then import and call that class and input the data like above and use that to put in the database instead of a object literal `{}`.
 
 ## Additional Resources
 
-- [ ] [YT, LucidChart - ERD Tutorial pt. 2](https://youtu.be/-CuY5ADwn24)
+- [ ] [Cloud Firestore Data Modeling ](https://www.youtube.com/watch?v=lW7DWV2jST0)
 - [ ] [Article, TutorialsPoint - UML Notation](https://www.tutorialspoint.com/uml/uml_basic_notations.htm)
 <!-- - [ ] [YT, tuber - title]() -->
 
 ## Know Your Docs
 
 - [ ] [LucidCharts Docs - ER Diagrams](https://www.lucidchart.com/pages/er-diagrams)
-- [ ] [LucidCharts - ERD Symbols](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning)
-- [ ] [Forum, StackOverflow - Column Icon Meanings](https://stackoverflow.com/questions/10778561/what-do-the-mysql-workbench-column-icons-mean)
+
+
