@@ -133,13 +133,13 @@ class User {
 
 const userOne = new User( 'Ted', 78, 'Lake Stevens', 'WA');
 console.log(userOne);
-//{ name:'Ted',transactionId: 78,
+//{ name:'Ted',restaurantId: 78,
 //  contact: {city:'Lake Stevens', state:'WA', address: "" }
 // }
 
 const userTwo= new User( 'Max', null , 'Denver', 'CO', '14221 sun set');
 console.log(userTwo);
-// { name:'Max',transactionId: 0, 
+// { name:'Max',restaurantId: 0, 
 //   contact: {city:'Denver', state:'CO', address: '14221 sun set' }
 // }
 
