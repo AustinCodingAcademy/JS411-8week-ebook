@@ -23,7 +23,7 @@
 - [ ] Student Presentations
 - [ ] Creation Time
     * [ ] Complete the 3 steps from the pre-homework with your teammate.
-    * [ ] Create a CapstonePlanning branch for the assignment due after class.
+    * [ ] Create a CapstonePlanning assignment ER diagram to model your data due next class.
     * [ ] Look ahead and work on Day 13 if you have time.
 - [ ] Push Yourself Further
 - [ ] Interview Questions: Blog to Show You Know
@@ -47,15 +47,16 @@
 
 ## Creation Time, 60-90 mins
 
-While you might not code much today it is not a simple, boring, or *free* day. You should use the time you have today with your teammates and instructor to plan out your Capstone Project App. Today is a day for you to think more about the frontend of your Capstone App. You should already have some ideas and preferably something started but if you don't, please do that today.
+While you might not code much today it is not a simple, boring, or *free* day. You should use the time you have today with your teammates and instructor to plan out your Capstone Project App Using FireBase and the FireStore **NoSQl** database. Today is a day for you to think more about the frontend of your Capstone App. You should already have some ideas and preferably something started but if you don't, please do that today.
 
-There are no examples, project instructions or follow-up in today's lesson. Just use this time wisely and ask the instructor if you have any questions on the implementation of your project.
+Your project instructions Will involve creating an ER diagram today due next class.
 
 With your teammate:
 
 - [ ] **List out the core functions of your Capstone App**
 - [ ] **Compare lists and trim out unnecessary functions**
-- [ ] **Agree upon the core functions together.**
+- [ ] **Agree upon the core functions.**
+- [ ] **Based on how your app will function Create an ER diagram to model your data.**
 - [ ] **Next, draw out the look of your app. What components will you need?**
 - [ ] **Build a [Trello Board](https://trello.com/) for both of you to thoughtfully build your app**
 - [ ] **Begin adding to the [Trello board](https://trello.com/) the steps you KNOW you have to do.**
@@ -73,13 +74,14 @@ and finally...
 * *Weeks of coding can save you hours of planning.*
 
 ### Project Instructions
-
-- [ ] 30 minutes in pairs, writing and drawing system requirements for each student's app.
-- [ ] 30 minutes of volunteers at the board working with the instructor to design and plan their app.
-- [ ] Rest of class dedicated to students back in pairs writing and drawing their plans together.
-- [ ] Go to the blank sign-in component that's connected to your 311 Server and make a new branch called `CapstonePlanning`. Be sure you're only using one repo and not both of your teammates' repos!
-- [ ] Take pictures of your drawings and add them to a folder in that repo called planningImages
-- [ ] Next add the list Core Functions to a `README.md` file. Turn in the pull request as your CapstonePlanning assignment for today.
+- [ ] Create a repo in your github called `CapstonePlanning` and create a `README.md` file. 
+- [ ] Go [here](https://app.diagrams.net/) to create a **ER Diagram** and save it to the github repo `CapstonePlanning` you created. Make sure to select the save to github option and sign in to it.
+- [ ] In pairs, writing and drawing system requirements for each student's app.
+- [ ] If needed volunteers at the board working with the instructor to design and plan their app.
+- [ ] Next add the list Core Functions to a `README.md` file.
+- [ ] If needed Take pictures of your drawings and add them to a folder in that repo called planningImages.
+- [ ] Start drawing out the **ER Diagram** for your data model.
+- [ ] Turn in the pull request as your CapstonePlanning assignment for today.
 
 ## Student Feedback
 
