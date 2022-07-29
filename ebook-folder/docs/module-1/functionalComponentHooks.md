@@ -234,65 +234,66 @@ Take some time to compare these two components. They accomplish the exact same t
 === "The Functional Component Way"
 
 ```javascript
-    // MyfunctionTodos.js
-    import React, { useState, useEffect} from 'react';
-    
-
-    function MyfunctionTodos() {
-        const [arrayOfTodos, setArrayOfTodos] = useState([]);
-
-        useEffect(() => {
-            fetch('https://jsonplaceholder.typicode.com/todos')
-            .then(response => {
-            return response.json()
-            }).then(todos => setArrayOfTodos(todos)) // update state with
-                                                     // setArrayOfTodos 
-
-        }, []); // when dependency array empty works exactly like componentDidMount
+// MyfunctionTodos.js
+import React, { useState, useEffect} from 'react';
 
 
-        return (
-        <div>
-                {arrayOfTodos.map((todo, index) => {
-                return  <li key={index}>{todo.title}</li>              
-                })}  
-        </div>
-            );
+function MyfunctionTodos() {
+    const [arrayOfTodos, setArrayOfTodos] = useState([]);
 
-    }
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/todos')
+        .then(response => {
+        return response.json()
+        }).then(todos => setArrayOfTodos(todos)) // update state with
+                                                    // setArrayOfTodos 
+
+    }, []); //when dependency array empty works like componentDidMount
+
+
+    return (
+      <div>
+            {arrayOfTodos.map((todo, index) => {
+            return  <li key={index}>{todo.title}</li>              
+            })}  
+      </div>
+    );
+
+}
 
     
 ```
 We can run code when state is updated too. Below we have a `isCountEven` function that runs when count is updated and the `useEffect` hook is checking for that update in the dependency `[count]` array. 
 
-=== "With Comments"
 
-    ```javascript
-      // MyCountComponent.js
-    import React, { useState,useEffect} from 'react';
+=== "useEffect update"
 
-   function MyCountComponent() {
-        const [count, setCount] = useState(1);
+```javascript
+    // MyCountComponent.js
+import React, { useState,useEffect} from 'react';
 
-        useEffect(() => {// useEffect takes in anonymous function
+function MyCountComponent() {
+    const [count, setCount] = useState(1);
 
-            let isCountEven = () => {
-                 if(count % 2 === 0){
-                     console.log("yes count is even", count);
-                 }
-             }
+    useEffect(() => {// useEffect takes in anonymous function
 
-            isCountEven();
-          
-        }, [count]); //dependency array Only run when count changes
+        let isCountEven = () => {
+                if(count % 2 === 0){
+                    console.log("yes count is even", count);
+                }
+            }
 
-        const handleClick = () => {
-            let newCount = count + 
-            setCount(newCount);
-        }
-        return <h1 onClick={handleClick}>{`You clicked ${count} times`}</h1>;
+        isCountEven();
+        
+    }, [count]); //dependency array Only run when count changes
+
+    const handleClick = () => {
+        let newCount = count + 
+        setCount(newCount);
     }
-    ```
+    return <h1 onClick={handleClick}>{`You clicked ${count} times`}</h1>;
+}
+```
 
 ## See It - Components with Hooks
 
