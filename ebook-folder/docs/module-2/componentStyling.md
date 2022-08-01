@@ -25,7 +25,7 @@ The reason we are introducing Material UI is because it is a robust, cross-platf
 
 We mentioned the words "component library". But what does that mean? Well...a component library is a set of pre-built components that satisfy some specific design requirement. For example...say I want all the buttons on my website to look the same (or similar). This is something that you usually want for consistency and good design. Well, Material UI provides a pre-built Button component that you can import into your code like this:
 
-`import { Button } from '@mui/material';'`
+`import { Button } from '@mui/material';`
 
 These [buttons come with pre-determined styles](https://material-ui.com/components/buttons/) but can be further styled to your liking. See the code snippet and example screenshot below:
 
