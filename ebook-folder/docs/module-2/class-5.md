@@ -79,10 +79,6 @@ You will have both class days this week to complete the project and upload your 
 
 #### Setup
 
-- [ ] You should have Create React App installed. If you don't, please do that now by running the following command in your terminal/command prompt: `npm i -g create-react-app`.
-
-  > NOTE: No need to do this after Node 12, instead use npx (see below)
-
 - [ ] We will be working from scratch so you will need to create your own GitHub repository for this project and call it `JS411-my-music-app`. Do that now.
 
 #### Project Work
@@ -97,7 +93,7 @@ You will have both class days this week to complete the project and upload your 
 
 - [ ] Now run `npm start` to see the default `create-react-app` code running.
 
-- [ ] Additionally, install Material UI in this folder: [`npm i @material-ui/core`](https://www.npmjs.com/package/@material-ui/core).
+- [ ] Additionally, install Material UI in this folder: [`npm install @mui/material @emotion/react @emotion/styled`](https://www.npmjs.com/package/@mui/material).
 
 ##### 2. Login Screen
 
