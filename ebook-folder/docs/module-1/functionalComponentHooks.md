@@ -228,34 +228,37 @@ Take some time to compare these two components. They accomplish the exact same t
 
 ### useEffect
 
- Instead of `componentDidMount` and other lifecycle methods we now just have one hook `useEffect` that does it all. When `useEffect` has an empty dependency array `[]` it behaves just like `componentDidMount`.
+Instead of `componentDidMount` and other lifecycle methods we now just have one hook called `useEffect` that does it all. When `useEffect` has an empty dependency array `[]` it behaves just like `componentDidMount`.
 
 
 === "The Functional Component Way"
 
 ```javascript
-// MyfunctionTodos.js
+// MyFunctionTodos.js
 import React, { useState, useEffect} from 'react';
 
 
-function MyfunctionTodos() {
+function MyFunctionTodos() {
     const [arrayOfTodos, setArrayOfTodos] = useState([]);
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/todos')
-        .then(response => {
-        return response.json()
-        }).then(todos => setArrayOfTodos(todos)) // update state with
-                                                    // setArrayOfTodos 
+          .then(response => {
+            return response.json()
+          })
+          // update state with setArrayOfTodos 
+          .then(todos => setArrayOfTodos(todos)) 
+                                                    
 
-    }, []); //when dependency array empty works like componentDidMount
+    }, []); // <-- when dependency array is empty...
+                //   ...it works just like componentDidMount()
 
 
     return (
       <div>
-            {arrayOfTodos.map((todo, index) => {
-            return  <li key={index}>{todo.title}</li>              
-            })}  
+        {arrayOfTodos.map((todo, index) => {
+          return  <li key={index}>{todo.title}</li>              
+        })}  
       </div>
     );
 
@@ -263,13 +266,14 @@ function MyfunctionTodos() {
 
     
 ```
-We can run code when state is updated too. Below we have a `isCountEven` function that runs when count is updated and the `useEffect` hook is checking for that update in the dependency `[count]` array. 
+
+We can run code when state is updated too. Below we have an `isCountEven` function that runs when count is updated and the `useEffect` hook is checking for that update in the dependency `[count]` array. 
 
 
-=== "useEffect update"
+=== "useEffect() update"
 
 ```javascript
-    // MyCountComponent.js
+// MyCountComponent.js
 import React, { useState,useEffect} from 'react';
 
 function MyCountComponent() {
@@ -278,18 +282,18 @@ function MyCountComponent() {
     useEffect(() => {// useEffect takes in anonymous function
 
         let isCountEven = () => {
-                if(count % 2 === 0){
-                    console.log("yes count is even", count);
-                }
-            }
+          if(count % 2 === 0){
+            console.log("yes count is even", count);
+          }
+        }
 
         isCountEven();
         
-    }, [count]); //dependency array Only run when count changes
+    }, [count]); // dependency array will only run when `count` changes
 
     const handleClick = () => {
-        let newCount = count + 
-        setCount(newCount);
+      let newCount = count + 
+      setCount(newCount);
     }
     return <h1 onClick={handleClick}>{`You clicked ${count} times`}</h1>;
 }
