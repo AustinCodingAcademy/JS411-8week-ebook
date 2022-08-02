@@ -5,16 +5,16 @@
 <!-- cp workspace/resources/classOutlineTemplate.md docs/module- -->
 <!-- ! END INSTRUCTOR ONLY CONTENT -->
 
-*Far and way, ther is no greater gift life offers than the chance to work hard at work worth doing. - Teddy Roosevelt*
+*Far and way, there is no greater gift life offers than the chance to work hard at work worth doing. - Teddy Roosevelt*
 
 ## Greet, Outline, and Objectify
 
 <!-- SMART: Specific, Measurable, Attainable, Relevant, and Timely. -->
 <!-- https://examples.yourdictionary.com/well-written-examples-of-learning-objectives.html -->
   
-*OBJECTIVE: Today the student will learn and practice to understand:*s
+*OBJECTIVE: Today the student will learn and practice to understand:*
 
-* *Planning an app's needs using their Capstone Project*
+* *Planning an app's data needs using their Capstone Project*
 
 *****
 
@@ -47,20 +47,23 @@
 
 ## Creation Time, 60-90 mins
 
-While you might not code much today it is not a simple, boring, or *free* day. You should use the time you have today with your teammates and instructor to plan out your Capstone Project App Using FireBase and the FireStore **NoSQl** database. Today is a day for you to think more about the frontend of your Capstone App. You should already have some ideas and preferably something started but if you don't, please do that today.
+While you might not code much today it is not a simple, boring, or *free* day. You should use the time you have today with your teammates and instructor to plan out your Capstone Project App data needs using FireBase and the FireStore **NoSQl** database.
 
-Your project instructions Will involve creating an ER diagram today due next class.
+Your project instructions will involve creating an ER diagram today due next class.
 
-With your teammate:
+With your teammate(s):
+
+**YOU SHOULD NOT BE CODING YET.**
 
 - [ ] **List out the core functions of your Capstone App**
-- [ ] **Compare lists and trim out unnecessary functions**
-- [ ] **Agree upon the core functions.**
+- [ ] **Compare lists and trim out unnecessary functions. Bare minimum MVP!!!!!**
+- [ ] **Agree upon the core functions. Bare minimum MVP!!!!!**
 - [ ] **Based on how your app will function Create an ER diagram to model your data.**
-- [ ] **Next, draw out the look of your app. What components will you need?**
+- [ ] **Next, draw out the front-end look/UI of your app. What components will you need?**
 - [ ] **Build a [Trello Board](https://trello.com/) for both of you to thoughtfully build your app**
 - [ ] **Begin adding to the [Trello board](https://trello.com/) the steps you KNOW you have to do.**
-- [ ] **YOU SHOULD NOT BE CODING YET.**
+
+**YOU SHOULD NOT BE CODING YET.**
 
 Here are few quotes to inspire your work today:
 
@@ -74,8 +77,9 @@ and finally...
 * *Weeks of coding can save you hours of planning.*
 
 ### Project Instructions
-- [ ] Create a repo in your github called `CapstonePlanning` and create a `README.md` file. 
-- [ ] Go [here](https://app.diagrams.net/) to create a **ER Diagram** and save it to the github repo `CapstonePlanning` you created. Make sure to select the save to github option and sign in to it.
+
+- [ ] Create a repo in your GitHub called `CapstonePlanning` and create a `README.md` file. 
+- [ ] Go [here](https://app.diagrams.net/) to create a **ER Diagram** and save it to the GitHub repo `CapstonePlanning` you created. Make sure to select the save to GitHub option and sign in to it.
 - [ ] In pairs, writing and drawing system requirements for each student's app.
 - [ ] If needed volunteers at the board working with the instructor to design and plan their app.
 - [ ] Next add the list Core Functions to a `README.md` file.
@@ -93,8 +97,9 @@ and finally...
 
 ## Exit Recap, Attendance, and Reminders, 5 mins
 
-- [ ] Create Class 12 Blog Assignment
-- [ ] Prepare for next by completing all of your pre-class lessons
+- [ ] Instructor: Post Class 12 Blog Assignment
+- [ ] Instructor: Post ERD Assignment
+- [ ] Prepare for next class by completing all of your pre-class lessons
 - [ ] Complete the feedback survey
 
 <!-- <iframe id="openedx-zollege" src="https://openedx.zollege.com/feedback" style="width: 100%; height: 500px; border: 0">Browser not compatible.</iframe>
