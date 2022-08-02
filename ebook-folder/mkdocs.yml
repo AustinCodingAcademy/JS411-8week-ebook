@@ -60,7 +60,6 @@ nav:
         - Implement React Router: module-2/implement-ReactRouter.md
         - Class 7: module-2/class-7.md
       - 'Pre-Class 8 Lessons':
-        - Develop Discipline: module-2/developSeries-discipline.md
         - Protected Routes: module-2/protectedRoutes-intro.md
         - Authentication: module-2/authentication.md
         - Authentication with FireBase: module-2/implement-fireBase.md
@@ -68,27 +67,20 @@ nav:
         - Class 8 Login: module-2/class-8.md
     - 'Module Three: App State': 
       - 'Pre-Class 9 Lessons':
-        - Redux Intro: module-3/redux-mapStateToProps.md
-        - Redux Setup: module-3/redux-theSetup.md
-        - Redux Connect: module-3/redux-connect.md
+        - Develop Discipline: module-2/developSeries-discipline.md
         - Database Intro: module-3/databaseIntro.md
-        - Class 9 Redux MSTP: module-3/class-9.md
+        - Class 9 FireBase CRUD: module-3/class-9.md
       - 'Pre-Class 10 Lessons':
-        - Redux Actions: module-3/redux-actions.md  
-        - Redux Reducers: module-3/redux-reducers.md  
-        - Redux MDTP: module-3/redux-mdtp.md  
-        - Redux Using Actions: module-3/redux-usingActions.md
         - Serverless: module-3/serverless.md  
         - Authorization with FireBase: module-3/authorizationWithFirebase.md
         - FireBase Rules:  module-3/firebase-rules.md   
-        - Class 10 Authorization: module-3/class-10.md
+        - Class 10 FireBase Authorize: module-3/class-10.md
       - 'Pre-Class 11 Lessons': 
-        - Redux-Thunk: module-3/redux-thunk.md
         - Intro to CRUD: module-3/crud-intro.md
         - CR - Firestore: module-3/cr-firestore.md
         - UD - Firestore: module-3/ud-firestore.md
         - Intro to Firestore: module-3/firestore.md
-        - Class 11 Redux-Thunk: module-3/class-11.md
+        - Class 11 FireBase Queries: module-3/class-11.md
       - 'Pre-Class 12 Lessons': 
         - Data Organization: module-3/dataOrganization.md
         - Capstone App pt.1: module-3/capstoneApp-planning-pt1.md
@@ -124,6 +116,16 @@ nav:
       - Interview Training: additionalResources/interviewChallenges.md
       - Student Presentations: additionalResources/studentPresentations.md
       - Develop Series Collection: additionalResources/developSeries.md
+      - Hooks Intro: module-3/reactHooks-intro.md
+      - 'Redux':
+        - Redux Intro: module-3/redux-mapStateToProps.md
+        - Redux Setup: module-3/redux-theSetup.md
+        - Redux Connect: module-3/redux-connect.md
+        - Redux Actions: module-3/redux-actions.md  
+        - Redux Reducers: module-3/redux-reducers.md  
+        - Redux MDTP: module-3/redux-mdtp.md  
+        - Redux Using Actions: module-3/redux-usingActions.md
+        - Redux-Thunk: module-3/redux-thunk.md
       - 'Questions for Discussion Collections':
         - Day 1 QFD: additionalResources/questionsForDiscussion/qfd-class-1.md
         - Day 2 QFD: additionalResources/questionsForDiscussion/qfd-class-2.md

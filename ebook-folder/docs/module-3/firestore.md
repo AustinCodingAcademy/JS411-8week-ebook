@@ -6,7 +6,7 @@ Great, so we now have an idea what a CRUD application is, so let's get started. 
 
 We will first create our Firestore DB on the Firebase console, where we will check out some of the Data Types available and how data is stored. After we create our Firestore DB, we then want build a **CRUD** web application to interact with Firestore through a *UI*. People who use our web application shouldn't be creating data on your Firestore console, instead, we will build out the services for them to interact with. This is what a **CRUD** application is, after all. We will cover these ***CRUD*** operations in detail soon enough, for now, let's get familiar with the Firestore console.
 
-Let's begin by creating the Firestore instance. We should already have a project created on Firebase from our [Authentication with Firebase lesson](../module-2/implement-fireBase.md.md), so let's continue to work on that same project.
+Let's begin by creating the Firestore instance. We should already have a project created on Firebase from our [Authentication with Firebase lesson](./../module-2/implement-fireBase.md), so let's continue to work on that same project.
 <!-- TODO change this file name to authenticationWithFirebase.md -->
 
 ## Create Your First Collection

@@ -1,4 +1,4 @@
-# Class 11: Redux Thunk
+# Class 11: Day 4, FakeCars - Queries
 
 <!-- ! HIDE FROM STUDENT; INSTRUCTOR ONLY CONTENT -->
 <!-- ## Instructor Only Content - HIDE FROM STUDENTS -->
@@ -14,7 +14,7 @@
   
 *OBJECTIVE: Today the student will learn and practice to understand:*
 
-* *Asynchronous calls with Redux-Thunk*
+* *Querying data*
 
 *****
 
@@ -22,7 +22,8 @@
 - [ ] Interview Challenge
 - [ ] Student Presentations
 - [ ] Creation Time
-    * [ ] Fork and Clone the [Redux-Thunk Repo](https://github.com/AustinCodingAcademy/411_wk6_day1_redux_thunk)
+    * [ ] Follow Day 4 Queries instructions in [this repo](https://github.com/instructorKC/411_protected_routes_with_firebase)
+    <!-- * [ ] Fork and Clone the [Redux-Thunk Repo](https://github.com/AustinCodingAcademy/411_wk6_day1_redux_thunk) -->
 - [ ] Push Yourself Further - Material UI Practice w/ Pagination
 - [ ] Exit Recap, Attendance, and Reminders
 
@@ -43,6 +44,10 @@
 [See Student Presentations List](./../additionalResources/studentPresentations.md)
 
 ## Creation Time, 60-90 mins
+
+Follow Day 3 CRUD instructions in [this repo](https://github.com/instructorKC/411_protected_routes_with_firebase)
+
+<!-- ALL REDUX STUFF
 
 Today we are going to create a mock-import utility that we can use in our cars application. We will use Redux Thunk to hit an API that brings back cars data. We will then allow the user to delete each import. We also want to keep a current count of the imported cars. Some images below will show what the webpage should look like.
 
@@ -68,7 +73,7 @@ Today we are going to create a mock-import utility that we can use in our cars a
 
 A lot of the Material UI documentation has been updated to support the new React feature called Hooks. We will not dive deep into the topic in this class but watch this video to understand what's going on because you likely ran across some documentation regarding hooks while building out your table for the import page, and as you move forward in your new career you will **very** likely see hooks.
 
-- [ ] Follow-Up Video: [YT, TraversyMedia - React Hooks Intro](https://youtu.be/mxK8b99iJTg)
+- [ ] Follow-Up Video: [YT, TraversyMedia - React Hooks Intro](https://youtu.be/mxK8b99iJTg) -->
 
 ### Push Yourself Further
 
@@ -82,7 +87,7 @@ When you've finished the project for this class you'll notice that the table is 
 
 ## Exit Recap, Attendance, and Reminders, 5 mins
 
-- [ ] Create Redux-Thunk Assignment
+- [ ] Create Day 4 Queries Assignment
 - [ ] Prepare for next by completing all of your pre-class lessons
 - [ ] Complete the feedback survey
 

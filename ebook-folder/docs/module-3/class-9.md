@@ -1,4 +1,4 @@
-# Class 9: Redux, mapStateToProps
+# Class 9: Day 2, FakeCars - Add CRUD
 
 <!-- ! HIDE FROM STUDENT; INSTRUCTOR ONLY CONTENT -->
 <!-- ## Instructor Only Content - HIDE FROM STUDENTS -->
@@ -14,15 +14,16 @@
   
 *OBJECTIVE: Today the student will learn and practice to understand:*
 
-* *Global state over an application using Redux*
+* *Create, Read, Update, Delete*
 
 *****
 
 - [ ] Questions for Student-Led Discussion
 - [ ] Interview Challenge
 - [ ] Student Presentations
+    * [ ] Follow Day 2 CRUD instructions in [this repo](https://github.com/instructorKC/411_protected_routes_with_firebase)
+    <!-- * [ ] Fork & Clone the [Wk5 Day1 Repo](https://github.com/AustinCodingAcademy/411_wk5_day1_mapstatetoprops) -->
 - [ ] Creation Time
-    * [ ] Fork & Clone the [Wk5 Day1 Repo](https://github.com/AustinCodingAcademy/411_wk5_day1_mapstatetoprops)
 - [ ] Push Yourself Further
 <!-- - [ ] Interview Questions: Blog to Show You Know -->
 - [ ] Exit Recap, Attendance, and Reminders
@@ -45,14 +46,18 @@
 
 ## Creation Time, 60-90 mins
 
-Today we are going to practice what we learned with Redux and mapStateToProps. We will use mapStateToProps functions to create containers and then reference the global state in our components.
+Follow Day 2 CRUD instructions in [this repo](https://github.com/instructorKC/411_protected_routes_with_firebase)
+
+<!-- 
+
+This is all Redux stuff. Today we are going to practice what we learned with Redux and mapStateToProps. We will use mapStateToProps functions to create containers and then reference the global state in our components.
 
 ![fake-cars-redux-beginning-dashboard](./../images/fake-cars-redux-beginning-dashboard.png)
 
 - [ ] Fork and clone the following repository: [411_wk5_day1_mapstatetoprops](https://github.com/AustinCodingAcademy/411_wk5_day1_mapstatetoprops).
-- [ ] Follow the directions in the `README` to complete the project and upload the link to your GitHub repository to the appropriate assignment. The project directions are also summed up below:
+- [ ] Follow the directions in the `README` to complete the project and upload the link to your GitHub repository to the appropriate assignment. The project directions are also summed up below: -->
 
-### Follow-Up
+<!-- ### Follow-Up
 
 Two things before you watch this video:
 
@@ -63,7 +68,7 @@ Two things before you watch this video:
 
 ### Push Yourself Further
 
-- [ ] Follow along and build with [this Medium tutorial about React with Redux Thunk](https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f). He is introducing a couple topics we haven't talked about yet (in relation to Redux) like thunk but don't worry we will get to that stuff soon.
+- [ ] Follow along and build with [this Medium tutorial about React with Redux Thunk](https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f). He is introducing a couple topics we haven't talked about yet (in relation to Redux) like thunk but don't worry we will get to that stuff soon. -->
 
 <!-- ## Blogs to Show You Know
 
@@ -75,7 +80,7 @@ Two things before you watch this video:
 
 ## Exit Recap, Attendance, and Reminders, 5 mins
 
-- [ ] Create *** Assignment
+- [ ] Create FakeCars CRUD Assignment + turn in PR
 <!-- - [ ] Create Class * Blog Assignment -->
 - [ ] Prepare for next by completing all of your pre-class lessons
 - [ ] Complete the feedback survey

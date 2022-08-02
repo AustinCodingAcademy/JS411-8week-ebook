@@ -22,9 +22,9 @@ You can think of the ***serverless functions*** as setting up your own API (like
 We will walk through the steps to use your first **serverless function**. FYI, FireBase refers to their serverless functions as "[Cloud Functions](https://FireBase.google.com/docs/functions)".
 
 
-- [ ] 1. Open and `cd` into the root directory of the [learn-FireBase project](../module-2/implement-FireBase.md) you have been learning with. `cd learn-FireBase`
+- [ ] 1. Open and `cd` into the root directory of the [learn-FireBase project](./../module-2/implement-fireBase.md) you have been learning with. `cd learn-FireBase`
 
-- [ ] 2. In the root directory of the [learn-FireBase project](../module-2/implement-FireBase.md) run `firebase init functions`.
+- [ ] 2. In the root directory of the [learn-FireBase project](./../module-2/implement-fireBase.md) run `firebase init functions`.
 
     ![FireBase-createApp-3Create](../images/firebase-init-functions.png)
 

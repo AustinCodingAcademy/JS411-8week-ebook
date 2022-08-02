@@ -1,4 +1,4 @@
-# Class 10: Redux, mapDispatchToProps
+# Class 10: Day 3, FakeCars - Authorization
 
 <!-- ! HIDE FROM STUDENT; INSTRUCTOR ONLY CONTENT -->
 <!-- ## Instructor Only Content - HIDE FROM STUDENTS -->
@@ -14,7 +14,7 @@
   
 *OBJECTIVE - Today the student will learn and practice to understand:*
 
-* *Managing global state of an application with Redux*
+* *Authorizing users*
 
 *****
 
@@ -24,7 +24,8 @@
 - [ ] Interview Challenge
 - [ ] Student Presentations
 - [ ] Creation Time
-    * [ ] Fork & Clone the [411_wk5_day2_mapdispatchtoprops Repo](https://github.com/AustinCodingAcademy/411_wk5_day2_mapdispatchtoprops)
+    * [ ] Follow Day 3 Authentication instructions in [this repo](https://github.com/instructorKC/411_protected_routes_with_firebase)
+    <!-- * [ ] Fork & Clone the [411_wk5_day2_mapdispatchtoprops Repo](https://github.com/AustinCodingAcademy/411_wk5_day2_mapdispatchtoprops) -->
 - [ ] Push Yourself Further
 - [ ] Interview Questions: Blog to Show You Know
 - [ ] Exit Recap, Attendance, and Reminders
@@ -47,7 +48,9 @@
 
 ## Creation Time, 60-90 mins
 
-Today we are going to practice what we've learned with **Redux Actions** and `mapDispatchToProps`. We will use both of those to create a more interactive dashboard and watch as all the data on the site is related.
+Follow Day 3 Authentication instructions in [this repo](https://github.com/instructorKC/411_protected_routes_with_firebase).
+
+<!-- Today we are going to practice what we've learned with **Redux Actions** and `mapDispatchToProps`. We will use both of those to create a more interactive dashboard and watch as all the data on the site is related.
 
 ![redux-mdtp-dashboard](./../images/redux-mdtp-dashboard.png)
 
@@ -55,7 +58,7 @@ Today we are going to practice what we've learned with **Redux Actions** and `ma
 
 - [ ] Fork and clone the following repository: [411_wk5_day2_mapdispatchtoprops](https://github.com/AustinCodingAcademy/411_wk5_day2_mapdispatchtoprops)
 
-Follow the directions in the `README` to complete the project and upload the link to your GitHub repository to Zollege. The project directions are also summed up below:
+Follow the directions in the `README` to complete the project and upload the link to your GitHub repository to Zollege. The project directions are also summed up below: -->
 
 #### Getting Familiar with the Source Code (DON'T SKIP THIS)
 
@@ -67,6 +70,8 @@ We're continuing to make make the Cars App more robust. This time we've added a 
 * `AddCar.js`
 
 Also, make sure to run the app and go to the dashboard page to see these components in action. Keep in mind, there are things that aren't connected yet. That's what you've been hired to do!
+
+<!-- ALL REDUX STUFF
 
 ### Project Work
 
@@ -134,13 +139,13 @@ Also, make sure to run the app and go to the dashboard page to see these compone
 
 - [ ] One more thing, when you remove a car from the list you can also go to the homepage and notice that its card has also been removed. Pretty cool, huh? It's all tied together.
 
-- [ ] Follow-Up Video: [YT, Net Ninja - Redux: mapDispatchToProps](https://www.youtube.com/watch?v=40pWMVMnftc)
+- [ ] Follow-Up Video: [YT, Net Ninja - Redux: mapDispatchToProps](https://www.youtube.com/watch?v=40pWMVMnftc) -->
 
 <!-- TODO - Can we make this lesson less hand-holdy and require the students to create? -->
-
+<!-- 
 ### Push Yourself Further
 
-- [ ] Go back and finish this [this tutorial](https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f) from last class if you haven't already. You may have gotten stuck on some of the topics like `mapDispatchToProps` after last class but you shouldn't anymore.
+- [ ] Go back and finish this [this tutorial](https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f) from last class if you haven't already. You may have gotten stuck on some of the topics like `mapDispatchToProps` after last class but you shouldn't anymore. -->
 
 ## Student Feedback
 
@@ -152,7 +157,7 @@ Also, make sure to run the app and go to the dashboard page to see these compone
 
 ## Exit Recap, Attendance, and Reminders, 5 mins
 
-- [ ] Create Redux-Dashboard Assignment
+- [ ] Create Day 3 Authorization assignment + turn in PR
 - [ ] Create Class 10 Blog Assignment
 - [ ] Prepare for next by completing all of your pre-class lessons
 - [ ] Complete the feedback survey

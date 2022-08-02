@@ -1,4 +1,4 @@
-# Class 8: Protected Routes
+# Class 8: Protected Routes and Authentication
 
 <!-- ! HIDE FROM STUDENT; INSTRUCTOR ONLY CONTENT -->
 <!-- ## Instructor Only Content - HIDE FROM STUDENTS -->
@@ -23,7 +23,8 @@
 - [ ] Interview Challenge
 - [ ] Student Presentations
 - [ ] Creation Time
-    * [ ] Fork and Clone the [411_wk4_day2_protected_routes](https://github.com/AustinCodingAcademy/411_wk4_day2_protected_routes) repo
+    * [ ] Fork & Clone [this repo](https://github.com/instructorKC/411_protected_routes_with_firebase)
+    <!-- * [ ] Fork and Clone the [411_wk4_day2_protected_routes](https://github.com/AustinCodingAcademy/411_wk4_day2_protected_routes) repo -->
     * [ ] Follow the instructions in the README to complete then turn in.
 - [ ] Push Yourself Further
 <!-- - [ ] Interview Questions: Blog to Show You Know -->
@@ -51,8 +52,8 @@ If you have not already create a FireBase account. Directions for setting up an 
 
 ![fake-car-login-example](./../images/fake-car-login-example.png)
 
-- [ ] Fork and clone the following repository: [411_wk4_day2_protected_routes](https://github.com/AustinCodingAcademy/411_wk4_day2_protected_routes).
-- [ ] Follow the directions in the README.md to complete the project.
+- [ ] Fork and clone thi [repository](https://github.com/instructorKC/411_protected_routes_with_firebase).
+- [ ] Follow the directions in the README.md & in [Day One Auth](https://github.com/instructorKC/411_protected_routes_with_firebase/blob/master/partOne.md) to complete the project.
 `git status`, `add`, `commit`, `push` to your forked repo.
 - [ ] Turn in the link of your forked repo.
 - [ ] Follow-up Video: [YT, FreeCodeCamp.org - cookies vs sessionStorage](https://youtu.be/AwicscsvGLg)
@@ -71,7 +72,7 @@ If you have not already create a FireBase account. Directions for setting up an 
 
 ## Exit Recap, Attendance, and Reminders, 5 mins
 
-- [ ] Create FakeCar-Login Assignment
+- [ ] Create FakeCar-Authentication Assignment
 - [ ] Create Class 8 Blog Assignment
 - [ ] Prepare for next by completing all of your pre-class lessons
 - [ ] Complete the feedback survey
