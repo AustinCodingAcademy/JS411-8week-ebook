@@ -86,7 +86,7 @@ It is not a requirement that this table is paginated. You may do so if you like 
 
 #### Details Screen - Example 2
 
-This screen should rearrange the data that is presented in the listing table. It should present it in a user-friendly way and incorporate an outside API to go along with it. Each person will need to sign up for a Google Cloud [account](https://developers.google.com/maps). Google gives you $200 a month in free credit to use google maps data. Each person will put their api key in their own .env file and use a variable the same way we did with FireBase but, follow the google documentation to find out where the api key goes it will be different. I will provide more details about the Google Maps API below.
+This screen should rearrange the data that is presented in the listing table. It should present it in a user-friendly way and incorporate an outside API to go along with it. Each person will need to sign up for a Google Cloud [account](https://developers.google.com/maps). Google gives you $200 a month in free credit to use google maps data. Each person will put their api key in their own .env file and use a variable the same way we did with FireBase but, follow the google documentation to find out where the api key goes. I will provide more details about the Google Maps API below.
 
 #### Login Screen - Example 3
 
