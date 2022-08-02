@@ -10,8 +10,8 @@ We've built up some knowledge of React components and how they fit together usin
 
 There are [many different ways to style applications in React](https://codeburst.io/4-four-ways-to-style-react-components-ac6f323da822). You can use:
 
-* CSS files that you've created and import them
-* Third-party CSS (ex. Bootstrap), again import them and use their pre-built micro-components
+* CSS files that you've created and `import` them
+* Third-party CSS (ex. Bootstrap), again `import` them and use their pre-built micro-components
 * Styled components from various open source providers with libraries like **Material UI**
 
 The reason we are introducing Material UI is because it is a robust, cross-platform component library backed by Google. It was written by two former Google UI engineers and designed by one of [Google's design teams](https://material-ui.com/discover-more/team/). Before you move on, watch the backstory to a major project called [Material Design by Google](https://youtu.be/rrT6v5sOwJg) which gave birth to [Material UI](https://material-ui.com/).
@@ -91,6 +91,7 @@ We will use Material UI to style our App in this week's lesson so go get familia
 <iframe src="https://player.vimeo.com/video/492174275?color=2565EF&byline=0&portrait=0" width="655" height="368" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 > NOTE: In this video at 4:49 you will see `makeStyles` but the preferred design pattern is higher order component:
+   
    ```javascript
     const ExpandMore = styled((props) => {
          const { expand, ...other } = props;
@@ -103,13 +104,14 @@ We will use Material UI to style our App in this week's lesson so go get familia
       }),
     }));
    ```
-   > NOTE-2: If you want to use `makeStyles` you will to make sure it is in a `themeProvider` component see: [V4 to v5 migration](https://mui.com/material-ui/guides/migration-v4/):
+   > NOTE-2: If you want to use `makeStyles` you will need to make sure it is in a `themeProvider` component see: [V4 to v5 migration](https://mui.com/material-ui/guides/migration-v4/):
 
    ```javascript
          // ...imports
 
       function AppContent(props) {
-        const classes = useStyles(); // ✅ This is safe because it is called inside ThemeProvider
+        const classes = useStyles(); // ✅ This is safe because it is called...
+        // ...inside ThemeProvider
         return <Card className={classes.root}>...</Card>;
       }
 
