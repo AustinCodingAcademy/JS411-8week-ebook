@@ -512,6 +512,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#useeffect" class="md-nav__link">
+    useEffect
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2046,6 +2053,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#useeffect" class="md-nav__link">
+    useEffect
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2369,6 +2383,64 @@
 </code></pre></div></td></tr></table></div>
 </div>
 <input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">With Comments</label><div class="tabbed-content">
+<p>```javascript
+// MyConditionalComponent.js</p>
+<p>// Instead of importing the { Component }, let's import the { useState } hook
+import React, { Component } from 'react' </p>
+<p>// No need to build a class, let's just keep it as a function: function App() {
+class MyConditionalComponent extends Component {
+    // since it's not a class it doesn't need a constructor
+    constructor(props) {
+        // since it's not extending the React Component there's no need to call super()
+        super(props)
+        // we can store the value of state and the function to update it with destructuring instead of a state object: const [isHidden, setIsHidden] = useState(false);
+        this.state = {
+            isHidden: true
+        } 
+    }</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>handleClick = () =&gt; {
+    //   with a functional component we don&#39;t have state so need for all the extra member operators (.) : let status = isHidden == true ? false : true
+    let status = this.state.isHidden == true ? false : true
+
+    //  now, we don&#39;t need to pass an object to setState, instead, just use the function you defined earlier: setIsHidden(status);
+    this.setState({
+        isHidden: status
+    })
+}
+
+render() {
+    return (
+        &lt;div&gt;
+            &lt;h1 onClick={this.handleClick}&gt;Functional Component Using State&lt;/h1&gt;
+        &lt;/div&gt;
+    )
+}
+</code></pre></div></td></tr></table></div>
+<p>}</p>
+</div>
+</div>
+<p>```</p>
+<p>Take some time to compare these two components. They accomplish the exact same thing but use different syntax to do it.</p>
+<h3 id="useeffect">useEffect</h3>
+<p>Instead of <code>componentDidMount</code> and other lifecycle methods we now just have one hook called <code>useEffect</code> that does it all. When <code>useEffect</code> has an empty dependency array <code>[]</code> it behaves just like <code>componentDidMount</code>.</p>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">The Functional Component Way</label><div class="tabbed-content"></div>
+</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2397,51 +2469,87 @@
 <span class="normal">26</span>
 <span class="normal">27</span>
 <span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// MyConditionalComponent.js</span><span class="w"></span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// MyFunctionTodos.js</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="p">,</span><span class="w"> </span><span class="nx">useEffect</span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="c1">// Instead of importing the { Component }, let&#39;s import the { useState } hook</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"> </span>
 
-<span class="c1">// No need to build a class, let&#39;s just keep it as a function: function App() {</span><span class="w"></span>
-<span class="kd">class</span><span class="w"> </span><span class="nx">MyConditionalComponent</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// since it&#39;s not a class it doesn&#39;t need a constructor</span><span class="w"></span>
-<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// since it&#39;s not extending the React Component there&#39;s no need to call super()</span><span class="w"></span>
-<span class="w">        </span><span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// we can store the value of state and the function to update it with destructuring instead of a state object: const [isHidden, setIsHidden] = useState(false);</span><span class="w"></span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">isHidden</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">MyFunctionTodos</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">arrayOfTodos</span><span class="p">,</span><span class="w"> </span><span class="nx">setArrayOfTodos</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">([]);</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://jsonplaceholder.typicode.com/todos&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">          </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span><span class="w"></span>
+<span class="w">          </span><span class="p">})</span><span class="w"></span>
+<span class="w">          </span><span class="c1">// update state with setArrayOfTodos </span><span class="w"></span>
+<span class="w">          </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">todos</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setArrayOfTodos</span><span class="p">(</span><span class="nx">todos</span><span class="p">))</span><span class="w"> </span>
+
+
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">[]);</span><span class="w"> </span><span class="c1">// &lt;-- when dependency array is empty...</span><span class="w"></span>
+<span class="w">                </span><span class="c1">//   ...it works just like componentDidMount()</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="nx">arrayOfTodos</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">todo</span><span class="p">,</span><span class="w"> </span><span class="nx">index</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="k">return</span><span class="w">  </span><span class="o">&lt;</span><span class="nx">li</span><span class="w"> </span><span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">index</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">todo</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/li&gt;              </span><span class="w"></span>
+<span class="w">        </span><span class="p">})}</span><span class="w">  </span>
+<span class="w">      </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
+
+<span class="p">}</span><span class="w">   </span>
+</code></pre></div></td></tr></table></div>
+<p>We can run code when state is updated too. Below we have an <code>isCountEven</code> function that runs when count is updated and the <code>useEffect</code> hook is checking for that update in the dependency <code>[count]</code> array. </p>
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">useEffect() update</label><div class="tabbed-content"></div>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// MyCountComponent.js</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="p">,</span><span class="nx">useEffect</span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">MyCountComponent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">count</span><span class="p">,</span><span class="w"> </span><span class="nx">setCount</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="c1">// useEffect takes in anonymous function</span><span class="w"></span>
+
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">isCountEven</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="k">if</span><span class="p">(</span><span class="nx">count</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">){</span><span class="w"></span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;yes count is even&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">count</span><span class="p">);</span><span class="w"></span>
+<span class="w">          </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="nx">isCountEven</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">[</span><span class="nx">count</span><span class="p">]);</span><span class="w"> </span><span class="c1">// dependency array will only run when `count` changes</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="kd">let</span><span class="w"> </span><span class="nx">newCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">      </span><span class="nx">setCount</span><span class="p">(</span><span class="nx">newCount</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="nx">handleClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">//   with a functional component we don&#39;t have state so need for all the extra member operators (.) : let status = isHidden == true ? false : true</span><span class="w"></span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isHidden</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-
-<span class="w">        </span><span class="c1">//  now, we don&#39;t need to pass an object to setState, instead, just use the function you defined earlier: setIsHidden(status);</span><span class="w"></span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="w"></span>
-<span class="w">            </span><span class="nx">isHidden</span><span class="o">:</span><span class="w"> </span><span class="nx">status</span><span class="w"></span>
-<span class="w">        </span><span class="p">})</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="nx">render</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">            </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">                </span><span class="o">&lt;</span><span class="nx">h1</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleClick</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Functional</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="nx">Using</span><span class="w"> </span><span class="nx">State</span><span class="o">&lt;</span><span class="err">/h1&gt;</span><span class="w"></span>
-<span class="w">            </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">h1</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClick</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="sb">`You clicked </span><span class="si">${</span><span class="nx">count</span><span class="si">}</span><span class="sb"> times`</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/h1&gt;;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-</div>
-</div>
-<p>Take some time to compare these two components. They accomplish the exact same thing but use different syntax to do it.</p>
 <h2 id="see-it-components-with-hooks">See It - Components with Hooks</h2>
 <!-- ! Video Contents: YT, TraversyMedia - Introducing React Hooks-->
 <iframe width="655" height="368" src="https://www.youtube.com/embed/mxK8b99iJTg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
