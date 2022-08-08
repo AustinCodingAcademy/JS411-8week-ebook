@@ -114,7 +114,7 @@ Now we've been asked to add some component state to toggle between `visible` and
         
         return (
             <div>
-                <p>The Status of hidden is {isHidden}</p>
+                <p>The Status of hidden is {`${isHidden}`}</p>
                 <h1 onClick={handleClick}>Functional Component Using State</h1>
             </div>;
         )
@@ -292,7 +292,7 @@ function MyCountComponent() {
     }, [count]); // dependency array will only run when `count` changes
 
     const handleClick = () => {
-      let newCount = count + 
+      let newCount = count + 1
       setCount(newCount);
     }
     return <h1 onClick={handleClick}>{`You clicked ${count} times`}</h1>;

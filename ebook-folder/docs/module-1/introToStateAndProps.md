@@ -29,7 +29,7 @@ Just like functions, they can take arguments between their `()`. In fact, this i
     ```javascript
       const ChildComponent = (props) => {
         return (
-          <h1>`A ${props.propOne} tastes like ${props.propTwo}.`</h1>
+          <h1>{`A ${props.propOne} tastes like ${props.propTwo}.`}</h1>
         )
       }
 
