@@ -67,19 +67,19 @@ nav:
         - Class 8 Login: module-2/class-8.md
     - 'Module Three: App State': 
       - 'Pre-Class 9 Lessons':
-        - Develop Discipline: module-2/developSeries-discipline.md
         - Database Intro: module-3/databaseIntro.md
+        - Intro to CRUD: module-3/crud-intro.md
+        - Intro to Firestore: module-3/firestore.md
+        - CR - Firestore: module-3/cr-firestore.md
+        - UD - Firestore: module-3/ud-firestore.md
         - Class 9 FireBase CRUD: module-3/class-9.md
       - 'Pre-Class 10 Lessons':
+        - Develop Discipline: module-2/developSeries-discipline.md
         - Serverless: module-3/serverless.md  
         - Authorization with FireBase: module-3/authorizationWithFirebase.md
         - FireBase Rules:  module-3/firebase-rules.md   
         - Class 10 FireBase Authorize: module-3/class-10.md
       - 'Pre-Class 11 Lessons': 
-        - Intro to CRUD: module-3/crud-intro.md
-        - CR - Firestore: module-3/cr-firestore.md
-        - UD - Firestore: module-3/ud-firestore.md
-        - Intro to Firestore: module-3/firestore.md
         - Class 11 FireBase Queries: module-3/class-11.md
       - 'Pre-Class 12 Lessons': 
         - Data Organization: module-3/dataOrganization.md
