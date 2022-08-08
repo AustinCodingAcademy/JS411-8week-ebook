@@ -114,7 +114,7 @@ Now we've been asked to add some component state to toggle between `visible` and
         
         return (
             <div>
-                <p>The Status of hidden is {isHidden}</p>
+                <p>The Status of hidden is {`${isHidden}`}</p>
                 <h1 onClick={handleClick}>Functional Component Using State</h1>
             </div>;
         )

@@ -80,7 +80,7 @@ After installing the libraries/packages that make up the magic of React Router, 
 
 === "`src/Router.js`"
 
-    ```javascript
+   ```javascript
     import React from 'react';
 
     // Here is where we are importing to the two main components we need from the React Router package.
@@ -93,9 +93,10 @@ After installing the libraries/packages that make up the magic of React Router, 
 
     const Router = () => {
         return (
-            { /* Then we use Routes and Route. Routes acts like a regular JS Switch* Statement */ }
+     //Then we use Routes and Route. Routes acts like a regular JS Switch* Statement 
+     //depending on the path in the URL, one of these Routes will be returned and their component rendered 
             <Routes>
-                { /* depending on the path in the URL, one of these Routes will be returned and their component rendered */ }
+              
                 <Route path="/*" element={<Home/>} />
                 <Route path="/dash" element={<Dashboard/>} />
                 <Route path="/user/:id" element={<Profile/>} />
@@ -105,9 +106,9 @@ After installing the libraries/packages that make up the magic of React Router, 
 
     //Don't forget to export your newly create Router component
     export default Router;
-    ```
+ ```
 
-    > NOTE: When using the `*` at the end of a path it means to match deeply or exactly. We can only use `*` at the end of a path, make sure to never use it at the start or middle of a path(security errors will occur). You'll only need the trailing `*` when there is another `<Routes>` somewhere in that route's descendant tree. In that case, the descendant `<Routes>` will match on the portion of the pathname that remains.
+> NOTE: When using the `*` at the end of a path it means to match deeply or exactly. We can only use `*` at the end of a path, make sure to never use it at the start or middle of a path(security errors will occur). You'll only need the trailing `*` when there is another `<Routes>` somewhere in that route's descendant tree. In that case, the descendant `<Routes>` will match on the portion of the pathname that remains.
 ******
 
 The `Routes` component always wraps multiple `Route`'s, so it is the single parent container this component returns. The `Route`'s are relative and help with leaner and more predictable code. `Route`'s are chosen based on the best match, not in order. You can put your `Route`'s in any order you like, the router will detect the best route for the current URL automatically. For readability if you want to start with "home" thats fine but nothing to worry about if you don't.
