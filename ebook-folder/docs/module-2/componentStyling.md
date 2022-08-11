@@ -85,14 +85,55 @@ In conclusion, if you want to create a cool-looking, uniform experience across y
 
 We will use Material UI to style our App in this week's lesson so go get familiar with the [Docs](#know-your-docs).
 
+There are several ways to [customize styles](https://mui.com/material-ui/customization/how-to-customize/#the-sx-prop) in Material UI. The preferred ways involve using the `sx` prop for direct styling or using `styled()` to create or add styles to existing components. The example from above with `className` on the buttons is also a valid option.
+
+   ```javascript
+   import Button from '@mui/material/Button';
+   // sx is a prop that takes in an object that has key value pairs written as 
+  //  standard css you already know
+   <Button sx={{border: "5px solid red", "margin-top": "100px"}} variant="text">Text</Button>
+   ```
+   We can create styled components either with standard html elements or further down below giving styles to existing components.
+
+```javascript
+   import Button from '@mui/material/Button';
+    //note new import system @mui/system it comes with @mui/material
+    // we installed earlier
+   import { styled } from '@mui/system';
+
+    const MyComponent = styled('div')({
+        color: 'darkslategray',
+        backgroundColor: 'aliceblue',
+        padding: 8,
+        borderRadius: 4,
+        border: "5px solid blue"
+    });
+
+    export function BasicButtons() {
+        return (
+            <MyComponent>
+                <Button sx={{border: "5px solid red", "margin-top": "100px"}} variant="text">
+                  Text
+                </Button>
+            </MyComponent>;
+        );
+    }
+```
+
+
+
 ## See It - Using Material-UI
 
 <!-- ! Video Contents: Vimeo, Clayton@ACA - 411-24-UsingMaterialUI - 411.2.1.2 -->
 <iframe src="https://player.vimeo.com/video/492174275?color=2565EF&byline=0&portrait=0" width="655" height="368" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
-> NOTE: In this video at 4:49 you will see `makeStyles` but the preferred design pattern is higher order component:
+> NOTE: In this video at 4:49 you will see `makeStyles` but the preferred design pattern is a combination of higher order component `styled()` and/or `sx` prop: Direct [Link](https://mui.com/material-ui/react-card/#RecipeReviewCard.js) To updated Code.
    
-   ```javascript
+```javascript
+// Giving styles to exiting <IconButton/> component
+// Link to full code example
+// https://mui.com/material-ui/react-card/#RecipeReviewCard.js
+
     const ExpandMore = styled((props) => {
          const { expand, ...other } = props;
          return <IconButton {...other} />;
@@ -103,30 +144,8 @@ We will use Material UI to style our App in this week's lesson so go get familia
         duration: theme.transitions.duration.shortest,
       }),
     }));
-   ```
-   > NOTE-2: If you want to use `makeStyles` you will need to make sure it is in a `themeProvider` component see: [V4 to v5 migration](https://mui.com/material-ui/guides/migration-v4/):
-
-   ```javascript
-         // ...imports
-
-      function AppContent(props) {
-        const classes = useStyles(); // ✅ This is safe because it is called...
-        // ...inside ThemeProvider
-        return <Card className={classes.root}>...</Card>;
-      }
-
-      function App(props) {
-        return (
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <AppContent {...props} />
-          </ThemeProvider>
-        );
-      }
-
-     export default App;
-   ```
-
+```
+ 
 ## Practice It
 
 <iframe src="https://codesandbox.io/embed/new?fontsize=14" title="new" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
