@@ -87,37 +87,45 @@ We will use Material UI to style our App in this week's lesson so go get familia
 
 There are several ways to [customize styles](https://mui.com/material-ui/customization/how-to-customize/#the-sx-prop) in Material UI. The preferred ways involve using the `sx` prop for direct styling or using `styled()` to create or add styles to existing components. The example from above with `className` on the buttons is also a valid option.
 
-   ```javascript
-   import Button from '@mui/material/Button';
-   // sx is a prop that takes in an object that has key value pairs written as 
-  //  standard css you already know
-   <Button sx={{border: "5px solid red", "margin-top": "100px"}} variant="text">Text</Button>
-   ```
+```javascript
+
+import Button from '@mui/material/Button';
+// sx is a prop that takes in an object with key value pairs written as 
+// standard css you already know
+<Button sx={{border: "5px solid red", "margin-top": "100px"}} variant="text">
+ Text 
+</Button>
+
+```
+
    We can create styled components either with standard html elements or further down below giving styles to existing components.
 
+
 ```javascript
-   import Button from '@mui/material/Button';
-    //note new import system @mui/system it comes with @mui/material
-    // we installed earlier
-   import { styled } from '@mui/system';
 
-    const MyComponent = styled('div')({
-        color: 'darkslategray',
-        backgroundColor: 'aliceblue',
-        padding: 8,
-        borderRadius: 4,
-        border: "5px solid blue"
-    });
+  import Button from '@mui/material/Button';
+  //note new import system @mui/system it comes with @mui/material
+  // we installed earlier
+  import { styled } from '@mui/system';
 
-    export function BasicButtons() {
-        return (
-            <MyComponent>
-                <Button sx={{border: "5px solid red", "margin-top": "100px"}} variant="text">
-                  Text
-                </Button>
-            </MyComponent>;
-        );
-    }
+ // Turn a div into a custom MaterialUi styled component
+  const MyComponent = styled('div')({
+      color: 'darkslategray',
+      backgroundColor: 'aliceblue',
+      padding: 8,
+      borderRadius: 4,
+      border: "5px solid blue"
+  });
+
+  export function BasicButtons() {
+      return (
+          <MyComponent>
+              <Button sx={{border: "5px solid red", "margin-top": "100px"}} variant="text">
+                Text
+              </Button>
+          </MyComponent>;
+      );
+  }
 ```
 
 
@@ -127,23 +135,23 @@ There are several ways to [customize styles](https://mui.com/material-ui/customi
 <!-- ! Video Contents: Vimeo, Clayton@ACA - 411-24-UsingMaterialUI - 411.2.1.2 -->
 <iframe src="https://player.vimeo.com/video/492174275?color=2565EF&byline=0&portrait=0" width="655" height="368" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
-> NOTE: In this video at 4:49 you will see `makeStyles` but the preferred design pattern is a combination of higher order component `styled()` and/or `sx` prop: Direct [Link](https://mui.com/material-ui/react-card/#RecipeReviewCard.js) To updated Code.
+> NOTE: In this video at 4:49 you will see `makeStyles` but the preferred design pattern is a combination of higher order component `styled()` and/or `sx` prop: [Direct Link](https://mui.com/material-ui/react-card/#RecipeReviewCard.js) To updated Code. Then scroll up in the documentation to see the custom card from the video.
    
 ```javascript
-// Giving styles to exiting <IconButton/> component
-// Link to full code example
-// https://mui.com/material-ui/react-card/#RecipeReviewCard.js
+  // Giving styles to exiting <IconButton/> component
+  // Link to full code example
+  // https://mui.com/material-ui/react-card/#RecipeReviewCard.js
 
-    const ExpandMore = styled((props) => {
-         const { expand, ...other } = props;
-         return <IconButton {...other} />;
-    })(({ theme, expand }) => ({
-      transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-      marginLeft: 'auto',
-      transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-      }),
-    }));
+  const ExpandMore = styled((props) => {
+        const { expand, ...other } = props;
+        return <IconButton {...other} />;
+  })(({ theme, expand }) => ({
+    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  }));
 ```
  
 ## Practice It
