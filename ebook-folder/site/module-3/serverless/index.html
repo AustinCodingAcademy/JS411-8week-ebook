@@ -2177,45 +2177,51 @@
 <p>We will walk through the steps to use your first <strong>serverless function</strong>. FYI, FireBase refers to their serverless functions as "<a href="https://FireBase.google.com/docs/functions">Cloud Functions</a>".</p>
 <ul class="task-list">
 <li class="task-list-item">
-<p><input type="checkbox"/> 1. Open and <code>cd</code> into the root directory of the <a href="../../module-2/implement-fireBase/">learn-FireBase project</a> you have been learning with. <code>cd learn-FireBase</code></p>
+<p><input type="checkbox"/> 0. Open and <code>cd</code> into the root directory of the <a href="../../module-2/implement-fireBase/">learn-FireBase project</a> you have been learning with. <code>cd learn-FireBase</code></p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox"/> 2. In the root directory of the <a href="../../module-2/implement-fireBase/">learn-FireBase project</a> run <code>firebase init functions</code>.</p>
+<p><input type="checkbox"/> 1. Run this command first <code>npm install -g firebase-tools</code> </p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox"/> 2. Run the command <code>firebase login</code> if you are not logged in just type <span class="keys"><kbd class="key-n">N</kbd></span> for no tracking and then it will take you to the browser login with the same account/email you used for firebase. </p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox"/> 4. In the root directory of the <a href="../../module-2/implement-fireBase/">learn-FireBase project</a> run <code>firebase init functions</code>.</p>
 <p><img alt="FireBase-createApp-3Create" src="../../images/firebase-init-functions.png" /></p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox"/> 3. Initialize this directory: <code>Are you ready to proceed? (Y/n)</code> type <span class="keys"><kbd class="key-y">Y</kbd></span>. </p>
+<p><input type="checkbox"/> 5. Initialize this directory: <code>Are you ready to proceed? (Y/n)</code> type <span class="keys"><kbd class="key-y">Y</kbd></span>. </p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox"/> 4. Next press <span class="keys"><kbd class="key-enter">Enter</kbd></span> and select <code>&gt; Use an existing project</code>.</p>
+<p><input type="checkbox"/> 6. Next press <span class="keys"><kbd class="key-enter">Enter</kbd></span> and select <code>&gt; Use an existing project</code>.</p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox"/> 5. Use the arrow keys to select your project name from FireBase.</p>
+<p><input type="checkbox"/> 7. Use the arrow keys to select your project name from FireBase.</p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox"/> 6. For language to write Cloud Functions select <code>JavaScript</code>.</p>
+<p><input type="checkbox"/> 8. For language to write Cloud Functions select <code>JavaScript</code>.</p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox"/> 7. Use ESLint to catch probable bugs and enforce style? Type <span class="keys"><kbd class="key-y">Y</kbd></span></p>
+<p><input type="checkbox"/> 9. Use ESLint to catch probable bugs and enforce style? Type <span class="keys"><kbd class="key-y">Y</kbd></span></p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox"/> 8. Install dependencies with npm now. Type <span class="keys"><kbd class="key-y">Y</kbd></span></p>
+<p><input type="checkbox"/> 10. Install dependencies with npm now. Type <span class="keys"><kbd class="key-y">Y</kbd></span></p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox"/> 9. You should see a <code>functions/</code> folder and if you look inside it notice that it has a separate <code>package.json</code> of its own and <code>node_modules/</code> and its very own <code>index.js</code>.</p>
+<p><input type="checkbox"/> 11. You should see a <code>functions/</code> folder and if you look inside it notice that it has a separate <code>package.json</code> of its own and <code>node_modules/</code> and its very own <code>index.js</code>.</p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox"/> 10. Look in <code>functions/index.js</code>. This is where we will write our first serverless function. You will see a commented out function. We are going to run this function so uncomment it now.</p>
+<p><input type="checkbox"/> 12. Look in <code>functions/index.js</code>. This is where we will write our first serverless function. You will see a commented out function. We are going to run this function so uncomment it now.</p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox"/> 11. Next point your terminal at this directory by running <code>cd functions</code>. Then type <code>firebase emulators:start</code></p>
+<p><input type="checkbox"/> 13. Next point your terminal at this directory by running <code>cd functions</code>. Then type <code>firebase emulators:start</code></p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox"/> 12. You should see a message in the terminal like this <code>functions[us-central1-helloWorld]: http function initialized (http://localhost:5001/learn-FireBase-57df8/us-central1/helloWorld).</code> with your project name in the middle after the port number.</p>
+<p><input type="checkbox"/> 14. You should see a message in the terminal like this <code>functions[us-central1-helloWorld]: http function initialized (http://localhost:5001/learn-FireBase-57df8/us-central1/helloWorld).</code> with your project name in the middle after the port number.</p>
 <p><img alt="FireBase-createApp-3Create" src="../../images/first-serverless-function.png" /></p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox"/> 13. Copy/paste that URL into your browser. What do you see? What happen?</p>
+<p><input type="checkbox"/> 15. Copy/paste that URL into your browser. What do you see? What happen?</p>
 </li>
 </ul>
 <p>We now have the power of an entire back-end and server infrastructure just by writing our common JS functions. In future lessons we will use this style of a back-end with our front-end code and do operations and tasks that require the security of a back-end environment.</p>
