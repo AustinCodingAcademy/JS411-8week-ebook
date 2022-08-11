@@ -21,36 +21,39 @@ You can think of the ***serverless functions*** as setting up your own API (like
 
 We will walk through the steps to use your first **serverless function**. FYI, FireBase refers to their serverless functions as "[Cloud Functions](https://FireBase.google.com/docs/functions)".
 
+- [ ] 0. Open and `cd` into the root directory of the [learn-FireBase project](./../module-2/implement-fireBase.md) you have been learning with. `cd learn-FireBase`
 
-- [ ] 1. Open and `cd` into the root directory of the [learn-FireBase project](./../module-2/implement-fireBase.md) you have been learning with. `cd learn-FireBase`
+- [ ] 1. Run this command first `npm install -g firebase-tools` 
 
-- [ ] 2. In the root directory of the [learn-FireBase project](./../module-2/implement-fireBase.md) run `firebase init functions`.
+- [ ] 2. Run the command `firebase login` if you are not logged in just type ++n++ for no tracking and then it will take you to the browser login with the same account/email you used for firebase. 
+
+- [ ] 4. In the root directory of the [learn-FireBase project](./../module-2/implement-fireBase.md) run `firebase init functions`.
 
     ![FireBase-createApp-3Create](../images/firebase-init-functions.png)
 
-- [ ] 3. Initialize this directory: `Are you ready to proceed? (Y/n)` type ++y++. 
+- [ ] 5. Initialize this directory: `Are you ready to proceed? (Y/n)` type ++y++. 
 
-- [ ] 4. Next press ++enter++ and select `> Use an existing project`.
+- [ ] 6. Next press ++enter++ and select `> Use an existing project`.
 
-- [ ] 5. Use the arrow keys to select your project name from FireBase.
+- [ ] 7. Use the arrow keys to select your project name from FireBase.
 
-- [ ] 6. For language to write Cloud Functions select `JavaScript`.
+- [ ] 8. For language to write Cloud Functions select `JavaScript`.
 
-- [ ] 7. Use ESLint to catch probable bugs and enforce style? Type ++y++
+- [ ] 9. Use ESLint to catch probable bugs and enforce style? Type ++y++
 
-- [ ] 8. Install dependencies with npm now. Type ++y++
+- [ ] 10. Install dependencies with npm now. Type ++y++
 
-- [ ] 9. You should see a `functions/` folder and if you look inside it notice that it has a separate `package.json` of its own and `node_modules/` and its very own `index.js`.
+- [ ] 11. You should see a `functions/` folder and if you look inside it notice that it has a separate `package.json` of its own and `node_modules/` and its very own `index.js`.
 
-- [ ] 10. Look in `functions/index.js`. This is where we will write our first serverless function. You will see a commented out function. We are going to run this function so uncomment it now.
+- [ ] 12. Look in `functions/index.js`. This is where we will write our first serverless function. You will see a commented out function. We are going to run this function so uncomment it now.
 
-- [ ] 11. Next point your terminal at this directory by running `cd functions`. Then type `firebase emulators:start`
+- [ ] 13. Next point your terminal at this directory by running `cd functions`. Then type `firebase emulators:start`
 
-- [ ] 12. You should see a message in the terminal like this `functions[us-central1-helloWorld]: http function initialized (http://localhost:5001/learn-FireBase-57df8/us-central1/helloWorld).` with your project name in the middle after the port number.
+- [ ] 14. You should see a message in the terminal like this `functions[us-central1-helloWorld]: http function initialized (http://localhost:5001/learn-FireBase-57df8/us-central1/helloWorld).` with your project name in the middle after the port number.
 
     ![FireBase-createApp-3Create](../images/first-serverless-function.png)
 
-- [ ] 13. Copy/paste that URL into your browser. What do you see? What happen?
+- [ ] 15. Copy/paste that URL into your browser. What do you see? What happen?
 
 
 We now have the power of an entire back-end and server infrastructure just by writing our common JS functions. In future lessons we will use this style of a back-end with our front-end code and do operations and tasks that require the security of a back-end environment.
