@@ -129,7 +129,7 @@ Later, when we host this app live to to world we'll need to manually transfer th
 
 - [ ] To start, `cd` into the root directory of your app and run `touch .env` to create the new file. (*You're likely already in the root directory after the steps above.*)
 - [ ] Do the same thing to create a `.gitignore` file - `touch .gitignore`
-- [ ] Now go ahead and add `.env` to that file so git will ignore the `.env` file.
+- [ ] Now go ahead and type `.env` into that file so git will ignore the `.env` file.
 - [ ] Inside the `.env` copy/paste the data from your `firebaseConfig` object in the `firebaseConfig.js` file.
 - [ ] Now follow the video and use the code snippets below to complete the conversion.
 
@@ -153,7 +153,15 @@ Earlier you copy/pasted a config file from the Firebase dashboard into a `fireba
     REACT_APP_FIREBASE_MEASUREMENT_ID=
     ```
 
-=== "New `src/firebase-config.js`"
+> NOTE: *By prefixing the environment variables with `REACT_APP_` you don't have to install `dotenv`, instead [React automatically reads them as environmental variables](https://create-react-app.dev/docs/adding-custom-environment-variables/).*
+
+### Add To The FireBase Configuration
+
+Add: `import { getAuth } from "firebase/auth";`
+
+Add: `export const auth = getAuth(app);`
+=== "New `src/firebaseConfig.js`"
+
     
     ```javascript
     import { initializeApp } from "firebase/app";
@@ -179,12 +187,10 @@ Earlier you copy/pasted a config file from the Firebase dashboard into a `fireba
     const app = initializeApp(firebaseConfig);
 
     // create a connection for the app with the getAuth tool.
-    const auth = getAuth(app);
+    export const auth = getAuth(app);
 
-    export default auth
+
     ```
-
-> NOTE: *By prefixing the environment variables with `REACT_APP_` you don't have to install `dotenv`, instead [React automatically reads them as environmental variables](https://create-react-app.dev/docs/adding-custom-environment-variables/).*
 
 ### How to Authenticate with FireBase
 
@@ -193,63 +199,71 @@ The code below is a simple sign-up and logout for the start of any app using Fir
 ```javascript
 // App.js
 import React, { useState } from 'react';
-import auth from './firebaseConfig'; // credentials provided by firebaseConfig file from above
-import { createUserWithEmailAndPassword, signOut } from 'firebase/auth' // import firebase dependency 
+import {auth} from './firebaseConfig'; // credentials provided by firebaseConfig file from above
+import {
+    createUserWithEmailAndPassword,
+    signOut
+} from "firebase/auth"; // import firebase dependency
 
 function App() {
-  const [registeredEmail, setRegisteredEmail] = useState("");
-  const [registeredPassword, setRegisteredPassword] = useState("");
+    const [registeredEmail, setRegisteredEmail] = useState("");
+    const [registeredPassword, setRegisteredPassword] = useState("");
 
-  const register = async () => {
-    try { 
-      // TRY CATCH MUST BE USED ASYNC/AWAIT WHEN WORKING WITH FIREBASE
-      const user = await createUserWithEmailAndPassword(
-          auth,
-          registeredEmail,
-          registeredPassword
-      );
-      console.log(user);
-    } catch (error) { // Give the user indication they need to try again and why
-      // INVALID EMAIL
-      // MISSING PASSWORD
-      console.log(error.message);
-      clearForm()
-    }
-  };
+    const register = async (event) => {
+        event.preventDefault()
+        try {
+            // TRY CATCH MUST BE USED ASYNC/AWAIT WHEN WORKING WITH FIREBASE
+            const user = await createUserWithEmailAndPassword(
+                auth,
+                registeredEmail,
+                registeredPassword
+            );
+            console.log(user);
+        } catch (error) {
+            // Give the user indication they need to try again and why
+            // INVALID EMAIL
+            // MISSING PASSWORD
+            console.log(error.message);
+            clearForm();
+        }
+    };
 
-  const logout = async () => {
-    await signOut(auth);
-  };
+    const logout = async () => {
+        await signOut(auth);
+    };
 
-  // clear the form inputs
-  const clearForm = () => {
-    document.getElementById("user-form").reset()
-  }
+    // clear the form inputs
+    const clearForm = () => {
+        setRegisteredEmail("");
+        setRegisteredPassword("");
+    };
 
-  console.log("auth.currentUser", auth.currentUser);
+    console.log("auth.currentUser", auth.currentUser);
 
-  return (
-    <div >
-      <h3> Register User </h3>
-      <form id="user-form" >
-        <input
-          placeholder="Email..."
-          onChange={(event) => {
-              setRegisteredEmail(event.target.value);
-          }}
-        />
-        <input
-          type="password"
-          placeholder="Password..."
-          onChange={(event) => {
-              setRegisteredPassword(event.target.value);
-          }}
-        />
-        <button onClick={register}> Create User</button>
-        <button onClick={logout}> Sign Out </button>
-      </form>  
-    </div>
-  ); 
+    return (
+        <div>
+            <h3> Register User </h3>
+            <form id="user-form" onSubmit={register}>
+                <input
+                    value={registeredEmail}
+                    placeholder="Email..."
+                    onChange={(event) => {
+                        setRegisteredEmail(event.target.value);
+                    }}
+                />
+                <input
+                    value={registeredPassword}
+                    type="password"
+                    placeholder="Password..."
+                    onChange={(event) => {
+                        setRegisteredPassword(event.target.value);
+                    }}
+                />
+                <input type="submit" placeholder="User Name" />
+                <button onClick={logout}> Sign Out </button>
+            </form>
+        </div>
+    );
 }
 
 export default App;
