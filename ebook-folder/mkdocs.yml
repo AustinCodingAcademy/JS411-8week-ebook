@@ -95,6 +95,7 @@ nav:
       - 'Pre-Class 14 Lessons':
         - Develop I Can Do It: module-4/developSeries-ICanDoIt.md
         - NPM Build: module-4/npmBuild-intro.md
+        - FireBase Deploy: module-4/deployFireBase.md
         - Capstone App pt.3: module-4/capstoneApp-planning-pt3.md
         - Class 14 Sm. Biz App: module-4/class-14.md
         - Checkpoint Two: module-4/checkpointTwo-smallBizApp.md
