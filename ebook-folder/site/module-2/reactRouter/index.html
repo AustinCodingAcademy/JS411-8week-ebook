@@ -2313,6 +2313,21 @@
 <h3 id="creating-the-router">Creating the Router</h3>
 <p>After installing the libraries/packages that make up the magic of React Router, we need to create a router, which really is just a function that, when called, returns the component it's assigned to. We start by creating a file called <code>Router.js</code>, usually right inside the <code>src/</code> folder. Here's an example of a simple Router file:</p>
 <div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1"><code>src/Router.js</code></label><div class="tabbed-content">
+<p>```javascript
+import React from 'react';</p>
+<p>// Here is where we are importing to the two main components we need from the React Router package.
+import { Routes, Route } from 'react-router-dom';</p>
+<p>// Local imports. Import components we built ourselves
+import Home from './Home';
+import Dashboard from './components/Dashboard';
+import Profile from './components/Profile';</p>
+<p>const Router = () =&gt; {
+    return (
+//Then we use Routes and Route. Routes acts like a regular JS Switch* Statement </p>
+</div>
+</div>
+<p>// depending on the path in the URL, one of these Routes will be returned and their component rendered 
+            <Routes></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2324,48 +2339,19 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>            &lt;Route path=&quot;/*&quot; element={&lt;Home/&gt;} /&gt;
+            &lt;Route path=&quot;/dash&quot; element={&lt;Dashboard/&gt;} /&gt;
+            &lt;Route path=&quot;/user/:id&quot; element={&lt;Profile/&gt;} /&gt;
+        &lt;/Routes&gt;
+    );
+}
 
-<span class="c1">// Here is where we are importing to the two main components we need from the React Router package.</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Routes</span><span class="p">,</span><span class="w"> </span><span class="nx">Route</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span><span class="w"></span>
+//Don&#39;t forget to export your newly create Router component
+export default Router;
+```
 
-<span class="c1">// Local imports. Import components we built ourselves</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="nx">Home</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Home&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="nx">Dashboard</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./components/Dashboard&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="nx">Profile</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./components/Profile&#39;</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="cm">/* Then we use Routes and Route. Routes acts like a regular JS Switch* Statement */</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="o">&lt;</span><span class="nx">Routes</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="cm">/* depending on the path in the URL, one of these Routes will be returned and their component rendered */</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/*&quot;</span><span class="w"> </span><span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Home</span><span class="o">/&gt;</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">            </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/dash&quot;</span><span class="w"> </span><span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Dashboard</span><span class="o">/&gt;</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">            </span><span class="o">&lt;</span><span class="nx">Route</span><span class="w"> </span><span class="nx">path</span><span class="o">=</span><span class="s2">&quot;/user/:id&quot;</span><span class="w"> </span><span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Profile</span><span class="o">/&gt;</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&lt;</span><span class="err">/Routes&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="c1">//Don&#39;t forget to export your newly create Router component</span><span class="w"></span>
-<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">Router</span><span class="p">;</span><span class="w"></span>
+&gt; NOTE: When using the `*` at the end of a path it means to match deeply or exactly. We can only use `*` at the end of a path, make sure to never use it at the start or middle of a path(security errors will occur). You&#39;ll only need the trailing `*` when there is another `&lt;Routes&gt;` somewhere in that route&#39;s descendant tree. In that case, the descendant `&lt;Routes&gt;` will match on the portion of the pathname that remains.
 </code></pre></div></td></tr></table></div>
-<blockquote>
-<p>NOTE: When using the <code>*</code> at the end of a path it means to match deeply or exactly. We can only use <code>*</code> at the end of a path, make sure to never use it at the start or middle of a path(security errors will occur). You'll only need the trailing <code>*</code> when there is another <code>&lt;Routes&gt;</code> somewhere in that route's descendant tree. In that case, the descendant <code>&lt;Routes&gt;</code> will match on the portion of the pathname that remains.</p>
-</blockquote>
-</div>
-</div>
 <hr />
 <p>The <code>Routes</code> component always wraps multiple <code>Route</code>'s, so it is the single parent container this component returns. The <code>Route</code>'s are relative and help with leaner and more predictable code. <code>Route</code>'s are chosen based on the best match, not in order. You can put your <code>Route</code>'s in any order you like, the router will detect the best route for the current URL automatically. For readability if you want to start with "home" thats fine but nothing to worry about if you don't.</p>
 <blockquote>

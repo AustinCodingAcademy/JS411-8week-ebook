@@ -928,6 +928,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#add-to-the-firebase-configuration" class="md-nav__link">
+    Add To The FireBase Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#how-to-authenticate-with-firebase" class="md-nav__link">
     How to Authenticate with FireBase
   </a>
@@ -2295,6 +2302,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#add-to-the-firebase-configuration" class="md-nav__link">
+    Add To The FireBase Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#how-to-authenticate-with-firebase" class="md-nav__link">
     How to Authenticate with FireBase
   </a>
@@ -2440,13 +2454,13 @@
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox"/> To start, <code>cd</code> into the root directory of your app and run <code>touch .env</code> to create the new file. (<em>You're likely already in the root directory after the steps above.</em>)</li>
 <li class="task-list-item"><input type="checkbox"/> Do the same thing to create a <code>.gitignore</code> file - <code>touch .gitignore</code></li>
-<li class="task-list-item"><input type="checkbox"/> Now go ahead and add <code>.env</code> to that file so git will ignore the <code>.env</code> file.</li>
+<li class="task-list-item"><input type="checkbox"/> Now go ahead and type <code>.env</code> into that file so git will ignore the <code>.env</code> file.</li>
 <li class="task-list-item"><input type="checkbox"/> Inside the <code>.env</code> copy/paste the data from your <code>firebaseConfig</code> object in the <code>firebaseConfig.js</code> file.</li>
 <li class="task-list-item"><input type="checkbox"/> Now follow the video and use the code snippets below to complete the conversion.</li>
 </ul>
 <h5 id="transfer-convert-the-sensitive-data">Transfer &amp; Convert the Sensitive Data</h5>
 <p>Earlier you copy/pasted a config file from the Firebase dashboard into a <code>firebaseConfig.js</code> file. You're now going to move the data from the <code>const firebaseConfig</code> object into the <code>.env</code> file but change the property names and the syntax into YAML. Then, change out the values in the <code>firebaseConfig</code> object of the <code>firebaseConfig.js</code> file to read the same values but through the <code>process.env</code> so the values are hidden from others but exposed to the app. Check out the video for more details.</p>
-<div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Video Transfer to <code>.env</code> File</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Video Transfer to <code>.env</code> File</label><div class="tabbed-content">
 <p><div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/723102090?h=7e98b416a6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Firebase-TranferDataToEnvFile.mp4"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script></p>
 </div>
 <input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2"><code>.env</code> File Starter Code</label><div class="tabbed-content">
@@ -2465,7 +2479,14 @@
 <span class="l l-Scalar l-Scalar-Plain">REACT_APP_FIREBASE_MEASUREMENT_ID=</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 </div>
-<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">New <code>src/firebase-config.js</code></label><div class="tabbed-content">
+</div>
+<blockquote>
+<p>NOTE: <em>By prefixing the environment variables with <code>REACT_APP_</code> you don't have to install <code>dotenv</code>, instead <a href="https://create-react-app.dev/docs/adding-custom-environment-variables/">React automatically reads them as environmental variables</a>.</em></p>
+</blockquote>
+<h3 id="add-to-the-firebase-configuration">Add To The FireBase Configuration</h3>
+<p>Add: <code>import { getAuth } from "firebase/auth";</code></p>
+<p>Add: <code>export const auth = getAuth(app);</code></p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">New <code>src/firebaseConfig.js</code></label><div class="tabbed-content">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2489,9 +2510,7 @@
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">initializeApp</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;firebase/app&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">initializeApp</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;firebase/app&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Firebase offers many tools with it&#39;s SDK (Software Development Kit)</span><span class="w"></span>
 <span class="c1">// One of them is `getAuth` but there are others, see them at:</span><span class="w"></span>
@@ -2514,15 +2533,10 @@
 <span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">initializeApp</span><span class="p">(</span><span class="nx">firebaseConfig</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// create a connection for the app with the getAuth tool.</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">auth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getAuth</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span><span class="w"></span>
-
-<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">auth</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">auth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getAuth</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
-<blockquote>
-<p>NOTE: <em>By prefixing the environment variables with <code>REACT_APP_</code> you don't have to install <code>dotenv</code>, instead <a href="https://create-react-app.dev/docs/adding-custom-environment-variables/">React automatically reads them as environmental variables</a>.</em></p>
-</blockquote>
 <h3 id="how-to-authenticate-with-firebase">How to Authenticate with FireBase</h3>
 <p>The code below is a simple sign-up and logout for the start of any app using Firebase as the back-end authentication. Replace the code in your <code>src/App.js</code> file with the code below and run <code>npm start</code> to test it out.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2586,65 +2600,81 @@
 <span class="normal">59</span>
 <span class="normal">60</span>
 <span class="normal">61</span>
-<span class="normal">62</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// App.js</span><span class="w"></span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// App.js</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="nx">auth</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./firebaseConfig&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// credentials provided by firebaseConfig file from above</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createUserWithEmailAndPassword</span><span class="p">,</span><span class="w"> </span><span class="nx">signOut</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;firebase/auth&#39;</span><span class="w"> </span><span class="c1">// import firebase dependency </span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="nx">auth</span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./firebaseConfig&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// credentials provided by firebaseConfig file from above</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">createUserWithEmailAndPassword</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">signOut</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;firebase/auth&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// import firebase dependency</span><span class="w"></span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">registeredEmail</span><span class="p">,</span><span class="w"> </span><span class="nx">setRegisteredEmail</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">registeredPassword</span><span class="p">,</span><span class="w"> </span><span class="nx">setRegisteredPassword</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">registeredEmail</span><span class="p">,</span><span class="w"> </span><span class="nx">setRegisteredEmail</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">registeredPassword</span><span class="p">,</span><span class="w"> </span><span class="nx">setRegisteredPassword</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">register</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
-<span class="w">      </span><span class="c1">// TRY CATCH MUST BE USED ASYNC/AWAIT WHEN WORKING WITH FIREBASE</span><span class="w"></span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">createUserWithEmailAndPassword</span><span class="p">(</span><span class="w"></span>
-<span class="w">          </span><span class="nx">auth</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="nx">registeredEmail</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="nx">registeredPassword</span><span class="w"></span>
-<span class="w">      </span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Give the user indication they need to try again and why</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// INVALID EMAIL</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// MISSING PASSWORD</span><span class="w"></span>
-<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="nx">clearForm</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">register</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// TRY CATCH MUST BE USED ASYNC/AWAIT WHEN WORKING WITH FIREBASE</span><span class="w"></span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">createUserWithEmailAndPassword</span><span class="p">(</span><span class="w"></span>
+<span class="w">                </span><span class="nx">auth</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nx">registeredEmail</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nx">registeredPassword</span><span class="w"></span>
+<span class="w">            </span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// Give the user indication they need to try again and why</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// INVALID EMAIL</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// MISSING PASSWORD</span><span class="w"></span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="nx">clearForm</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
 
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">logout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">signOut</span><span class="p">(</span><span class="nx">auth</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">logout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nx">signOut</span><span class="p">(</span><span class="nx">auth</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
 
-<span class="w">  </span><span class="c1">// clear the form inputs</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">clearForm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;user-form&quot;</span><span class="p">).</span><span class="nx">reset</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// clear the form inputs</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">clearForm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">setRegisteredEmail</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="nx">setRegisteredPassword</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
 
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;auth.currentUser&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">auth</span><span class="p">.</span><span class="nx">currentUser</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;auth.currentUser&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">auth</span><span class="p">.</span><span class="nx">currentUser</span><span class="p">);</span><span class="w"></span>
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">      </span><span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="w"> </span><span class="nx">Register</span><span class="w"> </span><span class="nx">User</span><span class="w"> </span><span class="o">&lt;</span><span class="err">/h3&gt;</span><span class="w"></span>
-<span class="w">      </span><span class="o">&lt;</span><span class="nx">form</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;user-form&quot;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"></span>
-<span class="w">          </span><span class="nx">placeholder</span><span class="o">=</span><span class="s2">&quot;Email...&quot;</span><span class="w"></span>
-<span class="w">          </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nx">setRegisteredEmail</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span><span class="w"></span>
-<span class="w">          </span><span class="p">}}</span><span class="w"></span>
-<span class="w">        </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"></span>
-<span class="w">          </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;password&quot;</span><span class="w"></span>
-<span class="w">          </span><span class="nx">placeholder</span><span class="o">=</span><span class="s2">&quot;Password...&quot;</span><span class="w"></span>
-<span class="w">          </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nx">setRegisteredPassword</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span><span class="w"></span>
-<span class="w">          </span><span class="p">}}</span><span class="w"></span>
-<span class="w">        </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">register</span><span class="p">}</span><span class="o">&gt;</span><span class="w"> </span><span class="nx">Create</span><span class="w"> </span><span class="nx">User</span><span class="o">&lt;</span><span class="err">/button&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">logout</span><span class="p">}</span><span class="o">&gt;</span><span class="w"> </span><span class="nx">Sign</span><span class="w"> </span><span class="nx">Out</span><span class="w"> </span><span class="o">&lt;</span><span class="err">/button&gt;</span><span class="w"></span>
-<span class="w">      </span><span class="o">&lt;</span><span class="err">/form&gt;  </span><span class="w"></span>
-<span class="w">    </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
-<span class="w">  </span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="w"> </span><span class="nx">Register</span><span class="w"> </span><span class="nx">User</span><span class="w"> </span><span class="o">&lt;</span><span class="err">/h3&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">form</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;user-form&quot;</span><span class="w"> </span><span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">register</span><span class="p">}</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">registeredEmail</span><span class="p">}</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">placeholder</span><span class="o">=</span><span class="s2">&quot;Email...&quot;</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="nx">setRegisteredEmail</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}}</span><span class="w"></span>
+<span class="w">                </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">registeredPassword</span><span class="p">}</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;password&quot;</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">placeholder</span><span class="o">=</span><span class="s2">&quot;Password...&quot;</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="nx">setRegisteredPassword</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}}</span><span class="w"></span>
+<span class="w">                </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="w"> </span><span class="nx">placeholder</span><span class="o">=</span><span class="s2">&quot;User Name&quot;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">logout</span><span class="p">}</span><span class="o">&gt;</span><span class="w"> </span><span class="nx">Sign</span><span class="w"> </span><span class="nx">Out</span><span class="w"> </span><span class="o">&lt;</span><span class="err">/button&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;</span><span class="err">/form&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
 <span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">App</span><span class="p">;</span><span class="w"></span>
