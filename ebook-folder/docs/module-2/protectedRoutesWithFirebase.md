@@ -162,21 +162,21 @@ Now that we have our `ProtectedRoute` looking for a `user` object, we can bring 
 === "Use the `ProtectedRoute` in `Router` - Router.js w/o comments"
 
     ```javascript
-      import { Routes, Router } from "react-router-dom";
+      import { Routes, Route } from 'react-router-dom';
       import { ProtectedRoute } from './components/ProtectedRoute';
       import Home from "./components/Home";
       import Dashboard from "./components/Dashboard";
 
       const Router = (props) => {
         
-        const user = {props};
+        const {user} = props;
         
         return (
           <Routes>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" component={<Home/>} />
               <Route 
-                path='/about' 
-                element={<ProtectedRoute user={user} component={about} />} 
+                path='/dashboard' 
+                element={<ProtectedRoute user={user} component={Dashboard} />} 
               />
           </Routes>
         )
@@ -188,7 +188,7 @@ Now that we have our `ProtectedRoute` looking for a `user` object, we can bring 
 === "Use the `ProtectedRoute` in `Router` - Router.js w/comments"
 
     ```javascript
-      import { Routes, Router } from "react-router-dom";
+      import { Routes, Route } from 'react-router-dom';
       // bring in the ProtectedRoute function so it can be used.
       import { ProtectedRoute } from './components/ProtectedRoute';
       // bring in all of the components that can be routed to
@@ -203,7 +203,7 @@ Now that we have our `ProtectedRoute` looking for a `user` object, we can bring 
         //   by `onAuthStateChanged` from `App.js`. We'll capture the user by 
         //   destructuring props. When you wrap it in  `{ }` you can extract  
         //   any property names the same as your variable, i.e. user: user
-        const user = {props};
+        const {user} = props;
         
         return (
           <Routes>
