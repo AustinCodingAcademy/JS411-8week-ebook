@@ -93,9 +93,10 @@ After installing the libraries/packages that make up the magic of React Router, 
 
     const Router = () => {
         return (
-            { /* Then we use Routes and Route. Routes acts like a regular JS Switch* Statement */ }
+    //Then we use Routes and Route. Routes acts like a regular JS Switch* Statement 
+   // depending on the path in the URL, one of these Routes will be returned and their component rendered 
             <Routes>
-                { /* depending on the path in the URL, one of these Routes will be returned and their component rendered */ }
+              
                 <Route path="/*" element={<Home/>} />
                 <Route path="/dash" element={<Dashboard/>} />
                 <Route path="/user/:id" element={<Profile/>} />
