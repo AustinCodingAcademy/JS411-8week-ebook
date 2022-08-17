@@ -2144,36 +2144,20 @@
 <h2 id="in-summary">In Summary</h2>
 <p>In conclusion, if you want to create a cool-looking, uniform experience across your application...use Material UI. See if they have a component for your needs. <strong>Buttons</strong>, <strong>Checkboxes</strong>, <strong>Radio Buttons</strong>, <strong>Selects</strong>, <strong>Sliders</strong>, <strong>Text Fields</strong> and more are all available for use.</p>
 <p>We will use Material UI to style our App in this week's lesson so go get familiar with the <a href="#know-your-docs">Docs</a>.</p>
-<h2 id="see-it-using-material-ui">See It - Using Material-UI</h2>
-<!-- ! Video Contents: Vimeo, Clayton@ACA - 411-24-UsingMaterialUI - 411.2.1.2 -->
-<iframe src="https://player.vimeo.com/video/492174275?color=2565EF&byline=0&portrait=0" width="655" height="368" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-
-<blockquote>
-<p>NOTE: In this video at 4:49 you will see <code>makeStyles</code> but the preferred design pattern is higher order component:</p>
-</blockquote>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">ExpandMore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">styled</span><span class="p">((</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">expand</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">other</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">props</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">IconButton</span><span class="w"> </span><span class="p">{...</span><span class="nx">other</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">;</span><span class="w"></span>
-<span class="w"> </span><span class="p">})(({</span><span class="w"> </span><span class="nx">theme</span><span class="p">,</span><span class="w"> </span><span class="nx">expand</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span><span class="w"></span>
-<span class="w">   </span><span class="nx">transform</span><span class="o">:</span><span class="w"> </span><span class="o">!</span><span class="nx">expand</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;rotate(0deg)&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;rotate(180deg)&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">   </span><span class="nx">marginLeft</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;auto&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">   </span><span class="nx">transition</span><span class="o">:</span><span class="w"> </span><span class="nx">theme</span><span class="p">.</span><span class="nx">transitions</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;transform&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">     </span><span class="nx">duration</span><span class="o">:</span><span class="w"> </span><span class="nx">theme</span><span class="p">.</span><span class="nx">transitions</span><span class="p">.</span><span class="nx">duration</span><span class="p">.</span><span class="nx">shortest</span><span class="p">,</span><span class="w"></span>
-<span class="w">   </span><span class="p">}),</span><span class="w"></span>
-<span class="w"> </span><span class="p">}));</span><span class="w"></span>
+<p>There are several ways to <a href="https://mui.com/material-ui/customization/how-to-customize/#the-sx-prop">customize styles</a> in Material UI. The preferred ways involve using the <code>sx</code> prop for direct styling or using <code>styled()</code> to create or add styles to existing components. The example from above with <code>className</code> on the buttons is also a valid option.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">Button</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@mui/material/Button&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// sx is a prop that takes in an object with key value pairs written as </span><span class="w"></span>
+<span class="c1">// standard css you already know</span><span class="w"></span>
+<span class="o">&lt;</span><span class="nx">Button</span><span class="w"> </span><span class="nx">sx</span><span class="o">=</span><span class="p">{{</span><span class="nx">border</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;5px solid red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;margin-top&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;100px&quot;</span><span class="p">}}</span><span class="w"> </span><span class="nx">variant</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w"> </span><span class="nx">Text</span><span class="w"> </span>
+<span class="o">&lt;</span><span class="err">/Button&gt;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<blockquote>
-<p>NOTE-2: If you want to use <code>makeStyles</code> you will need to make sure it is in a <code>themeProvider</code> component see: <a href="https://mui.com/material-ui/guides/migration-v4/">V4 to v5 migration</a>:</p>
-</blockquote>
+<p>We can create styled components either with standard html elements or further down below giving styles to existing components.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2191,24 +2175,69 @@
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">      </span><span class="c1">// ...imports</span><span class="w"></span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="nx">Button</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@mui/material/Button&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//note new import system @mui/system it comes with @mui/material</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// we installed earlier</span><span class="w"></span>
+<span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">styled</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@mui/system&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">   </span><span class="kd">function</span><span class="w"> </span><span class="nx">AppContent</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">     </span><span class="kd">const</span><span class="w"> </span><span class="nx">classes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useStyles</span><span class="p">();</span><span class="w"> </span><span class="c1">// ✅ This is safe because it is called...</span><span class="w"></span>
-<span class="w">     </span><span class="c1">// ...inside ThemeProvider</span><span class="w"></span>
-<span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Card</span><span class="w"> </span><span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">classes</span><span class="p">.</span><span class="nx">root</span><span class="p">}</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&lt;</span><span class="err">/Card&gt;;</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span><span class="c1">// Turn a div into a custom MaterialUi styled component</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">MyComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">styled</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">)({</span><span class="w"></span>
+<span class="w">      </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;darkslategray&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;aliceblue&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">padding</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">borderRadius</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">border</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;5px solid blue&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
 
-<span class="w">   </span><span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">       </span><span class="o">&lt;</span><span class="nx">ThemeProvider</span><span class="w"> </span><span class="nx">theme</span><span class="o">=</span><span class="p">{</span><span class="nx">theme</span><span class="p">}</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">         </span><span class="o">&lt;</span><span class="nx">CssBaseline</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">         </span><span class="o">&lt;</span><span class="nx">AppContent</span><span class="w"> </span><span class="p">{...</span><span class="nx">props</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
-<span class="w">       </span><span class="o">&lt;</span><span class="err">/ThemeProvider&gt;</span><span class="w"></span>
-<span class="w">     </span><span class="p">);</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">BasicButtons</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">MyComponent</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">              </span><span class="o">&lt;</span><span class="nx">Button</span><span class="w"> </span><span class="nx">sx</span><span class="o">=</span><span class="p">{{</span><span class="nx">border</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;5px solid red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;margin-top&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;100px&quot;</span><span class="p">}}</span><span class="w"> </span><span class="nx">variant</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">                </span><span class="nx">Text</span><span class="w"></span>
+<span class="w">              </span><span class="o">&lt;</span><span class="err">/Button&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="err">/MyComponent&gt;;</span><span class="w"></span>
+<span class="w">      </span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h2 id="see-it-using-material-ui">See It - Using Material-UI</h2>
+<!-- ! Video Contents: Vimeo, Clayton@ACA - 411-24-UsingMaterialUI - 411.2.1.2 -->
+<iframe src="https://player.vimeo.com/video/492174275?color=2565EF&byline=0&portrait=0" width="655" height="368" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
-<span class="w">  </span><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">App</span><span class="p">;</span><span class="w"></span>
+<blockquote>
+<p>NOTE: In this video at 4:49 you will see <code>makeStyles</code> but the preferred design pattern is a combination of higher order component <code>styled()</code> and/or <code>sx</code> prop: <a href="https://mui.com/material-ui/react-card/#RecipeReviewCard.js">Direct Link</a> To updated Code. Then scroll up in the documentation to see the custom card from the video.</p>
+</blockquote>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="c1">// Giving styles to exiting &lt;IconButton/&gt; component</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Link to full code example</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// https://mui.com/material-ui/react-card/#RecipeReviewCard.js</span><span class="w"></span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">ExpandMore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">styled</span><span class="p">((</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">expand</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">other</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">props</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">IconButton</span><span class="w"> </span><span class="p">{...</span><span class="nx">other</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">})(({</span><span class="w"> </span><span class="nx">theme</span><span class="p">,</span><span class="w"> </span><span class="nx">expand</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">transform</span><span class="o">:</span><span class="w"> </span><span class="o">!</span><span class="nx">expand</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;rotate(0deg)&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;rotate(180deg)&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">marginLeft</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;auto&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">transition</span><span class="o">:</span><span class="w"> </span><span class="nx">theme</span><span class="p">.</span><span class="nx">transitions</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;transform&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">duration</span><span class="o">:</span><span class="w"> </span><span class="nx">theme</span><span class="p">.</span><span class="nx">transitions</span><span class="p">.</span><span class="nx">duration</span><span class="p">.</span><span class="nx">shortest</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">}),</span><span class="w"></span>
+<span class="w">  </span><span class="p">}));</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h2 id="practice-it">Practice It</h2>
 <iframe src="https://codesandbox.io/embed/new?fontsize=14" title="new" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
