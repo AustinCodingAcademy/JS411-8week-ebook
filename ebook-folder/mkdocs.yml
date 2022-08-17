@@ -95,6 +95,7 @@ nav:
       - 'Pre-Class 14 Lessons':
         - Develop I Can Do It: module-4/developSeries-ICanDoIt.md
         - NPM Build: module-4/npmBuild-intro.md
+        - FireBase Deploy: module-4/deployFireBase.md
         - Capstone App pt.3: module-4/capstoneApp-planning-pt3.md
         - Class 14 Sm. Biz App: module-4/class-14.md
         - Checkpoint Two: module-4/checkpointTwo-smallBizApp.md
@@ -105,7 +106,7 @@ nav:
       - 'Pre-Class 16 Lessons':
         - Develop Commitment: module-4/developSeries-dominate2021.md
         - MVP Shop: module-4/mvpShopInfo.md
-        - Deployment: module-4/deployment.md
+        - Deploy w/GCP: module-4/deployment.md
         - Capstone App pt.5: module-4/capstoneApp-planning-pt5.md
         - Checkpoint Three: module-4/capstoneApp-checkpoint-3.md
         - Class 16: module-4/class-16.md
