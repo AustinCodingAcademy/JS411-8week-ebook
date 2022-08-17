@@ -2,92 +2,88 @@
 
 *Happiness is a butterfly, which when pursued, is always just beyond your grasp, but which, if you will sit down quietly, may alight upon you. —Nathaniel Hawthorne*
 
-
 ## Overview
 
-We learned in the last class why deploying our apps is a necessity. We want everyone on the internet to be able to access what we've created right? Now we will deploy our FireBase Cars App we have spent time working on. Then eventually you can use these directions and what you learn here to deploy your capstone.
+We learned in the last class why deploying our apps is a necessity. *We want everyone on the internet to be able to access what we've created, right?* Now we'll deploy our Fake Cars App we have spent so much time working on. Then eventually you can use these directions and what you learn here to deploy your Capstone app and everything else you build in the future!
 
-## Pre-Deployment and Preparation
+### Pre-Deployment and Preparation
 
-- [ ] If you have the functions emulator active whether you are going to use functions or not comment out the emulator code.
+- [ ] If you have the functions emulator line of code, (whether you are going to use functions or not) comment out the emulator code.
 
-![commentOut-Functions-Emulator-firebase-deployt](./../images/commentOut-Functions-Emulator-firebase-deployt.png)
+![firebase-deploy-commentOutFunctionsEmulator](./../images/firebase-deploy-commentOutFunctionsEmulator.png)
 
-- [ ] You should have Firebase tools installed already from directions here in [serverless](./../module-3/serverless.md) functions. If not run `npm install -g firebase-tools`.
-- [ ] Same with Login to firebase CLI. Run `firebase login` to see if you are logged in if not do so with the same email/account as used for your firebase account.
+- [ ] You should have Firebase tools installed already from the directions in the [serverless function](./../module-3/serverless.md) lesson. If not run `npm install -g firebase-tools`.
+- [ ] Same with Login to firebase CLI. Run `firebase login` to see if you are logged-in. If not, do so with the same email/account as used for your firebase account.
 
 ## Deploying with FireBase
-We are going to deploy our firebase cars assignment we started in class 8. You can use these directions to deploy any react project including your capstone. Zoom in on the picture with your browser ++ctrl++ + ++plus++  if you're unable to see them clearly.
 
-- [ ] Make sure you are in the root directory of your project.
+We are going to deploy our [Fake Cars assignment we started in Class 8](../module-2/class-8.md). You can use these directions to deploy any React project including your Capstone App for graduation. 
 
-- [ ] Type and run `npm run build`
+> NOTE: If you're unable to see them clearly zoom-in on the picture with ++ctrl++ + ++plus++ .
 
-![build-deploy-firebaser](./../images/build-deploy-firebase.png)
+- [ ] Make sure you're in the root directory of your project.
+
+- [ ] Run `npm run build`
+
+![deploy-firebase-runBuild](./../images/deploy-firebase-runBuild.png)
 
 - [ ] initialize the project `firebase init`
 
 ![firebase-init-deploy](./../images/firebase-init-deploy.png)
 
-- [ ] Are you ready to proceed? ++y++ 
+- [ ] Are you ready to proceed? Type ++y++ 
 
-- [ ] Select Hosting: Configure files for Firebase Hosting and (optionally) set up GitHub Action deploys. Use arrow keys to move and  ++space++ to make selection then ++enter++ to confirm selection and to continue.
+- [ ] Select Hosting: Configure files for Firebase Hosting and *optionally* set up GitHub Action deploys. Use arrow keys to move and  ++space++ to make selection then press ++enter++ to confirm selection and to continue.
 
-
-![hosting-select-firebase-deploy](./../images/hosting-select-firebase-deploy.png)
+![firebase-deploy-selectingHostingOptions](./../images/firebase-deploy-selectingHostingOptions.png)
 
 - [ ] Select "use an existing project"
 
-![firebase-existingproject-deploy](./../images/firebase-existingproject-deploy.png)
+![firebase-deploy-selectExistingProject](./../images/firebase-deploy-selectExistingProject.png)
 
-- [ ] Then select your project name
+- [ ] Then select your project by name, Fake Cars...etc.
 
 - [ ] What do you want to use as your public directory? (public) type  `build`
 
-![type-build-firebase-deployy](./../images/type-build-firebase-deploy.png)
+![firebase-deploy-buildPublicFolder](./../images/firebase-deploy-buildPublicFolder.png)
 
-- [ ] Configure as a single-page app (rewrite all urls to /index.html)? ++y++
+- [ ] Configure as a single-page app (rewrite all URLs to /index.html)? Press ++y++
 
-- [ ] Set up automatic builds and deploys with GitHub? ++n++
+- [ ] Set up automatic builds and deploys with GitHub? Press ++n++
 
-- [ ] File build/index.html already exists. Overwrite? ++n++
+- [ ] File build/index.html already exists. Overwrite? Press ++n++
 
-- [ ] Type and run ` firebase deploy --only hosting`
+- [ ] Run `firebase deploy --only hosting`
 
+![firebase-deploy-selectHostingOnly](./../images/firebase-deploy-selectHostingOnly.png)
 
+You will get a URL with the link to your deployed site in the terminal and can also be found on your FireBase console under "Build" >> "Hosting".
 
-![firebase-hostingonly-deploy](./../images/firebase-hostingonly-deploy.png)
-
-You will get a url with the link to your deployed site in the terminal and can also be found under build then hosting in FireBase console.
-
-![url-domainlink-firebase-deploy](./../images/url-domainlink-firebase-deploy.png)
-
-
+![firebase-deploy-urlDomainLink](./../images/firebase-deploy-urlDomainLink.png)
 
 ### Serverless Cloud Functions Deploy
-If your app is using serverless cloud functions use the following directions. You will have to upgrade to a paid plan this is very common with cloud deploys involving backend server side code. Remember there is a free tier with no charge if your app stays under a certain amount of data usage and you can set a budget later. Reference the [pricing](https://firebase.google.com/pricing) for more details.
+
+If your app is using serverless cloud functions use the following directions. **You will have to upgrade to a paid plan.** This is very common with cloud deploys involving back-end server side code. Remember there is a free tier with no charge if your app stays under a certain amount of data usage and you can set a budget later. Reference the [pricing guide](https://firebase.google.com/pricing) for more details.
 
  - [ ] Click "Upgrade project" under the functions menu and follow the directions and prompts with your relevant information.
 
- ![firebase-functions-deploy-upgradeproject](./../images/firebase-functions-deploy-upgradeproject.png)
+ ![firebase-deploy-upgradeProjectForFunctions](./../images/firebase-deploy-upgradeProjectForFunctions.png)
 
  - [ ] Set your budget.
 
- ![set-budget-firebase-deploy](./../images/set-budget-firebase-deploy.png)
+ ![firebase-deploy-setBudget](./../images/firebase-deploy-setBudget.png)
 
-- [ ] In your terminal Run `firebase deploy --only functions` If you get errors follow directions below otherwise go test your app
-and see if your live deployed app  works as expected.
+- [ ] In your terminal run `firebase deploy --only functions`. If you get errors follow directions below; otherwise, go test your app and see if your live deployed app works as expected.
 
-#### LF CLRF error or other eslint errors 
+#### Errors
 
-- [ ] If you get CLRF LF error. Click on `.eslintrc.js` and comment out the entire file. Eslint is just need for formatting and code style it will not change how your app works. Also, this `.eslintrc.js` file only works for our `functions/index` file. The eslint used for all our react and front end code will not be affected. There is a potential bug with line formatting and the version of eslint used in functions folder, so this will help us get our app deployed. 
+- [ ] If you get the **CLRF LF error**: click on `.eslintrc.js` and comment out the entire file. Eslint is just for formatting and code styling; it will not change how your app works. Also, this `.eslintrc.js` file only works for our `functions/index` file. The eslint used for all our React/front-end code will not be affected. There is a potential bug with line formatting and the version of eslint used in functions folder, so this will help us get our app deployed. 
 
+![firebase-deploy-commentOutEslint](./../images/firebase-deploy-commentOutEslint.png)
 
-![build-deploy-firebaser](./../images/comment-out-eslint-firebase-deploy.png)
+#### Re-Run Deploy
 
-
-
-## When you just need to update your deploy after going through all the previous steps.
+When you've built a new version of your app and you just need to update the deployed version, without having to go through all the previous steps again, just run these:
 
 - [ ] Run `npm build`
 - [ ] Run  `firebase deploy --only hosting`

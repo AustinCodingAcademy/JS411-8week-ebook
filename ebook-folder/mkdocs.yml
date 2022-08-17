@@ -106,7 +106,7 @@ nav:
       - 'Pre-Class 16 Lessons':
         - Develop Commitment: module-4/developSeries-dominate2021.md
         - MVP Shop: module-4/mvpShopInfo.md
-        - Deployment: module-4/deployment.md
+        - Deploy w/GCP: module-4/deployment.md
         - Capstone App pt.5: module-4/capstoneApp-planning-pt5.md
         - Checkpoint Three: module-4/capstoneApp-checkpoint-3.md
         - Class 16: module-4/class-16.md
