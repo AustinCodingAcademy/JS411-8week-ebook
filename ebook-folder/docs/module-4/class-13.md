@@ -62,8 +62,7 @@ We'll spend 30 minutes after Whiteboarding and Discussion to plan our Capstone P
 
 In your pre-class lesson, you read about the importance of your back-end providing the data your front-end needs to share with users. Get with your partner now and:
 
-- [ ] Take a look at the core functions of your app.
-- [ ] Look at the routes and database your server from 311 currently have.
+- [ ] Use your ER Diagram as one of the tools to help you plan out your app and do the following by Taking a look at the core functions of your app.
 - [ ] What needs to be added?
 - [ ] What needs to be changed?
 - [ ] Write it out, plan it into tasks, and add it to your Trello board.
@@ -74,6 +73,9 @@ In your pre-class lesson, you read about the importance of your back-end providi
 - [ ] List anything important and link your Trello board to your `README.md` file so you have a place to gather all of your needed materials.
 
 #### Part 2 Instructions
+
+This will be a group project for 2-3 people. Each firebase account has 3 open slots. We have used 1-2 in this class so far. Pick one person to log in to their account and start the process of setting up the firebase project for everyone else. They should follow [Authenticate with Firebase](./../module-2/implement-fireBase.md) use `npx create-react-app small-business` when you get to the react section in the folder of your choice to create a project called `small-business` that will house your application. Then make a repo for everyone to fork and clone Then share your credentials so every one can put them in their .env file. Use the [working together](https://github.com/instructorKC/workingTogether) directions to build this app together.
+
 
 Now that you've got some plans laid out for your Capstone app let's look at your [Checkpoint 2 Project](./checkpointTwo-smallBizApp.md). All of the information and instruction you'll need is on that page.
 
