@@ -4,7 +4,23 @@
 
 ## Overview
 
-We learned in the last class why deploying our apps is a necessity. *We want everyone on the internet to be able to access what we've created, right?* Now we'll deploy our Fake Cars App we have spent so much time working on. Then eventually you can use these directions and what you learn here to deploy your Capstone app and everything else you build in the future!
+Hosting is the process of making your application accessible to the internet. In the past, this involved buying a piece of hardware (a server), deploying your application to that server and creating your own firewall rules so that people could interface with your site or API(Serverless cloud functions). Nowadays there are numerous cloud services that do these types of things for us. One of those services is FireBase, and since we have already used FireBase to create our database, we will continue working with this technology.
+
+As a recap, FireBase is a service that allows us access to the hundreds of thousands of servers that Google uses to run its business. Amazon Web Services (AWS) works in a very similar way. When these big companies have extra server space they rent out the resources to us so that we can make use of them for our projects. So when we say the servers are "in the cloud", we really just mean that the actual hardware lives somewhere else and is configurable over the internet. We are going to use some of these resources to "host" our API(Serverless cloud functions).
+
+We learned why deploying our apps is a necessity. *We want everyone on the internet to be able to access what we've created, right?* Then eventually you can use these directions and what you learn here to deploy your Capstone app and everything else you build in the future!
+
+# Intro to Hosting
+
+*When the best things are not possible, the best may be made of those that are. —Richard Hooker*
+
+We've spent a lot of time in this course learning how to build APIs and we've on LOCALHOST.
+
+  > As a reminder, localhost is basically a local server that we run our code on for testing and development purposes.
+  
+But what about when we want to get into production, actually serving our data and API to the public? Other people will need to access our application from wherever they are in the world and for that we need to learn about hosting. Now that we understand authentication we can safely do this!
+
+
 
 ### Pre-Deployment and Preparation
 
