@@ -106,7 +106,7 @@ nav:
       - 'Pre-Class 16 Lessons':
         - Develop Commitment: module-4/developSeries-dominate2021.md
         - MVP Shop: module-4/mvpShopInfo.md
-        - Deploy w/GCP: module-4/deployment.md
+        - Firebase Capstone Deployment: module-4/deploy-capstone-Firebase.md
         - Capstone App pt.5: module-4/capstoneApp-planning-pt5.md
         - Checkpoint Three: module-4/capstoneApp-checkpoint-3.md
         - Class 16: module-4/class-16.md
@@ -118,6 +118,7 @@ nav:
       - Student Presentations: additionalResources/studentPresentations.md
       - Develop Series Collection: additionalResources/developSeries.md
       - Hooks Intro: module-3/reactHooks-intro.md
+      - Deploy w/GCP: additionalResources/deployment.md
       - 'Redux':
         - Redux Intro: module-3/redux-mapStateToProps.md
         - Redux Setup: module-3/redux-theSetup.md
