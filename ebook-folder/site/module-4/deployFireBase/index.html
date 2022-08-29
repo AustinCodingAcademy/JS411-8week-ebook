@@ -1356,11 +1356,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#overview-and-intro-to-hosting" class="md-nav__link">
+    Overview and Intro to Hosting
   </a>
   
-    <nav class="md-nav" aria-label="Overview">
+    <nav class="md-nav" aria-label="Overview and Intro to Hosting">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1384,12 +1384,11 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#serverless-cloud-functions-deploy" class="md-nav__link">
-    Serverless Cloud Functions Deploy
+  <a href="#deploy-serverless-cloud-functions" class="md-nav__link">
+    Deploy Serverless Cloud Functions
   </a>
   
-    <nav class="md-nav" aria-label="Serverless Cloud Functions Deploy">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#errors" class="md-nav__link">
@@ -1402,11 +1401,6 @@
   <a href="#re-run-deploy" class="md-nav__link">
     Re-Run Deploy
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1585,8 +1579,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/" class="md-nav__link">
-        Deploy w/GCP
+      <a href="../deploy-capstone-Firebase/" class="md-nav__link">
+        Firebase Capstone Deployment
       </a>
     </li>
   
@@ -1731,18 +1725,30 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../additionalResources/deployment/" class="md-nav__link">
+        Deploy w/GCP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_5" type="checkbox" id="__nav_7_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_6" type="checkbox" id="__nav_7_6" >
       
-      <label class="md-nav__link" for="__nav_7_5">
+      <label class="md-nav__link" for="__nav_7_6">
         Redux
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Redux" data-md-level="2">
-        <label class="md-nav__title" for="__nav_7_5">
+        <label class="md-nav__title" for="__nav_7_6">
           <span class="md-nav__icon md-icon"></span>
           Redux
         </label>
@@ -1858,14 +1864,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_6" type="checkbox" id="__nav_7_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_7" type="checkbox" id="__nav_7_7" >
       
-      <label class="md-nav__link" for="__nav_7_6">
+      <label class="md-nav__link" for="__nav_7_7">
         Questions for Discussion Collections
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Questions for Discussion Collections" data-md-level="2">
-        <label class="md-nav__title" for="__nav_7_6">
+        <label class="md-nav__title" for="__nav_7_7">
           <span class="md-nav__icon md-icon"></span>
           Questions for Discussion Collections
         </label>
@@ -2172,11 +2178,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#overview-and-intro-to-hosting" class="md-nav__link">
+    Overview and Intro to Hosting
   </a>
   
-    <nav class="md-nav" aria-label="Overview">
+    <nav class="md-nav" aria-label="Overview and Intro to Hosting">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2200,12 +2206,11 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#serverless-cloud-functions-deploy" class="md-nav__link">
-    Serverless Cloud Functions Deploy
+  <a href="#deploy-serverless-cloud-functions" class="md-nav__link">
+    Deploy Serverless Cloud Functions
   </a>
   
-    <nav class="md-nav" aria-label="Serverless Cloud Functions Deploy">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#errors" class="md-nav__link">
@@ -2218,11 +2223,6 @@
   <a href="#re-run-deploy" class="md-nav__link">
     Re-Run Deploy
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2252,9 +2252,15 @@
                 
                 
                 <h1 id="app-deployment">App Deployment</h1>
-<p><em>Happiness is a butterfly, which when pursued, is always just beyond your grasp, but which, if you will sit down quietly, may alight upon you. —Nathaniel Hawthorne</em></p>
-<h2 id="overview">Overview</h2>
-<p>We learned in the last class why deploying our apps is a necessity. <em>We want everyone on the internet to be able to access what we've created, right?</em> Now we'll deploy our Fake Cars App we have spent so much time working on. Then eventually you can use these directions and what you learn here to deploy your Capstone app and everything else you build in the future!</p>
+<p><em>When the best things are not possible, the best may be made of those that are. —Richard Hooker</em></p>
+<h2 id="overview-and-intro-to-hosting">Overview and Intro to Hosting</h2>
+<p>Hosting is the process of making your application accessible to the internet. In the past, this involved buying a piece of hardware (a server), deploying your application to that server and creating your own firewall rules so that people could interface with your site or API(Serverless Cloud Functions). Nowadays there are numerous cloud services that do these types of things for us. One of those services is FireBase, and since we have already been using FireBase to create our database, we will continue working with this technology.</p>
+<p>We've spent a lot of time in this course learning how to build APIs and using our <strong>LOCALHOST</strong>.</p>
+<blockquote>
+<p>As a reminder, <strong>localhost</strong> is a local server on our personal machine that we run our code on for testing and development purposes.</p>
+</blockquote>
+<p>As a recap, FireBase is a service that allows us access to the hundreds of thousands of servers that Google uses to run its business. Amazon Web Services (AWS) works in a very similar way. When these big companies have extra server space they rent out the resources to us so that we can make use of them for our projects. So when we say the servers are "in the cloud", we really just mean that the actual hardware lives somewhere else and is configurable over the internet. We are going to use some of these resources to "host" our API(Serverless Cloud Functions).</p>
+<p>We learned why deploying our apps is a necessity. <em>We want everyone on the internet to be able to access what we've created, right?</em> Then eventually you can use these directions and what you learn here to deploy your Capstone app and everything else you build in the future!</p>
 <h3 id="pre-deployment-and-preparation">Pre-Deployment and Preparation</h3>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox"/> If you have the functions emulator line of code, (whether you are going to use functions or not) comment out the emulator code.</li>
@@ -2262,10 +2268,10 @@
 <p><img alt="firebase-deploy-commentOutFunctionsEmulator" src="../../images/firebase-deploy-commentOutFunctionsEmulator.png" /></p>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox"/> You should have Firebase tools installed already from the directions in the <a href="../../module-3/serverless/">serverless function</a> lesson. If not run <code>npm install -g firebase-tools</code>.</li>
-<li class="task-list-item"><input type="checkbox"/> Same with Login to firebase CLI. Run <code>firebase login</code> to see if you are logged-in. If not, do so with the same email/account as used for your firebase account.</li>
+<li class="task-list-item"><input type="checkbox"/> Same with Login to firebase CLI. Run <code>firebase login</code> to see if you're logged-in. If not, do so with the same email/account as used for your firebase account.</li>
 </ul>
 <h2 id="deploying-with-firebase">Deploying with FireBase</h2>
-<p>We are going to deploy our <a href="../../module-2/class-8/">Fake Cars assignment we started in Class 8</a>. You can use these directions to deploy any React project including your Capstone App for graduation. </p>
+<p>We are going to deploy our <a href="../../module-2/class-8/">Fake Cars assignment we started in Class 8</a>. In the future, you can use these directions to deploy any React project including your Capstone App for graduation. </p>
 <blockquote>
 <p>NOTE: If you're unable to see them clearly zoom-in on the picture with <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-plus">+</kbd></span> .</p>
 </blockquote>
@@ -2321,7 +2327,7 @@
 <p><img alt="firebase-deploy-selectHostingOnly" src="../../images/firebase-deploy-selectHostingOnly.png" /></p>
 <p>You will get a URL with the link to your deployed site in the terminal and can also be found on your FireBase console under "Build" &gt;&gt; "Hosting".</p>
 <p><img alt="firebase-deploy-urlDomainLink" src="../../images/firebase-deploy-urlDomainLink.png" /></p>
-<h3 id="serverless-cloud-functions-deploy">Serverless Cloud Functions Deploy</h3>
+<h3 id="deploy-serverless-cloud-functions">Deploy Serverless Cloud Functions</h3>
 <p>If your app is using serverless cloud functions use the following directions. <strong>You will have to upgrade to a paid plan.</strong> This is very common with cloud deploys involving back-end server side code. Remember there is a free tier with no charge if your app stays under a certain amount of data usage and you can set a budget later. Reference the <a href="https://firebase.google.com/pricing">pricing guide</a> for more details.</p>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox"/> Click "Upgrade project" under the functions menu and follow the directions and prompts with your relevant information.</li>
@@ -2334,12 +2340,12 @@
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox"/> In your terminal run <code>firebase deploy --only functions</code>. If you get errors follow directions below; otherwise, go test your app and see if your live deployed app works as expected.</li>
 </ul>
-<h4 id="errors">Errors</h4>
+<h3 id="errors">Errors</h3>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox"/> If you get the <strong>CLRF LF error</strong>: click on <code>.eslintrc.js</code> and comment out the entire file. Eslint is just for formatting and code styling; it will not change how your app works. Also, this <code>.eslintrc.js</code> file only works for our <code>functions/index</code> file. The eslint used for all our React/front-end code will not be affected. There is a potential bug with line formatting and the version of eslint used in functions folder, so this will help us get our app deployed. </li>
 </ul>
 <p><img alt="firebase-deploy-commentOutEslint" src="../../images/firebase-deploy-commentOutEslint.png" /></p>
-<h4 id="re-run-deploy">Re-Run Deploy</h4>
+<h3 id="re-run-deploy">Re-Run Deploy</h3>
 <p>When you've built a new version of your app and you just need to update the deployed version, without having to go through all the previous steps again, just run these:</p>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox"/> Run <code>npm build</code></li>
@@ -2347,19 +2353,8 @@
 <li class="task-list-item"><input type="checkbox"/> And or run <code>firebase deploy --only functions</code> for cloud functions changes. </li>
 </ul>
 <h2 id="additional-resources">Additional Resources</h2>
-<p>We normally provided you with a link to the official documentation of any subject we teach in the pre-homework, but today we'll leave with you with a number of resources that may help you build your Capstone Project or other apps in your future.</p>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <strong><a href="https://www.notion.so/Connect-MySQL-workbench-to-AWS-RDS-Free-tier-a95068f5d6b84383ac0af2fd7bfe15f6">Migrate to AWS, a Cheaper Deployment Strategy for Students</a></strong> - GCP is usually cheaper to get started with but you may soon lose credits. As an alternative one of our instructors, Matt Huntsberry, as put together a tutorial to help you host with AWS when your GCP credits run out.</li>
-<li class="task-list-item"><input type="checkbox"/> <a href="https://femmebot.github.io/google-type/">Typography</a> - Seriously, if you have no eye for design but care that your app is beautiful you may want to use this site for some ideas and code.</li>
-<li class="task-list-item"><input type="checkbox"/> <a href="https://bradfrost.com/blog/post/atomic-web-design/">Atomic Design</a> - When designing your app I hope you came across this website but if not here it is. A full idea of designing an application, atomically!</li>
-<li class="task-list-item"><input type="checkbox"/> <a href="https://codeburst.io/the-front-end-design-checklist-4dd15828fad">Front-End Design Checklist</a> - Maybe you came across this too in your google-ing. Nonetheless, it is a rad resource for any developer of any experience.</li>
-<li class="task-list-item"><input type="checkbox"/> <a href="https://konghq.com/blog/three-ways-api-first-development-is-the-future-of-web">API First Development</a> - Think your backend is less important? Think again.</li>
-<li class="task-list-item"><input type="checkbox"/> <a href="https://auth0.com/blog/creating-beautiful-apps-with-angular-material/">Building with Angular Material Tutorial</a> - a clean crisp guide to Angular intricacies.</li>
-<li class="task-list-item"><input type="checkbox"/> <a href="https://www.toptal.com/front-end/front-end-design-principles">Front-End Designs</a> - If you care about design and want to know more...</li>
-<li class="task-list-item"><input type="checkbox"/> <a href="https://auth0.com/blog/creating-beautiful-apps-with-angular-material/">Google.io</a> - Shadow DOM, HTML Templates - Want to know more about the DOM and Shadow DOM? Ask google.</li>
-<li><a href="https://www.telerik.com/blogs/planning-front-end-javascript-application">Planning a Front-End JavaScript Application</a> - JavaScript is awesome and older developers are stupid. Make sure you get the real scoop on what JS can do and how you should approach it.</li>
-<li class="task-list-item"><input type="checkbox"/> <a href="http://read.humanjavascript.com/ch00-foreword.html">Human JavaScript</a> - For your time after graduation when you're looking to get stronger in your skills. Get to reading this book!</li>
-<li class="task-list-item"><input type="checkbox"/> <a href="http://pragmatic-backbone.com/overview-and-bullshit-dispelling">Dispelling Bullshit</a> - Angular, React, Backbone, Ember, Vue, it doesn't matter. Build and learn how to build well and you will do well!</li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://firebase.google.com/docs/hosting/test-preview-deploy">firebase</a> - Firebase Hosting enables you to view and test changes locally and interact with emulated backend project resources.</li>
 </ul>
                 
               
