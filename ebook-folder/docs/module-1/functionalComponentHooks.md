@@ -83,7 +83,7 @@ Pretty simple stuff right? There are other hooks like `useEffect` that exist but
 
 Why did we learn Class-based and now have to replace them? 
 
-Class-based & Functional components have been part of React since React's inception, May 29, 2013. Accept back then, Class-based components were previously the **only** way to manage component state because you could create `this.state = {}` in a class. With the advent of Hooks, introduced in React v16.8, we can now manage component state in Functional components. Because of this new way of component state management, the memory efficiency of Functional components, less boilerplate code, and cleanliness of the code developers now favor Functional components with hooks when writing new code. This being said, legacy code-bases will have both and you'll need to know how to read and write each.   
+Class-based & Functional components have been part of React since React's inception, May 29, 2013. Except back then, Class-based components were previously the **only** way to manage component state because you could create `this.state = {}` in a class. With the advent of Hooks, introduced in React v16.8, we can now manage component state in Functional components. Because of this new way of component state management, the memory efficiency of Functional components, less boilerplate code, and cleanliness of the code developers now favor Functional components with hooks when writing new code. This being said, legacy code-bases will have both and you'll need to know how to read and write each.   
 
 Here is a scenario that demonstrates a use case for why developers favor functional components with hooks. Let's say last week you made this simple display component.
 

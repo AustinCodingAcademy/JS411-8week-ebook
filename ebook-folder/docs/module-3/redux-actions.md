@@ -6,7 +6,7 @@
 
 Last week we learned how to use a plain object in a `state.js` file, functions in a `reducer.js` file and the Redux tools `combineReducers` and `<Provider />` to create a global state for our application that acts as a central data storage, or a **single source of truth**, for all of our app's components. Then we learned how to the data in in this global state to each component by wrapping them with another component/function with `mapStateToProps`. This process keeps all components in the app in sync with the same set of data so there is no confusion.
 
-But now, we wonder how me might change the global state from a local component. How does a component get access to update a global state? The solution is a function called: `mapDispatchToProps`. Notice the similarity to `mapStateToProps`?
+But now, we wonder how we might change the global state from a local component. How does a component get access to update a global state? The solution is a function called: `mapDispatchToProps`. Notice the similarity to `mapStateToProps`?
 
 ## Overview
 
@@ -46,7 +46,7 @@ Spelling the value of `type` in capital letters, like `'ADD_CAR'` is a Redux con
 
   > NOTE: Another common practice is to use the key name `payload` instead of `value` for the simple verbalization trickery. "What is the value of `payload`?" is easier to say than "What is the value of `value`?" Nevertheless, we'll use `value` for this lesson...
 
-Furthermore, it has become less common to use plain actions (seen above, a simple JS Object). Instead, we build **Action Creators**. Action creators are simply functions that return an action. That means, its just a JS Function that returns and JS Object. So instead of the syntax above, we change it to:
+Furthermore, it has become less common to use plain actions (seen above, a simple JS Object). Instead, we build **Action Creators**. Action creators are simply functions that return an action. That means, its just a JS Function that returns a JS Object. So instead of the syntax above, we change it to:
 
 === "Action Creator function"
 

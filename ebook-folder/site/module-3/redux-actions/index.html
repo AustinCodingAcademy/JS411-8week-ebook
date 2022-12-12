@@ -1519,6 +1519,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../module-4/aGuideToDeployingYourApp/" class="md-nav__link">
+        Deploying Your App
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../module-4/class-16/" class="md-nav__link">
         Class 16
       </a>
@@ -2201,7 +2213,7 @@
 <p><em>All you need is the plan, the road map, and the courage to press on to your destination. —Earl Nightingale</em></p>
 <h2 id="review-and-recap">Review and Recap</h2>
 <p>Last week we learned how to use a plain object in a <code>state.js</code> file, functions in a <code>reducer.js</code> file and the Redux tools <code>combineReducers</code> and <code>&lt;Provider /&gt;</code> to create a global state for our application that acts as a central data storage, or a <strong>single source of truth</strong>, for all of our app's components. Then we learned how to the data in in this global state to each component by wrapping them with another component/function with <code>mapStateToProps</code>. This process keeps all components in the app in sync with the same set of data so there is no confusion.</p>
-<p>But now, we wonder how me might change the global state from a local component. How does a component get access to update a global state? The solution is a function called: <code>mapDispatchToProps</code>. Notice the similarity to <code>mapStateToProps</code>?</p>
+<p>But now, we wonder how we might change the global state from a local component. How does a component get access to update a global state? The solution is a function called: <code>mapDispatchToProps</code>. Notice the similarity to <code>mapStateToProps</code>?</p>
 <h2 id="overview">Overview</h2>
 <p>We're continuing our learning of Redux because it's a great way to make sure all of our components share the same state. Remember, Redux doesn't actually do anything visually for the user of the application. This is all for the developer right now. Redux is strictly for data management. It will eventually allow you to do cool things like update charts instantaneously when data changes. Remember in your music controller app? If your volume component changed the global state of your app you might be able to create another component at the bottom of the dashboard that represented the amount of volume the user selected in a graph. If you're controlling data with Redux you can keep that data in one place but trigger the alert to your user that <code>"loud volume may cause hearing loss"</code> while also updating the chart to represent the level they chose. Again, Redux is a data management system for us developers to do cool things across the application using one source of truth. So any direct benefit to the user comes with the fact that Redux allows us to develop more complex applications.</p>
 <p>Also, keep this in mind . . . Redux is not completely replacing <strong>local state</strong>. If you want a component to be able to toggle between two states, for example on/off, you can still use:</p>
@@ -2237,7 +2249,7 @@
 <blockquote>
 <p>NOTE: Another common practice is to use the key name <code>payload</code> instead of <code>value</code> for the simple verbalization trickery. "What is the value of <code>payload</code>?" is easier to say than "What is the value of <code>value</code>?" Nevertheless, we'll use <code>value</code> for this lesson...</p>
 </blockquote>
-<p>Furthermore, it has become less common to use plain actions (seen above, a simple JS Object). Instead, we build <strong>Action Creators</strong>. Action creators are simply functions that return an action. That means, its just a JS Function that returns and JS Object. So instead of the syntax above, we change it to:</p>
+<p>Furthermore, it has become less common to use plain actions (seen above, a simple JS Object). Instead, we build <strong>Action Creators</strong>. Action creators are simply functions that return an action. That means, its just a JS Function that returns a JS Object. So instead of the syntax above, we change it to:</p>
 <div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Action Creator function</label><div class="tabbed-content">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
