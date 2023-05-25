@@ -21,7 +21,7 @@
 - [ ] Questions for Student-Led Discussion
 - [ ] Interview Challenge
 - [ ] Student Presentations
-- [ ] [End of Course Evaluation](https://docs.google.com/forms/u/3/d/e/1FAIpQLScSN8i3bPtmSH5KzpRDtH7RBUO0y4sgIji2t2vZ9N4VueYqdg/viewform?usp=sf_link)
+- [ ] [End of Course Evaluation](https://forms.gle/9LC2puG8yoBwTTAK7)
 - [ ] Creation Time
     * [ ] Research Solutions for Potential Problems
     * [ ] Work on your Capstone Project
@@ -57,7 +57,7 @@
 
 ## End of Course Feedback
 
-Please take 5 - 10 minutes now to complete the [End of Course Evaluation](https://docs.google.com/forms/d/e/1FAIpQLScSN8i3bPtmSH5KzpRDtH7RBUO0y4sgIji2t2vZ9N4VueYqdg/viewform). This information is incredibly important to our organization to improve, grow our instructors, textbooks, and community.
+Please take 5 - 10 minutes now to complete the [End of Course Evaluation](https://forms.gle/9LC2puG8yoBwTTAK7). This information is incredibly important to our organization to improve, grow our instructors, textbooks, and community.
 
 <!-- TODO find this form and where it's collecting data -->
 <!-- TODO Improve this FORM!!!  https://docs.google.com/forms/d/1d99ZNONx6Y2XC8DCv_yisiwDUXL1CM5EuV4md1OVyv8/edit -->
@@ -75,9 +75,10 @@ After all pitches have been made use this time very wisely to ask your instructo
 
 ## Exit Recap, Attendance, and Reminders, 5 mins
 
-- [ ] Create Class 16 Blog Assignment
-- [ ] Prepare 411 course by completing all of your pre-class lessons
-- [ ] Complete the End of Course Evaluation
+- [ ] Create/Assign Class 16 Blog Assignment
+- [ ] Create/Assign Capstone App Checkpoint Assignment
+- [ ] Review due date for Capstone App with instructor (recommended 2 weeks after course ends)
+- [ ] Complete the [End of Course Evaluation](https://forms.gle/9LC2puG8yoBwTTAK7)
 
 <!-- <iframe id="openedx-zollege" src="https://openedx.zollege.com/feedback" style="width: 100%; height: 500px; border: 0">Browser not compatible.</iframe>
 <script src="https://openedx.zollege.com/assets/index.js" type="application/javascript"></script> -->
