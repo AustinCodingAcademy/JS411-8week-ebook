@@ -22,7 +22,8 @@ site_name: JS411 ebook
 
 nav:
     - Home: 'index.md'
-    - 'Module One: Intro to React':
+    - Self-Help: 'HowTo-selfHelp.md'
+    - 'Pt. I: Intro to React':
       - 'Pre-Class 1 Lessons': 
         - Prepare Your Machine: preCourse/setupInstructions.md
         - Succeed in this Course: preCourse/succeedInThisCourse.md
@@ -47,7 +48,7 @@ nav:
         - Forms in React: module-1/formsInReact.md
         - Hackathon Overview: module-1/hackathonOverview.md
         - Class 4 Hackathon: module-1/class-4.md
-    - 'Module Two: Styling & Routing': 
+    - 'Pt. II: Styling & Routing': 
       - 'Pre-Class 5 Lessons': 
         - Component Styling with Material-UI: module-2/componentStyling.md
         - Class 5 Music App 1/2: module-2/class-5.md
@@ -63,7 +64,7 @@ nav:
         - Develop Discipline: module-2/developSeries-discipline.md
         - Protected Routes: module-2/protectedRoutes-intro.md
         - Class 8 Login: module-2/class-8.md
-    - 'Module Three: App State': 
+    - 'Pt. III: App State': 
       - 'Pre-Class 9 Lessons':
         - Redux Intro: module-3/redux-mapStateToProps.md
         - Redux Setup: module-3/redux-theSetup.md
@@ -83,7 +84,7 @@ nav:
         - Capstone App pt.1: module-3/capstoneApp-planning-pt1.md
         - Class 12: module-3/class-12.md
       # https://studio.zollege.com/course/course-v1:ACA+JS411+09282020_JS411_C6?show=block-v1%3AACA%2BJS411%2B09282020_JS411_C6%2Btype%40chapter%2Bblock%404de0fa153217497aa24aea294018758d
-    - 'Module Four: App Design':
+    - 'Pt. IV: App Design':
       - 'Pre-Class 13 Lessons':
         - Develop Not Wasting Time: module-4/developSeries-stopWastingTime.md
         - Folder Structure: module-4/folderStructure.md
@@ -110,7 +111,7 @@ nav:
 
       # https://studio.zollege.com/course/course-v1:ACA+JS411+09282020_JS411_C6?show=block-v1%3AACA%2BJS411%2B09282020_JS411_C6%2Btype%40chapter%2Bblock%40571217217d8a4fd7a17b286aa707411e
     - Report A Bug: additionalResources/reportABug.md
-    - 'Additional Resources':
+    - 'Resources':
       - Interview Training: additionalResources/interviewChallenges.md
       - Student Presentations: additionalResources/studentPresentations.md
       - Develop Series Collection: additionalResources/developSeries.md
@@ -152,6 +153,10 @@ theme:
     accent: pink
     # Defines the logo in the top-left, file must be in the /doc directory
   logo: CE_WhiteBlue_Icon.png
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - header.autohide
 
   # ? Not rendering as expected??
   extra:
