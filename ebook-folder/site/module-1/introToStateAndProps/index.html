@@ -2306,7 +2306,7 @@
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">ChildComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="sb">`A </span><span class="si">${</span><span class="nx">props</span><span class="p">.</span><span class="nx">propOne</span><span class="si">}</span><span class="sb"> tastes like </span><span class="si">${</span><span class="nx">props</span><span class="p">.</span><span class="nx">propTwo</span><span class="si">}</span><span class="sb">.`</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/h1&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">A</span><span class="w"> </span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">propOne</span><span class="p">}</span><span class="w"> </span><span class="nx">tastes</span><span class="w"> </span><span class="nx">like</span><span class="w"> </span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">propTwo</span><span class="p">}.}</span><span class="o">&lt;</span><span class="err">/h1&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 
@@ -2364,25 +2364,27 @@
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="kd">class</span><span class="w"> </span><span class="nx">ParentComponent</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">super</span><span class="p">();</span><span class="w"></span>
-<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">pieceOne</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;fig newton&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">pieceTwo</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;garbage&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">pieceThree</span><span class="o">:</span><span class="w"> </span><span class="mf">3500</span><span class="w"></span>
-<span class="w">      </span><span class="p">};</span><span class="w"></span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="kd">class</span><span class="w"> </span><span class="nx">ParentComponent</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">super</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">pieceOne</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;fig newton&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">pieceTwo</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;garbage&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">pieceThree</span><span class="o">:</span><span class="w"> </span><span class="mf">3500</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="nx">render</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="k">return</span><span class="p">(</span><span class="w"></span>
 <span class="w">        </span><span class="o">&lt;</span><span class="nx">ChildComponent</span><span class="w"> </span><span class="nx">propOne</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">pieceOne</span><span class="p">}</span><span class="w"> </span><span class="nx">propTwo</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">pieceTwo</span><span class="p">}</span><span class="o">/&gt;</span><span class="w"></span>
 <span class="w">      </span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">ChildComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="w"> </span><span class="sb">`A </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">propOne</span><span class="si">}</span><span class="sb"> tastes like </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">propTwo</span><span class="si">}</span><span class="sb">.`</span><span class="w"> </span><span class="o">&lt;</span><span class="err">/h1&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="w"> </span><span class="nx">A</span><span class="w"> </span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">propOne</span><span class="p">}</span><span class="w"> </span><span class="nx">tastes</span><span class="w"> </span><span class="nx">like</span><span class="w"> </span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">propTwo</span><span class="p">}.</span><span class="w"> </span><span class="o">&lt;</span><span class="err">/h1&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
@@ -2411,7 +2413,7 @@
 <span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">pieceOne</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="w"> </span><span class="sb">`A </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">propOne</span><span class="si">}</span><span class="sb"> tastes like </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">propTwo</span><span class="si">}</span><span class="sb">.`</span><span class="w"> </span><span class="o">&lt;</span><span class="err">/h1&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="w"> </span><span class="nx">A</span><span class="w"> </span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">propOne</span><span class="p">}</span><span class="w"> </span><span class="nx">tastes</span><span class="w"> </span><span class="nx">like</span><span class="w"> </span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">propTwo</span><span class="p">}.</span><span class="w"> </span><span class="o">&lt;</span><span class="err">/h1&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>

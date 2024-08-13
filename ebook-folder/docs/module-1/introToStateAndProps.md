@@ -29,7 +29,7 @@ Just like functions, they can take arguments between their `()`. In fact, this i
     ```javascript
       const ChildComponent = (props) => {
         return (
-          <h1>{`A ${props.propOne} tastes like ${props.propTwo}.`}</h1>
+          <h1>{A {props.propOne} tastes like {props.propTwo}.}</h1>
         )
       }
 
@@ -65,24 +65,25 @@ Let's see it with `state` now. In the code snippet below we see the `ParentCompo
 
     ```javascript
       class ParentComponent extends Component {
-          constructor() {
-          super();
-          this.state = {
-            pieceOne: 'fig newton',
-            pieceTwo: 'garbage',
-            pieceThree: 3500
-          };
+        constructor() {
+        super()
+        this.state = {
+          pieceOne: 'fig newton',
+          pieceTwo: 'garbage',
+          pieceThree: 3500,
+        }
 
         render() {
           return(
             <ChildComponent propOne={this.state.pieceOne} propTwo={this.state.pieceTwo}/>
           )
         }
+        }
       }
 
       const ChildComponent = (props) => {
         return (
-          <h1> `A ${this.props.propOne} tastes like ${this.props.propTwo}.` </h1>
+          <h1> A {props.propOne} tastes like {props.propTwo}. </h1>
         )
       }
     ```
@@ -106,7 +107,7 @@ If you wanted to `console.log()` the value of the `pieceOne` key you would: `con
     console.log(props.pieceOne)
 
     return (
-      <h1> `A ${this.props.propOne} tastes like ${this.props.propTwo}.` </h1>
+      <h1> A {props.propOne} tastes like {props.propTwo}. </h1>
     )
   }
 ```
