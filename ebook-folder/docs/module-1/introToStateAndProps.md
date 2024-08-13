@@ -29,7 +29,7 @@ Just like functions, they can take arguments between their `()`. In fact, this i
     ```javascript
       const ChildComponent = (props) => {
         return (
-          <h1>{A {props.propOne} tastes like {props.propTwo}.}</h1>
+          <h1>A {props.propOne} tastes like {props.propTwo}.</h1>
         )
       }
 
@@ -43,66 +43,71 @@ Look what's going on here:
 === "ParentComponent.js"
 
     ```javascript
+      import childComponent from './childComponent.js'
+
       class ParentComponent extends Component {
         constructor() {
-        super();
+          super()
 
-        render() {
-          <ChildComponent propOne={"I'm a "} propTwo={"Cutie Pie :)"}/>
+          render() {
+            <childComponent propOne={"zebra cake"} propTwo={"confection heaven"}/>
+          }
         }
-      }
+      } 
+
+      export default ParentComponent
     ```
 
-In the code snippet above you see that our first `ChildComponent` is called inside our `ParentComponent`.
+In the code snippet above you see that our first `childComponent` is called inside our `ParentComponent`.
 
   > Notice the JSX syntax: When we call a component in React with JSX it looks a lot like HTML syntax?
 
-In the line where we call the `ChildComponent` we see there are two props given: `propOne` and `propTwo`. They look a lot like attributes of an HTML tag, no? This is how we pass props down to other components. We can give them any attribute name we want. That same functionality could have been written: `<ChildComponent poop={"I'm a "} unicorn={"Cutie Pie :)"}/>`; but instead we choose useful attribute/property names.
+In the line where we call the `childComponent` we see there are two props given: `propOne` and `propTwo`. They look a lot like attributes of an HTML tag, no? This is how we pass props down to other components. We can give them any attribute name we want. That same functionality could have been written: `<childComponent poop={"I'm a "} unicorn={"Cutie Pie :)"}/>`; but instead we choose useful attribute/property names.
 
-Let's see it with `state` now. In the code snippet below we see the `ParentComponent` now has a `state` object, a simple JavaScript object with key and value pairs. Then we see the `ChildComponent` is called and passed props that reference keys of the `state` object. In this way, we can pass local `state` to another piece/component of our application!!
+Let's see it with `state` now. In the code snippet below we see the `ParentComponent` now has a `state` object, a simple JavaScript object with key and value pairs. Then we see the `childComponent` is called and passed props that reference keys of the `state` object. In this way, we can pass local `state` to another piece/component of our application!!
 
-=== "ParentComponent with state + ChildComponent"
+=== "ParentComponent with state + childComponent"
 
     ```javascript
       class ParentComponent extends Component {
         constructor() {
         super()
-        this.state = {
-          pieceOne: 'fig newton',
-          pieceTwo: 'garbage',
-          pieceThree: 3500,
-        }
+          this.state = {
+            pieceOne: 'fig newton',
+            pieceTwo: 'sweet cardboard',
+            pieceThree: 3500,
+          }
 
-        render() {
-          return(
-            <ChildComponent propOne={this.state.pieceOne} propTwo={this.state.pieceTwo}/>
-          )
-        }
+          render() {
+            return (
+              <childComponent propOne={this.state.pieceOne} propTwo={this.state.pieceTwo}/>
+            )
+          }
         }
       }
 
-      const ChildComponent = (props) => {
+      const childComponent = (props) => {
         return (
           <h1> A {props.propOne} tastes like {props.propTwo}. </h1>
         )
       }
     ```
 
-If we want our parent component to pass down a piece of its `state` to a child component we give the child component attributes like `propTwo` then point it at the value we want: `propTwo={this.state.pieceTwo}`. After that, we use the `props` keyword in the child component, and presto! You have a component using **props**!! If we rendered `ChildComponent` it would say: `"A fig newton tastes like garbage."`
+If we want our parent component to pass down a piece of its `state` to a child component we give the child component attributes like `propTwo` then point it at the value we want: `propTwo={this.state.pieceTwo}`. After that, we use the `props` keyword in the child component, and presto! You have a component using **props**!! If we rendered `childComponent` it would say: `"A fig newton tastes like sweet cardboard."`
 
 Under-the-hood, the `props` object would look like this:
 
 ```javascript
   props = {
     pieceOne: 'fig newton',
-    pieceTwo: 'garbage'
+    pieceTwo: 'sweet cardboard'
   }
 ```
 
 If you wanted to `console.log()` the value of the `pieceOne` key you would: `console.log(props.pieceOne)`.
 
 ```javascript
-  const ChildComponent = (props) => {
+  const childComponent = (props) => {
 
     console.log(props.pieceOne)
 
@@ -111,6 +116,7 @@ If you wanted to `console.log()` the value of the `pieceOne` key you would: `con
     )
   }
 ```
+  > NOTE: In the `ParentComponent` we must use the `this` keyword to indicate we want to to use the value of *this* object in *this* instance but when we get to the `childComponent` we don't have to use the `this` keyword because it is a pure functional component that doesn't have instances like Class-based components.
 
 Hopefully, that makes sense. If not, make sure you walk through it again so you can follow along with how the `props` are passed to components, then take a look at the following video and maybe that'll get you going in the right direction to build your own mental model of how data is passed from a parent component to any of its child components
 
