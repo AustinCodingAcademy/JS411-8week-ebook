@@ -175,4 +175,7 @@ This video shows you how to **D.R.Y.** your code up by **destructuring** your pr
 ## Know Your Docs
 
 - [ ] [Legacy React Docs - Props](https://reactjs.org/docs/components-and-props.html)
+
+<hr>
+
 - [ ] [React Dev Docs - Props](https://react.dev/learn/passing-props-to-a-component#passing-props-to-a-component)

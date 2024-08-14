@@ -2317,8 +2317,8 @@
 <p>That being said . . . why use React Hooks? Well . . . because it allows us to use things like <code>state</code> in our functional components. When we say "state" here we mean local component state. Not global app state created by Redux.</p>
 <h2 id="react-hooks">React Hooks</h2>
 <p>What are Hooks? They are simple pieces of React code that were added in 2018, to great fanfare among React developers. As we mentioned above, they allow you to use "state" in functional components (<em>not class-based components</em>). This promotes code cleanliness, only pure functional components, as well, code performance. The best way to learn about it is to just dive right in so we will look at an example.</p>
-<p>The following is an example taken directly from the <a href="https://reactjs.org/docs/hooks-intro.html">React website</a>. Take a look at it and see if you can identify what looks different about it than the other React components you've seen and built.</p>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Functional <code>ExampleComponent.js</code></label><div class="tabbed-content">
+<p>The following is an example taken directly from the <a href="https://reactjs.org/docs/hooks-intro.html">Legacy React website</a>. Take a look at it and see if you can identify what looks different about it than the other React components you've seen and built.</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Functional <code>exampleComponent.js</code></label><div class="tabbed-content">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2335,11 +2335,11 @@
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"></span>
 
-<span class="kd">function</span><span class="w"> </span><span class="nx">ExampleComponent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">exampleComponent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="c1">// Declare a new state variable, which we&#39;ll call `count` with an initial value of `0`</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">count</span><span class="p">,</span><span class="w"> </span><span class="nx">setCount</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">count</span><span class="p">,</span><span class="w"> </span><span class="nx">setCount</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
 <span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="w"></span>
@@ -2351,7 +2351,7 @@
 <span class="w">  </span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">ExampleComponent</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">exampleComponent</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
@@ -2457,21 +2457,21 @@
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"></span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">isHidden</span><span class="p">,</span><span class="w"> </span><span class="nx">setIsHidden</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span><span class="w"></span>
 
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">isHidden</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">        </span><span class="nx">setIsHidden</span><span class="p">(</span><span class="nx">status</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="nx">setIsHidden</span><span class="p">(</span><span class="nx">status</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
 <span class="w">        </span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">            </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">The</span><span class="w"> </span><span class="nx">Status</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">hidden</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="p">{</span><span class="sb">`</span><span class="si">${</span><span class="nx">isHidden</span><span class="si">}</span><span class="sb">`</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span><span class="w"></span>
 <span class="w">            </span><span class="o">&lt;</span><span class="nx">h1</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClick</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Functional</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="nx">Using</span><span class="w"> </span><span class="nx">State</span><span class="o">&lt;</span><span class="err">/h1&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&lt;</span><span class="err">/div&gt;;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="p">)</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
@@ -2481,9 +2481,9 @@
 <p>The syntax may look funny to you but it's just array destructuring. Using array destructuring we hold the values of what's returned from <code>useState()</code> as <code>[isHidden, setIsHidden]</code> to hold the value of state and create a method to change that value, respectively. When <code>setIsHidden</code> is called it will update <code>isHidden</code> with whatever argument is passed to <code>setIsHidden</code>. <em>See line 8 in the above example.</em></p>
 <h2 id="are-class-based-components-being-replaced">Are Class-based Components Being Replaced?</h2>
 <p>From the get go, you've been learning React through Class-based components so you can manage component state. Now we're asking you to switch to Functional components and use this new thing called Hooks instead of lifecycle methods and state. This may be frustrating but remember, React is the foremost front-end library in the world with wide adoption. Because of this, many applications are built with it. In the beginning of React, the only way to manage component state was through the use of Class-based components. Because of this you will likely see them in legacy code bases, Google searches, code examples on StackOverflow and equivalent forums. </p>
-<p>In the end it is important to know both because, the React development team has said they have no plans to remove Class-based components.</p>
+<p>In the end, it is important to know both because, the React development team has said they have no plans to remove Class-based components by making them obsolete or non-compatible.</p>
 <h3 id="converting-class-based-to-functional">Converting Class-based to Functional</h3>
-<p>Under the hood both Class-based components and functional components work exactly the same with DOM changes based on the state reference in memory. The examples below show the conversion of code from Class-based component to Functional Component using a hook to manage state.</p>
+<p>Under-the-hood, both Class-based components and functional components work exactly the same with DOM changes based on the state reference in memory. The examples below show the conversion of code from Class-based component to Functional Component using a hook to manage state.</p>
 <div class="tabbed-set" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">The Class-based Way</label><div class="tabbed-content">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2552,36 +2552,25 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// MyConditionalComponent.js</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// MyConditionalComponent.js to a functional component with useState hook</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"></span>
 
-<span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">isHidden</span><span class="p">,</span><span class="w"> </span><span class="nx">setIsHidden</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span><span class="w"></span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">myConditionalComponent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">isHidden</span><span class="p">,</span><span class="w"> </span><span class="nx">setIsHidden</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">isHidden</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
 <span class="w">        </span><span class="nx">setIsHidden</span><span class="p">(</span><span class="nx">status</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">h1</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClick</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Functional</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="nx">Using</span><span class="w"> </span><span class="nx">State</span><span class="o">&lt;</span><span class="err">/h1&gt;;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">h1</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClick</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Functional</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="nx">Using</span><span class="w"> </span><span class="nx">State</span><span class="o">&lt;</span><span class="err">/h1&gt;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">myConditionalComponent</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 </div>
 <input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">With Comments</label><div class="tabbed-content">
-<p>```javascript
-// MyConditionalComponent.js</p>
-<p>// Instead of importing the { Component }, let's import the { useState } hook
-import React, { Component } from 'react' </p>
-<p>// No need to build a class, let's just keep it as a function: function App() {
-class MyConditionalComponent extends Component {
-    // since it's not a class it doesn't need a constructor
-    constructor(props) {
-        // since it's not extending the React Component there's no need to call super()
-        super(props)
-        // we can store the value of state and the function to update it with destructuring instead of a state object: const [isHidden, setIsHidden] = useState(false);
-        this.state = {
-            isHidden: true
-        } 
-    }</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2598,28 +2587,52 @@ class MyConditionalComponent extends Component {
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>handleClick = () =&gt; {
-    //   with a functional component we don&#39;t have state so need for all the extra member operators (.) : let status = isHidden == true ? false : true
-    let status = this.state.isHidden == true ? false : true
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// MyConditionalComponent.js to a functional component with useState hook</span><span class="w"></span>
 
-    //  now, we don&#39;t need to pass an object to setState, instead, just use the function you defined earlier: setIsHidden(status);
-    this.setState({
-        isHidden: status
-    })
-}
+<span class="c1">// Instead of importing the { Component }, let&#39;s import the { useState } hook</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"></span>
 
-render() {
-    return (
-        &lt;div&gt;
-            &lt;h1 onClick={this.handleClick}&gt;Functional Component Using State&lt;/h1&gt;
-        &lt;/div&gt;
-    )
-}
+<span class="c1">// No need to build a class, let&#39;s just keep it as a simple function:</span><span class="w"></span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">myConditionalComponent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Since it&#39;s not a class it doesn&#39;t need a `constructor(){}`.</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// And because it&#39;s not extending the React Component there&#39;s no need to </span><span class="w"></span>
+<span class="w">        </span><span class="c1">// call `super()`.</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Also, we can store &amp; update the value(s) we need with the `useState()` </span><span class="w"></span>
+<span class="w">        </span><span class="c1">// function &amp; destructuring instead of using a `this.state={}` object.</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">isHidden</span><span class="p">,</span><span class="w"> </span><span class="nx">setIsHidden</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//   With a functional component we don&#39;t have a state object, </span><span class="w"></span>
+<span class="w">            </span><span class="c1">// therefore, no need for all the extra member operators (.) to </span><span class="w"></span>
+<span class="w">            </span><span class="c1">// connect &quot;this&quot; and &quot;state&quot; and yada yada.</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">isHidden</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">//  Next, we don&#39;t need to pass an object to setState, instead, just </span><span class="w"></span>
+<span class="w">            </span><span class="c1">// use the function you defined earlier:</span><span class="w"></span>
+<span class="w">        </span><span class="nx">setIsHidden</span><span class="p">(</span><span class="nx">status</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Finally, we don&#39;t need to invoke the `render()` method.</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">h1</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClick</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Functional</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="nx">Using</span><span class="w"> </span><span class="nx">State</span><span class="o">&lt;</span><span class="err">/h1&gt;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">myConditionalComponent</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<p>}</p>
 </div>
 </div>
-<p>```</p>
 <p>Take some time to compare these two components. They accomplish the exact same thing but use different syntax to do it.</p>
 <h3 id="useeffect">useEffect</h3>
 <p>Instead of <code>componentDidMount</code> and other lifecycle methods we now just have one hook called <code>useEffect</code> that does it all. When <code>useEffect</code> has an empty dependency array <code>[]</code> it behaves just like <code>componentDidMount</code>.</p>
@@ -2784,7 +2797,13 @@ VIDEO-2:
 </ul>
 <h2 id="know-your-docs">Know Your Docs</h2>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <a href="https://reactjs.org/docs/hooks-intro.html">React Docs - Hooks</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://reactjs.org/docs/hooks-intro.html">Legacy React Docs - Hooks</a></li>
+</ul>
+<hr>
+
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox"/> <a href="https://react.dev/reference/react-dom/hooks">React Dev Docs - Hooks</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://react.dev/reference/rules/rules-of-hooks">React Dev Docs - Rules of Hooks</a></li>
 </ul>
                 
               

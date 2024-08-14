@@ -6,7 +6,7 @@
 
 Now that we have a grip on this passing `props` stuff let's take a deeper look at that `state` stuff in **Class-based Components**. As you saw in the last lesson we were able to pass the values in a parent component's state down to its child component through **props**. But what is `state`? Where does it get its values? When is it created? In this lesson, we'll address all of those questions.
 
-## State (Local Memory)
+## Component State (Local Memory)
 
 According to the [React Docs](https://reactjs.org/docs/state-and-lifecycle.html#adding-local-state-to-a-class), `state` is **locally-scoped memory**, which means that it is only available to the component that it is initialized in unless that data/memory is passed to another component via, ya know...`props`.
 
@@ -63,7 +63,13 @@ Follow along with [the official React Tutorial](https://reactjs.org/tutorial/tut
 ## Additional Resources
 
 - [ ] [YT, Ben Awad - State in React.js, pt.5](https://youtu.be/34fE23aib1o)
+- [ ] [YT, Net Ninja - #17, Fetching Data useEffect](https://youtu.be/qdCHEUaFhBk?si=VqfoFe5u2eE9yASd)
 
 ## Know Your Docs
 
-- [ ] [React Docs - State + Lifecycle Methods](https://reactjs.org/docs/state-and-lifecycle.html)
+- [ ] [Legacy React Docs - State + Lifecycle Methods](https://reactjs.org/docs/state-and-lifecycle.html)
+
+<hr>
+
+- [ ] [React Dev Docs - Fetching Data w/Effects](https://react.dev/reference/react/useEffect#fetching-data-with-effects)
+- [ ] [React Dev Docs - Synchronizing w/Effects](https://react.dev/learn/synchronizing-with-effects)

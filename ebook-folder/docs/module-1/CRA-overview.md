@@ -76,5 +76,7 @@ This lesson will be comprised of a series of videos building upon each other to 
 
 ## Know Your Docs
 
-- [ ] [React Docs - create-react-app](https://reactjs.org/docs/create-a-new-react-app.html)
-- [ ] [NPM Docs - npx](https://www.npmjs.com/package/npx)
+- [ ] [React Dev Docs - create-react-app](https://react.dev/learn/start-a-new-react-project)
+- [ ] [NPM Docs - npx](https://www.npmjs.com/package/npx) *Deprecated and is now part of the NPM CLI toolchain*
+
+

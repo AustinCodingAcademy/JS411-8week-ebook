@@ -27,9 +27,9 @@ This is simple and straightforward JavaScript. We'll now just apply the same log
 === "If/Else Statement in React"
 
     ```javascript
-    import React, { Component } from 'react'
+    import React from 'react'
 
-    const MyConditionalComponent = (props) => {
+    const myConditionalComponent = (props) => {
       if (props.isVerified) {
         return <IsVerifiedComponent userId={props.id} />
       } else {
@@ -48,6 +48,8 @@ All of that was based on the values that are in the `props` object. We can do th
     // turn your functional component into a class-based component so you can create local state
 
     import React, { Component } from 'react'
+    import UserNameCard from 'UserNameCard.js'
+    import UserDetailsCard from 'UserDetailsCard.js'
 
     class MyConditionalComponent extends Component {
       constructor(props) {
@@ -103,6 +105,8 @@ All of that was based on the values that are in the `props` object. We can do th
 
     ```javascript
     import React, { Component } from 'react'
+    import UserNameCard from 'UserNameCard.js'
+    import UserDetailsCard from 'UserDetailsCard.js'
 
     class MyConditionalComponent extends Component {
       constructor(props) {
@@ -143,15 +147,15 @@ In short, when the button is clicked it sends data back up to its parent compone
 
 You will be using this for your next few projects so read back over it and make sure you got it!
 
-  > NOTE: in the normal DOM methods you have seen `onclick` but in React you will use `onClick`
+  > NOTE: in the normal DOM methods you have seen `onclick` but in React you will use `onClick` *(the JS standard, camelCase format)*.
 
 For further reading check out the Medium blog on Conditional Rendering in the [Additional Resources](#additional-resources).
 
-In the upcoming video you'll see a different way to manage conditional rendering using the newer method, `useState()` hook. Both ways work and this "older" way is taught first because it used to be the *only* way to manage this task before [React introduced Hooks](https://reactjs.org/docs/hooks-intro.html).
+In the upcoming video you'll see a different way to manage conditional rendering using the newer method, `useState()` hook. Both ways work and this "older" way is taught first because it used to be the *only* way to manage this task before [React introduced Hooks](https://reactjs.org/docs/hooks-intro.html). But using these "hooks" requires a bit of understanding and we believe learning Class-based components is the primer to for understanding React Hooks, knowing what they are doing under-the-hood, so to speak.
 
 ### See It - Conditional Rendering
 
-You are welcome to use either method you feel most comfortable with but we would be remiss if you didn't learn how to use the new Hook, `useState()`, to do the same thing and not create a Class-based Component only to manage a state object...!
+You are welcome to use either method you feel most comfortable with but we would be remiss if you didn't learn how to use the [favored React Hook, `useState()`](https://react.dev/reference/react/useState), to do the same thing and not create a Class-based Component only to manage a state object...!
 
 <!-- ! Video Contents: Vimeo, Clayton@ACA - ConditionalRenderWith-useStateHook - 411.1.3.1 -->
 <iframe src="https://player.vimeo.com/video/492113241" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
@@ -163,5 +167,11 @@ You are welcome to use either method you feel most comfortable with but we would
 
 ## Know Your Docs
 
-- [ ] [React Docs - Hooks](https://reactjs.org/docs/hooks-intro.html)
-- [ ] [React Docs - Lists & Keys](https://reactjs.org/docs/lists-and-keys.html)
+- [ ] [Legacy React Docs - Hooks](https://reactjs.org/docs/hooks-intro.html)
+- [ ] [Legacy React Docs - Lists & Keys](https://reactjs.org/docs/lists-and-keys.html)
+
+<hr>
+
+- [ ] [React Dev Docs - Conditional Rendering](https://react.dev/learn/conditional-rendering)
+- [ ] [React Dev Docs - Listing Items with Keys](https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key)
+- [ ] [React Dev Docs - useState()](https://react.dev/reference/react/useState)

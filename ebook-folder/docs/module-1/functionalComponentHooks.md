@@ -12,16 +12,16 @@ That being said . . . why use React Hooks? Well . . . because it allows us to us
 
 What are Hooks? They are simple pieces of React code that were added in 2018, to great fanfare among React developers. As we mentioned above, they allow you to use "state" in functional components (*not class-based components*). This promotes code cleanliness, only pure functional components, as well, code performance. The best way to learn about it is to just dive right in so we will look at an example.
 
-The following is an example taken directly from the [React website](https://reactjs.org/docs/hooks-intro.html). Take a look at it and see if you can identify what looks different about it than the other React components you've seen and built.
+The following is an example taken directly from the [Legacy React website](https://reactjs.org/docs/hooks-intro.html). Take a look at it and see if you can identify what looks different about it than the other React components you've seen and built.
 
-=== "Functional `ExampleComponent.js`"
+=== "Functional `exampleComponent.js`"
 
     ```javascript
-    import React, { useState } from 'react';
+    import React, { useState } from 'react'
 
-    function ExampleComponent() {
+    function exampleComponent() {
       // Declare a new state variable, which we'll call `count` with an initial value of `0`
-      const [count, setCount] = useState(0);
+      const [count, setCount] = useState(0)
 
       return (
         <div>
@@ -33,7 +33,7 @@ The following is an example taken directly from the [React website](https://reac
       );
     }
 
-    export default ExampleComponent
+    export default exampleComponent
     ```
 
 So what's happening in the component above? Well the first thing we notice is that we are importing the hook called `useState` from `React`. You can see that being used on the first line of the component. In fact, that's the only other line we need to talk about.
@@ -102,21 +102,21 @@ Now we've been asked to add some component state to toggle between `visible` and
 === "State management using the `useState` Hook of `App.js`"
 
     ```javascript
-    import React, { useState} from 'react';
+    import React, { useState} from 'react'
 
     function App() {
         const [isHidden, setIsHidden] = useState(false);
 
         const handleClick = () => {
             let status = isHidden === true ? false : true
-            setIsHidden(status);
+            setIsHidden(status)
         }
         
         return (
             <div>
                 <p>The Status of hidden is {`${isHidden}`}</p>
                 <h1 onClick={handleClick}>Functional Component Using State</h1>
-            </div>;
+            </div>
         )
     }
     ```
@@ -129,11 +129,11 @@ The syntax may look funny to you but it's just array destructuring. Using array 
 
 From the get go, you've been learning React through Class-based components so you can manage component state. Now we're asking you to switch to Functional components and use this new thing called Hooks instead of lifecycle methods and state. This may be frustrating but remember, React is the foremost front-end library in the world with wide adoption. Because of this, many applications are built with it. In the beginning of React, the only way to manage component state was through the use of Class-based components. Because of this you will likely see them in legacy code bases, Google searches, code examples on StackOverflow and equivalent forums. 
 
-In the end it is important to know both because, the React development team has said they have no plans to remove Class-based components.
+In the end, it is important to know both because, the React development team has said they have no plans to remove Class-based components by making them obsolete or non-compatible.
 
 ### Converting Class-based to Functional
 
-Under the hood both Class-based components and functional components work exactly the same with DOM changes based on the state reference in memory. The examples below show the conversion of code from Class-based component to Functional Component using a hook to manage state.
+Under-the-hood, both Class-based components and functional components work exactly the same with DOM changes based on the state reference in memory. The examples below show the conversion of code from Class-based component to Functional Component using a hook to manage state.
 
 === "The Class-based Way"
 
@@ -170,59 +170,56 @@ Under the hood both Class-based components and functional components work exactl
 === "The Functional Component Way"
 
     ```javascript
-    // MyConditionalComponent.js
-    import React, { useState} from 'react';
+    // MyConditionalComponent.js to a functional component with useState hook
+    import React, { useState} from 'react'
 
-    function App() {
-        const [isHidden, setIsHidden] = useState(false);
+    function myConditionalComponent() {
+        const [isHidden, setIsHidden] = useState(false)
 
         const handleClick = () => {
             let status = isHidden == true ? false : true
             setIsHidden(status);
         }
-        return <h1 onClick={handleClick}>Functional Component Using State</h1>;
+        return <h1 onClick={handleClick}>Functional Component Using State</h1>
     }
+
+    export default myConditionalComponent
     ```
 
 === "With Comments"
 
     ```javascript
-    // MyConditionalComponent.js
+    // MyConditionalComponent.js to a functional component with useState hook
 
     // Instead of importing the { Component }, let's import the { useState } hook
-    import React, { Component } from 'react' 
+    import React, { useState} from 'react'
 
-    // No need to build a class, let's just keep it as a function: function App() {
-    class MyConditionalComponent extends Component {
-        // since it's not a class it doesn't need a constructor
-        constructor(props) {
-            // since it's not extending the React Component there's no need to call super()
-            super(props)
-            // we can store the value of state and the function to update it with destructuring instead of a state object: const [isHidden, setIsHidden] = useState(false);
-            this.state = {
-                isHidden: true
-            } 
+    // No need to build a class, let's just keep it as a simple function:
+    function myConditionalComponent() {
+        // Since it's not a class it doesn't need a `constructor(){}`.
+        // And because it's not extending the React Component there's no need to 
+            // call `super()`.
+        // Also, we can store & update the value(s) we need with the `useState()` 
+            // function & destructuring instead of using a `this.state={}` object.
+        const [isHidden, setIsHidden] = useState(false)
+
+        const handleClick = () => {
+            //   With a functional component we don't have a state object, 
+                // therefore, no need for all the extra member operators (.) to 
+                // connect "this" and "state" and yada yada.
+            let status = isHidden == true ? false : true
+            
+            //  Next, we don't need to pass an object to setState, instead, just 
+                // use the function you defined earlier:
+            setIsHidden(status)
         }
 
-        handleClick = () => {
-            //   with a functional component we don't have state so need for all the extra member operators (.) : let status = isHidden == true ? false : true
-            let status = this.state.isHidden == true ? false : true
-
-            //  now, we don't need to pass an object to setState, instead, just use the function you defined earlier: setIsHidden(status);
-            this.setState({
-                isHidden: status
-            })
-        }
-
-        render() {
-            return (
-                <div>
-                    <h1 onClick={this.handleClick}>Functional Component Using State</h1>
-                </div>
-            )
-        }
+        // Finally, we don't need to invoke the `render()` method.
+        return <h1 onClick={handleClick}>Functional Component Using State</h1>
     }
-```
+
+    export default myConditionalComponent
+    ```
 
 Take some time to compare these two components. They accomplish the exact same thing but use different syntax to do it.
 
@@ -353,4 +350,9 @@ Below is a simple CodePen with a Class-based Component. Check out how the code w
 
 ## Know Your Docs
 
-- [ ] [React Docs - Hooks](https://reactjs.org/docs/hooks-intro.html)
+- [ ] [Legacy React Docs - Hooks](https://reactjs.org/docs/hooks-intro.html)
+
+<hr>
+
+- [ ] [React Dev Docs - Hooks](https://react.dev/reference/react-dom/hooks)
+- [ ] [React Dev Docs - Rules of Hooks](https://react.dev/reference/rules/rules-of-hooks)

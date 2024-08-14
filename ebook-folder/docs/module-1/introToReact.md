@@ -184,8 +184,18 @@ You can see that our button element, `myFirstComponent`, is called in our parent
 
 ## Know Your Docs
 
-- [ ] [NPM Docs - npx](https://www.npmjs.com/package/npx)
-- [ ] [React Docs - Home Page](https://reactjs.org/)
+- [ ] [Legacy NPM Docs - npx](https://www.npmjs.com/package/npx)
+- [ ] [Legacy React Docs - Home Page](https://legacy.reactjs.org/)
+
+<hr>
+
+- [ ] [React Dev Docs - Home Page](https://react.dev/)
+- [ ] [React Dev Docs - Rules of React](https://react.dev/reference/rules)
+
+<hr>
+<hr>
+
+
 
 
 <!-- ! END OF VIDEO 101.1.3.1 - TITLE-->

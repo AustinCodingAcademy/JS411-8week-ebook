@@ -40,12 +40,15 @@ In HTML, the elements like: `<input>`, `<textarea>`, and `<select>` handle their
         this.setState({value: e.target.value});
       }
 
-      // this method is called when the form is submitted. Potentially an API request could go here using the data from this.state
+      // This method is called when the form is submitted. Potentially an API 
+        // request could go here using the data from this.state .
       handleSubmit(e) {
-        // always put this line in on submits, it prevents the page from reloading and wiping your state
+        // Always put this line in on submits, it prevents the page from 
+          // reloading and wiping your state.
         e.preventDefault();
         alert('A name was submitted: ' + this.state.value);
-        // after doing something with the data we reset the form value to empty quotes again
+        // after doing something with the data we reset the form value to 
+          // empty quotes again.
         this.setState({value: ''})
       }
 
@@ -54,41 +57,44 @@ In HTML, the elements like: `<input>`, `<textarea>`, and `<select>` handle their
           <form onSubmit={this.handleSubmit}>
             <label>
               Name:
-              {/* the value of the input is tied to this.state.value so when a user types the handleChange method changes this.state.value to match*/}
-              <input type="text" value={this.state.value} onChange={this.handleChange} />
+              {/* the value of the input is tied to this.state.value so 
+              when a user types the handleChange method changes 
+              `this.state.value` to match*/}
+              <input 
+                type="text" 
+                value={this.state.value} 
+                onChange={this.handleChange} 
+              />
             </label>
             <input type="submit" value="Submit" />
           </form>
         );
       }
+    }  
     ```
 
-=== "without comments"
+=== "w/o comments"
 
     ```javascript
     class NameForm extends React.Component {
       constructor(props) {
-        super(props);
-        // initialize the state with empty quotes ''
+        super(props)
+
         this.state = {
           value: ''
           };
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
       }
 
-      // a method that, when called, changes the value of this.state.value
       handleChange(e) {
-        this.setState({value: e.target.value});
+        this.setState({value: e.target.value})
       }
 
-      // this method is called when the form is submitted. Potentially an API request could go here using the data from this.state
       handleSubmit(e) {
-        // always put this line in on submits, it prevents the page from reloading and wiping your state
-        e.preventDefault();
-        alert('A name was submitted: ' + this.state.value);
-        // after doing something with the data we reset the form value to empty quotes again
+        e.preventDefault()
+        alert('A name was submitted: ' + this.state.value)
         this.setState({value: ''})
       }
 
@@ -97,13 +103,17 @@ In HTML, the elements like: `<input>`, `<textarea>`, and `<select>` handle their
           <form onSubmit={this.handleSubmit}>
             <label>
               Name:
-              {/* the value of the input is tied to this.state.value so when a user types the handleChange method changes this.state.value to match*/}
-              <input type="text" value={this.state.value} onChange={this.handleChange} />
+              <input 
+                type="text" 
+                value={this.state.value} 
+                onChange={this.handleChange} 
+              />
             </label>
             <input type="submit" value="Submit" />
           </form>
         );
       }
+    } 
     ```
 
 In this way, we can control what data is sent off and when it is sent. Before moving on, make sure you read over all the examples laid out in the very clear [React Form Docs](https://reactjs.org/docs/forms.html). Pay special attention to the `<select/>` and [Handling Multiple Inputs](https://reactjs.org/docs/forms.html#handling-multiple-inputs).
@@ -140,8 +150,14 @@ This CodePen is the same code snippet you saw on the previous page. It was creat
 
 ## Know Your Docs
 
-- [ ] [React Docs - Forms](https://reactjs.org/docs/forms.html)
-- [ ] [React Docs - Handling Multiple Inputs](https://reactjs.org/docs/forms.html#handling-multiple-inputs)
+- [ ] [Legacy React Docs - Forms](https://reactjs.org/docs/forms.html)
+- [ ] [Legacy React Docs - Handling Multiple Inputs](https://reactjs.org/docs/forms.html#handling-multiple-inputs)
+
+<hr>
+
+- [ ] [React Dev Docs - Forms](https://react.dev/reference/react-dom/components/form#noun-labs-1201738-(2))
+- [ ] [React Dev Docs - Reacting to Input w/state](https://react.dev/learn/reacting-to-input-with-state)
+
 
 <!-- ! END OF VIDEO 101.1.3.1 - TITLE-->
 <!-- ? Video Numbering and Title system: CourseNumber.ModuleNumber.LessonNumber.VideoNumber -->

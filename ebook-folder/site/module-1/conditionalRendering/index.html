@@ -2230,9 +2230,9 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"></span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"></span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">MyConditionalComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">myConditionalComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">isVerified</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">IsVerifiedComponent</span><span class="w"> </span><span class="nx">userId</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2296,9 +2296,13 @@
 <span class="normal">49</span>
 <span class="normal">50</span>
 <span class="normal">51</span>
-<span class="normal">52</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// turn your functional component into a class-based component so you can create local state</span><span class="w"></span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// turn your functional component into a class-based component so you can create local state</span><span class="w"></span>
 
 <span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">UserNameCard</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;UserNameCard.js&#39;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">UserDetailsCard</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;UserDetailsCard.js&#39;</span><span class="w"></span>
 
 <span class="kd">class</span><span class="w"> </span><span class="nx">MyConditionalComponent</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2383,7 +2387,11 @@
 <span class="normal">30</span>
 <span class="normal">31</span>
 <span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"></span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">UserNameCard</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;UserNameCard.js&#39;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">UserDetailsCard</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;UserDetailsCard.js&#39;</span><span class="w"></span>
 
 <span class="kd">class</span><span class="w"> </span><span class="nx">MyConditionalComponent</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Component</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2423,12 +2431,12 @@
 <p>In short, when the button is clicked it sends data back up to its parent components to change the value of <code>this.state.isHidden</code>. In turn, when the state changes, React will re-render and we'll get a new view because <code>MyConditionalClass</code> has a conditional rendering if/else statement in it.</p>
 <p>You will be using this for your next few projects so read back over it and make sure you got it!</p>
 <blockquote>
-<p>NOTE: in the normal DOM methods you have seen <code>onclick</code> but in React you will use <code>onClick</code></p>
+<p>NOTE: in the normal DOM methods you have seen <code>onclick</code> but in React you will use <code>onClick</code> <em>(the JS standard, camelCase format)</em>.</p>
 </blockquote>
 <p>For further reading check out the Medium blog on Conditional Rendering in the <a href="#additional-resources">Additional Resources</a>.</p>
-<p>In the upcoming video you'll see a different way to manage conditional rendering using the newer method, <code>useState()</code> hook. Both ways work and this "older" way is taught first because it used to be the <em>only</em> way to manage this task before <a href="https://reactjs.org/docs/hooks-intro.html">React introduced Hooks</a>.</p>
+<p>In the upcoming video you'll see a different way to manage conditional rendering using the newer method, <code>useState()</code> hook. Both ways work and this "older" way is taught first because it used to be the <em>only</em> way to manage this task before <a href="https://reactjs.org/docs/hooks-intro.html">React introduced Hooks</a>. But using these "hooks" requires a bit of understanding and we believe learning Class-based components is the primer to for understanding React Hooks, knowing what they are doing under-the-hood, so to speak.</p>
 <h3 id="see-it-conditional-rendering">See It - Conditional Rendering</h3>
-<p>You are welcome to use either method you feel most comfortable with but we would be remiss if you didn't learn how to use the new Hook, <code>useState()</code>, to do the same thing and not create a Class-based Component only to manage a state object...!</p>
+<p>You are welcome to use either method you feel most comfortable with but we would be remiss if you didn't learn how to use the <a href="https://react.dev/reference/react/useState">favored React Hook, <code>useState()</code></a>, to do the same thing and not create a Class-based Component only to manage a state object...!</p>
 <!-- ! Video Contents: Vimeo, Clayton@ACA - ConditionalRenderWith-useStateHook - 411.1.3.1 -->
 <iframe src="https://player.vimeo.com/video/492113241" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
@@ -2439,8 +2447,15 @@
 </ul>
 <h2 id="know-your-docs">Know Your Docs</h2>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <a href="https://reactjs.org/docs/hooks-intro.html">React Docs - Hooks</a></li>
-<li class="task-list-item"><input type="checkbox"/> <a href="https://reactjs.org/docs/lists-and-keys.html">React Docs - Lists &amp; Keys</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://reactjs.org/docs/hooks-intro.html">Legacy React Docs - Hooks</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://reactjs.org/docs/lists-and-keys.html">Legacy React Docs - Lists &amp; Keys</a></li>
+</ul>
+<hr>
+
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox"/> <a href="https://react.dev/learn/conditional-rendering">React Dev Docs - Conditional Rendering</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key">React Dev Docs - Listing Items with Keys</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://react.dev/reference/react/useState">React Dev Docs - useState()</a></li>
 </ul>
                 
               
