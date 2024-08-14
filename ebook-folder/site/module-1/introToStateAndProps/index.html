@@ -2291,7 +2291,7 @@
 <p>With React we build functions that return these same elements. We call these functions <strong>React Components</strong>. The reason we build them as functions is that we might need to use the same element for an unknown amount of times with different data inside of it.</p>
 <blockquote>
 <p>For example, on Facebook you have a page to view all of your friends. Each of your friends has different information but they are still displayed on the same element/piece/component with the same shape and styling.</p>
-<p>Furthermore, you may have 6000 friends and I may only have 500. Using functions, the React app build by Facebook will call the FriendComponent function 6000 times when you look at your friends and 500 times when I look at my friends.</p>
+<p>Furthermore, you may have 6000 friends and I may only have 500. Using functions, the React app built by Facebook will call the FriendComponent function 6000 times when you look at your friends and 500 times when I look at my friends.</p>
 </blockquote>
 <p>To make this work we need a way to pass unique data to each function call so that each function call will return the same HTML element but render the unique data we pass to it. This passing of data happens with something called <code>props</code> as in <strong>prop</strong>erties. You see, this <code>props</code> parameter will represent the <em>properties</em> of the element that is returned from the <strong>React Component</strong>(function)</p>
 <h2 id="props-how-we-pass-data-in-react">Props (How we pass data in React)</h2>
@@ -2351,8 +2351,8 @@
 <blockquote>
 <p>Notice the JSX syntax: When we call a component in React with JSX it looks a lot like HTML syntax?</p>
 </blockquote>
-<p>In the line where we call the <code>childComponent</code> we see there are two props given: <code>propOne</code> and <code>propTwo</code>. They look a lot like attributes of an HTML tag, no? This is how we pass props down to other components. We can give them any attribute name we want. That same functionality could have been written: <code>&lt;childComponent poop={"I'm a "} unicorn={"Cutie Pie :)"}/&gt;</code>; but instead we choose useful attribute/property names.</p>
-<p>Let's see it with <code>state</code> now. In the code snippet below we see the <code>ParentComponent</code> now has a <code>state</code> object, a simple JavaScript object with key and value pairs. Then we see the <code>childComponent</code> is called and passed props that reference keys of the <code>state</code> object. In this way, we can pass local <code>state</code> to another piece/component of our application!!</p>
+<p>In the line where we call the <code>childComponent</code> we see there are two props given: <code>propOne</code> and <code>propTwo</code>. They look a lot like attributes of an HTML tag, no? This is how we pass props down to other components. We can give them any attribute name we want. That same functionality could have been written: <code>&lt;childComponent poop={"zebra cakes"} unicorn={"confection heaven"}/&gt;</code>; but instead we choose useful attribute/property names.</p>
+<p>Let's see it with <code>state</code> now. In the code snippet below we see the <code>ParentComponent</code> now has a <code>state</code> object, a simple JavaScript object with key and value pairs. Then we see the <code>childComponent</code> is called/invoked and passed props that reference keys of the <code>state</code> object. In this way, we can pass local <code>state</code> to another piece/component of our application!!</p>
 <div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">ParentComponent with state + childComponent</label><div class="tabbed-content">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2400,8 +2400,8 @@
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
-<p>If we want our parent component to pass down a piece of its <code>state</code> to a child component we give the child component attributes like <code>propTwo</code> then point it at the value we want: <code>propTwo={this.state.pieceTwo}</code>. After that, we use the <code>props</code> keyword in the child component, and presto! You have a component using <strong>props</strong>!! If we rendered <code>childComponent</code> it would say: <code>"A fig newton tastes like sweet cardboard."</code></p>
-<p>Under-the-hood, the <code>props</code> object would look like this:</p>
+<p>If we want our parent component to pass down a piece of its <code>state</code> to a child component we give the child component attributes like <code>propTwo</code> then point it at the value we want: <code>propTwo={this.state.pieceTwo}</code>; this creates a key:value pair like we're familiar with in JavaScript already. After that, we use the <code>props</code> keyword in the child component, and presto, you have a component using <strong>props</strong>!! If we rendered <code>childComponent</code> it would say: <code>"A fig newton tastes like sweet cardboard."</code></p>
+<p>Under-the-hood, <code>props</code> is just an object and it looks like this:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -2463,7 +2463,7 @@
 <li class="task-list-item"><input type="checkbox"/> Finally, remove the item from where it is <em>stored</em> in state and <em>rendered</em> back to the user.</li>
 </ul>
 <blockquote>
-<p>NOTE: "Three Jobs of a Developer": Store data, Move &amp; Manipulate data, Show data to a human-user.</p>
+<p>NOTE: "Three Jobs of a Developer": Store data, Move &amp; Manipulate data, and Show data to a human-user.</p>
 </blockquote>
 <!-- ! Video Contents: Vimeo, Clayton@ACA - Deleting a ToDo - 411.1.2.3* -->
 <iframe src="https://player.vimeo.com/video/491865067" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
@@ -2479,7 +2479,8 @@
 </ul>
 <h2 id="know-your-docs">Know Your Docs</h2>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox"/> <a href="https://reactjs.org/docs/components-and-props.html">React Docs - Props</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://reactjs.org/docs/components-and-props.html">Legacy React Docs - Props</a></li>
+<li class="task-list-item"><input type="checkbox"/> <a href="https://react.dev/learn/passing-props-to-a-component#passing-props-to-a-component">React Dev Docs - Props</a></li>
 </ul>
                 
               

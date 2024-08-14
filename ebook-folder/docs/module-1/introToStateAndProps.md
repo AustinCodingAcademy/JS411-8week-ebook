@@ -14,7 +14,7 @@ With React we build functions that return these same elements. We call these fun
 
   > For example, on Facebook you have a page to view all of your friends. Each of your friends has different information but they are still displayed on the same element/piece/component with the same shape and styling.
 
-  > Furthermore, you may have 6000 friends and I may only have 500. Using functions, the React app build by Facebook will call the FriendComponent function 6000 times when you look at your friends and 500 times when I look at my friends.
+  > Furthermore, you may have 6000 friends and I may only have 500. Using functions, the React app built by Facebook will call the FriendComponent function 6000 times when you look at your friends and 500 times when I look at my friends.
 
 To make this work we need a way to pass unique data to each function call so that each function call will return the same HTML element but render the unique data we pass to it. This passing of data happens with something called `props` as in **prop**erties. You see, this `props` parameter will represent the *properties* of the element that is returned from the **React Component**(function)
 
@@ -62,9 +62,9 @@ In the code snippet above you see that our first `childComponent` is called insi
 
   > Notice the JSX syntax: When we call a component in React with JSX it looks a lot like HTML syntax?
 
-In the line where we call the `childComponent` we see there are two props given: `propOne` and `propTwo`. They look a lot like attributes of an HTML tag, no? This is how we pass props down to other components. We can give them any attribute name we want. That same functionality could have been written: `<childComponent poop={"I'm a "} unicorn={"Cutie Pie :)"}/>`; but instead we choose useful attribute/property names.
+In the line where we call the `childComponent` we see there are two props given: `propOne` and `propTwo`. They look a lot like attributes of an HTML tag, no? This is how we pass props down to other components. We can give them any attribute name we want. That same functionality could have been written: `<childComponent poop={"zebra cakes"} unicorn={"confection heaven"}/>`; but instead we choose useful attribute/property names.
 
-Let's see it with `state` now. In the code snippet below we see the `ParentComponent` now has a `state` object, a simple JavaScript object with key and value pairs. Then we see the `childComponent` is called and passed props that reference keys of the `state` object. In this way, we can pass local `state` to another piece/component of our application!!
+Let's see it with `state` now. In the code snippet below we see the `ParentComponent` now has a `state` object, a simple JavaScript object with key and value pairs. Then we see the `childComponent` is called/invoked and passed props that reference keys of the `state` object. In this way, we can pass local `state` to another piece/component of our application!!
 
 === "ParentComponent with state + childComponent"
 
@@ -93,9 +93,9 @@ Let's see it with `state` now. In the code snippet below we see the `ParentCompo
       }
     ```
 
-If we want our parent component to pass down a piece of its `state` to a child component we give the child component attributes like `propTwo` then point it at the value we want: `propTwo={this.state.pieceTwo}`. After that, we use the `props` keyword in the child component, and presto! You have a component using **props**!! If we rendered `childComponent` it would say: `"A fig newton tastes like sweet cardboard."`
+If we want our parent component to pass down a piece of its `state` to a child component we give the child component attributes like `propTwo` then point it at the value we want: `propTwo={this.state.pieceTwo}`; this creates a key:value pair like we're familiar with in JavaScript already. After that, we use the `props` keyword in the child component, and presto, you have a component using **props**!! If we rendered `childComponent` it would say: `"A fig newton tastes like sweet cardboard."`
 
-Under-the-hood, the `props` object would look like this:
+Under-the-hood, `props` is just an object and it looks like this:
 
 ```javascript
   props = {
@@ -156,7 +156,7 @@ Following the "Three Jobs of a Developer", this video shows you how to:
 - [ ] Pass a method as a prop to be used when the human-user clicks a button they can *see*.
 - [ ] Finally, remove the item from where it is *stored* in state and *rendered* back to the user.
 
-  > NOTE: "Three Jobs of a Developer": Store data, Move & Manipulate data, Show data to a human-user.
+  > NOTE: "Three Jobs of a Developer": Store data, Move & Manipulate data, and Show data to a human-user.
 
 <!-- ! Video Contents: Vimeo, Clayton@ACA - Deleting a ToDo - 411.1.2.3* -->
 <iframe src="https://player.vimeo.com/video/491865067" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
@@ -174,4 +174,5 @@ This video shows you how to **D.R.Y.** your code up by **destructuring** your pr
 
 ## Know Your Docs
 
-- [ ] [React Docs - Props](https://reactjs.org/docs/components-and-props.html)
+- [ ] [Legacy React Docs - Props](https://reactjs.org/docs/components-and-props.html)
+- [ ] [React Dev Docs - Props](https://react.dev/learn/passing-props-to-a-component#passing-props-to-a-component)
