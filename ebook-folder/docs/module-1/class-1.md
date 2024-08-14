@@ -65,13 +65,13 @@ As usual, it is incredibly important that you read the pre-homework. If you have
 In the pre-homework, you should have downloaded create-react-app and spun up a create-react-app, built a button that changes state from true to false and then displayed the change of state. Today, we're going to continue that process and build a todo app with React!!
 
 
-[Example Simple React Todo App](http://todomvc.com/examples/react/#/)
+[Example Simple React Todo App](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_todo_list_beginning)
 
 1. Create a new react app:
 
     - [ ] `npx create-react-app my-app-name-here`
     - [ ] `cd my-app-name-here`
-    - [ ] `git init` and create a new repe
+    - [ ] `git init` and create a new repo
     - [ ] `push` it to the new repo in GitHub
     - [ ] `git remote add origin "https://github.com/your_github_username/$repo_name.git"`
 
@@ -104,7 +104,7 @@ In the pre-homework, you should have downloaded create-react-app and spun up a c
         | f | `this.SetState({items: [...objectCopy]})` |
         | g | `<button onClick={() => props.handleClick(index)}>Delete</button>` |
 
-    - [ ] Follow-up Video: [Vimeo, Clayton@ACA - Intro to React, 80 mins](https://vimeo.com/298214155)
+    - [ ] Follow-up Video: [TY, Coding Addict - React Course: Todo List Project](https://youtu.be/8QBYrKhqgFI?feature=shared&t=3024)
 
     - [ ] Or use **METHOD 2**: use `setState` Hook - [https://www.robinwieruch.de/react-remove-item-from-list](https://www.robinwieruch.de/react-remove-item-from-list)
 

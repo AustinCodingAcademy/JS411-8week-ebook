@@ -17,7 +17,7 @@
 
 *****
 
-- [ ] How do we pass data from a parent component to any of its child components? Can someone draw this our for us?
+- [ ] How do we pass data from a parent component to any of its child components? Can someone draw this out for us?
 - [ ] Why do we need to pass the data?
 - [ ] What are attributes and why do we need them in React components?
 - [ ] How do we create a method in a React component? Where does it go? What's the syntax?

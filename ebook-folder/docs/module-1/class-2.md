@@ -50,17 +50,17 @@
 
 ## Creation Time, 60-90 mins
 
-Build a simple app that requests information from the [PUNK API](https://punkapi.com/documentation/v2) and dynamically renders data from it with React components.
+Build a simple app that requests information from the [https://www.openbrewerydb.org/](https://www.openbrewerydb.org/) and dynamically renders data from it with React components.
 
 ### Project Instructions
 
 - [ ] Pair-program this one
 - [ ] Create a react app: PUNK-API-REACT-APP
 - [ ] `git init` and `push` it up as a repo
-- [ ] In your `app.js` component make an HTTP request with `axios` to: [`https://api.punkapi.com/v2/beers`](https://api.punkapi.com/v2/beers) and set the data that comes back into an array in `state`.
-- [ ] Build a beer component that displays everything about the beer
-- [ ] Map over state and render a component for each beer in state
-- [ ] Add a button that allows a user to "like" a beer
+- [ ] In your `app.js` component make an HTTP request with `axios` to: [`https://www.openbrewerydb.org/`](https://api.punkapi.com/v2/beers) and set the data that comes back into an array in `state`.
+- [ ] Build a brewery component that displays everything about the brewery using and `<iframe>` element to display the website of the brewery.
+- [ ] Map over state and render a component for each brewery in state
+- [ ] Add a button that allows a user to "like" a brewery
 
 ### Follow-up Video
 
@@ -68,7 +68,8 @@ Build a simple app that requests information from the [PUNK API](https://punkapi
 
 ### Push Yourself Further
 
-- [ ] Follow along with Peter Tichy at [ihatetomatoes](https://www.youtube.com/channel/UC7O6CntQoAI-wYyJxYiqNUg) through his [React Tutorial](https://www.youtube.com/playlist?list=PLkEZWD8wbltnXlfyhS5qSMTNb26utkOkI) to make the app collapsible and interactive
+- [ ] Create a collapsible list of all the beers of each brewery.
+- [ ] Follow along with Peter Tichy at [ihatetomatoes](https://www.youtube.com/channel/UC7O6CntQoAI-wYyJxYiqNUg) through his [React Tutorial](https://www.youtube.com/playlist?list=PLkEZWD8wbltnXlfyhS5qSMTNb26utkOkI) to make the components of the app collapsible and interactive.
 - [ ] Go find another API and build another React app: [https://apilist.fun](https://apilist.fun/)
 - [ ] Build the functionality for your "liked" heart
 
