@@ -19,7 +19,7 @@ To qualify for **presenting your App** to the public at graduation ceremony pl
 
 ### Example Graduate Project
 
-- [Austin Currents by Nathan Simmons](http://austincurrents.com/)
+- [Sept 1, 2023 Graduation](https://docs.google.com/presentation/d/1ylNGCVDAEtgfo_1vatEXcj5HVZcd21Q3VNuLSOyQ70c/edit?usp=sharing)
 
 ## Tie It All Together 
 
@@ -76,6 +76,6 @@ We have a solid foundation of what our app does and created our backend to refle
 <!-- ! Video Content: Clayton@ACA - Tie It All Together: Front-End and Wrap-Up  411.4.5.4 -->
 <iframe src="https://player.vimeo.com/video/496138429?color=2565EF&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
-![tieItAllTogether](/docs/images/tieItAllTogether.png)
+![tieItAllTogether](/docs/images/tie-it-all-together.png)
 
 Congratulations! You now have the big picture of everything we've done. Remember to reference back here as you put the finishing touches on your capstone. 

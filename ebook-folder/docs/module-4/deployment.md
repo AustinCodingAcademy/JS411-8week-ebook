@@ -76,12 +76,13 @@ The only change here is that when the two Apps are combined, so you no longer ne
     })
     ```
 
-Since the frontend and backend are being served from the same place, Express knows how to handle this. The only situation that could arise is if you named a route the same thing in Express and React Router. For example if you had a page called `/users` on the frontend. Try to avoid that situation by calling it `/listusers` or something like that.
+Since the frontend and backend are being served from the same place, Express knows how to handle this. The only situation that could arise is if you named a route the same thing in Express and React Router. For example if you had a page called `/users` on the frontend. Try to avoid that situation by calling it `/listusers` or something like that on the Express backend.
 
 After this you should be good to go! If you have any issues deploying your app talk to the instructor. The hardest part is making sure your app runs locally. If it runs locally, deployment is fairly simple.
 
+<!-- TODO Replace Video -->
 <!-- ! Video Contents: Vimeo, Clayton@ACA - TITLE - 411.1.1.* -->
-<iframe src="https://player.vimeo.com/video/*" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<!-- <iframe src="https://player.vimeo.com/video/*" width="655" height="368"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
 
 ## Practice It
 
@@ -98,7 +99,7 @@ We are going to follow the previous steps to include our React projects into our
 
 We normally provided you with a link to the official documentation of any subject we teach in the pre-homework, but today we'll leave with you with a number of resources that may help you build your Capstone Project or other apps in your future.
 
-- [ ] **[Migrate to AWS, a Cheaper Deployment Strategy for Students](https://www.notion.so/Connect-MySQL-workbench-to-AWS-RDS-Free-tier-a95068f5d6b84383ac0af2fd7bfe15f6)** - GCP is usually cheaper to get started with but you may soon lose credits. As an alternative one of our instructors, Matt Huntsberry, as put together a tutorial to help you host with AWS when your GCP credits run out.
+<!-- - [ ] **[Migrate to AWS, a Cheaper Deployment Strategy for Students](https://www.notion.so/Connect-MySQL-workbench-to-AWS-RDS-Free-tier-a95068f5d6b84383ac0af2fd7bfe15f6)** - GCP is usually cheaper to get started with but you may soon lose credits. As an alternative one of our instructors, Matt Huntsberry, has put together a tutorial to help you host with AWS when your GCP credits run out. -->
 - [ ] [Typography](https://femmebot.github.io/google-type/) - Seriously, if you have no eye for design but care that your app is beautiful you may want to use this site for some ideas and code.
 - [ ] [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) - When designing your app I hope you came across this website but if not here it is. A full idea of designing an application, atomically!
 - [ ] [Front-End Design Checklist](https://codeburst.io/the-front-end-design-checklist-4dd15828fad) - Maybe you came across this too in your google-ing. Nonetheless, it is a rad resource for any developer of any experience.
