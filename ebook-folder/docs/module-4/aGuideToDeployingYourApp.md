@@ -22,8 +22,8 @@ In this series, Matt Huntsberry, a graduated and former instructor of ACA walks 
 
 > NOTE-2: These are class recordings and until we are able to edit them you'll need to fast-forward to the start of the building of the app. Timestamps are on their way.
 
-- [ ] [Mini Full Stack App Pt. 1](https://drive.google.com/file/d/1tpmZwo2AgdXYY_q_N_0o1zsxZuVugXKo/view?usp=drive_link)
-- [ ] [Mini Full Stack App Pt. 2](https://drive.google.com/file/d/1pq-C5mN9QFUkNOgJM9tZyrO_267uLtEN/view?usp=drive_link)
+- [ ] [Mini Full Stack App Pt. 1 - 01:31:41](https://drive.google.com/file/d/1tpmZwo2AgdXYY_q_N_0o1zsxZuVugXKo/view?usp=drive_link)
+- [ ] [Mini Full Stack App Pt. 2 - 00:54:55](https://drive.google.com/file/d/1pq-C5mN9QFUkNOgJM9tZyrO_267uLtEN/view?usp=drive_link)
 - [ ] [Mini Full Stack App Pt. 3 - Sign Up Route](https://drive.google.com/file/d/1bRVaBTqxc6MywIp_EWGkrxLhJp6-6NG9/view?usp=drive_link)
 - [ ] [Mini Full Stack App Pt. 4 - Finish Auth & Hosting](https://drive.google.com/file/d/15hqPPeVHhtOvVazQDysQos1U-UbWvrfb/view?usp=drive_link)
 - [ ] [Mini Full Stack App Pt. 5 - CRA & Fetching](https://drive.google.com/file/d/1Kp0cQ67CvrF2ZHdC-7Qir1yqIxJF2XkU/view?usp=drive_link)
