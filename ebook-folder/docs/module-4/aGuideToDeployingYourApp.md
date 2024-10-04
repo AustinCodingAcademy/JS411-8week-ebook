@@ -22,6 +22,17 @@ In this series, Matt Huntsberry, a graduated and former instructor of ACA walks 
 
 > NOTE-2: These are class recordings and until we are able to edit them you'll need to fast-forward to the start of the building of the app. Timestamps are on their way.
 
+### Mini Full Stack App Follow-Along Videos
+
+- [ ] [M.S.T.A. Pt. 1 - CRA ToDo App, Sign-in, Cookie](https://vimeo.com/1015799689?share=copy)
+- [ ] [M.S.T.A. Pt. 2 - Create + Host DB, Express Server App, MySQL(2) Connection, Authentication Route](https://vimeo.com/1016176662?share=copy)
+- [ ] [M.S.T.A. Pt. 3 - ]()
+- [ ] [M.S.T.A. Pt. 4 - ]()
+- [ ] [M.S.T.A. Pt. 5 - ]()
+- [ ] [M.S.T.A. Pt. 6 - ]()
+
+
+### Full Length
 - [ ] [Mini Full Stack App Pt. 1 - 01:31:41](https://drive.google.com/file/d/1tpmZwo2AgdXYY_q_N_0o1zsxZuVugXKo/view?usp=drive_link)
 - [ ] [Mini Full Stack App Pt. 2 - 00:54:55](https://drive.google.com/file/d/1pq-C5mN9QFUkNOgJM9tZyrO_267uLtEN/view?usp=drive_link)
 - [ ] [Mini Full Stack App Pt. 3 - Sign Up Route](https://drive.google.com/file/d/1bRVaBTqxc6MywIp_EWGkrxLhJp6-6NG9/view?usp=drive_link)
