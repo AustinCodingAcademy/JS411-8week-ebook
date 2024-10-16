@@ -29,7 +29,8 @@ In this series, Matt Huntsberry, a graduated and former instructor of ACA walks 
 - [ ] [M.F.S.T.A. Pt. 3 - Sign-In/Sign-Up Authentication](https://vimeo.com/1016233741?share=copy)
 - [ ] [M.F.S.T.A. Pt. 4 - Finish Authentication & Host Express (Back-End) App](https://vimeo.com/1016252287?share=copy)
 - [ ] [M.F.S.T.A. Pt. 5 - Building the Front-end App + Connecting it to the Back-End App](https://vimeo.com/1018426195?share=copy)
-- [ ] [M.F.S.T.A. Pt. 6 - ]()
+- [ ] [M.F.S.T.A. Pt. 6 - Build Sign-In Component, Connect Front to Back](https://vimeo.com/1020331992?share=copy)
+- [ ] [M.F.S.T.A. Pt. 7 - ]()
 
 
 ### Full Length
